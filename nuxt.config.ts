@@ -7,5 +7,20 @@ export default defineNuxtConfig({
   ],
   typescript: {
     shim: false
-  }
+  },
+   tailwindcss: {
+    config: {
+      content: [],
+      theme: {
+        container: {
+          center: true,
+          padding: '1rem'
+        }
+      }
+    }
+  },
+
+  css: [
+    '@/assets/scss/main.scss'
+  ]
 })
