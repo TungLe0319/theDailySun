@@ -1,25 +1,23 @@
 <template>
   <div>
-  <HeroImage/>
-
+    <HeroImage />
   </div>
 </template>
-
 
 <script>
 export default {
   setup () {
     onMounted(() => {
-getProducts()
+      getProducts()
     })
-async  function getProducts (){
- try {
-const { data: products} = useFetch('/api/products')
-console.log({ data: products});
-   } catch (error) {
-   console.log(error)
-   }
-}
+    async function getProducts () {
+      try {
+        const { data: products } = await useFetch('/api/products')
+        console.log(products.value)
+      } catch (error) {
+        console.log(error)
+      }
+    }
     return {
 
     }
