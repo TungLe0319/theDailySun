@@ -14,10 +14,8 @@ getProducts()
     })
 async  function getProducts (){
  try {
-    const res = await fetch('/products',{
-      method: "GET"
-    })
-    console.log(res);
+const { data: products} = useFetch('/api/products')
+console.log({ data: products});
    } catch (error) {
    console.log(error)
    }
