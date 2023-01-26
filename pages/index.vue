@@ -12,7 +12,7 @@ export default {
     })
     async function getProducts () {
       try {
-        const { data: products } = await useFetch('/api/products')
+        const { data: products } = await useFetch('/api/products/all')
         console.log(products.value)
       } catch (error) {
         console.log(error)
