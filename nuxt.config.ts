@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
-   tailwindcss: {
+tailwindcss: {
     config: {
       content: [],
       theme: {
@@ -19,7 +19,6 @@ export default defineNuxtConfig({
       }
     }
   },
-
   css: [
     '@/assets/scss/main.scss'
   ]

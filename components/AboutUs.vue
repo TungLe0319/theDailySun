@@ -1,6 +1,6 @@
 <template>
   <div class="p-3 mt-10 flex z-10">
-    <div class="w-2/4 relative ">
+    <div class="w-2/4 relative   ">
       <img src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-full object-cover">
     </div>
     <div class=" w-2/4 px-5 flex flex-col  bg-white py-5">

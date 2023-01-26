@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="p-2 px-4 text-3xl rounded-md bg-blue-400" @click="addProduct(product)">
+    <button class="p-2 px-4 text-3xl rounded-md bg-blue-400  " @click="addProduct(product)">
       Add to cart
     </button>
   </div>
