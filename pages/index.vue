@@ -1,6 +1,8 @@
 <template>
   <div>
     <HeroImage />
+    <CallToAction/>
+    <FeaturedProducts/>
   </div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
     async function getProducts () {
       try {
         const { data: products } = await useFetch('/api/products/all')
-        console.log(products.value)
+AppState.products = products.value
       } catch (error) {
         console.log(error)
       }

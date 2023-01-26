@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="`/products/${product.id}`">
     <div class="relative shadow-xl product-card rounded-lg">
-      <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.coverImage" alt="image">
+      <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
 
       <div class="absolute  b top-64 left-0 w-full  opacity-0 transition-opacity duration-300">
         <div class=" text-white mt-10 text-center  ">
@@ -18,11 +18,11 @@
 
 <script>
 
-import { Product } from '~~/models/Products.ts'
+
 
 export default {
   props: {
-    product: { type: Product, required: true }
+    product: { type:  Object, required: true }
   },
   setup () {
     return {
