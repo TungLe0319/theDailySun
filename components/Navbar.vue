@@ -11,13 +11,6 @@
       <div class="w-1/3 hidden md:block">
         <div class="text-center">
 
-
-          <router-link to="/cart" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
-            Cart
-          </router-link>
-          <router-link to="/checkout" class="ml-4 text-base no-underline hover:text-gray-800 " active-class="active-link">
-           Checkout
-          </router-link>
           <router-link to="/about" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
          About Us
           </router-link>
@@ -27,7 +20,7 @@
       <div class="w-1/3">
         <div class="flex justify-end">
           <button class=" text-xl leading-none p-2 rounded-full hover:bg-gray-100 hover:text-gray-600">
-         
+
           </button>
         </div>
       </div>

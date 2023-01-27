@@ -11,6 +11,16 @@ import { computed } from 'vue'
 
 export default {
   setup () {
+     onMounted(() => {
+      // getProducts()
+    })
+     async function getProducts () {
+      try {
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
     return {
 
       products: computed(() => AppState.products)

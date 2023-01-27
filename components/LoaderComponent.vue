@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex  ">
     <div class="item" />
     <div class="item" />
     <div class="item" />

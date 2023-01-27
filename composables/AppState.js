@@ -11,3 +11,4 @@ export const AppState = reactive({
     total: 10
   }
 })
+   

@@ -8,6 +8,8 @@
           <h4 class="text-3xl font-bold text-shadow  ">
             {{ product.name }}
           </h4>
+          <p> {{product.name}}</p>
+        <a :href="product.stripe"> Buy Now</a>
         </div>
       </div>
     </div>

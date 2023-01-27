@@ -1,15 +1,15 @@
 <template>
-  <div class="mt-56 text-black p-5">
+  <div class="mt-56 text-black p-5" v-if="activeProduct">
     <div class="flex flex-wrap ">
       <div class=" w-full md:w-1/2 h-full justify-center flex">
-        <LazyImage>
-          <img :src="activeProduct.coverImage" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
-        </LazyImage>
+
+          <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
+
       </div>
       <div class=" w-full md:w-1/2 p-5 px-14">
         <div class="">
           <h1 class="text-4xl mb-10">
-            {{ activeProduct.name }}
+            {{ activeProduct.title }}
           </h1>
           <p class="text-lg text-gray-400 mb-5">
             {{ activeProduct.description }}
@@ -35,17 +35,16 @@
           </div>
         </div>
 
-        <div class="flex justify-center">
-          <AddToCart :product="activeProduct" />
-        </div>
+
       </div>
     </div>
   </div>
+  <div class="mt-56 container bg-slate-100 " v-else><LoaderComponent/></div>
 </template>
 
 <script>
 
-import { productsService } from '~~/service/ProductsService.ts'
+
 
 export default {
 
@@ -53,12 +52,17 @@ export default {
     onMounted(() => {
       getProductDetails()
     })
-    onUnmounted(() => {
-      clearCart()
-    })
+
     async function getProductDetails () {
       try {
-        await productsService.getProductById(route.params.id)
+
+      const {data : product} = useFetch('/api/products/id')
+
+AppState.activeProduct = product.value
+console.log(AppState.activeProduct);
+
+
+
       } catch (error) {
         logger.log(error)
       }
