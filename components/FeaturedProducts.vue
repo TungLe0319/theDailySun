@@ -14,7 +14,10 @@
       <ProductCard v-for="i in glasses" :key="i" class="" :product="i"  />
 
     </div>
- <LoaderComponent v-else/>
+    <div v-if="products" id="card-container" class=" flex gap-2 justify-center w-full">
+      <ProductCard v-for="i in products" :key="i" class="" :product="i" />
+    </div>
+    <LoaderComponent v-else />
   </div>
 
 

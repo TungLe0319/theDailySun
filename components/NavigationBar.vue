@@ -17,7 +17,7 @@
           <NuxtLink to="/protected" class="link" active-class="active-link">
             protected
           </NuxtLink>
-          <nuxt-link to="/protected" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+          <nuxt-link to="/another" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             protected2
           </nuxt-link>
         </div>
