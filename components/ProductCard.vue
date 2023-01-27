@@ -8,23 +8,19 @@
           <h4 class="text-3xl font-bold text-shadow  ">
             {{ product.name }}
           </h4>
-          <p> {{product.name}}</p>
-        <a :href="product.stripe"> Buy Now</a>
+          <p> {{ product.name }}</p>
+          <a :href="product.stripe"> Buy Now</a>
         </div>
       </div>
     </div>
-
-
   </nuxt-link>
 </template>
 
 <script>
 
-
-
 export default {
   props: {
-    product: { type:  Object, required: true }
+    product: { type: Object, required: true }
   },
   setup () {
     return {
@@ -36,11 +32,13 @@ export default {
 
 <style lang="scss" scoped>
 .product-card{
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-   width: 150px;
-   height: 400px;
+  transition: all 0.5s ease-out !important;
+  width: 125px;
+  height: 400px;
 }
+// .image{
 
+// }
 .product-card:hover{
 width: 300px;
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
