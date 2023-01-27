@@ -51,7 +51,7 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 import { productsService } from '~~/composables/services/ProductsService.js'
 
 export default {
@@ -86,6 +86,27 @@ export default {
     }
   }
 }
+</script> -->
+
+<script setup>
+import { productsService } from '~~/composables/services/ProductsService.js'
+// definePageMeta({ middleware: 'auth' })
+onMounted(() => {
+  getProductById()
+})
+const route = useRoute()
+
+async function getProductById () {
+  try {
+    logger.log(route.params.id)
+    await productsService.getProductById(route.params.id)
+  } catch (error) {
+    logger.log(error)
+  }
+}
+const activeProduct = computed(() => AppState.activeProduct)
+const { data } = useSession()
+logger.log(data.value)
 </script>
 
 <style lang="scss" scoped>
