@@ -1,14 +1,12 @@
-
 export const AppState = reactive({
   user: null,
-  account: {} ,
-  products: [] ,
-  activeProduct: {} ,
-  hats: [] ,
-  glasses: [] ,
+  account: {},
+  products: [],
+  activeProduct: {},
+  hats: [],
+  glasses: [],
   cart: {
-    products: [] ,
+    products: [],
     total: 10
   }
 })
-   

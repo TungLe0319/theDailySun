@@ -9,13 +9,8 @@
     {
       "files": ["./server/**/*.ts"],
       "rules": {
-        "no-unused-vars": "off"
-        // "no-console": [
-        //   "error",
-        //   {
-        //     "allow": ["info", "warn", "trace", "error"]
-        //   }
-        // ]
+        "no-unused-vars": "off",
+        "no-console": "off"
       }
     }
   ]

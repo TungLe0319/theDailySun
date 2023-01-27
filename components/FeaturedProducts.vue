@@ -6,25 +6,8 @@
   </div>
 </template>
 
-<script>
-import { computed } from 'vue'
+<script setup>
+// import { computed } from 'vue'
+const { data: products } = useFetch('/api/products/all')
 
-export default {
-  setup () {
-     onMounted(() => {
-      // getProducts()
-    })
-     async function getProducts () {
-      try {
-
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    return {
-
-      products: computed(() => AppState.products)
-    }
-  }
-}
 </script>

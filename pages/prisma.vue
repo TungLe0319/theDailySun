@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { data: products } = useFetch('/api/products')
+const { data: products } = useFetch('/api/products/all')
 </script>
 
 <template>
