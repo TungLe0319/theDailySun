@@ -50,8 +50,44 @@
     </div>
   </div>
 </template>
+<script>
+import { productsService } from '~~/composables/services/ProductsService.js'
 
-<script setup>
+export default {
+
+  setup () {
+    onMounted(() => {
+      setTimeout(() => {
+        getProductById()
+      }, 0)
+    })
+    const route = useRoute()
+
+    async function getProductById () {
+      try {
+        logger.log(route.params.id)
+        await productsService.getProductById(route.params.id)
+      } catch (error) {
+        logger.log(error)
+      }
+    }
+
+    // async function clearCart () {
+
+    // }
+    // console.log(route.params.id);
+    return {
+      route,
+      activeProduct: computed(() =>
+        AppState.activeProduct
+      )
+
+    }
+  }
+}
+</script>
+
+<!-- <script setup>
 import { productsService } from '../../composables/services/ProductsService'
 
 definePageMeta({ middleware: 'auth' })
@@ -72,7 +108,7 @@ async function getProductById () {
 // getProductById()
 const activeProduct = computed(() => AppState.activeProduct)
 
-</script>
+</script> -->
 
 <style lang="scss" scoped>
 .product-image{
