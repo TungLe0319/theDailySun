@@ -1,0 +1,74 @@
+<template>
+  <nuxt-link :to="`/products/${product.id}`" v-if="Object">
+    <div class="relative shadow-xl product-card rounded-lg">
+      <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
+
+      <div class="absolute  b top-64 left-0 w-full  opacity-0 transition-opacity duration-300">
+        <div class=" text-white mt-10 text-center  ">
+          <h4 class="text-3xl font-bold text-shadow  ">
+            {{ product.name }}
+          </h4>
+          <p> {{product.name}}</p>
+        <a :href="product.stripe"> Buy Now</a>
+        </div>
+      </div>
+    </div>
+
+
+  </nuxt-link>
+</template>
+
+<script>
+
+
+
+export default {
+  props: {
+    product: { type:  Object, required: true }
+  },
+  setup () {
+    return {
+
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.product-card{
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+   width: 150px;
+   height: 400px;
+}
+
+.product-card:hover{
+width: 300px;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.product-card img{
+
+  height: 100%;
+}
+
+.product-card .absolute {
+    transition: all 0.3s ease-out;
+
+}
+.product-card:hover .absolute {
+  transition: all 0.3s ease-out;
+border-radius: 8px;
+opacity: 1;
+
+}
+.product-card:hover img{
+  filter: brightness(80%);
+width: 300px;
+  transition: all 3.3s ease-out !important;
+
+  .product-card:not(:hover) img{
+    filter: grayscale(100%);
+  }
+}
+
+</style>
