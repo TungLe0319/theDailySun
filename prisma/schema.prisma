@@ -35,4 +35,5 @@ model Product {
   price       Float
   img         String
   stripe      String
+  productImg String?
 }

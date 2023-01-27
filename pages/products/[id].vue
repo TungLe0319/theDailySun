@@ -18,7 +18,7 @@
         </div>
 
         <div class="flex justify-between mb-10">
-          <div class=" rounded-full bg-white p-5">
+          <div class=" rounded-circle bg-white p-5">
 
             <p class="text-red-400 font-bold text-2xl">
               ${{ activeProduct.price }}
@@ -40,8 +40,8 @@
         </div>
       </div>
     </div>
-    <div class="absolute right-24">
-      <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe>
+    <div class="absolute right-24 cursor-none ">
+      <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
     </div>
   </div>
   <div v-else class="mt-56 container bg-slate-100 ">
