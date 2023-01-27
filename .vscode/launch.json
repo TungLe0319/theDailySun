@@ -7,11 +7,11 @@
       "name": "Nuxt.js",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run-script", "dev"],
-      "outputCapture": "console",
-      "serverReadyAction": {
-        "action": "openExternally",
-        "killOnServerStop": false
-      }
+      "outputCapture": "std",
+      // "serverReadyAction": {
+      //   "action": "openExternally",
+      //   "killOnServerStop": false
+      // }
     }
   ]
 }

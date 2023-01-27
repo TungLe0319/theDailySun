@@ -34,7 +34,6 @@ export default {
 const {data: products} = await useAsyncData()
 </script> -->
 
-
 <style lang="scss">
 .flip{
   color: rgb(233, 227, 176);
