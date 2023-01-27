@@ -1,7 +1,12 @@
+// import { Prisma } from '@prisma/client'
+
 class ProductsService {
-  addProduct (hi) {
-    const dog = hi
-    logger.log(dog)
+  async addProduct (productData) {
+    const { data: products } = await useFetch('/api/products', {
+      method: 'POST',
+      body: productData
+    })
+    logger.log(products)
   }
 
   async getProducts () {
@@ -15,7 +20,7 @@ class ProductsService {
     const { data: product } = await useFetch(`/api/products/${id}`)
 
     logger.log(product.value)
-    AppState.activeProduct = product.value;
+    AppState.activeProduct = product.value
     // console.log(AppState.activeProduct);
   }
 }
