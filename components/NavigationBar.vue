@@ -2,18 +2,21 @@
   <nav class="fixed w-full z-10 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
     <div class="container mx-auto flex flex-wrap items-center justify-between">
       <div class="w-1/3">
-        <router-link to="/" class="text-lg font-medium  no-underline" active-class="active-link">
+        <NuxtLink to="/" class="text-lg font-medium  no-underline" active-class="active-link">
           <img src="../assets/Logo.png" alt="" width="80" class="shadow-xl rounded-xl">
-        </router-link>
+        </NuxtLink>
       </div>
       <div class="w-1/3 hidden md:block">
         <div class="text-center">
-          <router-link to="/about" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+          <NuxtLink to="/about" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             About Us
-          </router-link>
-          <router-link to="/prisma" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+          </NuxtLink>
+          <NuxtLink to="/prisma" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             prisma
-          </router-link>
+          </NuxtLink>
+          <NuxtLink to="/protected" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+            protectd
+          </NuxtLink>
         </div>
       </div>
       <div class="w-1/3">
@@ -26,6 +29,8 @@
 </template>
 
 <script>
+// import { NuxtLink } from '../.nuxt/components'
+
 // import Login from './Login.vue'
 export default {
   data () {
@@ -63,9 +68,9 @@ border-bottom: 3px solid #2bd882;
 <!-- <template>
   <nav class="bg-gray-900">
     <div class="px-3 py-2 flex items-center justify-between">
-      <router-link :to="{ name: 'Home' }" class="flex items-center">
+      <NuxtLink :to="{ name: 'Home' }" class="flex items-center">
         <img alt="logo" src="../assets/img/cw-logo.png" height="45" class="mr-3">
-      </router-link>
+      </NuxtLink>
       <button
         class="text-white focus:outline-none"
         type="button"
@@ -81,9 +86,9 @@ border-bottom: 3px solid #2bd882;
       <div v-if="showNavbar" class="bg-gray-900 p-5">
         <ul class="flex">
           <li class="mr-3">
-            <router-link :to="{ name: 'About' }" class="text-green-300 hover:text-white">
+            <NuxtLink :to="{ name: 'About' }" class="text-green-300 hover:text-white">
               About
-            </router-link>
+            </NuxtLink>
           </li>
           <li>
             <button class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600">
@@ -129,7 +134,7 @@ a:hover {
   text-transform: uppercase;
 }
 
-.navbar-nav .router-link-exact-active {
+.navbar-nav .NuxtLink-exact-active {
   border-bottom: 2px solid var(--bs-success);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
