@@ -8,17 +8,18 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
-tailwindcss: {
-    config: {
-      content: [],
-      theme: {
-        container: {
-          center: true,
-          padding: '1rem'
-        }
-      }
-    }
-  },
+// tailwindcss: {
+//     config: {
+//       content: [],
+//       theme: {
+//         container: {
+//           center: true,
+//           padding: '1rem'
+//         }
+//       }
+//     }
+//   },
+
 
    app: {
     pageTransition: { name: 'page', mode: 'out-in' }

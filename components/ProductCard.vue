@@ -6,7 +6,7 @@
  </nuxt-link>
       <div class="absolute z-20   w-full  opacity-0 transition-opacity duration-300">
         <div class=" text-white mt-10 text-center  ">
-          <h4 class="text-3xl font-bold text-shadow  ">
+          <h4 class="text-3xl font-bold text-shadow   d">
             {{ product.name }}
           </h4>
           <p> {{ product.name }}</p>

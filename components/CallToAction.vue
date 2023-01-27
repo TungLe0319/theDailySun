@@ -1,6 +1,6 @@
 <template>
   <div class="text-center my-5 container flex flex-col ">
-    <h1 class="text-4xl mb-2     ">
+    <h1 class="text-4xl mb-2   ff   ">
       Empower your Style
     </h1>
     <p class=" ">

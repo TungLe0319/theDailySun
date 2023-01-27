@@ -2,7 +2,7 @@
   <footer class="  mt-96  ">
     <div class="flex justify-between p-5  bg-zinc-900 text-white">
       <div class="footer-section" />
-      <div class="footer-section " />
+      <div class="footer-section   " />
       <div class="footer-section">
         <div class="mt-4 flex">
           <img src="https://avatars.githubusercontent.com/u/107594367?s=400&u=279c4a706755639789d6b825966e54161df0c7aa&v=4" alt="" width="60" class="rounded-full shadow-md">
