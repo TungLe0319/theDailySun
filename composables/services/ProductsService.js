@@ -11,12 +11,10 @@ class ProductsService {
     logger.log(AppState.products)
   }
 
-  async getProductById(id){
+  async getProductById (id) {
+    const { data: product } = await useFetch(`/api/products/${id}`)
 
-
-    const { data: product } = await useFetch(`/api/products/${id}`);
-
-    console.log(product.value);
+    logger.log(product.value)
     // AppState.activeProduct = product.value;
     // console.log(AppState.activeProduct);
   }

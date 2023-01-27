@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/products/${product.id}`" v-if="Object">
+  <nuxt-link :to="`/products/${product.id}`">
     <div class="relative shadow-xl product-card rounded-lg">
       <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
 
@@ -8,23 +8,19 @@
           <h4 class="text-3xl font-bold text-shadow  ">
             {{ product.name }}
           </h4>
-          <p> {{product.name}}</p>
-        <a :href="product.stripe"> Buy Now</a>
+          <p> {{ product.name }}</p>
+          <a :href="product.stripe"> Buy Now</a>
         </div>
       </div>
     </div>
-
-
   </nuxt-link>
 </template>
 
 <script>
 
-
-
 export default {
   props: {
-    product: { type:  Object, required: true }
+    product: { type: Object, required: true }
   },
   setup () {
     return {
