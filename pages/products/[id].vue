@@ -55,6 +55,7 @@ export default {
 
     async function getProductById () {
       try {
+        logger.log(route.params.id)
         await productsService.getProductById(route.params.id)
       } catch (error) {
         logger.log(error)
