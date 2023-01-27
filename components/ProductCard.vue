@@ -5,13 +5,13 @@
       <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
  </nuxt-link>
       <div class="absolute z-20   w-full  opacity-0 transition-opacity duration-300">
-        <div class=" text-white mt-10 text-center  ">
-          <h4 class="text-3xl font-bold text-shadow   d">
-            {{ product.name }}
+        <div class=" text-white  text-center  ">
+          <h4 class="text-xl  text-shadow mt-10 mb-10   fire-effect-milo">
+            {{ product.title }}
           </h4>
-          <p> {{ product.name }}</p>
 
-            <NA color="#8a2be2" target="_blank" class="z-10 bg-slate-200 text-black rounded-md p-2 opacity-75 " :href="product.stripe">Buy Now</NA>
+
+            <!-- <NA  target="_blank" class="z-10  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </NA> -->
         </div>
       </div>
     </div>
@@ -33,6 +33,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.checkOut-icon{
+  width: 30px !important;
+}
+.fire-effect-milo  {
+    padding: 0 10px 0 0;
+    width: 75%;
+    border-right: 1px solid #fff;
+    text-align: right;
+    opacity: 1;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(-40px,0,0);
+    transform: translate3d(0px,0,0);
+}
 .product-card{
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
    width: 150px;
@@ -53,12 +67,14 @@ width: 300px;
    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     transform: translateX(-50px);
     left: 0;
-    bottom: 30px;
+
+    top: 0;
+
 
 }
 .product-card:hover .absolute {
   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
-border-radius: 8px;
+
 opacity: 1;
    transform: translateX(0px);
 

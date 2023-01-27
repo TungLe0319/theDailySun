@@ -1,24 +1,25 @@
 <template>
-  <div v-if="activeProduct" class="mt-56 text-black p-5">
+  <div v-if="activeProduct" class="mt-20 text-black p-5 bg-slate-300 h-screen relative">
     <div class="flex flex-wrap ">
       <div class=" w-full md:w-1/2 h-full justify-center flex">
         <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
       </div>
       <div class=" w-full md:w-1/2 p-5 px-14">
         <div class="">
-          <h1 class="text-4xl mb-10">
+<div class="relative">
+   <h1 class="text-6xl mb-10 font-bold ">
             {{ activeProduct.title }}
           </h1>
-          <p class="text-lg text-gray-400 mb-5">
-            {{ activeProduct.description }}
-          </p>
+          <div class="absolute   right-0 bottom-0">
+            <h1 class="text-8xl opacity-10 font-bold">WOMEN</h1>
+          </div>
+</div>
+
         </div>
 
-        <div class="flex justify-between">
-          <div class="">
-            <h2 class="font-bold text-gray-400 text-2xl">
-              Price
-            </h2>
+        <div class="flex justify-between mb-10">
+          <div class=" rounded-full bg-white p-5">
+
             <p class="text-red-400 font-bold text-2xl">
               ${{ activeProduct.price }}
             </p>
@@ -32,7 +33,15 @@
             </div>
           </div>
         </div>
+        <div class="">
+            <p class="text-lg text-gray-400 mb-5">
+            {{ activeProduct.description }}
+          </p>
+        </div>
       </div>
+    </div>
+    <div class="absolute right-24">
+      <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe>
     </div>
   </div>
   <div v-else class="mt-56 container bg-slate-100 ">

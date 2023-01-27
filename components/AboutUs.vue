@@ -7,7 +7,7 @@
       <div class="flex justify-start   d">
         <img src="https://cdn-icons-png.flaticon.com/512/7199/7199551.png" alt="goodVibes Image" width="90" class="">
       </div>
-      <h3 class=" leading-relaxed">
+      <h3 class=" leading-relaxed text-lg  ">
         Welcome to Sunny Vibes, where we specialize in crafting the most fashion-forward and expertly made women's hats. From the luxurious feel of Ecuadorian Panama hats to the airy linen sun hats, we've got you covered for all your summer needs.
         <br>
         Our collection also features an array of stylish headbands in a variety of colors to complement any outfit. As the seasons change, so do our offerings. Our autumn/winter collection is filled with sustainable and on-trend options such as wool-felt and fur-felt fedoras, trilbies, and cloches, as well as must-have bucket hats and waterproof headwear. Whether you're dressing up for a special occasion like a race day or Royal Ascot, or simply looking for a unique headpiece for your wedding, Sunny Vibes has something for everyone. Experience the best in millinery and elevate your style with us.
