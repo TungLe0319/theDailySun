@@ -56,11 +56,10 @@ export default {
     async function getProductDetails () {
       try {
 
-      const {data : product} = useFetch('/api/products/id')
-
+      const {data : product} = useFetch(`/api/products/id`)
+console.log(product.value);
 AppState.activeProduct = product.value
-console.log(AppState.activeProduct);
-
+// console.log(AppState.activeProduct);
 
 
       } catch (error) {

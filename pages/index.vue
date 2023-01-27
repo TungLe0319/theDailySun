@@ -3,6 +3,7 @@
     <HeroImage />
     <CallToAction/>
     <FeaturedProducts/>
+    <AboutUs/>
   </div>
 </template>
 

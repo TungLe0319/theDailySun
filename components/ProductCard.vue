@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/products/${product.id}`">
+  <nuxt-link :to="`/products/${product.id}`" v-if="Object">
     <div class="relative shadow-xl product-card rounded-lg">
       <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
 
@@ -36,20 +36,18 @@ export default {
 
 <style lang="scss" scoped>
 .product-card{
-   transition: all 0.5s ease-out !important;
-   width: 125px;
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+   width: 150px;
    height: 400px;
 }
-.image{
 
-}
 .product-card:hover{
 width: 300px;
-  transition: all 0.5s ease-out !important;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 
 .product-card img{
-  transition: all 3.3s ease-out !important;
+
   height: 100%;
 }
 
@@ -65,8 +63,12 @@ opacity: 1;
 }
 .product-card:hover img{
   filter: brightness(80%);
-width: 400px;
+width: 300px;
   transition: all 3.3s ease-out !important;
+
+  .product-card:not(:hover) img{
+    filter: grayscale(100%);
+  }
 }
 
 </style>
