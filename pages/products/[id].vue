@@ -46,14 +46,16 @@ export default {
 
   setup () {
     onMounted(() => {
-      getProductDetails()
+   if (AppState) {
+   getProductDetails()
+   }
     })
 
     async function getProductDetails () {
       try {
-        const { data: product } = await useFetch('/api/products/id')
+        const { data: product } = await useFetch(`/api/products/${id}`)
 
-   
+
 console.log(product.value);
 AppState.activeProduct = product.value
 // console.log(AppState.activeProduct);

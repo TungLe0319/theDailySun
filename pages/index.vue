@@ -8,21 +8,25 @@
 </template>
 
 <script>
+import { productsService } from "~~/composables/services/ProductsService.js"
+
 export default {
   setup () {
-    // onMounted(() => {
-    //   getProducts()
-    // })
-    // async function getProducts () {
-    //   try {
-    //     const { data: products } = await useFetch('/api/products/all')
+    onMounted(() => {
 
-    //     AppState.products = products.value
-    //     logger.log(AppState.products)
-    //   } catch (error) {
-    //     logger.error(error)
-    //   }
-    // }
+
+  setTimeout(() => {
+      getProducts()
+  }, 0) // 1 seems to work better for me than 0
+    })
+    async function getProducts () {
+      try {
+    await productsService.getProducts()
+
+      } catch (error) {
+        logger.error(error)
+      }
+    }
     return {
 
     }
