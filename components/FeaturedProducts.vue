@@ -1,10 +1,11 @@
 <template>
   <div class="    mt-10   flex  ">
-    <div class="glasses-title flip  text-center"> Glasses </div>
+    <div class="glasses-title flip  text-center">
+      Glasses
+    </div>
     <div id="card-container" class=" flex gap-2 justify-center w-full">
       <ProductCard v-for="i in products" :key="i" class="" :product="i" />
     </div>
-
   </div>
 </template>
 
@@ -32,7 +33,6 @@ export default {
 <!-- <script setup>
 const {data: products} = await useAsyncData()
 </script> -->
-
 
 <style lang="scss">
 .flip{

@@ -1,19 +1,15 @@
 <template>
   <div>
-     <NGlobalStyle />
+    <NGlobalStyle />
     <NavigationBar />
     <NuxtPage />
-
     <FooterBar />
   </div>
 </template>
 
-
-
 <script setup lang="ts">
-import { darkTheme } from 'naive-ui'
+// import { darkTheme } from 'naive-ui'
 </script>
-
 
 <style>
 .page-enter-active,

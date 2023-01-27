@@ -2,7 +2,7 @@
   <nav class="fixed w-full z-10 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
     <div class="  flex  items-center justify-around">
       <div class="w-1/3 ml-3">
-        <NuxtLink to="/" class="" active-class="active-link-img" >
+        <NuxtLink to="/" class="" active-class="active-link-img">
           <img src="../assets/Logo.png" alt="" width="50" class="shadow-xl rounded-xl">
         </NuxtLink>
       </div>
@@ -12,13 +12,13 @@
             About
           </NuxtLink>
           <NuxtLink to="/prisma" class="link" active-class="active-link">
-          Prisma
+            Prisma
           </NuxtLink>
           <NuxtLink to="/protected" class="link" active-class="active-link">
             protected
           </NuxtLink>
           <nuxt-link to="/protected" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
-            protected
+            protected2
           </nuxt-link>
         </div>
       </div>
@@ -27,8 +27,6 @@
           <button class=" text-xl leading-none p-2 rounded-full hover:bg-gray-100 hover:text-gray-600" />
         </div>
       </div>
-
-
     </div>
   </nav>
 </template>
@@ -89,4 +87,3 @@ border-bottom: 3px solid #2bd882;
 border: 2px solid #2bd882;
 }*/
 </style>
-

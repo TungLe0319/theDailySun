@@ -1,21 +1,18 @@
 <template>
-
-    <div class="relative shadow-xl product-card rounded-lg">
-       <nuxt-link :to="`/products/${product.id}`">
+  <div class="relative shadow-xl product-card rounded-lg">
+    <nuxt-link :to="`/products/${product.id}`">
       <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
- </nuxt-link>
-      <div class="absolute z-20   w-full  opacity-0 transition-opacity duration-300">
-        <div class=" text-white  text-center  ">
-          <h4 class="text-xl  text-shadow mt-10 mb-10   fire-effect-milo">
-            {{ product.title }}
-          </h4>
+    </nuxt-link>
+    <div class="absolute z-20   w-full  opacity-0 transition-opacity duration-300">
+      <div class=" text-white  text-center  ">
+        <h4 class="text-xl  text-shadow mt-10 mb-10   fire-effect-milo">
+          {{ product.title }}
+        </h4>
 
-
-            <a  target="_blank" class="z-30  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a>
-        </div>
+        <a target="_blank" class="z-30  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a>
       </div>
     </div>
-
+  </div>
 </template>
 
 <script>
@@ -69,7 +66,6 @@ width: 300px;
     left: 0;
 
     top: 0;
-
 
 }
 .product-card:hover .absolute {

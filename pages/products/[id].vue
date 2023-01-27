@@ -6,20 +6,20 @@
       </div>
       <div class=" w-full md:w-1/2 p-5 px-14">
         <div class="">
-<div class="relative">
-   <h1 class="text-6xl mb-10 font-bold ">
-            {{ activeProduct.title }}
-          </h1>
-          <div class="absolute   right-0 bottom-0">
-            <h1 class="text-8xl opacity-10 font-bold">WOMEN</h1>
+          <div class="relative">
+            <h1 class="text-6xl mb-10 font-bold ">
+              {{ activeProduct.title }}
+            </h1>
+            <div class="absolute   right-0 bottom-0">
+              <h1 class="text-8xl opacity-10 font-bold">
+                WOMEN
+              </h1>
+            </div>
           </div>
-</div>
-
         </div>
 
         <div class="flex justify-between mb-10">
           <div class=" rounded-circle bg-white p-5">
-
             <p class="text-red-400 font-bold text-2xl">
               ${{ activeProduct.price }}
             </p>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="">
-            <p class="text-lg text-gray-400 mb-5">
+          <p class="text-lg text-gray-400 mb-5">
             {{ activeProduct.description }}
           </p>
         </div>
