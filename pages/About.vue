@@ -18,7 +18,7 @@
           <img src="https://strapi-nuxt.apps.devopportunities.dev/admin/70674f63fc3904c20de0.svg" alt="nuxt icon" width="200">
         </div>
         <div class="">
-          <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_tailwind_icon_130128.png" alt="nuxt icon" width="200">
+          <img src="https://cdn.icon-icons.com/icons2/2107/PNG/512/file_type_tailwind_icon_130128.png" alt="tailwind icon" width="200">
         </div>
       </div>
       <div class="">

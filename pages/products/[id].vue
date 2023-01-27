@@ -2,7 +2,10 @@
   <div v-if="activeProduct" class="mt-56 text-black p-5">
     <div class="flex flex-wrap ">
       <div class=" w-full md:w-1/2 h-full justify-center flex">
-        <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
+
+          <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm" >
+
+
       </div>
       <div class=" w-full md:w-1/2 p-5 px-14">
         <div class="">

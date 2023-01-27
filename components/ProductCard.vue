@@ -1,19 +1,21 @@
 <template>
-  <nuxt-link :to="`/products/${product.id}`">
-    <div class="relative shadow-xl product-card rounded-lg">
-      <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
 
-      <div class="absolute  b top-64 left-0 w-full  opacity-0 transition-opacity duration-300">
+    <div class="relative shadow-xl product-card rounded-lg">
+       <nuxt-link :to="`/products/${product.id}`">
+      <img class=" object-cover     image rounded-lg shadow-xl shadow-slate-400 transition-all" :src="product.img" alt="image">
+ </nuxt-link>
+      <div class="absolute z-20   w-full  opacity-0 transition-opacity duration-300">
         <div class=" text-white mt-10 text-center  ">
           <h4 class="text-3xl font-bold text-shadow  ">
             {{ product.name }}
           </h4>
           <p> {{ product.name }}</p>
-          <a :href="product.stripe"> Buy Now</a>
+
+            <NA color="#8a2be2" target="_blank" class="z-10 bg-slate-200 text-black rounded-md p-2 opacity-75 " :href="product.stripe">Buy Now</NA>
         </div>
       </div>
     </div>
-  </nuxt-link>
+
 </template>
 
 <script>
@@ -48,13 +50,17 @@ width: 300px;
 }
 
 .product-card .absolute {
-    transition: all 0.3s ease-out;
+   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
+    transform: translateX(-20px);
+    left: 0;
+    bottom: 30px;
 
 }
 .product-card:hover .absolute {
-  transition: all 0.3s ease-out;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
 border-radius: 8px;
 opacity: 1;
+   transform: translateX(0px);
 
 }
 .product-card:hover img{

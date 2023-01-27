@@ -3,8 +3,8 @@
     <slot v-if="loaded" @load="loaded = true" @error="loaded = false" >
 
     </slot>
- 
-    <Loader v-if="!loaded" />
+
+    <LoaderComponent v-if="!loaded" />
   </div>
 </template>
 
