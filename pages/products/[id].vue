@@ -91,5 +91,21 @@ export default {
   height: 50vh;
   width: 100% !important;
   object-fit: cover;
+   animation-duration: 1.5s;
+  animation-name: slidein;
+
+}
+@keyframes slidein {
+  from {
+    margin-right: 100%;
+    width: 300%;
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  to {
+    margin-right: 0%;
+    width: 100%;
+  }
 }
 </style>
