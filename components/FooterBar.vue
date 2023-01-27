@@ -1,5 +1,5 @@
 <template>
-  <footer class="  mt-96  ">
+  <footer class="  ">
     <div class="flex justify-between p-5  bg-zinc-900 text-white">
       <div class="footer-section" />
       <div class="footer-section  " />

@@ -36,4 +36,5 @@ model Product {
   img         String
   stripe      String
   productImg String?
+  type String? 
 }

@@ -64,7 +64,7 @@ width: 300px;
 }
 
 .product-card .absolute {
-   transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
+   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) ;
     transform: translateX(-50px);
     left: 0;
 
