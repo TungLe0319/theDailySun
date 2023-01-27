@@ -1,11 +1,12 @@
 <template>
   <div class="    mt-10   flex  ">
-    <div class="glasses-title flip  text-center"> Glasses </div>
-    <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="products">
-      <ProductCard v-for="i in products" :key="i" class="" :product="i"  />
-
+    <div class="glasses-title flip  text-center">
+      Glasses
     </div>
- <LoaderComponent v-else/>
+    <div v-if="products" id="card-container" class=" flex gap-2 justify-center w-full">
+      <ProductCard v-for="i in products" :key="i" class="" :product="i" />
+    </div>
+    <LoaderComponent v-else />
   </div>
 </template>
 
