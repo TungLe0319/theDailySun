@@ -11,20 +11,22 @@ import { computed } from 'vue'
 
 export default {
   setup () {
-     onMounted(() => {
+    onMounted(() => {
       // getProducts()
     })
-     async function getProducts () {
-      try {
+    // async function getProducts () {
+    //   try {
 
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
     return {
-
       products: computed(() => AppState.products)
     }
   }
 }
 </script>
+<!-- <script setup>
+const {data: products} = await useAsyncData()
+</script> -->

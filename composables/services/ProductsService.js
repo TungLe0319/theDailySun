@@ -4,11 +4,11 @@ class ProductsService {
     logger.log(dog)
   }
 
-   async getProducts(){
-        const { data: products } =  await  useFetch('/api/products/all')
+  async getProducts () {
+    const { data: products } = await useFetch('/api/products/all')
 
-        AppState.products = products.value
-        logger.log(AppState.products)
+    AppState.products = products.value
+    logger.log(AppState.products)
   }
 
   async getProductById(id){

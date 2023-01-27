@@ -41,23 +41,21 @@
 </template>
 
 <script>
-import { productsService } from "~~/composables/services/ProductsService.js"
-
+import { productsService } from '~~/composables/services/ProductsService.js'
 
 export default {
 
   setup () {
     onMounted(() => {
-   setTimeout(() => {
-       getProductById()
-  }, 0)
-
-
+      setTimeout(() => {
+        getProductById()
+      }, 0)
     })
+    const route = useRoute()
 
     async function getProductById () {
       try {
-      productsService.getProductById(route.params.id)
+        productsService.getProductById(route.params.id)
       } catch (error) {
         logger.log(error)
       }
@@ -66,7 +64,6 @@ export default {
     // async function clearCart () {
 
     // }
-    const route = useRoute()
     // console.log(route.params.id);
     return {
       route,

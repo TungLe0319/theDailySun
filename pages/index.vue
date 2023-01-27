@@ -1,28 +1,25 @@
 <template>
   <div>
     <HeroImage />
-    <CallToAction/>
-    <FeaturedProducts/>
-    <AboutUs/>
+    <CallToAction />
+    <FeaturedProducts />
+    <AboutUs />
   </div>
 </template>
 
 <script>
-import { productsService } from "~~/composables/services/ProductsService.js"
+import { productsService } from '../composables/services/ProductsService'
 
 export default {
   setup () {
     onMounted(() => {
-
-
-  setTimeout(() => {
-      getProducts()
-  }, 0)
+      setTimeout(() => {
+        getProducts()
+      }, 0)
     })
     async function getProducts () {
       try {
-    await productsService.getProducts()
-
+        await productsService.getProducts()
       } catch (error) {
         logger.error(error)
       }
