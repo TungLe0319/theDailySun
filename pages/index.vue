@@ -17,7 +17,7 @@ export default {
 
   setTimeout(() => {
       getProducts()
-  }, 0) // 1 seems to work better for me than 0
+  }, 0)
     })
     async function getProducts () {
       try {

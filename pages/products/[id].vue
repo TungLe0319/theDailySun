@@ -41,26 +41,23 @@
 </template>
 
 <script>
+import { productsService } from "~~/composables/services/ProductsService.js"
+
 
 export default {
 
   setup () {
     onMounted(() => {
-   if (AppState) {
-   getProductDetails()
-   }
+   setTimeout(() => {
+       getProductById()
+  }, 0)
+
+
     })
 
-    async function getProductDetails () {
+    async function getProductById () {
       try {
-        const { data: product } = await useFetch(`/api/products/${id}`)
-
-
-console.log(product.value);
-AppState.activeProduct = product.value
-// console.log(AppState.activeProduct);
-
-
+      productsService.getProductById(route.params.id)
       } catch (error) {
         logger.log(error)
       }
