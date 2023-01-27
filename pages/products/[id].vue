@@ -1,10 +1,8 @@
 <template>
-  <div class="mt-56 text-black p-5" v-if="activeProduct">
+  <div v-if="activeProduct" class="mt-56 text-black p-5">
     <div class="flex flex-wrap ">
       <div class=" w-full md:w-1/2 h-full justify-center flex">
-
-          <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
-
+        <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
       </div>
       <div class=" w-full md:w-1/2 p-5 px-14">
         <div class="">
@@ -34,17 +32,15 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
-  <div class="mt-56 container bg-slate-100 " v-else><LoaderComponent/></div>
+  <div v-else class="mt-56 container bg-slate-100 ">
+    <LoaderComponent />
+  </div>
 </template>
 
 <script>
-
-
 
 export default {
 
@@ -55,22 +51,18 @@ export default {
 
     async function getProductDetails () {
       try {
+        const { data: product } = await useFetch('/api/products/id')
 
-      const {data : product} = useFetch('/api/products/id')
-
-AppState.activeProduct = product.value
-console.log(AppState.activeProduct);
-
-
-
+        AppState.activeProduct = product.value
+        logger.log(AppState.activeProduct)
       } catch (error) {
         logger.log(error)
       }
     }
 
-    async function clearCart () {
+    // async function clearCart () {
 
-    }
+    // }
     const route = useRoute()
     // console.log(route.params.id);
     return {
