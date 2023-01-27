@@ -14,9 +14,9 @@
           <NuxtLink to="/prisma" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             prisma
           </NuxtLink>
-          <NuxtLink to="/protected" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+          <nuxt-link to="/protected" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             protectd
-          </NuxtLink>
+          </nuxt-link>
         </div>
       </div>
       <div class="w-1/3">

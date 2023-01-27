@@ -1,5 +1,10 @@
 export class Product {
-  constructor (data) {
+  id: Number
+  title: String
+  img: String
+  price: Number
+  description: String
+  constructor (data: any) {
     this.id = data.id
     this.title = data.attributes.title
     this.img = data.attributes.img
