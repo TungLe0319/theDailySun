@@ -1,8 +1,8 @@
 <template>
   <div>
     <HeroImage />
-    <CallToAction />
-    <FeaturedProducts />
+
+    <FeaturedProducts class="" />
     <AboutUs />
   </div>
 </template>
