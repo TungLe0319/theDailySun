@@ -2,7 +2,7 @@
   <div>
     <NGlobalStyle />
     <NavigationBar />
-    <NuxtPage  :key="$route.fullPath"/>
+    <NuxtPage  />
     <FooterBar />
   </div>
 </template>

@@ -1,11 +1,11 @@
 <template>
-<div class=" bg-purple-100 py-5">
+<div class=" bg-orange-100 py-5">
   <div class="text-center my-5 container flex flex-col ">
     <h1 class="text-4xl mb-2   ff    ">
-      Empower your style
+     Power your confidence
     </h1>
     <p class=" ">
-    Upgrade your accessory game with our  featured selection of women's glasses
+    Upgrade your accessory game with our  featured selection of men's glasses
     </p>
   </div>
     <div class="    mt-10   flex relative ">
@@ -21,10 +21,10 @@
 
   <div class="text-center mt-36 mb-5 container flex flex-col ">
     <h1 class="text-4xl mb-2   ff    ">
-     Feel great with your look
+    Feel Fresh
     </h1>
     <p class=" ">
-    Complete your look with our curated collection of featured women's hats
+    Complete your look with our curated collection of featured men's hats
     </p>
   </div>
 
@@ -32,14 +32,14 @@
 
 
 
-     <div class="       flex relative ">
+     <div class="       md:flex relative ">
 
     <div id="card-container" class="   gap-2 justify-center w-full" v-if="hats">
       <ProductCard v-for="h in hats" :key="h" class="productCard " :product="h"  />
 
     </div>
  <LoaderComponent v-else/>
-   <div class="glasses-title flip  text-center  absolute  bottom-20 right-0 text-shadow "> Hats </div>
+   <div class="glasses-title flip  text-center  absolute  text-shadow  bottom-20 right-0 "> Hats </div>
   </div>
 
 </div>
@@ -55,8 +55,8 @@ export default {
     })
 
     return {
-      glasses: computed(() => AppState.products.filter(p => p.type == "Glasses" && p.audience == "Female")),
-      hats:computed(() => AppState.products.filter(p => p.type == "Hat" && p.audience == "Female") )
+      glasses: computed(() => AppState.products.filter(p => p.type == "Glasses" && p.audience == "Male")),
+      hats:computed(() => AppState.products.filter(p => p.type == "Hat" && p.audience == "Male") )
     }
   }
 }

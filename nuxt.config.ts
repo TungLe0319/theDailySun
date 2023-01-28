@@ -20,10 +20,13 @@ export default defineNuxtConfig({
     }
   },
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
-  },
+  // app: {
+  //   pageTransition: { name: 'page', mode: 'out-in' }
+  // },
   css: [
     '@/assets/scss/main.scss'
-  ]
+  ],
+
+
+
 })

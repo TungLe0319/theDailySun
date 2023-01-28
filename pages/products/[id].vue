@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-10">
     <div v-if="activeProduct" class=" pt-20 text-black p-5 bg-slate-300 h-screen relative">
       <div class="flex flex-wrap  ">
         <div class=" w-full md:w-1/2 h-full justify-center flex  ">
