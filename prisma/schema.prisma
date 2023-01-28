@@ -31,6 +31,7 @@ model Product {
   stripe      String
   productImg  String?
   type        String?
+  audience String?
 }
 model Account {
   id                 String  @id @default(cuid())
