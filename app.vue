@@ -10,8 +10,7 @@
 <script setup lang="ts">
 const { data, status } = useSession()
 logger.log({ data: data.value, status: status.value })
-const user = data.value?.user
-accountsService.isAuthed(user)
+
 </script>
 
 <style>
