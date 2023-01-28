@@ -23,5 +23,8 @@
   },
   // Auto-complete `.value` attribute when volar is installed
   "volar.autoCompleteRefs": true,
-  "cSpell.words": ["composables"]
+  "cSpell.words": [
+    "composables"
+  ],
+  "nuxt.isNuxtApp": false
 }

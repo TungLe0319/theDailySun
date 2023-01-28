@@ -12,15 +12,7 @@ model Example {
   details String
 }
 
-model User {
-  id            String    @id
-  email         String?   @unique
-  name          String?
-  image         String?
-  emailVerified DateTime?
-  Account       Account[]
-  Session       Session[]
-}
+
 
 model Post {
   id        Int     @id @default(autoincrement())
@@ -39,33 +31,41 @@ model Product {
   stripe      String
   productImg  String?
   type        String?
-  audience    String?
 }
-
 model Account {
-  id                String  @id
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String?
-  access_token      String?
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String?
-  session_state     String?
-  User              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                 String  @id @default(cuid())
+  userId             String
+  type               String
+  provider           String
+  providerAccountId  String
+  refresh_token      String?  @db.Text
+  access_token       String?  @db.Text
+  expires_at         Int?
+  token_type         String?
+  scope              String?
+  id_token           String?  @db.Text
+  session_state      String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
-
 model Session {
-  id           String   @id
+  id           String   @id @default(cuid())
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
 }
 
 model VerificationToken {
@@ -75,3 +75,5 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+

@@ -8,7 +8,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
-tailwindcss: {
+  tailwindcss: {
     config: {
       content: [],
       theme: {
@@ -20,8 +20,7 @@ tailwindcss: {
     }
   },
 
-
-   app: {
+  app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   css: [

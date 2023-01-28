@@ -12,6 +12,15 @@
       "runtimeArgs": ["run-script", "dev"],
       "restart": true,
       "console": "integratedTerminal"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "npx prisma studio",
+      "runtimeExecutable": "npx",
+      "args": ["prisma", "studio"],
+      "restart": true,
+      "console": "integratedTerminal"
     }
   ]
 }
