@@ -12,11 +12,8 @@
   <div class="glasses-title flip  text-center  absolute fixed bottom-0 left-0"> Glasses </div>
     <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="glasses">
       <ProductCard v-for="i in glasses" :key="i" class="" :product="i"  />
+    </div>
 
-    </div>
-    <div v-if="products" id="card-container" class=" flex gap-2 justify-center w-full">
-      <ProductCard v-for="i in products" :key="i" class="" :product="i" />
-    </div>
     <LoaderComponent v-else />
   </div>
 

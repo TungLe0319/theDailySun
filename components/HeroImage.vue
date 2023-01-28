@@ -1,5 +1,6 @@
 <template>
-  <div class="relative hero-image-container">
+ <div >
+   <div class="relative hero-image-container" v-if="products">
     <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
     <video id="myVideo" src="../assets/video.mp4" autoplay muted ></video>
     <div class="hero-text     ">
@@ -10,17 +11,28 @@
      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maiores autem optio, inventore voluptate eveniet eligendi illo mollitia quas molestiae?
     </div>
   </div>
+  <LoaderComponent v-else/>
+ </div>
 </template>e>
 
-<script >
-export default{
-
-}
+<script  setup>
+let captureInterval = null;
+var myVideo = null;
  onMounted(()=>{
-  if (document && myVideo) {
+  if (document ) {
       var myVideo = document.getElementById("myVideo");
+      myVideo.playbackRate = 3.0;
   myVideo.addEventListener("timeupdate", function(){
+      if (this.currentTime >= this.duration - 5) { // 5 seconds before the end
+         myVideo.playbackRate = 2;
+
+    }
+        if (this.currentTime >= this.duration - 3) { // 5 seconds before the end
+         myVideo.playbackRate = 1;
+
+    }
     if (this.currentTime >= this.duration - 1) { // 5 seconds before the end
+  myVideo.playbackRate = 0.5;
       this.pause();
     }
   });
@@ -28,6 +40,8 @@ export default{
   }
 
  })
+
+const products = computed(()=> AppState.products)
 </script>
 
 <style>
