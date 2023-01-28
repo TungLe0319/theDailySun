@@ -46,6 +46,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none ">
+        <button @click="checkOut()" class="checkOut font-1 text-xl font-bold p-2 bg-green-300"> CHECKOUT</button>
       <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -76,6 +77,8 @@ export default {
       }
     }
 
+
+
     // async function clearCart () {
 
     // }
@@ -84,7 +87,57 @@ export default {
       route,
       activeProduct: computed(() =>
         AppState.activeProduct
-      )
+      ),
+       async  checkOut(){
+
+
+
+ const {data } =useFetch('/api/create-checkout-session',{
+  method:'POST',
+   headers: {
+      "Content-Type": "application/json",
+    },body: JSON.stringify({
+      items: [
+        { id: this.activeProduct.id, quantity: 1 },
+      ],
+    }),
+  })
+.then(res => {
+      if (res.ok) return res.json()
+      return res.json().then(json => Promise.reject(json))
+    })
+    .then(({ url }) => {
+      window.location = url
+    })
+    .catch(e => {
+      console.error(e.error)
+    })
+
+console.log(data);
+
+  // useFetch("http://localhost:3000/create-checkout-session", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify({
+  //     items: [
+  //       { id: this.activeProduct.id, quantity: 1 },
+  //     ],
+  //   }),
+  // })
+  //   .then(res => {
+  //     if (res.ok) return res.json()
+  //     return res.json().then(json => Promise.reject(json))
+  //   })
+  //   .then(({ url }) => {
+  //     window.location = url
+  //   })
+  //   .catch(e => {
+  //     console.error(e.error)
+  //   })
+
+ }
 
     }
   }

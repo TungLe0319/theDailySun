@@ -3,7 +3,7 @@
    <div class="relative hero-image-container" v-if="products">
     <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
     <video id="myVideo" src="../assets/video.mp4" autoplay muted ></video>
-    <div class="hero-text     ">
+    <div class="hero-text      ">
       <h1 class=" text-3xl text-shadow">
         Invest in one-of-a-kind  quality pieces that will empower your personal style and  last a lifetime
       </h1>
@@ -23,7 +23,11 @@ var myVideo = null;
       var myVideo = document.getElementById("myVideo");
       myVideo.playbackRate = 3.0;
   myVideo.addEventListener("timeupdate", function(){
-      if (this.currentTime >= this.duration - 5) { // 5 seconds before the end
+      if (this.currentTime >= this.duration - 6) { // 5 seconds before the end
+         myVideo.playbackRate = 2.5;
+
+    }
+        if (this.currentTime >= this.duration - 4) { // 5 seconds before the end
          myVideo.playbackRate = 2;
 
     }
