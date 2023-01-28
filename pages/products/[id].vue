@@ -12,15 +12,19 @@
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute   right-0 bottom-0">
-                <h1 class="text-8xl opacity-10 font-bold">
+                <h1 class="text-8xl opacity-10 font-bold" v-if="activeProduct.audience == 'Female' ">
                   WOMEN
                 </h1>
+                <h1 class="text-8xl opacity-10 font-bold" v-else>
+                 Men
+                </h1>
+
               </div>
             </div>
           </div>
           <div class="flex justify-between mb-10">
-            <div class=" rounded-circle bg-white p-5">
-              <p class="text-red-400 font-bold text-2xl">
+            <div class="  ">
+              <p class="text-red-400 font-bold text-2xl rounded-full bg-white p-2 shadow-md">
                 ${{ activeProduct.price }}
               </p>
             </div>
