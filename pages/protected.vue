@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class=" mt-32">
     <div>I'm protected! Session data: {{ data }}</div>
-    <button class="rounded-xl shadow-xl p-2 m-2" @click="signOut()">
+    <button class="rounded-xl shadow-xl p-2 m-2" @click="signOut({redirect: true})">
       sign out
     </button>
   </div>
