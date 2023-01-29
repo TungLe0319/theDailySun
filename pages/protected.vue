@@ -6,37 +6,36 @@
         <h1 class=" text-8xl text-shadow-overlay">
           Account
         </h1>
-
       </div>
-          <div class="justify-center flex absolute flex-col  profile-image">
-      <img class=" rounded-full shadow-xl shadow-slate-400  " :src="data?.user?.image||'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'" alt="hero image" width="300">
-
-     </div>
-
+      <div class="justify-center flex absolute flex-col  profile-image">
+        <img class=" rounded-full shadow-xl shadow-slate-400  " :src="data?.user?.image||'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'" alt="hero image" width="300">
+      </div>
     </div>
     <div class="container mt-3 text-xl flex flex-col  relative">
-
       <div class="flex justify-evenly  mt-24">
- <div class=" mt-32">
-    <div><h1 class="text-4xl ">Welcome @{{ data?.user?.name }} !</h1></div>
-      <h3 class="t ">{{ data?.user?.email }} !</h3>
-    <button class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5" @click="signOut({redirect: true})">
-      sign out
-    </button>
-  </div>
-
+        <div class=" mt-32">
+          <div>
+            <h1 class="text-4xl ">
+              Welcome @{{ data?.user?.name }} !
+            </h1>
+          </div>
+          <h3 class="t ">
+            {{ data?.user?.email }} !
+          </h3>
+          <button class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5" @click="signOut({redirect: true})">
+            sign out
+          </button>
+        </div>
       </div>
-
     </div>
   </div>
-</template>e>
+</template>
 
 <script setup lang="ts">
 definePageMeta({ middleware: 'auth' })
 
 const { data, signOut } = useSession()
-</script> -->
-
+</script>
 
 <style>
 
@@ -53,7 +52,6 @@ const { data, signOut } = useSession()
   position: relative;
 }
 
-
 .hero-text {
   position: absolute;
   top: 50%;
@@ -69,29 +67,3 @@ const { data, signOut } = useSession()
 }
 
 </style>
-
-
-
-
-
-
-
-
-
-
-<!-- <template>
-  <div class=" mt-32">
-    <div>I'm protected! Session data: {{ data }}</div>
-    <button class="rounded-xl shadow-xl p-2 m-2" @click="signOut({redirect: true})">
-      sign out
-    </button>
-  </div>
-</template>
-
-<script setup lang="ts">
-definePageMeta({ middleware: 'auth' })
-
-const { data, signOut } = useSession()
-const { $trpcApi } = useNuxtApp()
-const hello = await $trpcApi
-</script>

@@ -31,7 +31,7 @@
     "@zenstackhq/runtime": "^1.0.0-alpha.28",
     "@zenstackhq/trpc": "^1.0.0-alpha.28",
     "express": "^4.18.2",
-    "next-auth": "^4.19.0",
+    "next-auth": "^4.18.0",
     "sass": "^1.57.1",
     "stripe": "^11.8.0",
     "superjson": "^1.12.2",
