@@ -2,7 +2,7 @@
   <div>
     <NGlobalStyle />
     <NavigationBar />
-    <NuxtPage  />
+    <NuxtPage />
     <FooterBar />
   </div>
 </template>

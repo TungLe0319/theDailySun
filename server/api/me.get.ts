@@ -18,7 +18,7 @@
 //   return user
 // })
 export default defineEventHandler((event) => {
-  return event
+  return getMethod(event)
   // const session = await getServerSession(event)
   // if (!session?.user?.email && !session?.user?.name && !session?.user?.image) {
   //   throw new Error('email, name, or image are required')
