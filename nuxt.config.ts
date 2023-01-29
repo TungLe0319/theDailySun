@@ -6,7 +6,9 @@ export default defineNuxtConfig({
     '@huntersofbook/naive-ui-nuxt',
     '@vueuse/nuxt'
   ],
-  
+  build: {
+    transpile: ['trpc-nuxt']
+  },
   typescript: {
     shim: false
   },
@@ -27,8 +29,6 @@ export default defineNuxtConfig({
   // },
   css: [
     '@/assets/scss/main.scss'
-  ],
-
-
+  ]
 
 })

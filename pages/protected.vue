@@ -92,4 +92,6 @@ const { data, signOut } = useSession()
 definePageMeta({ middleware: 'auth' })
 
 const { data, signOut } = useSession()
-</script> -->
+const { $trpcApi } = useNuxtApp()
+const hello = await $trpcApi
+</script>
