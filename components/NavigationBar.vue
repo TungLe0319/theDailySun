@@ -1,7 +1,7 @@
 <template>
   <nav class="fixed w-full z-10 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
     <div class="  flex  justify-around">
-      <div class="w-1/3 ml-3">
+      <div class="w-1/2 ml-3">
         <NuxtLink to="/" class="" active-class="active-link-img">
           <img src="../assets/Logo.png" alt="" width="50" class="shadow-xl rounded-xl">
         </NuxtLink>
@@ -23,13 +23,12 @@
           <nuxt-link to="/Account" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
             Account
           </nuxt-link>
+          <nuxt-link to="/cart" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+     <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon">
+          </nuxt-link>
         </div>
       </div>
-      <div class="w-1/3">
-        <div class="flex justify-end">
-          <button class=" text-xl leading-none p-2 rounded-full hover:bg-gray-100 hover:text-gray-600" />
-        </div>
-      </div>
+
     </div>
   </nav>
 </template>
