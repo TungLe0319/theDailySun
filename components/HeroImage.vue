@@ -1,17 +1,17 @@
 <template>
  <div >
-   <div class="relative hero-image-container" v-if="products">
+   <div class="relative hero-image-container" >
     <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
     <video id="myVideo" src="../assets/video.mp4" autoplay muted ></video>
     <div class="hero-text      ">
-      <h1 class=" text-3xl text-shadow">
+      <h1 class=" text-3xl text-shadow " >
         Invest in one-of-a-kind  quality pieces that will empower your personal style and  last a lifetime
       </h1>
       <small>Learn more about us and our services</small>
      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maiores autem optio, inventore voluptate eveniet eligendi illo mollitia quas molestiae?
     </div>
   </div>
-  <LoaderComponent v-else/>
+
  </div>
 </template>e>
 
@@ -19,8 +19,17 @@
 let captureInterval = null;
 var myVideo = null;
  onMounted(()=>{
-  if (document ) {
-      var myVideo = document.getElementById("myVideo");
+ setTimeout(() => {
+     video()
+
+      }, 0)
+
+ })
+
+
+
+ function video(){
+        var myVideo = document.getElementById("myVideo");
       myVideo.playbackRate = 3.0;
   myVideo.addEventListener("timeupdate", function(){
       if (this.currentTime >= this.duration - 6) { // 5 seconds before the end
@@ -41,17 +50,18 @@ var myVideo = null;
     }
   });
 
-  }
 
- })
+}
+
+
+
+
 
 const products = computed(()=> AppState.products)
 </script>
 
 <style>
-.hero-image-container{
 
-}
 
 /*
 #myVideo{
@@ -70,18 +80,30 @@ const products = computed(()=> AppState.products)
   height: 500px;
   object-fit: cover;
   position: relative;
+
 }
 
 
 .hero-text {
+  opacity: 0;
+  animation: loaded 8s ease forwards;
   position:absolute;
 top: 25%  !important;
   transform: translate(-50%, -50%);
   z-index: 1;
   text-align: center;
   color: #fff;
+
 }
 
+@keyframes loaded {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .text-shadow-overlay {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }

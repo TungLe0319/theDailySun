@@ -1,13 +1,13 @@
 <template>
   <nav class="fixed w-full z-10 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
-    <div class="  flex  justify-around">
-      <div class="w-1/2 ml-3">
+    <div class="  flex  justify-between">
+      <div class=" ml-3">
         <NuxtLink to="/" class="" active-class="active-link-img">
           <img src="../assets/Logo.png" alt="" width="50" class="shadow-xl rounded-xl">
         </NuxtLink>
       </div>
-      <div class=" hidden md:block">
-        <div class="text-center">
+      <div class=" hidden  md:flex  items-center ">
+        <div class=" text-center">
           <NuxtLink to="/about" class="link" active-class="active-link">
             About
           </NuxtLink>
@@ -17,14 +17,13 @@
           <NuxtLink to="/protected" class="link" active-class="active-link">
             protected
           </NuxtLink>
-          <nuxt-link to="/another" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
-            protected2
-          </nuxt-link>
-          <nuxt-link to="/Account" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
+
+          <nuxt-link to="/Account" class="link" active-class="active-link">
             Account
           </nuxt-link>
-          <nuxt-link to="/cart" class="ml-4 text-base no-underline hover:text-gray-800" active-class="active-link">
-     <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon">
+          <nuxt-link to="/cart" class="link" active-class="active-link">
+            Cart
+
           </nuxt-link>
         </div>
       </div>
@@ -70,19 +69,41 @@ export default {
   font-weight: 600;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
+  position: relative;
 }
-.link:hover{
-  background: rgb(189, 252, 165);
-  transition:  all 0.5s ease;
+.link:before {
+  content: "";
+  position:absolute;
+  width: 0px;
+ transform: translateX(0px);
+  height: 3px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+   transition:  all 0.5s ease;
 }
+.link:hover:before{
 
+  transition:  all 0.5s ease;
+width:  100%;
+
+}
 .bg-custom{
   background-color:rgba(0, 0, 0, 0.584);
   backdrop-filter: blur(4px);
 }
-.active-link{
-border-bottom: 3px solid #2bd882;
+.active-link:before {
+  content: "";
+  position:absolute;
+  width: 100%;
 
+  height: 3px;
+  background-color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+   transition:  all 0.5s ease;
 }
 /*
 .active-link-img img{

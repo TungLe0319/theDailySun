@@ -1,10 +1,17 @@
 <template>
   <div>
-    <HeroImage />
+
+
+  <div :class="products? ' block ' : ' hidden'">
+      <HeroImage />
     <AboutUs />
 
     <FeaturedProducts class="" />
     <MenFeaturedProducts/>
+  </div>
+    <!-- <div >
+      <LoadingAnimation />
+    </div> -->
   </div>
 </template>
 
@@ -13,21 +20,28 @@ import { productsService } from '../composables/services/ProductsService'
 
 export default {
   setup () {
+
     onMounted(() => {
       setTimeout(() => {
         getProducts()
+
       }, 0)
     })
-    async function getProducts () {
-      try {
-        await productsService.getProducts()
-      } catch (error) {
-        logger.error(error)
-      }
-    }
-    return {
+   let  isLoading = true
+   async function getProducts () {
+  try {
 
+    await productsService.getProducts()
+isLoading= false
+  } catch (error) {
+    logger.error(error)
+  }
+}
+    return {
+isLoading,
+  products : computed(()=> AppState.products)
     }
+
   }
 }
 </script>

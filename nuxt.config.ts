@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     '@huntersofbook/naive-ui-nuxt',
     '@vueuse/nuxt'
   ],
+  
   typescript: {
     shim: false
   },
