@@ -3,7 +3,7 @@
 
 
   <div :class="products? ' block ' : ' hidden'">
-      <HeroImage />
+      <HeroImage class=" " />
     <AboutUs />
 
     <FeaturedProducts class="" />

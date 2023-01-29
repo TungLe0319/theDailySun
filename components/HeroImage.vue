@@ -60,20 +60,29 @@ var myVideo = null;
 const products = computed(()=> AppState.products)
 </script>
 
-<style>
+<style scoped lang="scss">
 
+ .hero-image-container{
+height: 100vh;
+ }
+ .hero-image-container:before{
+  content: '';
 
-/*
+ height: 200px;
+background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+ }
+
 #myVideo{
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh !important;
+  height: 100vh ;
   object-fit: cover;
 
-}*/
+}
 
 .hero-image {
   width: 100%;
@@ -95,6 +104,7 @@ top: 25%  !important;
   color: #fff;
 
 }
+
 
 @keyframes loaded {
   from {

@@ -8,6 +8,9 @@
       </div>
       <div class=" hidden  md:flex  items-center ">
         <div class=" text-center">
+          <NuxtLink to="/products" class="link" active-class="active-link">
+            Products
+          </NuxtLink>
           <NuxtLink to="/about" class="link" active-class="active-link">
             About
           </NuxtLink>

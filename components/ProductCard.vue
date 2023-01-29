@@ -69,6 +69,7 @@ width: 300px;
 .product-card img{
 
   height: 100%;
+  width: 100%;
     @media only screen and (max-width: 768px){
 width: 100%;
    }
@@ -99,17 +100,13 @@ opacity: 1;
 width: 300px;
   transition: all 3.3s ease-out !important;
 
-  .product-card:not(:hover) img{
-    filter: grayscale(100%);
-  }
+
   }
 
 }
 
 
-
-
-
+  
 
 
 </style>
