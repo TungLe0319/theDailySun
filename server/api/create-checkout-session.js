@@ -1,5 +1,5 @@
 import stripe from 'stripe'
-import { config } from '@nuxtjs/config'
+
 
 const stripeClient = stripe(process.env.STRIPE_PRIVATE_KEY)
 
