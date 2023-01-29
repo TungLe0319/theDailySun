@@ -27,6 +27,7 @@
           </button>
         </div>
       </div>
+      <div>{{ hello }}</div>
     </div>
   </div>
 </template>
@@ -35,6 +36,8 @@
 definePageMeta({ middleware: 'auth' })
 
 const { data, signOut } = useSession()
+const { $trpc } = useNuxtApp()
+const { data: hello } = await $trpc.product.findMany.useQuery({ where: { audience: 'Male' } })
 </script>
 
 <style>

@@ -2,40 +2,42 @@
   <div class="pt-24 text-black p-5 bg-slate-300 h-screen relative">
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
-        <h1 class="text-5xl">Products</h1>
+        <h1 class="text-5xl">
+          Products
+        </h1>
       </div>
       <div class="mt-4 ">
-            <div class=" flex  gap-1">
-              <div class="    " v-for="i in products" >
-                <ProductCard :product="i" />
-              </div>
-            </div>
+        <div class=" flex  gap-1">
+          <div v-for="i in products" :key="i" class="    ">
+            <ProductCard :product="i" />
           </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  setup() {
-    const { data: products } = useFetch("/api/products/all");
+  setup () {
+    const { data: products } = useFetch('/api/products/all')
 
-    onMounted(() => { });
-    const route = useRoute();
+    onMounted(() => { })
+    const route = useRoute()
 
-    async function getUserCart() {
-      try {
-      } catch (error) {
-        logger.log(error);
-      }
-    }
+    // async function getUserCart () {
+    //   try {
+    //   } catch (error) {
+    //     logger.log(error)
+    //   }
+    // }
 
     return {
       products,
       route,
-      activeProduct: computed(() => AppState.activeProduct),
-    };
-  },
-};
+      activeProduct: computed(() => AppState.activeProduct)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
