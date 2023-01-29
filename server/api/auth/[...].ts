@@ -1,5 +1,5 @@
 // import CredentialsProvider from 'next-auth/providers/credentials'
-// import GithubProvider from 'next-auth/providers/github'
+import GithubProvider from 'next-auth/providers/github'
 import Auth0Provider from 'next-auth/providers/auth0'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
@@ -16,6 +16,11 @@ export default NuxtAuthHandler({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       issuer: process.env.AUTH0_ISSUER
+    }),
+    // @ts-expect-error
+    GithubProvider.default({
+      clientId: process.env.GITHUB_ID,
+      clientSecret: process.env.GITHUB_SECRET
     })
   ]
   // callbacks: {
