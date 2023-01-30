@@ -22,12 +22,12 @@
           <h3 class="t ">
             {{ data?.user?.email }} !
           </h3>
-          <button class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5" @click="signOut({redirect: true})">
+          <button class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5" @click="signOut({callbackUrl: '/'})">
             sign out
           </button>
         </div>
       </div>
-      <div>{{ hello }}</div>
+      <div>{{ data }}</div>
     </div>
   </div>
 </template>
@@ -36,8 +36,8 @@
 definePageMeta({ middleware: 'auth' })
 
 const { data, signOut } = useSession()
-const { $trpc } = useNuxtApp()
-const { data: hello } = await $trpc.example.findMany.useQuery({})
+// const { $trpc } = useNuxtApp()
+// const { data: hello } = await $trpc.example.findMany.useQuery({})
 </script>
 
 <style>
