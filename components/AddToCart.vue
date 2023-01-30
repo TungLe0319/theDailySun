@@ -26,8 +26,14 @@ productId:{typeof: String}
 
           async addToCart(productId){
   const {$trpc } = useNuxtApp()
-  console.log(1);
-  const cart = await $trpc.cart.create.mutate({
+
+
+let cart = await $trpc.cart.findUnique.useQuery({
+  where:{userId: AppState.account.id }
+})
+
+ if (!cart) {
+   cart = await $trpc.cart.create.mutate({
     data:{
       products: {
         create: {
@@ -46,10 +52,13 @@ productId:{typeof: String}
     }
   })
 pop.success(`Added ${AppState.activeProduct.title} to your cart`)
-logger.log(cart)
 
-return cart
 
+
+
+ }
+ logger.log(cart)
+ return cart
 }
     }
   }
