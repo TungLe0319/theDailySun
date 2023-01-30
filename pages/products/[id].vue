@@ -181,7 +181,8 @@ account:{},
       quantity:1
     }
   })
-
+pop.success(`Added ${AppState.activeProduct.title} to your cart`)
+logger.log(cart)
   return cart
 
 }

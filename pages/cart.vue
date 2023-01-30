@@ -18,8 +18,9 @@
           <hr class="mt-3 bg-black p-1 rounded-lg " />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
+
               <div class="p-4">
-                <CartProductCard v-for="i in products" :product="i" />
+                <CartProductCard v-for="c in cartItems" :product="c" />
               </div>
             </div>
           </div>
@@ -40,28 +41,32 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  setup() {
-    const { data: products } = useFetch("/api/products/all");
+<script setup>
 
-    onMounted(() => { });
-    const route = useRoute();
 
-    async function getUserCart() {
-      try {
-      } catch (error) {
-        logger.log(error);
-      }
-    }
 
-    return {
-      products,
-      route,
-      activeProduct: computed(() => AppState.activeProduct),
-    };
-  },
-};
+
+
+
+
+     const {$trpc } = useNuxtApp()
+  const {data:cartItems} = $trpc.productsInCarts.findMany.useQuery({where:{
+   cartId : AppState.userCart.id
+  }})
+
+ const {data:productsList} = $trpc.product.findMany.useQuery({})
+let cart = cartItems.value
+let products = productsList.value
+if(products){
+  logger.log(cart)
+  products.filter(p=> {
+
+cart.some(f=> f.productId === p.id)
+
+  })
+console.log(products);
+}
+
 </script>
 
 <style lang="scss" scoped>
