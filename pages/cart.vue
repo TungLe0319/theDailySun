@@ -49,23 +49,23 @@
 
 
 
-     const {$trpc } = useNuxtApp()
-  const {data:cartItems} = $trpc.productsInCarts.findMany.useQuery({where:{
-   cartId : AppState.userCart.id
-  }})
+//      const {$trpc } = useNuxtApp()
+//   const {data:cartItems} = $trpc.productsInCarts.findMany.useQuery({where:{
+//    cartId : AppState.userCart.id
+//   }})
 
- const {data:productsList} = $trpc.product.findMany.useQuery({})
-let cart = cartItems.value
-let products = productsList.value
-if(products){
-  logger.log(cart)
-  products.filter(p=> {
+//  const {data:productsList} = $trpc.product.findMany.useQuery({
+//   where:{
+//     cart:{
+//       contains :
+//     }
+//   }
+//  })
+// let cart = cartItems.value
+// let products = productsList.value
 
-cart.some(f=> f.productId === p.id)
+// console.log(products);
 
-  })
-console.log(products);
-}
 
 </script>
 
