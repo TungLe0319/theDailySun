@@ -1,8 +1,8 @@
 <template>
-  <div class="mt-10">
+  <div class="my-44 ">
     <div
       v-if="activeProduct"
-      class="pt-20 text-black p-5 bg-slate-300 h-screen relative"
+      class=" text-black p-5 bg-slate-300 py-44  relative"
     >
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 h-full justify-center flex">
@@ -71,11 +71,12 @@
       </div>
       <div class="absolute right-24 cursor-none">
         <button
-          @click="checkOut()"
+          @click="addToCart()"
           class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
         >
-          CHECKOUT
+         AddToCart
         </button>
+
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -88,13 +89,17 @@
 import { productsService } from "~~/composables/services/ProductsService.js";
 
 export default {
+
   setup() {
+     const route = useRoute();
+    const { data} = useSession()
     onMounted(() => {
       setTimeout(() => {
         getProductById();
+        getAccount()
       }, 0);
     });
-    const route = useRoute();
+
 
     async function getProductById() {
       try {
@@ -105,8 +110,13 @@ export default {
       }
     }
 
+
+
+
     return {
       route,
+account:{},
+      data,
       activeProduct: computed(() => AppState.activeProduct),
       async checkOut() {
         const { data } = useFetch("/api/create-checkout-session", {
@@ -154,10 +164,23 @@ export default {
         //   })
       },
 
-      async addToCart(){
-        const {$trpc } = useNuxtApp()
-        const cart = $trpc.cart.
+    async addToCart(productId, cartId){
+  const {$trpc } = useNuxtApp()
+  const cart = await $trpc.productsInCarts.create.mutate({
+    data:{
+      product: {
+        connect: {
+          id: productId
+        }
+      },
+      cart: {
+        connect: {
+          id: cartId
+        }
       }
+    }
+  })
+}
     };
   },
 };

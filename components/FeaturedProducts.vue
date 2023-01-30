@@ -10,7 +10,7 @@
   </div>
     <div class="    mt-10   flex relative ">
   <div class="glasses-title flip  text-center  absolute text-shadow bottom-0 left-0"> Glasses </div>
-    <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="glasses" ref="box" v-animate:popOut="inView">
+    <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="glasses"  >
       <ProductCard v-for="i in glasses" :key="i" class="" :product="i"  />
     </div>
 
