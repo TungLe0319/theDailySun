@@ -4,11 +4,11 @@
     <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
     <video id="myVideo" src="../assets/video.mp4" autoplay muted ></video>
     <div class="hero-text      ">
-      <h1 class=" text-3xl text-shadow " >
+      <h1 class=" text-4xl text-shadow p-3  rounded-lg shadow-2xl" >
         Invest in one-of-a-kind  quality pieces that will empower your personal style and  last a lifetime
       </h1>
-      <small>Learn more about us and our services</small>
-     Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum maiores autem optio, inventore voluptate eveniet eligendi illo mollitia quas molestiae?
+
+
     </div>
   </div>
 
@@ -41,7 +41,7 @@ var myVideo = null;
 
     }
         if (this.currentTime >= this.duration - 3) { // 5 seconds before the end
-         myVideo.playbackRate = 1;
+         myVideo.playbackRate = 1.5;
 
     }
     if (this.currentTime >= this.duration - 1) { // 5 seconds before the end
@@ -95,7 +95,8 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 
 
 .hero-text {
   opacity: 0;
-  animation: loaded 8s ease forwards;
+  animation: loaded 8s ease 4s forwards;
+
   position:absolute;
 top: 25%  !important;
   transform: translate(-50%, -50%);

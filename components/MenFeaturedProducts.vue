@@ -1,5 +1,5 @@
 <template>
-<div class=" bg-orange-100 py-5">
+<div class=" bg-orange-100 py-20">
   <div class="text-center my-5 container flex flex-col ">
     <h1 class="text-4xl mb-2   ff    ">
      Power your confidence

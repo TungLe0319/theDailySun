@@ -1,5 +1,5 @@
 <template>
-<div class=" bg-purple-100 py-5">
+<div class=" bg-purple-100 py-20 female-featured relative">
   <div class="text-center my-5 container flex flex-col ">
     <h1 class="text-4xl mb-2   ff    ">
       Empower your style
@@ -66,6 +66,16 @@ const {data: products} = await useAsyncData()
 </script> -->
 
 <style lang="scss">
+
+.female-featured::before{
+  width: 100%;
+  height: 10vh;
+  position: absolute;
+  bottom: 0;
+content: '';
+background: rgb(243,232,255);
+background: linear-gradient(180deg, rgba(243,232,255,1) 0%, rgba(255,237,213,1) 100%);
+}
 .flip{
   color: rgb(176, 215, 233);
   opacity: 75%;
