@@ -37,7 +37,7 @@ definePageMeta({ middleware: 'auth' })
 
 const { data, signOut } = useSession()
 const { $trpc } = useNuxtApp()
-const { data: hello } = await $trpc.product.findMany.useQuery({ where: { audience: 'Male' } })
+const { data: hello } = await $trpc.example.findMany.useQuery({})
 </script>
 
 <style>
