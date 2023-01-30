@@ -14,7 +14,7 @@ const Schema: z.ZodType<Prisma.ProductCreateManyInput> = z
     productImg: z.string().optional().nullable(),
     type: z.string().optional().nullable(),
     audience: z.string().optional().nullable(),
-    cartId: z.string().optional().nullable(),
+    quantity: z.number().optional().nullable(),
   })
   .strict();
 

@@ -8,6 +8,7 @@ const Schema: z.ZodType<Prisma.ProductAvgOrderByAggregateInput> = z
   .object({
     id: z.lazy(() => SortOrderSchema).optional(),
     price: z.lazy(() => SortOrderSchema).optional(),
+    quantity: z.lazy(() => SortOrderSchema).optional(),
   })
   .strict();
 

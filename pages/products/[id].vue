@@ -1,40 +1,64 @@
 <template>
   <div class="mt-10">
-    <div v-if="activeProduct" class=" pt-20 text-black p-5 bg-slate-300 h-screen relative">
-      <div class="flex flex-wrap  ">
-        <div class=" w-full md:w-1/2 h-full justify-center flex  ">
-          <img :src="activeProduct.img" alt="" class=" shadow-lg  shadow-slate-400 product-image rounded-sm">
+    <div
+      v-if="activeProduct"
+      class="pt-20 text-black p-5 bg-slate-300 h-screen relative"
+    >
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 h-full justify-center flex">
+          <img
+            :src="activeProduct.img"
+            alt=""
+            class="shadow-lg shadow-slate-400 product-image rounded-sm"
+          />
         </div>
-        <div class=" w-full md:w-1/2 p-5 px-14">
+        <div class="w-full md:w-1/2 p-5 px-14">
           <div class="">
             <div class="relative">
-              <h1 class="text-6xl mb-10 font-bold ">
+              <h1 class="text-6xl mb-10 font-bold">
                 {{ activeProduct.title }}
               </h1>
-              <div class="absolute   right-0 bottom-0">
-                <h1 class="text-8xl opacity-10 font-bold" v-if="activeProduct.audience == 'Female' ">
+              <div class="absolute right-0 bottom-0">
+                <h1
+                  class="text-8xl opacity-10 font-bold"
+                  v-if="activeProduct.audience == 'Female'"
+                >
                   WOMEN
                 </h1>
-                <h1 class="text-8xl opacity-10 font-bold" v-else>
-                 Men
-                </h1>
-
+                <h1 class="text-8xl opacity-10 font-bold" v-else>Men</h1>
               </div>
             </div>
           </div>
           <div class="flex justify-between mb-10">
             <div class="  ">
-              <p class="text-red-400 font-bold text-2xl rounded-full bg-white p-2 shadow-md">
+              <p
+                class="text-red-400 font-bold text-2xl rounded-full bg-white p-2 shadow-md"
+              >
                 ${{ activeProduct.price }}
               </p>
             </div>
-            <a target="_blank" class="mb-2  text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="activeProduct.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a>
+            <a
+              target="_blank"
+              class="mb-2 text-black rounded-md p-2 opacity-75 right-0 mr-10"
+              :href="activeProduct.stripe"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/481/481943.png"
+                alt="checkout Icon"
+                width="40"
+                class="checkOut-icon"
+              />
+            </a>
             <div class="">
-              <h2 class="font-bold text-gray-400 text-2xl">
-                Quantity
-              </h2>
+              <h2 class="font-bold text-gray-400 text-2xl">Quantity</h2>
               <div class="relative inline-block">
-                <input class=" bg-gray-200 rounded-lg p-1 shadow-lg" type="number" min="0" max="1" value="1">
+                <input
+                  class="bg-gray-200 rounded-lg p-1 shadow-lg"
+                  type="number"
+                  min="0"
+                  max="1"
+                  value="1"
+                />
               </div>
             </div>
           </div>
@@ -45,103 +69,98 @@
           </div>
         </div>
       </div>
-      <div class="absolute right-24 cursor-none ">
-        <button @click="checkOut()" class="checkOut font-1 text-xl font-bold p-2 bg-green-300"> CHECKOUT</button>
-      <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
+      <div class="absolute right-24 cursor-none">
+        <button
+          @click="checkOut()"
+          class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
+        >
+          CHECKOUT
+        </button>
+        <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
-    <div v-else class="mt-56 container bg-slate-100 ">
+    <div v-else class="mt-56 container bg-slate-100">
       <LoaderComponent />
     </div>
   </div>
 </template>
 <script>
-import { productsService } from '~~/composables/services/ProductsService.js'
+import { productsService } from "~~/composables/services/ProductsService.js";
 
 export default {
-
-  setup () {
+  setup() {
     onMounted(() => {
       setTimeout(() => {
-        getProductById()
-      }, 0)
-    })
-    const route = useRoute()
+        getProductById();
+      }, 0);
+    });
+    const route = useRoute();
 
-    async function getProductById () {
+    async function getProductById() {
       try {
-        logger.log(route.params.id)
-        await productsService.getProductById(route.params.id)
+        logger.log(route.params.id);
+        await productsService.getProductById(route.params.id);
       } catch (error) {
-        logger.log(error)
+        logger.log(error);
       }
     }
 
-
-
-    // async function clearCart () {
-
-    // }
-    // console.log(route.params.id);
     return {
       route,
-      activeProduct: computed(() =>
-        AppState.activeProduct
-      ),
-       async  checkOut(){
+      activeProduct: computed(() => AppState.activeProduct),
+      async checkOut() {
+        const { data } = useFetch("/api/create-checkout-session", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            items: [{ id: this.activeProduct.id, quantity: 1 }],
+          }),
+        })
+          .then((res) => {
+            if (res.ok) return res.json();
+            return res.json().then((json) => Promise.reject(json));
+          })
+          .then(({ url }) => {
+            window.location = url;
+          })
+          .catch((e) => {
+            console.error(e.error);
+          });
 
+        console.log(data);
 
+        // useFetch("http://localhost:3000/create-checkout-session", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({
+        //     items: [
+        //       { id: this.activeProduct.id, quantity: 1 },
+        //     ],
+        //   }),
+        // })
+        //   .then(res => {
+        //     if (res.ok) return res.json()
+        //     return res.json().then(json => Promise.reject(json))
+        //   })
+        //   .then(({ url }) => {
+        //     window.location = url
+        //   })
+        //   .catch(e => {
+        //     console.error(e.error)
+        //   })
+      },
 
- const {data } =useFetch('/api/create-checkout-session',{
-  method:'POST',
-   headers: {
-      "Content-Type": "application/json",
-    },body: JSON.stringify({
-      items: [
-        { id: this.activeProduct.id, quantity: 1 },
-      ],
-    }),
-  })
-.then(res => {
-      if (res.ok) return res.json()
-      return res.json().then(json => Promise.reject(json))
-    })
-    .then(({ url }) => {
-      window.location = url
-    })
-    .catch(e => {
-      console.error(e.error)
-    })
-
-console.log(data);
-
-  // useFetch("http://localhost:3000/create-checkout-session", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({
-  //     items: [
-  //       { id: this.activeProduct.id, quantity: 1 },
-  //     ],
-  //   }),
-  // })
-  //   .then(res => {
-  //     if (res.ok) return res.json()
-  //     return res.json().then(json => Promise.reject(json))
-  //   })
-  //   .then(({ url }) => {
-  //     window.location = url
-  //   })
-  //   .catch(e => {
-  //     console.error(e.error)
-  //   })
-
- }
-
-    }
-  }
-}
+      async addToCart(){
+        const {$trpc } = useNuxtApp()
+        const cart = $trpc.cart.
+      }
+    };
+  },
+};
 </script>
 
 <!-- <script setup>
@@ -168,13 +187,13 @@ const activeProduct = computed(() => AppState.activeProduct)
 </script> -->
 
 <style lang="scss" scoped>
-.product-image{
+.product-image {
   height: auto;
   width: 100% !important;
   object-fit: cover;
-   animation-duration: 1.5s;
+  animation-duration: 1.5s;
   animation-name: slidein;
-border-radius: 8px;
+  border-radius: 8px;
 }
 @keyframes slidein {
   from {

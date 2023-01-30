@@ -7,6 +7,7 @@ const Schema: z.ZodType<Prisma.ProductSumAggregateInputType> = z
   .object({
     id: z.literal(true).optional(),
     price: z.literal(true).optional(),
+    quantity: z.literal(true).optional(),
   })
   .strict();
 

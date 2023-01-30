@@ -5,7 +5,7 @@ import type { Prisma } from '@prisma/client';
 
 const Schema: z.ZodType<Prisma.CartUncheckedCreateWithoutProductsInput> = z
   .object({
-    id: z.string().optional(),
+    id: z.number().optional(),
     userId: z.string().optional().nullable(),
   })
   .strict();

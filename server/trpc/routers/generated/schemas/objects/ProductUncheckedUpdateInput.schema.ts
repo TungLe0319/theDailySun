@@ -4,6 +4,8 @@ import { IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOpera
 import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
+import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
+import { ProductsInCartsUncheckedUpdateManyWithoutProductNestedInputObjectSchema } from './ProductsInCartsUncheckedUpdateManyWithoutProductNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -67,13 +69,19 @@ const Schema: z.ZodType<Prisma.ProductUncheckedUpdateInput> = z
       ])
       .optional()
       .nullable(),
-    cartId: z
+    quantity: z
       .union([
-        z.string(),
-        z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema),
+        z.number(),
+        z.lazy(() => NullableIntFieldUpdateOperationsInputObjectSchema),
       ])
       .optional()
       .nullable(),
+    carts: z
+      .lazy(
+        () =>
+          ProductsInCartsUncheckedUpdateManyWithoutProductNestedInputObjectSchema,
+      )
+      .optional(),
   })
   .strict();
 

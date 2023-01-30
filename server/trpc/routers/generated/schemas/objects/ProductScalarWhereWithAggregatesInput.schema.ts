@@ -4,6 +4,7 @@ import { IntWithAggregatesFilterObjectSchema } from './IntWithAggregatesFilter.s
 import { StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
 import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 import { FloatWithAggregatesFilterObjectSchema } from './FloatWithAggregatesFilter.schema';
+import { IntNullableWithAggregatesFilterObjectSchema } from './IntNullableWithAggregatesFilter.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -68,10 +69,10 @@ const Schema: z.ZodType<Prisma.ProductScalarWhereWithAggregatesInput> = z
       ])
       .optional()
       .nullable(),
-    cartId: z
+    quantity: z
       .union([
-        z.lazy(() => StringNullableWithAggregatesFilterObjectSchema),
-        z.string(),
+        z.lazy(() => IntNullableWithAggregatesFilterObjectSchema),
+        z.number(),
       ])
       .optional()
       .nullable(),

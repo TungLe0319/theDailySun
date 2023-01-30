@@ -26,19 +26,7 @@ model Post {
   authorId  Int
 }
 
-model Product {
-  id          Int     @id @default(autoincrement())
-  title       String
-  description String?
-  price       Float
-  img         String
-  stripe      String
-  productImg  String?
-  type        String?
-  audience    String?
-     cart Cart? @relation(fields: [cartId], references: [id])
-    cartId String?
-}
+
 /// @@Gen.model(hide: true)
 model Account {
   id                String  @id @default(cuid())
@@ -87,11 +75,36 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+model Product {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+  price       Float
+  img         String
+  stripe      String
+  productImg  String?
+  type        String?
+  audience    String?
+   quantity Int? @default(100)
+     carts ProductsInCarts[]
+}
 
 
 model Cart {
-    id String @id() @default(cuid())
-    products Product[]
+    id          Int     @id @default(autoincrement())
+    products ProductsInCarts[]
     user User? @relation(fields: [userId], references: [id])
     userId String? @unique
 }
+
+
+model ProductsInCarts {
+   id Int @id @default(autoincrement())
+ product   Product? @relation(fields: [productId], references: [id])
+  productId Int
+ cart   Cart? @relation(fields: [cartId], references: [id])
+  cartId Int
+  quantity Int
+
+}
+

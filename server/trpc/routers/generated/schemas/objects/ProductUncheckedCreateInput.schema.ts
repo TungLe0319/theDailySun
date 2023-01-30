@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { z } from 'zod';
+import { ProductsInCartsUncheckedCreateNestedManyWithoutProductInputObjectSchema } from './ProductsInCartsUncheckedCreateNestedManyWithoutProductInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -14,7 +15,13 @@ const Schema: z.ZodType<Prisma.ProductUncheckedCreateInput> = z
     productImg: z.string().optional().nullable(),
     type: z.string().optional().nullable(),
     audience: z.string().optional().nullable(),
-    cartId: z.string().optional().nullable(),
+    quantity: z.number().optional().nullable(),
+    carts: z
+      .lazy(
+        () =>
+          ProductsInCartsUncheckedCreateNestedManyWithoutProductInputObjectSchema,
+      )
+      .optional(),
   })
   .strict();
 

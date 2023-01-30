@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { z } from 'zod';
-import { StringWithAggregatesFilterObjectSchema } from './StringWithAggregatesFilter.schema';
+import { IntWithAggregatesFilterObjectSchema } from './IntWithAggregatesFilter.schema';
 import { StringNullableWithAggregatesFilterObjectSchema } from './StringNullableWithAggregatesFilter.schema';
 
 import type { Prisma } from '@prisma/client';
@@ -24,7 +24,7 @@ const Schema: z.ZodType<Prisma.CartScalarWhereWithAggregatesInput> = z
       ])
       .optional(),
     id: z
-      .union([z.lazy(() => StringWithAggregatesFilterObjectSchema), z.string()])
+      .union([z.lazy(() => IntWithAggregatesFilterObjectSchema), z.number()])
       .optional(),
     userId: z
       .union([

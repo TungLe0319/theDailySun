@@ -3,7 +3,8 @@ import { z } from 'zod';
 import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
-import { CartUpdateOneWithoutProductsNestedInputObjectSchema } from './CartUpdateOneWithoutProductsNestedInput.schema';
+import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
+import { ProductsInCartsUpdateManyWithoutProductNestedInputObjectSchema } from './ProductsInCartsUpdateManyWithoutProductNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -61,8 +62,17 @@ const Schema: z.ZodType<Prisma.ProductUpdateInput> = z
       ])
       .optional()
       .nullable(),
-    cart: z
-      .lazy(() => CartUpdateOneWithoutProductsNestedInputObjectSchema)
+    quantity: z
+      .union([
+        z.number(),
+        z.lazy(() => NullableIntFieldUpdateOperationsInputObjectSchema),
+      ])
+      .optional()
+      .nullable(),
+    carts: z
+      .lazy(
+        () => ProductsInCartsUpdateManyWithoutProductNestedInputObjectSchema,
+      )
       .optional(),
   })
   .strict();

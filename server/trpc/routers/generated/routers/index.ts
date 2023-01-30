@@ -5,9 +5,10 @@ import { createRouterFactory } from "@trpc/server/dist/core/router";
 import { createBuilder } from "@trpc/server/dist/core/internals/procedureBuilder";
 import createExampleRouter from "./Example.router";
 import createPostRouter from "./Post.router";
-import createProductRouter from "./Product.router";
 import createUserRouter from "./User.router";
+import createProductRouter from "./Product.router";
 import createCartRouter from "./Cart.router";
+import createProductsInCartsRouter from "./ProductsInCarts.router";
 
 export type BaseConfig = AnyRootConfig;
 
@@ -30,9 +31,10 @@ export function createRouter<Config extends BaseConfig>(router: RouterFactory<Co
     return router({
         example: createExampleRouter<Config>(router, procedure),
         post: createPostRouter<Config>(router, procedure),
-        product: createProductRouter<Config>(router, procedure),
         user: createUserRouter<Config>(router, procedure),
+        product: createProductRouter<Config>(router, procedure),
         cart: createCartRouter<Config>(router, procedure),
+        productsInCarts: createProductsInCartsRouter<Config>(router, procedure),
     }
     );
 }
