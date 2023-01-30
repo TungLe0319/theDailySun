@@ -71,7 +71,7 @@
       </div>
       <div class="absolute right-24 cursor-none">
         <button
-          @click="addToCart()"
+          @click="addToCart(activeProduct?.id)"
           class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
         >
          AddToCart
@@ -164,7 +164,7 @@ account:{},
         //   })
       },
 
-    async addToCart(productId, cartId){
+    async addToCart(productId){
   const {$trpc } = useNuxtApp()
   const cart = await $trpc.productsInCarts.create.mutate({
     data:{
@@ -175,11 +175,15 @@ account:{},
       },
       cart: {
         connect: {
-          id: cartId
+          id: AppState.userCart.id
         }
-      }
+      },
+      quantity:1
     }
   })
+
+  return cart
+
 }
     };
   },

@@ -24,6 +24,7 @@ const { data } = useSession()
       setTimeout(() => {
 
         getAccount()
+        getUserCart()
       }, 0);
     });
 
@@ -34,17 +35,17 @@ email:data.value.user.email,
 name: data.value.user.name
         }})
 
-console.log(account);
+
 
 AppState.account = account
-console.log(account);
+
    }
  async function getUserCart(){
      const {$trpc } = useNuxtApp()
-        let account = await  $trpc.user.findFirst.query({where:{
-email:data.value.user.email,
-name: data.value.user.name
+        let cart = await  $trpc.cart.findFirst.query({where:{
+userId: AppState.account.id
         }})
+AppState.userCart = cart
 
    }
     return {
