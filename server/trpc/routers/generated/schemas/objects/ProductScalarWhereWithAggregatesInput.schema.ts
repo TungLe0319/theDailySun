@@ -76,6 +76,13 @@ const Schema: z.ZodType<Prisma.ProductScalarWhereWithAggregatesInput> = z
       ])
       .optional()
       .nullable(),
+    cartId: z
+      .union([
+        z.lazy(() => IntNullableWithAggregatesFilterObjectSchema),
+        z.number(),
+      ])
+      .optional()
+      .nullable(),
   })
   .strict();
 

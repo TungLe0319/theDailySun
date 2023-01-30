@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { z } from 'zod';
-import { ProductsInCartsSchema } from '../ProductsInCarts.schema';
+import { ProductSchema } from '../Product.schema';
 import { UserArgsObjectSchema } from './UserArgs.schema';
 import { CartCountOutputTypeArgsObjectSchema } from './CartCountOutputTypeArgs.schema';
 
@@ -10,7 +10,7 @@ const Schema: z.ZodType<Prisma.CartSelect> = z
   .object({
     id: z.boolean().optional(),
     products: z
-      .union([z.boolean(), z.lazy(() => ProductsInCartsSchema.findMany)])
+      .union([z.boolean(), z.lazy(() => ProductSchema.findMany)])
       .optional(),
     user: z.union([z.boolean(), z.lazy(() => UserArgsObjectSchema)]).optional(),
     userId: z.boolean().optional(),

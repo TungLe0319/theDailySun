@@ -70,13 +70,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <button
-          @click="addToCart(activeProduct?.id)"
-          class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
-        >
-         AddToCart
-        </button>
-
+<AddToCart :productId="activeProduct.id" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -164,28 +158,7 @@ account:{},
         //   })
       },
 
-    async addToCart(productId){
-  const {$trpc } = useNuxtApp()
-  const cart = await $trpc.productsInCarts.create.mutate({
-    data:{
-      product: {
-        connect: {
-          id: productId
-        }
-      },
-      cart: {
-        connect: {
-          id: AppState.userCart.id
-        }
-      },
-      quantity:1
-    }
-  })
-pop.success(`Added ${AppState.activeProduct.title} to your cart`)
-logger.log(cart)
-  return cart
 
-}
     };
   },
 };

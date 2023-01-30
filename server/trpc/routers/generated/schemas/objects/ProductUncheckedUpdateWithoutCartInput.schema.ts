@@ -1,15 +1,21 @@
 /* eslint-disable */
 import { z } from 'zod';
+import { IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';
 import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
 import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
-import { CartUpdateOneWithoutProductsNestedInputObjectSchema } from './CartUpdateOneWithoutProductsNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
-const Schema: z.ZodType<Prisma.ProductUpdateInput> = z
+const Schema: z.ZodType<Prisma.ProductUncheckedUpdateWithoutCartInput> = z
   .object({
+    id: z
+      .union([
+        z.number(),
+        z.lazy(() => IntFieldUpdateOperationsInputObjectSchema),
+      ])
+      .optional(),
     title: z
       .union([
         z.string(),
@@ -69,10 +75,7 @@ const Schema: z.ZodType<Prisma.ProductUpdateInput> = z
       ])
       .optional()
       .nullable(),
-    cart: z
-      .lazy(() => CartUpdateOneWithoutProductsNestedInputObjectSchema)
-      .optional(),
   })
   .strict();
 
-export const ProductUpdateInputObjectSchema = Schema;
+export const ProductUncheckedUpdateWithoutCartInputObjectSchema = Schema;

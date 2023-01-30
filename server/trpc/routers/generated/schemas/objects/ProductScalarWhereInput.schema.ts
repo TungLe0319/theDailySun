@@ -5,27 +5,25 @@ import { StringFilterObjectSchema } from './StringFilter.schema';
 import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { FloatFilterObjectSchema } from './FloatFilter.schema';
 import { IntNullableFilterObjectSchema } from './IntNullableFilter.schema';
-import { CartRelationFilterObjectSchema } from './CartRelationFilter.schema';
-import { CartWhereInputObjectSchema } from './CartWhereInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
-const Schema: z.ZodType<Prisma.ProductWhereInput> = z
+const Schema: z.ZodType<Prisma.ProductScalarWhereInput> = z
   .object({
     AND: z
       .union([
-        z.lazy(() => ProductWhereInputObjectSchema),
-        z.lazy(() => ProductWhereInputObjectSchema).array(),
+        z.lazy(() => ProductScalarWhereInputObjectSchema),
+        z.lazy(() => ProductScalarWhereInputObjectSchema).array(),
       ])
       .optional(),
     OR: z
-      .lazy(() => ProductWhereInputObjectSchema)
+      .lazy(() => ProductScalarWhereInputObjectSchema)
       .array()
       .optional(),
     NOT: z
       .union([
-        z.lazy(() => ProductWhereInputObjectSchema),
-        z.lazy(() => ProductWhereInputObjectSchema).array(),
+        z.lazy(() => ProductScalarWhereInputObjectSchema),
+        z.lazy(() => ProductScalarWhereInputObjectSchema).array(),
       ])
       .optional(),
     id: z.union([z.lazy(() => IntFilterObjectSchema), z.number()]).optional(),
@@ -65,14 +63,7 @@ const Schema: z.ZodType<Prisma.ProductWhereInput> = z
       .union([z.lazy(() => IntNullableFilterObjectSchema), z.number()])
       .optional()
       .nullable(),
-    cart: z
-      .union([
-        z.lazy(() => CartRelationFilterObjectSchema),
-        z.lazy(() => CartWhereInputObjectSchema),
-      ])
-      .optional()
-      .nullable(),
   })
   .strict();
 
-export const ProductWhereInputObjectSchema = Schema;
+export const ProductScalarWhereInputObjectSchema = Schema;

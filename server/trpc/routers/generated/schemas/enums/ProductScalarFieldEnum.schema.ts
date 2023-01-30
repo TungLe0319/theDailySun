@@ -12,4 +12,5 @@ export const ProductScalarFieldEnumSchema = z.enum([
   'type',
   'audience',
   'quantity',
+  'cartId',
 ]);

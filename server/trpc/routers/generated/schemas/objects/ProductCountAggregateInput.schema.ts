@@ -15,6 +15,7 @@ const Schema: z.ZodType<Prisma.ProductCountAggregateInputType> = z
     type: z.literal(true).optional(),
     audience: z.literal(true).optional(),
     quantity: z.literal(true).optional(),
+    cartId: z.literal(true).optional(),
     _all: z.literal(true).optional(),
   })
   .strict();

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { z } from 'zod';
-import { ProductsInCartsUpdateManyWithoutCartNestedInputObjectSchema } from './ProductsInCartsUpdateManyWithoutCartNestedInput.schema';
+import { ProductUpdateManyWithoutCartNestedInputObjectSchema } from './ProductUpdateManyWithoutCartNestedInput.schema';
 import { UserUpdateOneWithoutCartNestedInputObjectSchema } from './UserUpdateOneWithoutCartNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
@@ -8,7 +8,7 @@ import type { Prisma } from '@prisma/client';
 const Schema: z.ZodType<Prisma.CartUpdateInput> = z
   .object({
     products: z
-      .lazy(() => ProductsInCartsUpdateManyWithoutCartNestedInputObjectSchema)
+      .lazy(() => ProductUpdateManyWithoutCartNestedInputObjectSchema)
       .optional(),
     user: z
       .lazy(() => UserUpdateOneWithoutCartNestedInputObjectSchema)

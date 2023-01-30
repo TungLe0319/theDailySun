@@ -8,6 +8,7 @@ const Schema: z.ZodType<Prisma.ProductAvgAggregateInputType> = z
     id: z.literal(true).optional(),
     price: z.literal(true).optional(),
     quantity: z.literal(true).optional(),
+    cartId: z.literal(true).optional(),
   })
   .strict();
 

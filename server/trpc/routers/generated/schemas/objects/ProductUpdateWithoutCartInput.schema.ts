@@ -4,11 +4,10 @@ import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdat
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { FloatFieldUpdateOperationsInputObjectSchema } from './FloatFieldUpdateOperationsInput.schema';
 import { NullableIntFieldUpdateOperationsInputObjectSchema } from './NullableIntFieldUpdateOperationsInput.schema';
-import { CartUpdateOneWithoutProductsNestedInputObjectSchema } from './CartUpdateOneWithoutProductsNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
-const Schema: z.ZodType<Prisma.ProductUpdateInput> = z
+const Schema: z.ZodType<Prisma.ProductUpdateWithoutCartInput> = z
   .object({
     title: z
       .union([
@@ -69,10 +68,7 @@ const Schema: z.ZodType<Prisma.ProductUpdateInput> = z
       ])
       .optional()
       .nullable(),
-    cart: z
-      .lazy(() => CartUpdateOneWithoutProductsNestedInputObjectSchema)
-      .optional(),
   })
   .strict();
 
-export const ProductUpdateInputObjectSchema = Schema;
+export const ProductUpdateWithoutCartInputObjectSchema = Schema;

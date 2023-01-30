@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { z } from 'zod';
 import { IntFilterObjectSchema } from './IntFilter.schema';
-import { ProductsInCartsListRelationFilterObjectSchema } from './ProductsInCartsListRelationFilter.schema';
+import { ProductListRelationFilterObjectSchema } from './ProductListRelationFilter.schema';
 import { UserRelationFilterObjectSchema } from './UserRelationFilter.schema';
 import { UserWhereInputObjectSchema } from './UserWhereInput.schema';
 import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
@@ -27,9 +27,7 @@ const Schema: z.ZodType<Prisma.CartWhereInput> = z
       ])
       .optional(),
     id: z.union([z.lazy(() => IntFilterObjectSchema), z.number()]).optional(),
-    products: z
-      .lazy(() => ProductsInCartsListRelationFilterObjectSchema)
-      .optional(),
+    products: z.lazy(() => ProductListRelationFilterObjectSchema).optional(),
     user: z
       .union([
         z.lazy(() => UserRelationFilterObjectSchema),

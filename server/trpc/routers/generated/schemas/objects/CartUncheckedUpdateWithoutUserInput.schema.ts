@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { z } from 'zod';
 import { IntFieldUpdateOperationsInputObjectSchema } from './IntFieldUpdateOperationsInput.schema';
-import { ProductsInCartsUncheckedUpdateManyWithoutCartNestedInputObjectSchema } from './ProductsInCartsUncheckedUpdateManyWithoutCartNestedInput.schema';
+import { ProductUncheckedUpdateManyWithoutCartNestedInputObjectSchema } from './ProductUncheckedUpdateManyWithoutCartNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -14,10 +14,7 @@ const Schema: z.ZodType<Prisma.CartUncheckedUpdateWithoutUserInput> = z
       ])
       .optional(),
     products: z
-      .lazy(
-        () =>
-          ProductsInCartsUncheckedUpdateManyWithoutCartNestedInputObjectSchema,
-      )
+      .lazy(() => ProductUncheckedUpdateManyWithoutCartNestedInputObjectSchema)
       .optional(),
   })
   .strict();
