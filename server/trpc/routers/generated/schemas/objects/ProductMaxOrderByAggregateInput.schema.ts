@@ -15,6 +15,7 @@ const Schema: z.ZodType<Prisma.ProductMaxOrderByAggregateInput> = z
     productImg: z.lazy(() => SortOrderSchema).optional(),
     type: z.lazy(() => SortOrderSchema).optional(),
     audience: z.lazy(() => SortOrderSchema).optional(),
+    cartId: z.lazy(() => SortOrderSchema).optional(),
   })
   .strict();
 

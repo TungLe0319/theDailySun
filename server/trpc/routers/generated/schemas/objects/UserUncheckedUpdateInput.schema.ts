@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { StringFieldUpdateOperationsInputObjectSchema } from './StringFieldUpdateOperationsInput.schema';
 import { NullableStringFieldUpdateOperationsInputObjectSchema } from './NullableStringFieldUpdateOperationsInput.schema';
 import { NullableDateTimeFieldUpdateOperationsInputObjectSchema } from './NullableDateTimeFieldUpdateOperationsInput.schema';
+import { CartUncheckedUpdateOneWithoutUserNestedInputObjectSchema } from './CartUncheckedUpdateOneWithoutUserNestedInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -42,6 +43,9 @@ const Schema: z.ZodType<Prisma.UserUncheckedUpdateInput> = z
       ])
       .optional()
       .nullable(),
+    cart: z
+      .lazy(() => CartUncheckedUpdateOneWithoutUserNestedInputObjectSchema)
+      .optional(),
   })
   .strict();
 

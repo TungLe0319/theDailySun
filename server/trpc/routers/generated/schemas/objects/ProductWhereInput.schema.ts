@@ -4,6 +4,8 @@ import { IntFilterObjectSchema } from './IntFilter.schema';
 import { StringFilterObjectSchema } from './StringFilter.schema';
 import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { FloatFilterObjectSchema } from './FloatFilter.schema';
+import { CartRelationFilterObjectSchema } from './CartRelationFilter.schema';
+import { CartWhereInputObjectSchema } from './CartWhereInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -51,6 +53,17 @@ const Schema: z.ZodType<Prisma.ProductWhereInput> = z
       .optional()
       .nullable(),
     audience: z
+      .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
+      .optional()
+      .nullable(),
+    cart: z
+      .union([
+        z.lazy(() => CartRelationFilterObjectSchema),
+        z.lazy(() => CartWhereInputObjectSchema),
+      ])
+      .optional()
+      .nullable(),
+    cartId: z
       .union([z.lazy(() => StringNullableFilterObjectSchema), z.string()])
       .optional()
       .nullable(),

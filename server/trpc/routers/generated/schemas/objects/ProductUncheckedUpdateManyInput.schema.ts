@@ -67,6 +67,13 @@ const Schema: z.ZodType<Prisma.ProductUncheckedUpdateManyInput> = z
       ])
       .optional()
       .nullable(),
+    cartId: z
+      .union([
+        z.string(),
+        z.lazy(() => NullableStringFieldUpdateOperationsInputObjectSchema),
+      ])
+      .optional()
+      .nullable(),
   })
   .strict();
 

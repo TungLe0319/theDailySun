@@ -3,6 +3,8 @@ import { z } from 'zod';
 import { StringFilterObjectSchema } from './StringFilter.schema';
 import { StringNullableFilterObjectSchema } from './StringNullableFilter.schema';
 import { DateTimeNullableFilterObjectSchema } from './DateTimeNullableFilter.schema';
+import { CartRelationFilterObjectSchema } from './CartRelationFilter.schema';
+import { CartWhereInputObjectSchema } from './CartWhereInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -41,6 +43,13 @@ const Schema: z.ZodType<Prisma.UserWhereInput> = z
       .nullable(),
     emailVerified: z
       .union([z.lazy(() => DateTimeNullableFilterObjectSchema), z.date()])
+      .optional()
+      .nullable(),
+    cart: z
+      .union([
+        z.lazy(() => CartRelationFilterObjectSchema),
+        z.lazy(() => CartWhereInputObjectSchema),
+      ])
       .optional()
       .nullable(),
   })

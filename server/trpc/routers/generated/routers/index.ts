@@ -7,6 +7,7 @@ import createExampleRouter from "./Example.router";
 import createPostRouter from "./Post.router";
 import createProductRouter from "./Product.router";
 import createUserRouter from "./User.router";
+import createCartRouter from "./Cart.router";
 
 export type BaseConfig = AnyRootConfig;
 
@@ -31,6 +32,7 @@ export function createRouter<Config extends BaseConfig>(router: RouterFactory<Co
         post: createPostRouter<Config>(router, procedure),
         product: createProductRouter<Config>(router, procedure),
         user: createUserRouter<Config>(router, procedure),
+        cart: createCartRouter<Config>(router, procedure),
     }
     );
 }

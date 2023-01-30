@@ -14,6 +14,7 @@ const Schema: z.ZodType<Prisma.ProductUncheckedCreateInput> = z
     productImg: z.string().optional().nullable(),
     type: z.string().optional().nullable(),
     audience: z.string().optional().nullable(),
+    cartId: z.string().optional().nullable(),
   })
   .strict();
 

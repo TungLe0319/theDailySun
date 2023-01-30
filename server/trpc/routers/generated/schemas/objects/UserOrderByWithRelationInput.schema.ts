@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { z } from 'zod';
 import { SortOrderSchema } from '../enums/SortOrder.schema';
+import { CartOrderByWithRelationInputObjectSchema } from './CartOrderByWithRelationInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -11,6 +12,7 @@ const Schema: z.ZodType<Prisma.UserOrderByWithRelationInput> = z
     name: z.lazy(() => SortOrderSchema).optional(),
     image: z.lazy(() => SortOrderSchema).optional(),
     emailVerified: z.lazy(() => SortOrderSchema).optional(),
+    cart: z.lazy(() => CartOrderByWithRelationInputObjectSchema).optional(),
   })
   .strict();
 

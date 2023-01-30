@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { z } from 'zod';
 import { ProductSelectObjectSchema } from './objects/ProductSelect.schema';
+import { ProductIncludeObjectSchema } from './objects/ProductInclude.schema';
 import { ProductWhereUniqueInputObjectSchema } from './objects/ProductWhereUniqueInput.schema';
 import { ProductWhereInputObjectSchema } from './objects/ProductWhereInput.schema';
 import { ProductOrderByWithRelationInputObjectSchema } from './objects/ProductOrderByWithRelationInput.schema';
@@ -20,10 +21,12 @@ import { ProductScalarWhereWithAggregatesInputObjectSchema } from './objects/Pro
 export const ProductSchema = {
   findUnique: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     where: ProductWhereUniqueInputObjectSchema,
   }),
   findFirst: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     where: ProductWhereInputObjectSchema.optional(),
     orderBy: z
       .union([
@@ -38,6 +41,7 @@ export const ProductSchema = {
   }),
   findMany: z.object({
     select: z.lazy(() => ProductSelectObjectSchema.optional()),
+    include: z.lazy(() => ProductIncludeObjectSchema.optional()),
     where: ProductWhereInputObjectSchema.optional(),
     orderBy: z
       .union([
@@ -52,16 +56,19 @@ export const ProductSchema = {
   }),
   create: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     data: ProductCreateInputObjectSchema,
   }),
   createMany: z.object({ data: ProductCreateManyInputObjectSchema }),
   delete: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     where: ProductWhereUniqueInputObjectSchema,
   }),
   deleteMany: z.object({ where: ProductWhereInputObjectSchema.optional() }),
   update: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     data: ProductUpdateInputObjectSchema,
     where: ProductWhereUniqueInputObjectSchema,
   }),
@@ -71,6 +78,7 @@ export const ProductSchema = {
   }),
   upsert: z.object({
     select: ProductSelectObjectSchema.optional(),
+    include: ProductIncludeObjectSchema.optional(),
     where: ProductWhereUniqueInputObjectSchema,
     create: ProductCreateInputObjectSchema,
     update: ProductUpdateInputObjectSchema,

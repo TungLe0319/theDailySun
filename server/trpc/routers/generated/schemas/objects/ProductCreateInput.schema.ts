@@ -1,5 +1,6 @@
 /* eslint-disable */
 import { z } from 'zod';
+import { CartCreateNestedOneWithoutProductsInputObjectSchema } from './CartCreateNestedOneWithoutProductsInput.schema';
 
 import type { Prisma } from '@prisma/client';
 
@@ -13,6 +14,9 @@ const Schema: z.ZodType<Prisma.ProductCreateInput> = z
     productImg: z.string().optional().nullable(),
     type: z.string().optional().nullable(),
     audience: z.string().optional().nullable(),
+    cart: z
+      .lazy(() => CartCreateNestedOneWithoutProductsInputObjectSchema)
+      .optional(),
   })
   .strict();
 
