@@ -25,15 +25,15 @@ productId:{typeof: String}
 
 
           async addToCart(productId){
-  const {$trpc } = useNuxtApp()
 
 
-let cart = await $trpc.cart.findUnique.useQuery({
+
+let cart = await zen.cart.findUnique.useQuery({
   where:{userId: AppState.account.id }
 })
 
  if (!cart) {
-   cart = await $trpc.cart.create.mutate({
+   cart = await zen.cart.create.mutate({
     data:{
       products: {
         create: {
