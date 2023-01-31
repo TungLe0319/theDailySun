@@ -4,6 +4,12 @@ class CartService {
 
   async addToCart(productId) {
     const { $trpc } = useNuxtApp();
+
+    // let cart = await useFetch('/api/cart',{
+    //   method:"POST",
+
+    // })
+
     let cart = await $trpc.cart.findUnique.useQuery({
       where: { userId: AppState.account.id },
     });
