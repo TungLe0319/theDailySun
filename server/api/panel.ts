@@ -1,6 +1,6 @@
 import { renderTrpcPanel } from 'trpc-panel'
-import { appRouter } from '../trpc/trpc'
-// import { appRouter } from '../trpc/routers'
+
+import { appRouter } from '../trpc/routers'
 
 export default defineEventHandler((_event) => {
   return renderTrpcPanel(appRouter, {

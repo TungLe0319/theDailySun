@@ -11,12 +11,12 @@ class ProductsService {
     }
   }
 
-  async addProduct (productData) {
-    try {
-      // const product = await trpc.product.create.mutate()
-    } catch (error) {
-      Pop.error(error)
-    }
-  }
+  // async addProduct (productData) {
+  //   try {
+  //     // const product = await trpc.product.create.mutate()
+  //   } catch (error) {
+  //     Pop.error(error)
+  //   }
+  // }
 }
 export const productsService = new ProductsService()
