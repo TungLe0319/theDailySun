@@ -1,5 +1,5 @@
 import Pop from './Pop'
-const { $trpc: trpc } = useNuxtApp()
+// const { $trpc: trpc } = useNuxtApp()
 class ProductsService {
   //
   async getProductById (id) {

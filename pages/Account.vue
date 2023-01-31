@@ -76,9 +76,7 @@
 <script>
 export default {
   setup () {
-    onMounted(() => {
-
-    })
+   const userStore()
 
     return {
 

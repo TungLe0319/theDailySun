@@ -4,8 +4,14 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
-    '@vueuse/nuxt'
+    '@vueuse/nuxt',
+    ['@pinia/nuxt', {
+      autoImports: ['defineStore', 'acceptHMRUpdate']
+    }]
   ],
+  imports: {
+    dirs: ['stores']
+  },
   build: {
     transpile: ['trpc-nuxt']
   },
