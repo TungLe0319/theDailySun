@@ -1,13 +1,9 @@
-import stripe from 'stripe'
+// import stripe from 'stripe'
 
-
-const stripeClient = stripe(process.env.STRIPE_PRIVATE_KEY)
-
+// const stripeClient = stripe(process.env.STRIPE_PRIVATE_KEY)
 
 export default defineEventHandler((event) => {
-
-
-
+  return event
   // async post({ request, response }) {
   //   try {
   //     const session = await stripeClient.checkout.sessions.create({
@@ -35,6 +31,4 @@ export default defineEventHandler((event) => {
   //     response.status(500).json({ error: e.message });
   //   }
   // },
-
-});
-
+})
