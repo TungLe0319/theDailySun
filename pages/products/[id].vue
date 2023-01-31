@@ -1,8 +1,8 @@
 <template>
-  <div class="my-44 ">
+  <div class="my-44">
     <div
       v-if="activeProduct"
-      class=" text-black p-5 bg-slate-300 py-44  relative"
+      class="text-black p-5 bg-slate-300 py-44 relative"
     >
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 h-full justify-center flex">
@@ -10,7 +10,7 @@
             :src="activeProduct.img"
             alt=""
             class="shadow-lg shadow-slate-400 product-image rounded-sm"
-          />
+          >
         </div>
         <div class="w-full md:w-1/2 p-5 px-14">
           <div class="">
@@ -20,12 +20,14 @@
               </h1>
               <div class="absolute right-0 bottom-0">
                 <h1
-                  class="text-8xl opacity-10 font-bold"
                   v-if="activeProduct.audience == 'Female'"
+                  class="text-8xl opacity-10 font-bold"
                 >
                   WOMEN
                 </h1>
-                <h1 class="text-8xl opacity-10 font-bold" v-else>Men</h1>
+                <h1 v-else class="text-8xl opacity-10 font-bold">
+                  Men
+                </h1>
               </div>
             </div>
           </div>
@@ -47,10 +49,12 @@
                 alt="checkout Icon"
                 width="40"
                 class="checkOut-icon"
-              />
+              >
             </a>
             <div class="">
-              <h2 class="font-bold text-gray-400 text-2xl">Quantity</h2>
+              <h2 class="font-bold text-gray-400 text-2xl">
+                Quantity
+              </h2>
               <div class="relative inline-block">
                 <input
                   class="bg-gray-200 rounded-lg p-1 shadow-lg"
@@ -58,7 +62,7 @@
                   min="0"
                   max="1"
                   value="1"
-                />
+                >
               </div>
             </div>
           </div>
@@ -70,7 +74,11 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
+<<<<<<< HEAD
 <AddToCart :productId="activeProduct.id" v-if="activeProduct" />
+=======
+        <AddToCart :product-id="activeProduct.id" />
+>>>>>>> bb549a1 (server rework)
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -87,7 +95,7 @@ export default {
     setup() {
         const route = useRoute();
         const { data } = useSession();
-        
+
         onMounted(() => {
             setTimeout(() => {
                 getProductById();
