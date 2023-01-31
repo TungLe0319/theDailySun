@@ -7,7 +7,14 @@
   </div>
 </template>
 
-<script>
+<script setup>
+import { accountsService } from './composables/services/AccountsService'
+
+const getAccount = () => {
+  accountsService.getAccount()
+}
+getAccount()
+
 // import { cartService } from "./composables/services/CartService.js";
 
 import { cartService } from "./composables/services/CartService.js"
