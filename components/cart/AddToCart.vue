@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import {cartService} from '../../composables/services/CartService.js'
 export default {
   props: {
     productId: { typeof: String },
@@ -18,52 +19,14 @@ export default {
 
     return {
       async addToCart(productId) {
-const {$trpc} = useNuxtApp()
-        let cart = await $trpc.cart.findUnique.useQuery({
-          where: { userId: AppState.account.id },
-        });
 
-        if (!cart) {
-          cart = await $trpc.cart.create.mutate({
-            data: {
-              products: {
-                connect: {
+  try {
+    await cartService.addToCart(productId)
+ pop.success(`Added ${AppState.activeProduct.title} to your cart`);
 
-                  productId: productId,
-                },
-              },
-              user: {
-                connect: {
-                  id: AppState.account.id,
-                },
-              },
-            },
-          });
-          pop.success(`Added ${AppState.activeProduct.title} to your cart`);
-        }
-        else {
-          cart = await $trpc.cart.update.mutate({
-            where: {
-              userId: AppState.account.id
-            },
-            data: {
-              products: {
-               connect:{
-                id: AppState.activeProduct.id
-               },
-               update:{
-                data:{quantity:{
-                  increment:1
-                } },
-                 where:{ id: AppState.activeProduct.id}
-               }
-              },
-            },
-          });
-
-        }
-   pop.success(`Added ${AppState.activeProduct.title} to your cart`);
-
+  } catch (error) {
+    logger.log(error)
+  }
       },
     };
   },

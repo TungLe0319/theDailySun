@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { cartService } from "~~/composables/services/CartService.js";
+
 export default {
   props: {
     product: { typeof: Object },
@@ -19,23 +21,10 @@ export default {
       async RemoveFromCart(product) {
         try {
 
-    let cart = await $trpc.cart.findUnique.useQuery({
-           where: { userId: AppState.account.id },
-        });
+          await cartService.removeFromCart(product)
 
-        let deleted =  await $trpc.cart.update.mutate({
-             where: { id:cart.data.value.id },
-            data:{
-              products:{
-                delete:{
-                  id:product.id
-                }
-              }
-            }
-
-          })
           pop.success('deleted')
-          logger.log(deleted)
+
         } catch (error) {
           logger.log(error);
         }

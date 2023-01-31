@@ -5,7 +5,7 @@
     <div class="ml-4">
 <h1 class="text-lg">{{product.title}}</h1>
 <h2 class="text-md font-bold text-gray-600">{{product.audience}}</h2>
-
+<RemoveFromCart :product="product" />
     </div>
   </div>
     <div class="flex    gap-x-20">
@@ -20,6 +20,8 @@
 
 
 <script>
+import RemoveFromCart from "./RemoveFromCart.vue";
+
 
 
 
@@ -30,7 +32,7 @@ export default {
     setup() {
         return {};
     },
-    components: { }
+    components: { RemoveFromCart }
 }
 </script>
 
