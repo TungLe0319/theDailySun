@@ -96,7 +96,7 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         getProductById()
-        getAccount()
+   
       }, 0)
     })
     async function getProductById () {
