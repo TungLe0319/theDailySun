@@ -13,6 +13,8 @@ mplate>
 
 
 <script>
+import { cartService } from "./composables/services/CartService.js";
+
 export default {
 
 
@@ -24,7 +26,7 @@ const { data } = useSession()
       setTimeout(() => {
 
         getAccount()
-        getUserCart()
+        getCartByUserId()
       }, 0);
     });
 
@@ -40,13 +42,12 @@ name: data.value.user.name
 AppState.account = account
 
    }
- async function getUserCart(){
-     const {$trpc } = useNuxtApp()
-        let cart = await  $trpc.cart.findFirst.query({where:{
-userId: AppState.account.id
-        }})
-AppState.userCart = cart
-
+ async function getCartByUserId(){
+  try {
+    await cartService.getCartByUserId()
+  } catch (error) {
+    logger.log(error)
+  }
    }
     return {
 

@@ -5,6 +5,7 @@ class CartService {
   async addToCart(productId) {
     const { $trpc } = useNuxtApp();
 
+
     // let cart = await useFetch('/api/cart',{
     //   method:"POST",
 
@@ -55,37 +56,14 @@ class CartService {
   }
 
   async removeFromCart(product){
-   let cart = await $trpc.cart.findUnique.useQuery({
-     where: { userId: AppState.account.id },
-   });
-
- if (cart) {
-  await $trpc.cart.update.mutate({
-    where: { id: cart.data.value.id },
-    data: {
-      products: {
-        delete: {
-          id: product.id,
-        },
-      },
-    },
-  });
-
-  AppState.userCart.products = AppState.userCart.products.filter(
-    (p) => p.id != product.id
-  );
- }
+  // await useFetch('/')
 
   }
 
-  async getCartByUserId(){
-      let cart = await $trpc.cart.findUnique.useQuery({
-        where: { userId: AppState.account.id },
-      });
-      if (!cart) {
-    logger.log('bad id')
-      }
-      return cart
+  async getCartByUserId(id){
+   const res = useFetch(`/api/cart/${id}`)
+   logger.log(res.data)
+      // return cart
   }
 
 }
