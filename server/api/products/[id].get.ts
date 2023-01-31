@@ -1,12 +1,12 @@
 
 export default defineEventHandler((event) => {
-  // const prisma = event.context.prisma
-  const productId = getRouterParams(event)
-  // const product = await prisma.product.findUnique({
-  //   where: {
-  //     id: productId
-  //   }
-  // })
+  const prisma = event.context.prisma
+  const { id } = getRouterParams(event)
+  const product = prisma.product.findUnique({
+    where: {
+      id: parseInt(id)
+    }
+  })
 
-  return productId
+  return product
 })

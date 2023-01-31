@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { cartService } from "./composables/services/CartService.js";
+// import { cartService } from "./composables/services/CartService.js";
 
 export default {
   setup () {
