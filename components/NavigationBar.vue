@@ -42,7 +42,8 @@
 export default {
   data () {
     return {
-      isVisible: true
+      isVisible: true,
+
     }
   },
   mounted () {

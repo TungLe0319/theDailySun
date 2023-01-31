@@ -15,8 +15,10 @@ export default {
     productId: { typeof: String },
   },
   setup() {
+
     return {
       async addToCart(productId) {
+const {$trpc} = useNuxtApp()
         let cart = await $trpc.cart.findUnique.useQuery({
           where: { userId: AppState.account.id },
         });
@@ -25,8 +27,8 @@ export default {
           cart = await $trpc.cart.create.mutate({
             data: {
               products: {
-                create: {
-                  product: AppState.activeProduct,
+                connect: {
+
                   productId: productId,
                 },
               },
@@ -38,29 +40,24 @@ export default {
             },
           });
           pop.success(`Added ${AppState.activeProduct.title} to your cart`);
-        } else {
+        }
+        else {
           cart = await $trpc.cart.update.mutate({
             where: {
               userId: AppState.account.id
             },
             data: {
               products: {
-                create: {
-                  title: AppState.activeProduct.title,
-                  img: AppState.activeProduct.img,
-                  stripe: AppState.activeProduct.stripe,
-                  price: AppState.activeProduct.price,
-                   description: AppState.activeProduct.description,
-                   type:AppState.activeProduct.type,
-                   audience:AppState.activeProduct.audience,
-                },
+               connect:{
+                id: AppState.activeProduct.id
+               }
               },
             },
           });
-        }
 
-      logger.log(cart)
-        return cart;
+        }
+   pop.success(`Added ${AppState.activeProduct.title} to your cart`);
+
       },
     };
   },

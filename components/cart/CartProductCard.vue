@@ -5,6 +5,7 @@
     <div class="ml-4">
 <h1 class="text-lg">{{product.title}}</h1>
 <h2 class="text-md font-bold text-gray-600">{{product.audience}}</h2>
+
     </div>
   </div>
     <div class="flex    gap-x-20">
@@ -20,15 +21,16 @@
 
 <script>
 
-export default {
-  props: {
-    product: { type: Object, required: false }
-  },
-  setup () {
-    return {
 
-    }
-  }
+
+export default {
+    props: {
+        product: { type: Object, required: false }
+    },
+    setup() {
+        return {};
+    },
+    components: { }
 }
 </script>
 

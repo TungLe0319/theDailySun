@@ -20,7 +20,7 @@
             <div class="relative h-full">
 
               <div class="p-4">
-                <CartProductCard v-for="c in cartItems" :product="c" />
+                <CartProductCard v-for="c in cart?.products" :product="c" />
               </div>
             </div>
           </div>
@@ -35,38 +35,62 @@
           <div class=" mt-3">
             <button class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg">Begin
               Checkout</button>
+
+
+
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup>
+<script >
 
 
 
+export default {
+
+  setup () {
+    onMounted(() => {
+      setTimeout(() => {
+        getCartByAccountId()
+      }, 0)
+    })
 
 
+    async function getCartByAccountId () {
+      try {
+        const {$trpc} = useNuxtApp()
+     const cart = await   $trpc.cart.findUnique.useQuery({
+          where: { userId: AppState.account.id },
+          include:{
+            products:{
 
+            }
+          }
+        });
 
-//      const {$trpc } = useNuxtApp()
-//   const {data:cartItems} = $trpc.productsInCarts.findMany.useQuery({where:{
-//    cartId : AppState.userCart.id
-//   }})
+        AppState.userCart = cart.data.value
+        logger.log(userCart)
 
-//  const {data:productsList} = $trpc.product.findMany.useQuery({
-//   where:{
-//     cart:{
-//       contains :
-//     }
-//   }
-//  })
-// let cart = cartItems.value
-// let products = productsList.value
+return cart
+      } catch (error) {
+        logger.log(error)
+      }
+    }
+  const route = useRoute()
+    return {
+      route,
+      activeProduct: computed(() =>
+        AppState.activeProduct
+      ),
+      cart: computed(() =>
+        AppState.userCart
+      )
 
-// console.log(products);
-
-
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

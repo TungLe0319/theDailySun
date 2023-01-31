@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-<AddToCart :productId="activeProduct.id" />
+<AddToCart :productId="activeProduct.id" v-if="activeProduct" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -80,87 +80,81 @@
   </div>
 </template>
 <script>
+import AddToCart from "~~/components/cart/AddToCart.vue";
 import { productsService } from "~~/composables/services/ProductsService.js";
 
 export default {
-
-  setup() {
-     const route = useRoute();
-    const { data} = useSession()
-    onMounted(() => {
-      setTimeout(() => {
-        getProductById();
-        getAccount()
-      }, 0);
-    });
-
-
-    async function getProductById() {
-      try {
-        logger.log(route.params.id);
-        await productsService.getProductById(route.params.id);
-      } catch (error) {
-        logger.log(error);
-      }
-    }
-
-
-
-
-    return {
-      route,
-account:{},
-      data,
-      activeProduct: computed(() => AppState.activeProduct),
-      async checkOut() {
-        const { data } = useFetch("/api/create-checkout-session", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            items: [{ id: this.activeProduct.id, quantity: 1 }],
-          }),
-        })
-          .then((res) => {
-            if (res.ok) return res.json();
-            return res.json().then((json) => Promise.reject(json));
-          })
-          .then(({ url }) => {
-            window.location = url;
-          })
-          .catch((e) => {
-            console.error(e.error);
-          });
-
-        console.log(data);
-
-        // useFetch("http://localhost:3000/create-checkout-session", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     items: [
-        //       { id: this.activeProduct.id, quantity: 1 },
-        //     ],
-        //   }),
-        // })
-        //   .then(res => {
-        //     if (res.ok) return res.json()
-        //     return res.json().then(json => Promise.reject(json))
-        //   })
-        //   .then(({ url }) => {
-        //     window.location = url
-        //   })
-        //   .catch(e => {
-        //     console.error(e.error)
-        //   })
-      },
-
-
-    };
-  },
+    setup() {
+        const route = useRoute();
+        const { data } = useSession();
+        
+        onMounted(() => {
+            setTimeout(() => {
+                getProductById();
+                getAccount();
+            }, 0);
+        });
+        async function getProductById() {
+            try {
+                logger.log(route.params.id);
+                await productsService.getProductById(route.params.id);
+            }
+            catch (error) {
+                logger.log(error);
+            }
+        }
+        return {
+            route,
+            account: {},
+            data,
+            activeProduct: computed(() => AppState.activeProduct),
+            async checkOut() {
+                const { data } = useFetch("/api/create-checkout-session", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        items: [{ id: this.activeProduct.id, quantity: 1 }],
+                    }),
+                })
+                    .then((res) => {
+                    if (res.ok)
+                        return res.json();
+                    return res.json().then((json) => Promise.reject(json));
+                })
+                    .then(({ url }) => {
+                    window.location = url;
+                })
+                    .catch((e) => {
+                    console.error(e.error);
+                });
+                console.log(data);
+                // useFetch("http://localhost:3000/create-checkout-session", {
+                //   method: "POST",
+                //   headers: {
+                //     "Content-Type": "application/json",
+                //   },
+                //   body: JSON.stringify({
+                //     items: [
+                //       { id: this.activeProduct.id, quantity: 1 },
+                //     ],
+                //   }),
+                // })
+                //   .then(res => {
+                //     if (res.ok) return res.json()
+                //     return res.json().then(json => Promise.reject(json))
+                //   })
+                //   .then(({ url }) => {
+                //     window.location = url
+                //   })
+                //   .catch(e => {
+                //     console.error(e.error)
+                //   })
+            },
+        };
+    },
+    components: { AddToCart }
 };
 </script>
 
