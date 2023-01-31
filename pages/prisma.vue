@@ -1,9 +1,10 @@
 <script setup lang="ts">
-const { data: products } = useFetch('/api/products/all')
+const headers = useRequestHeaders(['cookie']) as HeadersInit
+const { data: token } = await useFetch('/api/token', { headers })
 </script>
 
 <template>
-  <div>
-    <p>Prisma ORM Data from the database, received {{ products }} records: <pre>{{ products }}</pre></p>
+  <div class=" mt-60">
+    <p>{{ token || 'are you logged in' }}</p>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import Pop from './Pop'
+import Pop from '../../utils/Pop'
 
 class AccountsService {
   async getAccount (data) {

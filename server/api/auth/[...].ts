@@ -29,7 +29,6 @@ export default NuxtAuthHandler({
     })
   ]
 
-
   // callbacks: {
   //   async session ({ session, user, token }) {
   //     accountServerService
