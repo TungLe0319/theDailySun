@@ -74,11 +74,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-<<<<<<< HEAD
 <AddToCart :productId="activeProduct.id" v-if="activeProduct" />
-=======
-        <AddToCart :product-id="activeProduct.id" />
->>>>>>> bb549a1 (server rework)
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
