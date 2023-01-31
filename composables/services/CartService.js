@@ -1,4 +1,12 @@
 class CartService {
+
+
+
+ // Adding to cart is doing a Put on the cart where we create or add a product to a cart
+ // Deleting a cart is also a put where we are removing a product from a cart, have it set up that if cart.products[] <= 0 it deletes the cart
+ 
+
+
   async addToCart(id) {
     const res = await useFetch(`/api/cart/${id}`, {
       method: "PUT",
