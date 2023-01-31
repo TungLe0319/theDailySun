@@ -96,12 +96,12 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         getProductById()
-   
+
       }, 0)
     })
     async function getProductById () {
       try {
-        logger.log(route.params.id)
+     
         await productsService.getProductById(route.params.id)
       } catch (error) {
         logger.log(error)

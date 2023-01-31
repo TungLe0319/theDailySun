@@ -1,37 +1,34 @@
 class CartService {
-    async addToCart (productId) {
-      let cart = await useFetch('/api/cart',{
-        method:"POST",
-        body:{
-          productId
-        }
-      })
-    
-    }
-
-
-  async getCartByUserId () {
-    let id = "cldh1ctis0000ua08yo9xvbge";
-    const res = await useFetch(`/api/cart/${id}`, {
-
+  async addToCart(id) {
+    let cart = await useFetch(`/api/cart/${id}`, {
+      method: "PUT",
+      body: {
+        id,
+      },
     });
-
-    AppState.userCart = res.data.value
-    logger.log(res.data)
-    // return cart
+    logger.log(cart.data.value);
   }
 
+  async getCartByUserId(id) {
+    const res = await useFetch(`/api/cart/${id}`, {});
 
-  async removeFromCart(product){
+    AppState.userCart = res.data.value;
+    let total = 0;
 
-     const updatedCart =await useFetch(`/api/cart/:product`,{
-      method:'PUT',
-      body:{
-        product
-      }
-    })
-logger.log(updatedCart.data.value)
+    if (AppState.userCart.products) {
+      AppState.userCart.products.map((p) => (total += p.price));
+    }
+  }
+
+  async removeFromCart(product) {
+    const updatedCart = await useFetch(`/api/cart/:product`, {
+      method: "PUT",
+      body: {
+        product,
+      },
+    });
+    logger.log(updatedCart.data.value);
     // AppState.userCart.products = AppState.userCart.products.filter(c=> c.id != product.id)
   }
 }
-export const cartService = new CartService()
+export const cartService = new CartService();

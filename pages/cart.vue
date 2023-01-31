@@ -36,7 +36,7 @@
             <button class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg">Begin
               Checkout</button>
 
-
+{{ cartTotal }}
 
           </div>
         </div>
@@ -52,7 +52,7 @@ import { cartService } from "~~/composables/services/CartService.js"
 
 export default {
   setup () {
-   
+
     onMounted(() => {
       setTimeout(() => {
         getCartByUserId()
@@ -78,8 +78,9 @@ await cartService.getCartByUserId()
       ),
       cart: computed(() =>
         AppState.userCart
-      )
-
+      ),
+cartTotal: computed(()=> AppState.cartTotal
+)
     }
   }
 }
