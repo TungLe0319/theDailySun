@@ -1,14 +1,12 @@
 <template>
   <div>
-
-
-  <div :class="products? ' block ' : ' hidden'">
+    <div :class="products? ' block ' : ' hidden'">
       <HeroImage class=" " />
-    <AboutUs />
+      <AboutUs />
 
-    <FeaturedProducts class="" />
-    <MenFeaturedProducts/>
-  </div>
+      <FeaturedProducts class="" />
+      <MenFeaturedProducts />
+    </div>
     <!-- <div >
       <LoadingAnimation />
     </div> -->
@@ -20,28 +18,24 @@ import { productsService } from '../composables/services/ProductsService'
 
 export default {
   setup () {
-
     onMounted(() => {
       setTimeout(() => {
         getProducts()
-
       }, 0)
     })
-   let  isLoading = true
-   async function getProducts () {
-  try {
-
-    await productsService.getProducts()
-isLoading= false
-  } catch (error) {
-    logger.error(error)
-  }
-}
-    return {
-isLoading,
-  products : computed(()=> AppState.products)
+    let isLoading = true
+    async function getProducts () {
+      try {
+        await productsService.getProducts()
+        isLoading = false
+      } catch (error) {
+        logger.error(error)
+      }
     }
-
+    return {
+      isLoading,
+      products: computed(() => AppState.products)
+    }
   }
 }
 </script>

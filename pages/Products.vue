@@ -19,7 +19,7 @@
 <script>
 export default {
   setup () {
-    const { data: products } = useFetch('/api/products/all')
+    // const { data: products } = useFetch('/api/products/all')
 
     onMounted(() => { })
     const route = useRoute()
@@ -32,7 +32,7 @@ export default {
     // }
 
     return {
-      products,
+      products: computed(() => AppState.products),
       route,
       activeProduct: computed(() => AppState.activeProduct)
     }

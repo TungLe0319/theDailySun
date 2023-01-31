@@ -7,50 +7,45 @@
   </div>
 </template>
 
-
-
-mplate>
-
-
 <script>
 import { cartService } from "./composables/services/CartService.js";
 
 export default {
+  setup () {
+    // const { data } = useSession()
+    // const route = useRoute()
 
+    // onMounted(() => {
+    //   setTimeout(() => {
+    //     getAccount()
+    //     getUserCart()
+    //   }, 0)
+    // })
 
-  setup(){
-const { data } = useSession()
-  const route = useRoute();
+    // async function getAccount () {
+    //   const { $trpc } = useNuxtApp()
+    //   const account = await $trpc.user.findFirst.query({
+    //     where: {
+    //       email: data.value.user.email,
+    //       name: data.value.user.name
+    //     }
+    //   })
 
-    onMounted(() => {
-      setTimeout(() => {
-
-        getAccount()
-        getCartByUserId()
-      }, 0);
-    });
-
- async function getAccount(){
-   
-AppState.account = account
-
-   }
- async function getCartByUserId(){
-  try {
-    await cartService.getCartByUserId()
-  } catch (error) {
-    logger.log(error)
-  }
-   }
-    return {
-
-    }
+    //   AppState.account = account
+    // }
+    // async function getUserCart () {
+    //   const { $trpc } = useNuxtApp()
+    //   const cart = await $trpc.cart.findFirst.query({
+    //     where: {
+    //       userId: AppState.account.id
+    //     }
+    //   })
+    //   AppState.userCart = cart
+    // }
+    return {}
   }
 }
 </script>
-
-
-
 
 <style>
 .page-enter-active,
