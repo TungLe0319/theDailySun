@@ -45,35 +45,27 @@
   </div>
 </template>
 <script >
+import { cartService } from "~~/composables/services/CartService.js"
+
 
 
 
 export default {
-
   setup () {
+    const {data} = useSession()
     onMounted(() => {
       setTimeout(() => {
-        getCartByAccountId()
+        getCartByUserId()
       }, 0)
     })
 
 
-    async function getCartByAccountId () {
+    async function getCartByUserId () {
       try {
-        const {$trpc} = useNuxtApp()
-     const cart = await   $trpc.cart.findUnique.useQuery({
-          where: { userId: AppState.account.id },
-          include:{
-            products:{
 
-            }
-          }
-        });
 
-        AppState.userCart = cart.data.value
-        logger.log(userCart)
+await cartService.getCartByUserId()
 
-return cart
       } catch (error) {
         logger.log(error)
       }

@@ -60,7 +60,7 @@ class CartService {
 
   async getCartByUserId(id){
    const res = useFetch(`/api/cart/${id}`)
-   logger.log(res.data)
+   logger.log(res.data.value)
       // return cart
   }
 
