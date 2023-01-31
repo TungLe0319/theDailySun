@@ -1,10 +1,11 @@
+eslint-disable @typescript-eslint/no-unused-vars
 <script setup lang="ts">
-const headers = useRequestHeaders(['cookie']) as HeadersInit
-const { data: token } = await useFetch('/api/token', { headers })
+
+// const { data: token } = useSession()
 </script>
 
 <template>
   <div class=" mt-60">
-    <p>{{ token || 'are you logged in' }}</p>
+    <p>{{ 'are you logged in' }}</p>
   </div>
 </template>

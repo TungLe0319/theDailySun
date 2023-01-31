@@ -27,7 +27,7 @@
           </button>
         </div>
       </div>
-      <div>{{ data }}</div>
+      <div>{{ AppState.user }}</div>
     </div>
   </div>
 </template>

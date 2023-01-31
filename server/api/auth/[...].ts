@@ -1,3 +1,4 @@
+
 // import CredentialsProvider from 'next-auth/providers/credentials'
 import GithubProvider from 'next-auth/providers/github'
 import Auth0Provider from 'next-auth/providers/auth0'
@@ -27,12 +28,15 @@ export default NuxtAuthHandler({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     })
-  ]
-
-  // callbacks: {
-  //   async session ({ session, user, token }) {
-  //     accountServerService
-  //     return session
-  //   }
-  // }
+  ],
+  callbacks: {
+    // @ts-ignore
+    // eslint-disable-next-line require-await
+    session: async ({ session, token }) => {
+      if (session?.user) {
+        session.user.id = token.sub
+      }
+      return Promise.resolve(session)
+    }
+  }
 })
