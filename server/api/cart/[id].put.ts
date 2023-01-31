@@ -28,7 +28,14 @@ if (!cart) {
       }
     }
   })
-  return newCart
+
+   let cartTotal = 0
+
+newCart?.products?.forEach(p=> cartTotal += (p.price *
+  (p.quantity ||0 ) ))
+
+  return {newCart,cartTotal}
+
 }
 
 
@@ -63,7 +70,7 @@ include:{
 
 if (updatedCart.products.length <= 0) {
 
-  
+
 await prisma.cart.delete({
   where:{
     userId: user.id
@@ -72,8 +79,12 @@ await prisma.cart.delete({
 
 }
 
-  return updatedCart
+   let cartTotal = 0
 
+updatedCart?.products?.forEach(p=> cartTotal += (p.price *
+  (p.quantity ||0 ) ))
+
+  return {updatedCart,cartTotal}
 
 
 

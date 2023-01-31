@@ -1,36 +1,40 @@
 class CartService {
   async addToCart(id) {
-    let cart = await useFetch(`/api/cart/${id}`, {
+    const res = await useFetch(`/api/cart/${id}`, {
       method: "PUT",
       body: {
         id,
       },
     });
-    logger.log(cart.data.value);
+    AppState.userCart = res?.data?.value?.cart;
+
+    AppState.cartTotal = res?.data?.value?.cartTotal;
   }
 
   async getCartByUserId(id) {
     const res = await useFetch(`/api/cart/${id}`);
 
-    AppState.userCart = res.data.value;
-    let total = AppState.cartTotal
+    AppState.userCart = res?.data?.value?.cart;
 
-    if (AppState.userCart.products) {
-      AppState.userCart.products.map((p) => (total +=( p.price * p.quantity)));
-
-      AppState.cartTotal = total;
-    }
+    AppState.cartTotal = res?.data?.value?.cartTotal;
   }
 
   async removeFromCart(product) {
-    const updatedCart = await useFetch(`/api/cart/:product`, {
-      method: "PUT",
+    let id = product.id
+    const res = await useFetch(`/api/cart/${id}`, {
+      method:'DELETE',
       body: {
-        product,
+       product
       },
     });
-    logger.log(updatedCart.data.value);
-    // AppState.userCart.products = AppState.userCart.products.filter(c=> c.id != product.id)
+
+    logger.log(res.data.value)
+    // AppState.userCart = res?.data?.value?.cart;
+
+    // AppState.cartTotal = res?.data?.value?.cartTotal;
+    // AppState.userCart.products = AppState.userCart?.products?.filter(
+    //   (c) => c.id != product.id
+    // );
   }
 }
 export const cartService = new CartService();
