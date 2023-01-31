@@ -50,6 +50,12 @@ const {$trpc} = useNuxtApp()
               products: {
                connect:{
                 id: AppState.activeProduct.id
+               },
+               update:{
+                data:{quantity:{
+                  increment:1
+                } },
+                 where:{ id: AppState.activeProduct.id}
                }
               },
             },
