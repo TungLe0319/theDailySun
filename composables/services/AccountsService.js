@@ -1,14 +1,11 @@
 import Pop from '../../utils/Pop'
 
 class AccountsService {
-  async getAccount (data) {
+  async getAccount () {
     try {
-      logger.log('data', data)
-      const account = await useFetch('/api/me')
-      if (!account) {
-        createAccount(data)
-      }
-      return account
+      const { data, status } = await useSession()
+      AppState.user = data.value
+      AppState.user = { ...AppState.user, isAuthenticated: status.value === 'authenticated' ? status.value : 'no' }
     } catch (error) {
       Pop.error(error)
     }
@@ -20,13 +17,14 @@ class AccountsService {
       await this.getAccount(data)
     }
   }
-}
-async function createAccount (body) {
-  const account = await useFetch('/api/me', {
-    method: 'POST',
-    body
-  })
-  logger.log('account created', account)
-  return account
+
+  async createAccount (body) {
+    const account = await useFetch('/api/me', {
+      method: 'POST',
+      body
+    })
+    logger.log('account created', account)
+    return account
+  }
 }
 export const accountsService = new AccountsService()
