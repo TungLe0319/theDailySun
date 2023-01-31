@@ -19,7 +19,7 @@ class ProductsService {
   async getProductById (id) {
     const { data: product } = await useFetch(`/api/products/${id}`)
 
-    // logger.log(product.value)
+    logger.log(product.value)
     AppState.activeProduct = product.value
     // console.log(AppState.activeProduct);
   }
