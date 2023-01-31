@@ -9,8 +9,15 @@
     </div>
   </div>
     <div class="flex    gap-x-20">
-    <p>product.Qty</p>
-    <p>${{product.price}}</p>
+    <p> {{product.quantity}}</p>
+ <div class="">
+
+   <p>${{product.price}} </p>
+   <div class="flex">
+ <small> (${{ product.price }} * {{ product.quantity }})  </small>
+     <p>${{totalPrice}} </p>
+   </div>
+  </div>
 
 
   </div>
@@ -29,8 +36,12 @@ export default {
     props: {
         product: { type: Object, required: false }
     },
-    setup() {
-        return {};
+    setup(props) {
+        return {
+          totalPrice:computed(() =>{
+             return props.product.price * props.product.quantity
+          } ),
+        };
     },
     components: { RemoveFromCart }
 }

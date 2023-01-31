@@ -10,13 +10,15 @@ class CartService {
   }
 
   async getCartByUserId(id) {
-    const res = await useFetch(`/api/cart/${id}`, {});
+    const res = await useFetch(`/api/cart/${id}`);
 
     AppState.userCart = res.data.value;
-    let total = 0;
+    let total = AppState.cartTotal
 
     if (AppState.userCart.products) {
-      AppState.userCart.products.map((p) => (total += p.price));
+      AppState.userCart.products.map((p) => (total +=( p.price * p.quantity)));
+
+      AppState.cartTotal = total;
     }
   }
 

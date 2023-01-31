@@ -8,13 +8,10 @@
 </template>
 
 <script >
-import { accountsService } from './composables/services/AccountsService'
+
 import { cartService } from "./composables/services/CartService.js"
 
-const getAccount = () => {
-  accountsService.getAccount()
-}
-getAccount()
+
 
 // import { cartService } from "./composables/services/CartService.js";
 
@@ -23,20 +20,16 @@ export default {
   setup () {
     const { data } = useSession()
     const user = data.value.user
-    const route = useRoute()
+
 
     onMounted(() => {
       setTimeout(() => {
-        getAccount()
+
         getUserCart()
       }, 0)
     })
 
-    async function getAccount () {
-     console.log(user);
 
-
-    }
     async function getUserCart () {
 await cartService.getCartByUserId(user.id)
     }

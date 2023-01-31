@@ -15,75 +15,66 @@
               <p>Price</p>
             </div>
           </div>
-          <hr class="mt-3 bg-black p-1 rounded-lg " />
+          <hr class="mt-3 bg-black p-1 rounded-lg" />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
-
               <div class="p-4">
-                <CartProductCard v-for="c in cart?.products" :product="c" />
+                <CartProductCard
+                  v-for="c in cart?.products"
+                  :product="c"
+                  :key="c.id"
+                />
               </div>
             </div>
           </div>
         </div>
-        <div class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2">
+        <div
+          class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2"
+        >
           <div class="flex flex-col gap-y-3">
-            <h1 class="text-2xl">Subtotal : </h1>
-            <h2 class="text-2xl text-slate-400">Est Shipping : </h2>
-            <h2 class="text-2xl text-slate-400">Est Sales Taxes : </h2>
-            <h2 class="text-2xl text-red-700">Order Total : </h2>
+            <h2 class="text-2xl">
+              Subtotal : <b>{{ cartTotal }}</b>
+            </h2>
+            <h2 class="text-2xl text-slate-400">Est Shipping :</h2>
+            <h2 class="text-2xl text-slate-400">Est Sales Taxes :</h2>
+            <h2 class="text-2xl text-red-700">Order Total :</h2>
           </div>
-          <div class=" mt-3">
-            <button class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg">Begin
-              Checkout</button>
-
-{{ cartTotal }}
-
+          <div class="mt-3">
+            <button
+              class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg"
+            >
+              Begin Checkout
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script >
-import { cartService } from "~~/composables/services/CartService.js"
-
-
-
+<script>
+import { cartService } from "~~/composables/services/CartService.js";
 
 export default {
-  setup () {
-
+  setup() {
     onMounted(() => {
-      setTimeout(() => {
-        getCartByUserId()
-      }, 0)
-    })
+      getCartByUserId();
+    });
 
-
-    async function getCartByUserId () {
+    async function getCartByUserId() {
       try {
-
-
-await cartService.getCartByUserId()
-
+        await cartService.getCartByUserId();
       } catch (error) {
-        logger.log(error)
+        logger.log(error);
       }
     }
-  const route = useRoute()
+
     return {
-      route,
-      activeProduct: computed(() =>
-        AppState.activeProduct
-      ),
-      cart: computed(() =>
-        AppState.userCart
-      ),
-cartTotal: computed(()=> AppState.cartTotal
-)
-    }
-  }
-}
+      activeProduct: computed(() => AppState.activeProduct),
+      cart: computed(() => AppState.userCart),
+      cartTotal: computed(() => AppState.cartTotal),
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
