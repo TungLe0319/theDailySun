@@ -4,7 +4,9 @@ import Auth0Provider from 'next-auth/providers/auth0'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
 import { NuxtAuthHandler } from '#auth'
+
 // import { accountServerService } from '../../services/AccountsServerService'
+
 const prisma = new PrismaClient()
 
 export default NuxtAuthHandler({
@@ -26,6 +28,8 @@ export default NuxtAuthHandler({
       clientSecret: process.env.GITHUB_SECRET
     })
   ]
+
+
   // callbacks: {
   //   async session ({ session, user, token }) {
   //     accountServerService

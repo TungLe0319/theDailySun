@@ -31,14 +31,7 @@ const { data } = useSession()
     });
 
  async function getAccount(){
-     const {$trpc } = useNuxtApp()
-        let account = await  $trpc.user.findFirst.query({where:{
-email:data.value.user.email,
-name: data.value.user.name
-        }})
-
-
-
+   
 AppState.account = account
 
    }
