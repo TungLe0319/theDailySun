@@ -51,16 +51,7 @@ data:{
       id:parseInt(id)
 
     },
-    update:{
-      where:{
-          id:parseInt(id)
-      },
-      data:{
-        quantity:{
-          increment:1
-        }
-      }
-    }
+  
   }
 },
 include:{
