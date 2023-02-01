@@ -79,7 +79,7 @@ model Product {
   productImg  String?
   type        String?
   audience    String?
-  quantity    Int?    @default(100)
+  quantity    Int?    @default(0)
   cartId      Int?
   cart        Cart?   @relation(fields: [cartId], references: [id])
 }
