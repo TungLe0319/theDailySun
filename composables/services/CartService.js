@@ -37,8 +37,9 @@ class CartService {
         id
       }
     })
+    const hi = 'hi'
 
-    logger.log(res.data.value)
+    logger.log(hi, res.data.value)
     // eslint-disable-next-line eqeqeq
     AppState.userCart.products = AppState.userCart.products.filter(p => p.id != id)
 
