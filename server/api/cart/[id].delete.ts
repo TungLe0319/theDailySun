@@ -1,6 +1,6 @@
 import { Cart } from '@prisma/client'
 import { getServerSession } from '#auth'
-// import { getTotal } from '~~/server/utils/helpers'
+
 // import { getTotal } from '~~/server/utils/helpers'
 
 export default defineEventHandler(async (event) => {

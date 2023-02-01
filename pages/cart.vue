@@ -22,7 +22,7 @@
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
-                  v-for="c in cart?.products"
+                  v-for="c in data?.cart?.products"
                   :key="c.id"
                   :product="c"
                 />
@@ -68,7 +68,7 @@ const { data } = await useFetch('/api/cart', { headers })
 logger.log(data.value)
 
 const cartTotal = computed(() => data.value?.cartTotal)
-const cart = computed(() => data.value?.cart)
+
 // import { cartService } from '~~/composables/services/CartService.js'
 
 // export default {
