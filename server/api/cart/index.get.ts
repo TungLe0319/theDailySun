@@ -1,8 +1,8 @@
 
-import { Cart} from '@prisma/client'
+import { Cart } from '@prisma/client'
 // import { array } from 'zod'
 import { getServerSession } from '#auth'
-import getTotal from '~~/server/utils/helpers'
+import { getTotal } from '~~/server/utils/helpers'
 // import { getTotal } from '~~/server/utils/helpers'
 // let cart : Cart | null
 // const cartTotal = 0 as Number
@@ -29,8 +29,9 @@ export default defineEventHandler(async (event) => {
         }
       })
     }
+    console.log(cart)
 
-    const cartTotal = await getTotal(cart.products)
+    const cartTotal = getTotal(cart.products)
     return { cartTotal, cart }
   }
 })

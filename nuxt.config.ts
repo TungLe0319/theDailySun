@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   //   dirs: ['stores']
   // },
   build: {
+
     transpile: ['trpc-nuxt']
   },
   typescript: {

@@ -1,6 +1,6 @@
 import { Cart } from '@prisma/client'
 import { getServerSession } from '#auth'
-import getTotal from '~~/server/utils/helpers'
+import { getTotal } from '~~/server/utils/helpers'
 // import { getTotal } from '~~/server/utils/helpers'
 
 export default defineEventHandler(async (event) => {
@@ -49,7 +49,7 @@ include:{
       }
     })
   }
-  const cartTotal = await getTotal(updatedCart.products)
+  const cartTotal = getTotal(updatedCart.products)
   return { updatedCart, cartTotal }
 })
 
