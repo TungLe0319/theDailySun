@@ -24,24 +24,6 @@ export default defineEventHandler(async (event) => {
     }
   })
 
-
-
- let updatedCart = await  prisma.cart.update({
-  where:{
-    userId:user.id
-  },
-data:{
-  products:{
-disconnect:{
-  id: parseInt(id)
-}
-  }
-},
-include:{
-  products:{}
-}
-})
-
   if (updatedCart.products.length <= 0) {
     await prisma.cart.delete({
       where: {
