@@ -1,12 +1,12 @@
-export default defineEventHandler(async(event) => {
-    const prisma = event.context.prisma
- const { id } = getRouterParams(event)
+export default defineEventHandler(async (event) => {
+  const prisma = event.context.prisma
+  const { id } = getRouterParams(event)
   const cart = await prisma.cart.findUnique({
-    where:{
-     userId: id
+    where: {
+      userId: id
     },
-    include:{
-      products:{
+    include: {
+      products: {
 
       }
     }
@@ -14,8 +14,8 @@ export default defineEventHandler(async(event) => {
 
   let cartTotal = 0
 
-cart?.products?.forEach(p=> cartTotal += (p.price *
-  (p.quantity ||0 ) ))
+  cart?.products?.forEach(p => cartTotal += (p.price *
+  (p.quantity || 0)))
 
-  return {cartTotal,cart}
+  return { cartTotal, cart }
 })
