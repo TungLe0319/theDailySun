@@ -4,6 +4,8 @@ class CartService {
 
   async addToCart (productData) {
     const id = productData.id
+    // const post = await useApi.post('/api/cart/' + id)
+
     const res = await useFetch(`/api/cart/${id}`, {
       method: 'PUT',
       body: {
@@ -11,7 +13,7 @@ class CartService {
       }
     })
     logger.log(res.data.value)
-    // AppState.userCart = res?.data?.value?.cart
+    AppState.userCart = res?.data?.value.cartTotal
 
     // AppState.cartTotal = res?.data?.value?.cartTotal
   }
@@ -19,7 +21,8 @@ class CartService {
   async getCartByUserId () {
     // const { data } = useSession()
     // const id = data.value.user.id
-    const { data: res } = await useFetch('/api/cart/')
+    const headers = useRequestHeaders(['cookie'])
+    const { data: res } = await useFetch('/api/cart/', { headers })
     logger.log(res.value)
     AppState.userCart = res?.value?.cart
 
@@ -36,10 +39,10 @@ class CartService {
     })
 
     logger.log(res.data.value)
-    AppState.userCart.products = AppState.userCart.products.filter(p=> p.id  != id)
+    // eslint-disable-next-line eqeqeq
+    AppState.userCart.products = AppState.userCart.products.filter(p => p.id != id)
 
-    AppState.cartTotal = res?.data?.value?.cartTotal;
-
+    AppState.cartTotal = res?.data?.value?.cartTotal
   }
 }
 export const cartService = new CartService()

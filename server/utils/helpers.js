@@ -2,9 +2,11 @@
 export function getTotal (array: import('@prisma/client').Product[]) {
   let total = 0
 
-  amount = array.map((product) => {
-    return product.price * product.quantity
+  // eslint-disable-next-line array-callback-return
+  array.map((product) => {
+    const amount = product.price * product.quantity
+    total += amount
   })
-  total += amount
+  // total += amount
   return total
 }

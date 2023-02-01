@@ -1,46 +1,47 @@
 <template>
   <div class="">
     <button
+      class="checkOut font-1 text-xl font-bold hover:text-red-400 transition-colors"
       @click="RemoveFromCart(product)"
-      class="checkOut font-1 text-xl font-bold  hover:text-red-400 transition-colors"
     >
-    <img src="https://cdn-icons-png.flaticon.com/512/458/458594.png" alt="remove Icon" width="30" class="icon">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/458/458594.png"
+        alt="remove Icon"
+        width="30"
+        class="icon"
+      >
     </button>
   </div>
 </template>
 
 <script>
-import { cartService } from "~~/composables/services/CartService.js";
+import { cartService } from '~~/composables/services/CartService.js'
 
 export default {
   props: {
-    product: { typeof: Object },
+    product: { typeof: Object }
   },
-  setup() {
+  setup () {
     return {
-      async RemoveFromCart(product) {
+      async RemoveFromCart (product) {
         try {
- let id = product.id
+          const id = product.id
           await cartService.removeFromCart(id)
-
-          pop.toast('success','success','top-start',2000)
-
+          pop.toast('success', 'success', 'top-start', 2000)
         } catch (error) {
-          logger.log(error);
+          logger.log(error)
         }
-      },
-    };
-  },
-};
+      }
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-
-.icon{
+.icon {
   transition: transform 0.5s ease;
-
 }
-.icon:hover{
+.icon:hover {
   transform: rotate(180deg);
   transition: transform 0.5s ease;
 }

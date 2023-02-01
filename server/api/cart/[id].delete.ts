@@ -1,6 +1,6 @@
 import { Cart } from '@prisma/client'
 import { getServerSession } from '#auth'
-import { getTotal } from '~~/server/utils/helpers'
+// import { getTotal } from '~~/server/utils/helpers'
 // import { getTotal } from '~~/server/utils/helpers'
 
 export default defineEventHandler(async (event) => {
@@ -35,11 +35,14 @@ export default defineEventHandler(async (event) => {
   return { updatedCart, cartTotal }
 })
 
-// async function getTotal (array: Product[]) {
-//   let total = 0
-//   for await (const product of array) {
-//     const price = product.price * (product.quantity || 0)
-//     total += price
-//   }
-//   return total
-// }
+function getTotal (array: import('@prisma/client').Product[]) {
+  let total = 0
+
+  // eslint-disable-next-line array-callback-return
+  array.map((product) => {
+    const amount = product.price * (product.quantity || 0)
+    total += amount
+  })
+  // total += amount
+  return total
+}

@@ -2,7 +2,9 @@
   <div class="pt-24 text-black p-5 bg-slate-300 h-screen relative">
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
-        <h1 class="text-5xl">My Cart</h1>
+        <h1 class="text-5xl">
+          My Cart
+        </h1>
       </div>
       <div class="flex">
         <div class="w-full md:w-2/3 p-5 px-14">
@@ -15,14 +17,14 @@
               <p>Price</p>
             </div>
           </div>
-          <hr class="mt-3 bg-black  " />
+          <hr class="mt-3 bg-black">
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
                   v-for="c in cart?.products"
-                  :product="c"
                   :key="c.id"
+                  :product="c"
                 />
               </div>
             </div>
@@ -35,9 +37,15 @@
             <h2 class="text-2xl">
               Subtotal : <b>{{ cartTotal }}</b>
             </h2>
-            <h2 class="text-2xl text-slate-400">Est Shipping :</h2>
-            <h2 class="text-2xl text-slate-400">Est Sales Taxes :</h2>
-            <h2 class="text-2xl text-red-700">Order Total :</h2>
+            <h2 class="text-2xl text-slate-400">
+              Est Shipping :
+            </h2>
+            <h2 class="text-2xl text-slate-400">
+              Est Sales Taxes :
+            </h2>
+            <h2 class="text-2xl text-red-700">
+              Order Total :
+            </h2>
           </div>
           <div class="mt-3">
             <button
@@ -51,37 +59,45 @@
     </div>
   </div>
 </template>
-<script>
-import { cartService } from "~~/composables/services/CartService.js";
+<script setup>
+definePageMeta({
+  middleware: 'auth'
+})
+const headers = useRequestHeaders(['cookie'])
+const { data } = await useFetch('/api/cart', { headers })
+logger.log(data.value)
 
-export default {
-  setup() {
-    onMounted(() => {
-      getCartByUserId();
-    });
+const cartTotal = computed(() => data.value?.cartTotal)
+const cart = computed(() => data.value?.cart)
+// import { cartService } from '~~/composables/services/CartService.js'
 
-    async function getCartByUserId() {
-      try {
-        await cartService.getCartByUserId();
-      } catch (error) {
-        logger.log(error);
-      }
-    }
+// export default {
 
-    return {
-      activeProduct: computed(() => AppState.activeProduct),
-      cart: computed(() => AppState.userCart),
-      cartTotal: computed(() => AppState.cartTotal),
-    };
-  },
-};
+//   setup () {
+//     onMounted(() => {
+//       getCartByUserId()
+//     })
+
+//     async function getCartByUserId () {
+//       try {
+//         await cartService.getCartByUserId()
+//       } catch (error) {
+//         logger.log(error)
+//       }
+//     }
+
+//     return {
+//       activeProduct: computed(() => AppState.activeProduct),
+//       cart: computed(() => AppState.userCart),
+// cartTotal: computed(() => AppState.cartTotal)
+//     }
+//   }
+// }
 </script>
 
 <style lang="scss" scoped>
-
-
-hr{
-  padding: 0.50px;
+hr {
+  padding: 0.5px;
 }
 
 .scrollbar-container {

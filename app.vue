@@ -7,29 +7,37 @@
   </div>
 </template>
 
-<script>
+<script setup>
+// import { accountsService } from './composables/services/AccountsService'
+// import { cartService } from './composables/services/CartService'
 
-import { cartService } from './composables/services/CartService.js'
+// const ready = onNuxtReady(async () => {
+//   await accountsService.getAccount()
+//   await cartService.getCartByUserId()
+// })
+// ready()
+
+// import { cartService } from './composables/services/CartService.js'
 
 // import { cartService } from "./composables/services/CartService.js";
 
-export default {
-  setup () {
-    const { data } = useSession()
-    const user = data.value
+// export default {
+//   setup () {
+//     const { data } = useSession()
+//     const user = data.value
 
-    onMounted(() => {
-      setTimeout(() => {
-        getUserCart()
-      }, 0)
-    })
+//     onMounted(() => {
+//       setTimeout(() => {
+//         getUserCart()
+//       }, 0)
+//     })
 
-    async function getUserCart () {
-      await cartService.getCartByUserId(user.id)
-    }
-    return {}
-  }
-}
+//     async function getUserCart () {
+//       await cartService.getCartByUserId(user.id)
+//     }
+//     return {}
+//   }
+// }
 </script>
 
 <style>
