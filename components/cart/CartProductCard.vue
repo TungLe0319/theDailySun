@@ -5,6 +5,11 @@
     <div class="ml-4">
 <h1 class="text-lg">{{product.title}}</h1>
 <h2 class="text-md font-bold text-gray-600">{{product.audience}}</h2>
+   <nuxt-link :to="`/products/${product.id}`" >
+<h2 class="text-md font-bold text-gray-600 mb-5 underline-offset-4 underline hover:text-blue-500 transition-colors">Go To Product</h2>
+   </nuxt-link>
+
+
 <RemoveFromCart :product="product" />
     </div>
   </div>

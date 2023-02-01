@@ -2,9 +2,9 @@
   <div class="">
     <button
       @click="RemoveFromCart(product)"
-      class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
+      class="checkOut font-1 text-xl font-bold  hover:text-red-400 transition-colors"
     >
-     Remove From Cart
+    <img src="https://cdn-icons-png.flaticon.com/512/458/458594.png" alt="remove Icon" width="30" class="icon">
     </button>
   </div>
 </template>
@@ -20,8 +20,8 @@ export default {
     return {
       async RemoveFromCart(product) {
         try {
-
-          await cartService.removeFromCart(product)
+ let id = product.cartId
+          await cartService.removeFromCart(id)
 
           pop.success('deleted')
 
@@ -34,4 +34,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.icon{
+  transition: transform 0.5s ease;
+
+}
+.icon:hover{
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
+</style>

@@ -37,28 +37,7 @@ export default defineEventHandler(async (event) => {
     return { newCart, cartTotal }
   }
 
-  // if (event.node.req.method === 'DELETE') {
-  //  let updatedCart = await  prisma.cart.update({
-  //   where:{
-  //     userId:user.id
-  //   },
-  // data:{
-  //   products:{
 
-  //     delete:{
-  //       where:{
-  //           id : parseInt(id)
-  //       },
-
-  //     }
-  //   }
-  // },
-  // include:{
-  //   products:{}
-  // }
-  // })
-
-  // }
 
   const updatedCart = await prisma.cart.update({
     where: {
@@ -87,13 +66,19 @@ export default defineEventHandler(async (event) => {
     }
   })
 
-  if (updatedCart.products.length <= 0) {
-    await prisma.cart.delete({
-      where: {
-        userId: user.id
-      }
-    })
+if (updatedCart.products.length <= 0) {
+
+
+await prisma.cart.delete({
+  where:{
+    userId: user.id
   }
+})
+
+}
+
+
+
 
   let cartTotal = 0
 
