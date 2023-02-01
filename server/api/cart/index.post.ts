@@ -1,8 +1,7 @@
 export default defineEventHandler((event) => {
 
-const prisma = event.context.prisma
-  const { id } = event.context.body
-
+  // const prisma = event.context.prisma
+  //   const { id } = event.context.body
 
   // let cart = await $trpc.cart.findUnique.useQuery({
   //       where: { userId: AppState.account.id },
@@ -44,4 +43,5 @@ const prisma = event.context.prisma
   //         },
   //       });
   //     }
+  return event
 })

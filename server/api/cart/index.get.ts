@@ -1,6 +1,9 @@
 
-import { Cart } from '@prisma/client'
+import { Cart} from '@prisma/client'
+// import { array } from 'zod'
 import { getServerSession } from '#auth'
+import getTotal from '~~/server/utils/helpers'
+// import { getTotal } from '~~/server/utils/helpers'
 // let cart : Cart | null
 // const cartTotal = 0 as Number
 export default defineEventHandler(async (event) => {
@@ -8,7 +11,7 @@ export default defineEventHandler(async (event) => {
   // const { id } = getRouterParams(event)
   const session = await getServerSession(event)
   if (session?.user) {
-    const cart : Cart | null = await prisma.cart.findUnique({
+    let cart : Cart | null = await prisma.cart.findUnique({
       where: {
         userId: session?.user.id
       },
@@ -18,9 +21,24 @@ export default defineEventHandler(async (event) => {
         }
       }
     })
-    const cartTotal: number | any = cart?.products?.forEach(p => (p.price *
-  (p.quantity || 0)))
 
+    if (!cart) {
+      cart = await prisma.cart.create({
+        data: {
+          userId: session.user.id
+        }
+      })
+    }
+
+    const cartTotal = await getTotal(cart.products)
     return { cartTotal, cart }
   }
 })
+// async function getTotal (array: Product[]) {
+//   let total = 0
+//   for await (const product of array) {
+//     const price = product.price * (product.quantity || 0)
+//     total += price
+//   }
+//   return total
+// }
