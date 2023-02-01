@@ -16,17 +16,16 @@ class CartService {
   }
 
   async getCartByUserId () {
-    const { data } = useSession()
-    const id = data.value.user.id
-    const { data: res } = await useFetch(`/api/cart/${id}`)
-logger.log(res.value)
+    // const { data } = useSession()
+    // const id = data.value.user.id
+    const { data: res } = await useFetch('/api/cart/')
+    logger.log(res.value)
     AppState.userCart = res?.value?.cart
 
     AppState.cartTotal = res?.value?.cartTotal
   }
 
-  async removeFromCart(id) {
-
+  async removeFromCart (id) {
     const res = await useFetch(`/api/cart/${id}`, {
       method: 'DELETE',
 
@@ -36,10 +35,9 @@ logger.log(res.value)
     })
 
     logger.log(res.data.value)
-    AppState.userCart = res?.data?.value?.cart;
+    AppState.userCart = res?.data?.value?.cart
 
-    AppState.cartTotal = res?.data?.value?.cartTotal;
-
+    AppState.cartTotal = res?.data?.value?.cartTotal
   }
 }
 export const cartService = new CartService()

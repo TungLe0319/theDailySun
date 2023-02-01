@@ -16,7 +16,7 @@ import { cartService } from './composables/services/CartService.js'
 export default {
   setup () {
     const { data } = useSession()
-    const user = data.value.user
+    const user = data.value
 
     onMounted(() => {
       setTimeout(() => {
