@@ -38,7 +38,28 @@ newCart?.products?.forEach(p=> cartTotal += (p.price *
 
 }
 
+// if (event.node.req.method === 'DELETE') {
+//  let updatedCart = await  prisma.cart.update({
+//   where:{
+//     userId:user.id
+//   },
+// data:{
+//   products:{
 
+//     delete:{
+//       where:{
+//           id : parseInt(id)
+//       },
+
+//     }
+//   }
+// },
+// include:{
+//   products:{}
+// }
+// })
+
+// }
 
 
  let updatedCart = await  prisma.cart.update({
@@ -51,7 +72,16 @@ data:{
       id:parseInt(id)
 
     },
-  
+    update:{
+      where:{
+          id:parseInt(id)
+      },
+      data:{
+        quantity:{
+          increment:1
+        }
+      }
+    }
   }
 },
 include:{
