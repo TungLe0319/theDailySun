@@ -16,8 +16,8 @@ class CartService {
   }
 
   async getCartByUserId () {
-    const {data} = useSession()
-    let id = data.value.user.id
+    const { data } = useSession()
+    const id = data.value.user.id
     const { data: res } = await useFetch(`/api/cart/${id}`)
 logger.log(res.value)
     AppState.userCart = res?.value?.cart

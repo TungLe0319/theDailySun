@@ -1,5 +1,4 @@
-import { getServerSession } from "#auth"
-
+import { getServerSession } from '#auth'
 
 export default defineEventHandler(async (event) => {
    const prisma = event.context.prisma
@@ -7,6 +6,12 @@ export default defineEventHandler(async (event) => {
   const data =  await getServerSession(event)
   const user = data?.user
 
+  //  let updatedCart = await  prisma.cart.update({
+  //   where:{
+  //     userId:user.id
+  //   },
+  // data:{
+  //   products:{
 
  let updatedCart = await  prisma.cart.update({
   where:{
