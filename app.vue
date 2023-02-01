@@ -7,31 +7,25 @@
   </div>
 </template>
 
-<script >
+<script>
 
-import { cartService } from "./composables/services/CartService.js"
-
-
+import { cartService } from './composables/services/CartService.js'
 
 // import { cartService } from "./composables/services/CartService.js";
-
 
 export default {
   setup () {
     const { data } = useSession()
     const user = data.value.user
 
-
     onMounted(() => {
       setTimeout(() => {
-
         getUserCart()
       }, 0)
     })
 
-
     async function getUserCart () {
-await cartService.getCartByUserId(user.id)
+      await cartService.getCartByUserId(user.id)
     }
     return {}
   }

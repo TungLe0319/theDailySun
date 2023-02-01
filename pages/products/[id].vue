@@ -96,12 +96,10 @@ export default {
     onMounted(() => {
       setTimeout(() => {
         getProductById()
-
       }, 0)
     })
     async function getProductById () {
       try {
-     
         await productsService.getProductById(route.params.id)
       } catch (error) {
         logger.log(error)
@@ -112,6 +110,7 @@ export default {
       account: {},
       data,
       activeProduct: computed(() => AppState.activeProduct),
+      // eslint-disable-next-line require-await
       async checkOut () {
         const { data } = useFetch('/api/create-checkout-session', {
           method: 'POST',

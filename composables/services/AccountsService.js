@@ -4,6 +4,8 @@ class AccountsService {
   async getAccount () {
     try {
       const { data, status } = await useSession()
+      // const userStore = useUserStore()
+      // userStore.user = data.value
       AppState.user = data.value
       AppState.user = { ...AppState.user, isAuthenticated: status.value === 'authenticated' ? status.value : 'no' }
     } catch (error) {

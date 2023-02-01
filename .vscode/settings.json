@@ -23,6 +23,6 @@
   },
   // Auto-complete `.value` attribute when volar is installed
   "volar.autoCompleteRefs": true,
-  "cSpell.words": ["composables", "superjson", "trpc"],
+  "cSpell.words": ["composables", "Pinia", "superjson", "trpc"],
   "nuxt.isNuxtApp": false
 }
