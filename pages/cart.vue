@@ -15,7 +15,7 @@
               <p>Price</p>
             </div>
           </div>
-          <hr class="mt-3 bg-black p-1 rounded-lg" />
+          <hr class="mt-3 bg-black  " />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
               <div class="p-4">
@@ -78,6 +78,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+
+hr{
+  padding: 0.50px;
+}
+
 .scrollbar-container {
   /* Add overflow-y property to create a scrollbar on the y-axis */
 

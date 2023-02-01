@@ -20,10 +20,10 @@ export default {
     return {
       async RemoveFromCart(product) {
         try {
- let id = product.cartId
+ let id = product.id
           await cartService.removeFromCart(id)
 
-          pop.success('deleted')
+          pop.toast('success','success','top-start',2000)
 
         } catch (error) {
           logger.log(error);

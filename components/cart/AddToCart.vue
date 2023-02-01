@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <button
-      @click="addToCart(productId)"
+      @click="addToCart(productData)"
       class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
     >
       AddToCart
@@ -13,15 +13,16 @@
 import {cartService} from '../../composables/services/CartService.js'
 export default {
   props: {
-    productId: { typeof: String },
+    productData: { typeof: Object },
   },
   setup() {
 
     return {
-      async addToCart(productId) {
+      async addToCart(productData) {
 
   try {
-    await cartService.addToCart(productId)
+logger.log(productData)
+    await cartService.addToCart(productData)
  pop.success(`Added ${AppState.activeProduct.title} to your cart`);
 
   } catch (error) {

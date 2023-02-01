@@ -54,8 +54,8 @@ export default {
 
 <style lang="scss" scoped>
 .product-image{
-  height: 250px;
-  width: 175px;
+  height: 200px;
+  width: 150px;
   object-fit: cover;
 
 border-radius: 8px;

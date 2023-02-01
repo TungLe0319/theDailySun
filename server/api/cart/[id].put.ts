@@ -1,16 +1,17 @@
 /* eslint-disable no-return-assign */
-import { getServerSession } from '#auth'
+import { getServerSession } from "#auth";
 
 export default defineEventHandler(async (event) => {
-  const prisma = event.context.prisma
-  const { id } = getRouterParams(event)
-  const data = await getServerSession(event)
-  const user = data?.user
+  const prisma = event.context.prisma;
+  const { id } = getRouterParams(event);
+  const { productData } = await readBody(event);
+  const data = await getServerSession(event);
+  const user = data?.user;
   const cart = await prisma.cart.findUnique({
     where: {
-      userId: user.id
-    }
-  })
+      userId: user.id,
+    },
+  });
 
   if (!cart) {
     const newCart = await prisma.cart.create({
@@ -19,71 +20,61 @@ export default defineEventHandler(async (event) => {
 
         products: {
           connect: {
-            id: parseInt(id)
-          }
-        }
+            id: parseInt(id),
+          },
+        },
       },
       include: {
-        products: {
-        }
-      }
-    })
+        products: {},
+      },
+    });
 
-    let cartTotal = 0
+    let cartTotal = 0;
 
-    newCart?.products?.forEach(p => cartTotal += (p.price *
-  (p.quantity || 0)))
+    newCart?.products?.forEach(
+      (p) => (cartTotal += p.price * (p.quantity || 0))
+    );
 
-    return { newCart, cartTotal }
+    return { newCart, cartTotal };
   }
-
-
 
   const updatedCart = await prisma.cart.update({
     where: {
-      userId: user.id
+      userId: user.id,
     },
     data: {
       products: {
         connect: {
-          id: parseInt(id)
-
+          id: parseInt(id),
         },
         update: {
           where: {
-            id: parseInt(id)
+            id: parseInt(id),
           },
           data: {
-            quantity: {
-              increment: 1
-            }
-          }
-        }
-      }
+            quantity: productData.quantity,
+          },
+        },
+      },
     },
     include: {
-      products: {}
-    }
-  })
+      products: {},
+    },
+  });
 
-if (updatedCart.products.length <= 0) {
-
-
-await prisma.cart.delete({
-  where:{
-    userId: user.id
+  if (updatedCart.products.length <= 0) {
+    await prisma.cart.delete({
+      where: {
+        userId: user.id,
+      },
+    });
   }
-})
 
-}
+  let cartTotal = 0;
 
+  updatedCart?.products?.forEach(
+    (p) => (cartTotal += p.price * (p.quantity || 0))
+  );
 
-
-
-  let cartTotal = 0
-
-  updatedCart?.products?.forEach(p => cartTotal += (p.price *
-  (p.quantity || 0)))
-
-  return { updatedCart, cartTotal }
-})
+  return { updatedCart, cartTotal };
+});

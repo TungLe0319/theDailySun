@@ -43,7 +43,7 @@ export default {
   data () {
     return {
       isVisible: true,
-
+  cartQuantity: computed(() => AppState?.userCart?.products?.length ),
     }
   },
   mounted () {

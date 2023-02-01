@@ -6,5 +6,6 @@ export const AppState = reactive({
   activeProduct: {},
   hats: [],
   glasses: [],
-  userCart: {}
+  userCart: {},
+  itemQty:0
 })

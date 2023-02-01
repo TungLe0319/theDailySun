@@ -1,5 +1,5 @@
 <template>
-  <div class="my-44">
+  <div class="">
     <div
       v-if="activeProduct"
       class="text-black p-5 bg-slate-300 py-44 relative"
@@ -55,14 +55,20 @@
               <h2 class="font-bold text-gray-400 text-2xl">
                 Quantity
               </h2>
-              <div class="relative inline-block">
-                <input
+              <div class=" w-1/2 mt-2 shadow-md rounded-full ">
+                <!-- <input
                   class="bg-gray-200 rounded-lg p-1 shadow-lg"
                   type="number"
                   min="0"
-                  max="1"
-                  value="1"
-                >
+                  max="100"
+
+                  v-model="quantity"
+                > -->
+
+
+<n-input-number v-model:value="quantity" button-placement="both" v-if="data"  />
+
+
               </div>
             </div>
           </div>
@@ -74,7 +80,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <AddToCart v-if="activeProduct" :product-id="activeProduct.id" />
+        <AddToCart v-if="activeProduct" :productData="productData" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -92,6 +98,10 @@ export default {
   setup () {
     const route = useRoute()
     const { data } = useSession()
+    const quantity = ref(1)
+    watchEffect(()=>{
+      AppState.itemQty = quantity.value
+    })
 
     onMounted(() => {
       setTimeout(() => {
@@ -107,9 +117,20 @@ export default {
     }
     return {
       route,
+      quantity,
+
       account: {},
+      itemQty:computed(()=> AppState.itemQty),
       data,
       activeProduct: computed(() => AppState.activeProduct),
+      productData: computed(() =>
+      {
+       let productData = {
+         quantity: AppState.itemQty,
+        id : AppState.activeProduct.id
+       }
+       return productData
+      }),
       // eslint-disable-next-line require-await
       async checkOut () {
         const { data } = useFetch('/api/create-checkout-session', {
@@ -134,55 +155,14 @@ export default {
             console.error(e.error)
           })
         console.log(data)
-        // useFetch("http://localhost:3000/create-checkout-session", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({
-        //     items: [
-        //       { id: this.activeProduct.id, quantity: 1 },
-        //     ],
-        //   }),
-        // })
-        //   .then(res => {
-        //     if (res.ok) return res.json()
-        //     return res.json().then(json => Promise.reject(json))
-        //   })
-        //   .then(({ url }) => {
-        //     window.location = url
-        //   })
-        //   .catch(e => {
-        //     console.error(e.error)
-        //   })
+
       }
     }
   }
 }
 </script>
 
-<!-- <script setup>
-import { productsService } from '../../composables/services/ProductsService'
 
-definePageMeta({ middleware: 'auth' })
-onMounted(() => {
-  getProductById()
-})
-const route = useRoute()
-const { data } = useSession()
-
-async function getProductById () {
-  try {
-    logger.log(data.value)
-    await productsService.getProductById(route.params.id)
-  } catch (error) {
-    logger.log(error)
-  }
-}
-// getProductById()
-const activeProduct = computed(() => AppState.activeProduct)
-
-</script> -->
 
 <style lang="scss" scoped>
 .product-image {
@@ -206,4 +186,13 @@ const activeProduct = computed(() => AppState.activeProduct)
     width: 100%;
   }
 }
+
+
+
+
+n-input-number {
+  background-color: #d42222 !important;
+}
+
+
 </style>
