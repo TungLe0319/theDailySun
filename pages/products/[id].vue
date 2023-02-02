@@ -15,17 +15,17 @@
         <div class="w-full md:w-1/2 p-5 px-14">
           <div class="">
             <div class="relative">
-              <h1 class="text-6xl mb-10 font-bold">
+              <h1 class="text-6xl mb-10 font-bold text-shadow">
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute right-0 bottom-0">
                 <h1
                   v-if="activeProduct.audience == 'Female'"
-                  class="text-8xl opacity-10 font-bold"
+                  class="text-8xl opacity-10 font-bold text-shadow "
                 >
                   WOMEN
                 </h1>
-                <h1 v-else class="text-8xl opacity-10 font-bold">
+                <h1 v-else class="text-8xl opacity-10 font-bold text-shadow">
                   Men
                 </h1>
               </div>
@@ -34,12 +34,12 @@
           <div class="flex justify-between mb-10">
             <div class="  ">
               <p
-                class="text-red-400 font-bold text-2xl rounded-full bg-white p-2 shadow-md"
+                class="text-red-400 font-bold text-2xl "
               >
                 ${{ activeProduct.price }}
               </p>
             </div>
-            <a
+            <!-- <a
               target="_blank"
               class="mb-2 text-black rounded-md p-2 opacity-75 right-0 mr-10"
               :href="activeProduct.stripe"
@@ -50,7 +50,7 @@
                 width="40"
                 class="checkOut-icon"
               >
-            </a>
+            </a> -->
             <div class="">
               <h2 class="font-bold text-gray-400 text-2xl">
                 Quantity

@@ -1,11 +1,13 @@
 <template>
   <div class="">
     <button
-      class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
+      class="checkOut font-1 text-xl font-bold p-2 "
       @click="test(productData)"
     >
-      AddToCart
+      Add To Cart
     </button>
+
+  
   </div>
 </template>
 
