@@ -38,7 +38,7 @@ export const useCartStore = defineStore("cart", {
       });
   this.cart = cart.value?.cart;
   this.total = cart.value?.cartTotal;
-  this.products = cart.value?.cart?.products;
+  this.products = cart.value?.cart?.products?.filter(p => p.id != id);
     logger.log(cart.value)
 
 

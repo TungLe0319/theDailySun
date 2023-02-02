@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
     },
     data: {
       products: {
-        disconnect: {
+        delete: {
           id: parseInt(id)
         }
       }

@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <AddToCart v-if="activeProduct" :productData="productData" />
+        <AddToCart v-if="activeProduct" :productData="activeProduct" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>

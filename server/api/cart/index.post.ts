@@ -4,7 +4,16 @@ import { getServerSession } from '#auth'
 
 interface newProduct {
   id: number;
-  quantity: number | any;
+  price: GLfloat
+  title: string
+  description : string
+  audience: string
+  productImg: string
+  type: string
+  img: string
+  quantity: number
+  stripe: string
+   cartId : number
 }
 export default defineEventHandler(async (event) => {
   const prisma = event.context.prisma
@@ -13,40 +22,42 @@ export default defineEventHandler(async (event) => {
   if (!userId) {
     createError('you must be logged in to add products to a cart')
   }
-  const body: newProduct = await readBody(event)
+  const body  = await readBody(event)
   if (!body) {
     createError('need to send in a body')
   }
   if (!body.quantity && !body.id) {
     createError('error')
   }
-  const cart: Cart = await prisma.cart.update({
-    where: {
-      userId
-    },
-    data: {
-      products: {
-        connect: {
-          id: body.id
-        },
-        update: {
-          where: {
-            id: body.id
-          },
-          data: {
-            quantity: body.quantity
+ const cart: Cart = await prisma.cart.update({
+where:{
+userId:userId
+},
+   data: {
+     products: {
+       create: {
+        title: body.productData.title,
+        description: body.productData.description,
+        quantity : body.productData.quantity,
+        img: body.productData.img,
+        price:  body.productData.price,
+        stripe: body.productData.stripe,
+        productImg: body.productData.productImg,
+        type: body.productData.type,
+        audience: body.productData.audience
+       },
 
-          }
-        }
-      }
-    }
-  })
-  let cartTotal = 0
+     },
+   },
+   include:{products:{}}
+ });
 
-  for (const product of cart.products) {
-    const amount = product.price * (product.quantity || 0)
+  // let cartTotal = 0
 
-    cartTotal += amount
-  }
-  return { cartTotal, cart }
+  // for (const product of cart?) {
+  //   const amount = product.price * (product.quantity || 0)
+
+  //   cartTotal += amount
+  // }
+  return {cart.products }
 })
