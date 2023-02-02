@@ -12,7 +12,7 @@ export default defineNuxtConfig({
           // automatically imports `defineStore`
           'defineStore', // import { defineStore } from 'pinia'
           // automatically imports `defineStore` as `definePiniaStore`
-          ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
+          ['defineStore', 'definePiniaStore', 'acceptHMRUpdate'] // import { defineStore as definePiniaStore } from 'pinia'
         ]
       }
     ]
