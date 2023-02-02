@@ -1,21 +1,46 @@
 import { acceptHMRUpdate } from 'pinia'
 
-export const useCartStore = defineStore('cart', {
+export const useCartStore = defineStore("cart", {
   state: () => ({
     cart: null,
     total: 0,
-    products: []
+    products: [],
   }),
   actions: {
-    getCart () {
-      const headers = useRequestHeaders(['cookie'])
-      const { data: cart } = useFetch('/api/cart', { headers })
-      logger.log(cart.value)
-      this.cart = cart.value?.cart
-      this.total = cart.value?.cartTotal
-      this.products = cart.value?.cart?.products
-    }
-  }
+    getCart() {
+      const headers = useRequestHeaders(["cookie"]);
+      const { data: cart } = useFetch("/api/cart", { headers });
+      logger.log(cart.value);
+      this.cart = cart.value?.cart;
+      this.total = cart.value?.cartTotal;
+      this.products = cart.value?.cart?.products;
+    },
+    add(productData) {
+
+      const {data:cart} = useFetch('/api/cart',{
+        method:'POST',
+        body:{
+         productData
+        }
+      })
+        this.cart = cart.value?.cart;
+        this.total = cart.value?.cartTotal;
+        this.products = cart.value?.cart?.products;
+    },
+     remove(productId) {
+      // eslint-disable-next-line curly
+      if (!productId) {
+        return
+      }
+
+      this.contents[productId].quantity -= 1
+
+      // eslint-disable-next-line curly
+      if (this.contents[productId].quantity === 0) {
+        delete this.contents[productId]
+      }
+  },
+}
   // getters: {
   //   cartTotal: (state) => {
   //     let price
@@ -25,7 +50,7 @@ export const useCartStore = defineStore('cart', {
   //     return price
   //   }
   // }
-})
+});
 // if (import.meta.hot) {
 //   import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot))
 // }

@@ -2,14 +2,14 @@
   <div class="">
     <button
       class="checkOut font-1 text-xl font-bold p-2 bg-green-300"
-      @click="addToCart(productData)"
+      @click="test(productData)"
     >
       AddToCart
     </button>
   </div>
 </template>
 
-<script>
+<!-- <script>
 import { cartService } from '../../composables/services/CartService.js'
 export default {
   props: {
@@ -30,5 +30,38 @@ export default {
   }
 }
 </script>
+
+ -->
+
+
+
+
+<script setup>
+import { computed, onMounted ,defineProps} from "vue";
+// const {data} = useSession()
+const props = defineProps({
+   productData: { typeof: Object }
+});
+
+const { productData } = toRefs(props);
+const cartStore =  useCartStore()
+
+ async function test(productData){
+  // logger.log(productData)
+  cartStore.add(productData)
+ }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <style lang="scss" scoped></style>
