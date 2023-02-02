@@ -1,17 +1,5 @@
 
-export interface Product {
-  id :         Number
-  title:       String
-  description: String
-  price  :     Number
-  img   :      String
-  stripe  :    String
-  productImg : String
-  type  :      String
-  audience:   String
-  cartId  :    Number
-
-}
+import { Product } from "@prisma/client";
 
 interface ProductState {
   items: Record<string, Product>;
@@ -48,6 +36,7 @@ export const useProductStore = defineStore({
 
     if (Array.isArray(data)) {
       this.ids = data.map((product) => {
+
         this.items[product.id] = product;
         return product.id;
       });
