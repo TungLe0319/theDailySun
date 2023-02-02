@@ -26,7 +26,7 @@
           </h2>
         </nuxt-link>
 
-        <RemoveFromCart :product="product" />
+        <RemoveFromCart :productId="product.id" />
       </div>
     </div>
     <div class="flex gap-x-20">

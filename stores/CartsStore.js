@@ -27,18 +27,22 @@ export const useCartStore = defineStore("cart", {
         this.total = cart.value?.cartTotal;
         this.products = cart.value?.cart?.products;
     },
-     remove(productId) {
-      // eslint-disable-next-line curly
-      if (!productId) {
-        return
-      }
+     remove(id) {
 
-      this.contents[productId].quantity -= 1
+      const { data: cart } = useFetch(`/api/cart/${id}`, {
+        method: "DELETE",
 
-      // eslint-disable-next-line curly
-      if (this.contents[productId].quantity === 0) {
-        delete this.contents[productId]
-      }
+        body: {
+          id,
+        },
+      });
+  this.cart = cart.value?.cart;
+  this.total = cart.value?.cartTotal;
+  this.products = cart.value?.cart?.products;
+    logger.log(cart.value)
+
+
+
   },
 }
   // getters: {

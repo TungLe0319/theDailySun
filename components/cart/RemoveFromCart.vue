@@ -2,7 +2,7 @@
   <div class="">
     <button
       class="checkOut font-1 text-xl font-bold hover:text-red-400 transition-colors"
-      @click="RemoveFromCart(product)"
+      @click="remove(productId)"
     >
       <img
         src="https://cdn-icons-png.flaticon.com/512/458/458594.png"
@@ -14,28 +14,28 @@
   </div>
 </template>
 
-<script>
-import { cartService } from '~~/composables/services/CartService.js'
 
-export default {
-  props: {
-    product: { typeof: Object }
-  },
-  setup () {
-    return {
-      async RemoveFromCart (product) {
-        try {
-          const id = product.id
-          await cartService.removeFromCart(id)
-          pop.toast('success', 'success', 'top-start', 2000)
-        } catch (error) {
-          logger.log(error)
-        }
-      }
-    }
-  }
-}
+<script setup>
+import { computed, onMounted ,defineProps} from "vue";
+// const {data} = useSession()
+const props = defineProps({
+   productId: { typeof: String}
+});
+
+const { product } = toRefs(props);
+const cartStore =  useCartStore()
+
+ async function remove(productId){
+  // logger.log(productData)
+  cartStore.remove(productId)
+  pop.toast(`Added To Cart`,'success','top-end',1500)
+ }
 </script>
+
+
+
+
+
 
 <style lang="scss" scoped>
 .icon {

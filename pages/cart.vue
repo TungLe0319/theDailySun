@@ -21,11 +21,11 @@
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
               <div class="p-4">
-                <!-- <CartProductCard
-                  v-for="c in data?.cart?.products"
+                <CartProductCard
+                  v-for="c in cart?.products"
                   :key="c.id"
                   :product="c"
-                /> -->
+                />
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
             >
               Begin Checkout
             </button>
-            {{ cart?.id }}
+
           </div>
         </div>
       </div>
@@ -62,6 +62,7 @@
 </template>
 <script setup>
 import { computed } from 'vue'
+
 
 definePageMeta({
   middleware: 'auth'
@@ -72,8 +73,10 @@ definePageMeta({
 // logger.log(data.value);
 
 const cartStore = useCartStore()
-await cartStore.getCart()
+cartStore.getCart()
 const cartTotal = computed(() => cartStore.cartTotal)
+const userStore = useUserStore()
+logger.log(userStore.user.value)
 // onMounted(() => {
 //   setTimeout(() => {
 //     cartStore.getCart()
