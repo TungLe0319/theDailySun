@@ -1,10 +1,5 @@
 import { Cart } from '@prisma/client'
-// import { array } from 'zod'
 import { getServerSession } from '#auth'
-// import { getTotal } from '~~/server/utils/helpers'
-// import { getTotal } from '~~/server/utils/helpers'
-// let cart : Cart | null
-// const cartTotal = 0 as Number
 export default defineEventHandler(async (event) => {
   const prisma = event.context.prisma
   // const { id } = getRouterParams(event)
@@ -36,11 +31,9 @@ export default defineEventHandler(async (event) => {
 function getTotal (array: import('@prisma/client').Product[]) {
   let total = 0
 
-  // eslint-disable-next-line array-callback-return
-  array.map((product) => {
+  for (const product of array) {
     const amount = product.price * (product.quantity || 0)
     total += amount
-  })
-  // total += amount
+  }
   return total
 }

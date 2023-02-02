@@ -33,7 +33,6 @@ export class useApi {
 
   static async post (url: string, body: any) {
     const headers = useRequestHeaders(['cookie']) as HeadersInit
-
     const { data } = await useFetch(url, {
       method: 'POST',
       body,

@@ -4,14 +4,22 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
-    '@vueuse/nuxt'
-    // ['@pinia/nuxt', {
-    //   autoImports: ['defineStore', 'acceptHMRUpdate']
-    // }]
+    '@vueuse/nuxt',
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: [
+          // automatically imports `defineStore`
+          'defineStore', // import { defineStore } from 'pinia'
+          // automatically imports `defineStore` as `definePiniaStore`
+          ['defineStore', 'definePiniaStore'] // import { defineStore as definePiniaStore } from 'pinia'
+        ]
+      }
+    ]
   ],
-  // imports: {
-  //   dirs: ['stores']
-  // },
+  imports: {
+    dirs: ['stores']
+  },
   build: {
 
     transpile: ['trpc-nuxt']

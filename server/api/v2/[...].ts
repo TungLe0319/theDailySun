@@ -1,12 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-// import { createRouter, defineEventHandler, useBase } from 'h3'
-// import { testsServerService } from '~~/server/services/TestsServerService'
-
-// const router = createRouter()
-// router.get('/test', defineEventHandler(() => 'Hello World'))
-// router.post('/test', testsServerService.addTest)
-// // const addTest = defineEventHandler((event) => )
-// export default useBase('/api/v2', router.handler)
 import { createRouter, defineEventHandler, useBase } from 'h3'
 // import { testsServerService } from '~~/server/services/TestsServerService'
 
