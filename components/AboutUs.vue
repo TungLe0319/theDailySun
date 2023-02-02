@@ -31,6 +31,7 @@ export default {
   height: 10vh;
   position: absolute;
   bottom: 0;
+  
 content: '';
 background: rgb(255,255,255);
 background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(243,232,255,1) 100%);

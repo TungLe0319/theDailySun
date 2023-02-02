@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed w-full z-10 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
+  <nav class="fixed w-full  z-50 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
     <div class="  flex  justify-between">
       <div class=" ml-3">
         <NuxtLink to="/" class="" active-class="active-link-img">

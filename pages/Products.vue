@@ -16,31 +16,16 @@
     </div>
   </div>
 </template>
-<script>
-export default {
-  setup () {
-    const { data: products } = useFetch('/api/products')
+<script setup >
+import { computed, onMounted } from 'vue'
+import { useProductStore } from '~~/stores/ProductStore';
 
-    onMounted(() => { })
-    const route = useRoute()
 
-    // async function getUserCart () {
-    //   try {
-    //   } catch (error) {
-    //     logger.log(error)
-    //   }
-    // }
-
-    return {
-      products,
-      // products: computed(() => AppState.products),
-      route,
-      activeProduct: computed(() => AppState.activeProduct),
-    }
-  }
-}
+const productStore = useProductStore()
+productStore.fetchAll()
+const products = computed(() => productStore.list)
+logger.log(products.value)
 </script>
-
 <style lang="scss" scoped>
 
 </style>

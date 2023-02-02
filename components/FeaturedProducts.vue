@@ -11,7 +11,7 @@
     <div class="    mt-10   flex relative ">
   <div class="glasses-title flip  text-center  absolute text-shadow bottom-0 left-0"> Glasses </div>
     <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="glasses"  >
-      <ProductCard v-for="i in glasses" :key="i" class="" :product="i"  />
+      <ProductCard v-for="i in glasses" :key="i.id" class="" :product="i"  />
     </div>
 
     <LoaderComponent v-else />
@@ -35,7 +35,7 @@
      <div class="       flex relative ">
 
     <div id="card-container" class="   gap-2 justify-center w-full" v-if="hats">
-      <ProductCard v-for="h in hats" :key="h" class="productCard " :product="h"  />
+      <ProductCard v-for="h in hats" :key="h.id" class="productCard " :product="h"  />
 
     </div>
  <LoaderComponent v-else/>
@@ -45,7 +45,7 @@
 </div>
 </template>
 
-<script>
+<!-- <script>
 import { computed } from 'vue'
 
 export default {
@@ -61,6 +61,46 @@ export default {
   }
 }
 </script>
+ -->
+
+
+
+
+
+<script setup >
+
+import { computed, onMounted } from 'vue'
+
+
+import { useProductStore } from '~~/stores/ProductStore';
+const productStore = useProductStore()
+onMounted(()=>{
+setTimeout(() => {
+productStore.fetchAll()
+}, 1);
+})
+
+const products = computed(() => productStore.list)
+const glasses = computed(() => products.value.filter(p => p.type == "Glasses" && p.audience == "Female"))
+const hats = computed(() => products.value.filter(p => p.type == "Hat" && p.audience == "Female"))
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- <script setup>
 const {data: products} = await useAsyncData()
 </script> -->

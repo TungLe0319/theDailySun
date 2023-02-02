@@ -13,6 +13,7 @@
   </div>
 </template>
 
+
 <script>
 import { productsService } from '../composables/services/ProductsService'
 
