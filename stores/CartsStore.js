@@ -44,16 +44,16 @@ export const useCartStore = defineStore("cart", {
 
 
   },
-}
-  // getters: {
-  //   cartTotal: (state) => {
-  //     let price
-  //     for (const product of state.cart.products) {
-  //       price += (product.price * product.quantity)
-  //     }
-  //     return price
-  //   }
-  // }
+},
+  getters: {
+    cartTotal: (state) => {
+      let price = 0
+      for (const product of state.cart.products) {
+        price += (product.price * product.quantity)
+      }
+      return price
+    }
+  }
 })
 if (import.meta.hot) {
   import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot))
