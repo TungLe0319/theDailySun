@@ -2,7 +2,6 @@ import { Cart } from '@prisma/client'
 import { getServerSession } from '#auth'
 // import { never } from 'zod';
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 interface newProduct {
   id: number;
   quantity: number | any;
@@ -42,48 +41,12 @@ export default defineEventHandler(async (event) => {
       }
     }
   })
+  let cartTotal = 0
 
-  //   const { id } = event.context.body
+  for (const product of cart.products) {
+    const amount = product.price * (product.quantity || 0)
 
-  // let cart = await $trpc.cart.findUnique.useQuery({
-  //       where: { userId: AppState.account.id },
-  //     });
-  //     if (!cart) {
-  //       cart = await $trpc.cart.create.mutate({
-  //         data: {
-  //           products: {
-  //             connect: {
-  //               productId: productId,
-  //             },
-  //           },
-  //           user: {
-  //             connect: {
-  //               id: AppState.account.id,
-  //             },
-  //           },
-  //         },
-  //       });
-  //     } else {
-  //       cart = await $trpc.cart.update.mutate({
-  //         where: {
-  //           userId: AppState.account.id,
-  //         },
-  //         data: {
-  //           products: {
-  //             connect: {
-  //               id: AppState.activeProduct.id,
-  //             },
-  //             update: {
-  //               data: {
-  //                 quantity: {
-  //                   increment: 1,
-  //                 },
-  //               },
-  //               where: { id: AppState.activeProduct.id },
-  //             },
-  //           },
-  //         },
-  //       });
-  //     }
-  return event
+    cartTotal += amount
+  }
+  return { cartTotal, cart }
 })
