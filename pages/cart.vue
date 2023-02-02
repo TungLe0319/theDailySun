@@ -2,7 +2,9 @@
   <div class="pt-24 text-black p-5 bg-slate-300 h-screen relative">
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
-        <h1 class="text-5xl">My Cart</h1>
+        <h1 class="text-5xl">
+          My Cart
+        </h1>
       </div>
       <div class="flex">
         <div class="w-full md:w-2/3 p-5 px-14">
@@ -15,7 +17,7 @@
               <p>Price</p>
             </div>
           </div>
-          <hr class="mt-3 bg-black" />
+          <hr class="mt-3 bg-black">
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
               <div class="p-4">
@@ -35,9 +37,15 @@
             <h2 class="text-2xl">
               Subtotal : <b>{{ cartTotal }}</b>
             </h2>
-            <h2 class="text-2xl text-slate-400">Est Shipping :</h2>
-            <h2 class="text-2xl text-slate-400">Est Sales Taxes :</h2>
-            <h2 class="text-2xl text-red-700">Order Total :</h2>
+            <h2 class="text-2xl text-slate-400">
+              Est Shipping :
+            </h2>
+            <h2 class="text-2xl text-slate-400">
+              Est Sales Taxes :
+            </h2>
+            <h2 class="text-2xl text-red-700">
+              Order Total :
+            </h2>
           </div>
           <div class="mt-3">
             <button
@@ -53,27 +61,26 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted } from "vue";
-
+import { computed } from 'vue'
 
 definePageMeta({
-  middleware: "auth",
-});
+  middleware: 'auth'
+})
 
-const headers = useRequestHeaders(["cookie"]);
-const { data } = await useFetch("/api/cart", { headers });
-logger.log(data.value);
+// const headers = useRequestHeaders(["cookie"]);
+// const { data } = await useFetch("/api/cart", { headers });
+// logger.log(data.value);
 
-const cartTotal = computed(() => data.value?.cartTotal);
+const cartStore = useCartStore()
+await cartStore.getCart()
+const cartTotal = computed(() => cartStore.cartTotal)
+// onMounted(() => {
+//   setTimeout(() => {
+//     cartStore.getCart()
+//   }, 1)
+// })
 
-const cartStore =  useCartStore()
-onMounted(() => {
-  setTimeout(() => {
-    cartStore.getCart()
-  }, 1);
-});
-
-const cart = computed(() => cartStore.cart);
+const cart = computed(() => cartStore.cart)
 
 // import { cartService } from '~~/composables/services/CartService.js'
 

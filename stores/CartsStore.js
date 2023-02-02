@@ -50,7 +50,7 @@ export const useCartStore = defineStore("cart", {
   //     return price
   //   }
   // }
-});
-// if (import.meta.hot) {
-//   import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot))
-// }
+})
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot))
+}
