@@ -14,8 +14,10 @@ export default defineEventHandler(async (event) => {
     },
     data: {
       products: {
+
         delete: {
-          id: parseInt(id)
+
+         id: parseInt(id)
         }
       }
     },
