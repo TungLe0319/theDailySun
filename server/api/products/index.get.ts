@@ -3,7 +3,7 @@ export default defineEventHandler((event) => {
   // const userId = event.context.userId
   const products = prisma.product.findMany({
      where:{
-      cartId : 2
+      cart: undefined
      }
   })
   return products

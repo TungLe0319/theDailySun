@@ -23,6 +23,7 @@ export default defineEventHandler(async (event) => {
     createError('you must be logged in to add products to a cart')
   }
   const body  = await readBody(event)
+  const productData = body.productData
   if (!body) {
     createError('need to send in a body')
   }
@@ -36,15 +37,15 @@ userId:userId
    data: {
      products: {
        create: {
-        title: body.productData.title,
-        description: body.productData.description,
-        quantity : body.productData.quantity,
-        img: body.productData.img,
-        price:  body.productData.price,
-        stripe: body.productData.stripe,
-        productImg: body.productData.productImg,
-        type: body.productData.type,
-        audience: body.productData.audience
+        title: productData.title,
+        description: productData.description,
+        quantity : productData.quantity,
+        img: productData.img,
+        price:  productData.price,
+        stripe: productData.stripe,
+        productImg: productData.productImg,
+        type: productData.type,
+        audience: productData.audience
        },
 
      },
@@ -52,12 +53,12 @@ userId:userId
    include:{products:{}}
  });
 
-  // let cartTotal = 0
+  let cartTotal = 0
 
-  // for (const product of cart?) {
-  //   const amount = product.price * (product.quantity || 0)
+  for (const product of cart.products) {
+    const amount = product.price * (product.quantity || 0)
 
-  //   cartTotal += amount
-  // }
-  return {cart.products }
+    cartTotal += amount
+  }
+  return {cart ,cartTotal}
 })
