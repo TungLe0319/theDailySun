@@ -75,18 +75,15 @@ model Product {
   description String?
   price       Float
   img         String
-  stripe      String
-  productImg  String?
   type        String?
   audience    String?
   quantity    Int?    @default(0)
-  cartId      Int?
-  cart        Cart[]
+  cart        Cart[]  @relation("CartToProduct")
 }
 
 model Cart {
   userId   String?   @unique
   id       Int       @id @default(autoincrement())
   user     User?     @relation(fields: [userId], references: [id])
-  products Product[]
+  products Product[] @relation("CartToProduct")
 }
