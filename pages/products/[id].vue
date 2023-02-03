@@ -80,7 +80,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <AddToCart v-if="activeProduct" :productData="activeProduct" />
+        <AddToCart v-if="activeProduct" :productData="productData" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -125,38 +125,11 @@ export default {
       activeProduct: computed(() => AppState.activeProduct),
       productData: computed(() =>
       {
-       let productData = {
-         quantity: AppState.itemQty,
-        id : AppState.activeProduct.id
-       }
-       return productData
+     let productData = AppState.activeProduct
+     productData.quantity = AppState.itemQty
+     return productData
       }),
-      // eslint-disable-next-line require-await
-      async checkOut () {
-        const { data } = useFetch('/api/create-checkout-session', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            items: [{ id: this.activeProduct.id, quantity: 1 }]
-          })
-        })
-          .then((res) => {
-            if (res.ok) {
-              return res.json()
-            }
-            return res.json().then(json => Promise.reject(json))
-          })
-          .then(({ url }) => {
-            window.location = url
-          })
-          .catch((e) => {
-            console.error(e.error)
-          })
-        console.log(data)
 
-      }
     }
   }
 }
