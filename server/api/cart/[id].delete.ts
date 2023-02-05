@@ -8,33 +8,39 @@ export default defineEventHandler(async (event) => {
   const { id } = getRouterParams(event)
   const data = await getServerSession(event)
   const user = data?.user
-  const updatedCart: Cart = await prisma.cart.update({
-    where: {
-      userId: user.id
-    },
-    data: {
-      products: {
+  // const updatedCart = await prisma.cart.update({
+  //   where: {
+  //     userId: user.id
+  //   },
+  //   data: {
+  //     products: {
 
-        delete: {
+  //       delete: {
 
-         id: parseInt(id)
-        }
-      }
-    },
-    include: {
-      products: {}
+  //        id: parseInt(id)
+  //       }
+  //     }
+  //   },
+  //   include: {
+  //     products: {}
+  //   }
+  // })
+
+  const product = await prisma.product.delete({
+    where:{
+      id : parseInt(id)
     }
   })
 
-  if (updatedCart.products.length <= 0) {
-    await prisma.cart.delete({
-      where: {
-        userId: user.id
-      }
-    })
-  }
+  // if (updatedCart.products.length <= 0) {
+  //   await prisma.cart.delete({
+  //     where: {
+  //       userId: user.id
+  //     }
+  //   })
+  // }
 
-  return { updatedCart }
+  return {product }
 })
 
 function getTotal (array: import('@prisma/client').Product[]) {

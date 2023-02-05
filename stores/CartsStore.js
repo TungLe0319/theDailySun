@@ -32,16 +32,14 @@ export const useCartStore = defineStore('cart', {
       this.products = cart.value?.products
     },
     remove (id) {
-      const { data: cart } = useFetch(`/api/cart/${id}`, {
+       useFetch(`/api/cart/${id}`, {
         method: 'DELETE',
 
         body: {
           id
         }
       })
-      this.cart = cart.value?.cart
-
-      this.products = cart.value?.products
+    this.getCart()
 
     }
   },
