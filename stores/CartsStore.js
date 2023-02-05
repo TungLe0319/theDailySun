@@ -11,14 +11,14 @@ export const useCartStore = defineStore('cart', {
       const headers = useRequestHeaders(['cookie'])
       const { data: cart } = useFetch('/api/cart', { headers })
       logger.log(cart.value)
-      this.cart = cart.value?.cart
+      this.cart = cart?.value?.cart
       this.total = () => {
         let total = 0
         const amount = cart.value.products.map(product => product.price * (product.quantity || 0))
         total += amount
         return total
       }
-      this.products = cart.value?.products
+      this.products = cart?.value?.products
     },
     add (productData) {
       const { data: cart } = useFetch('/api/cart', {
@@ -39,14 +39,14 @@ export const useCartStore = defineStore('cart', {
           id
         }
       })
-    this.getCart()
+  this.products = this.products.filter(p => p.id != id)
 
     }
   },
   getters: {
     cartTotal: (state) => {
       let price = 0
-      for (const product of state.cart.products) {
+      for (const product of state.products) {
         price += (product.price * product.quantity)
       }
       return price

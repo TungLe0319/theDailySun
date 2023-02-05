@@ -25,7 +25,9 @@
                   v-for="c in products"
                   :key="c.id"
                   :product="c"
+                  v-if="products"
                 />
+                <h3 class="text-6xl"> Empty Cart</h3>
               </div>
             </div>
           </div>
@@ -75,7 +77,7 @@ cartStore.getCart()
 
 
 const products = computed(() => cartStore?.products)
-const cartTotal = computed(() => cartStore?.total)
+const cartTotal = computed(() => cartStore?.cartTotal)
 
 
 </script>
