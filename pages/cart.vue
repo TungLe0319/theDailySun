@@ -68,7 +68,8 @@ definePageMeta({
 
 const cartStore = useCartStore()
 cartStore.getCart()
-const products = computed(() => cartStore.products)
+const products = computed(() => cartStore?.products)
+const cartTotal = computed(() => cartStore?.total)
 
 
 </script>
