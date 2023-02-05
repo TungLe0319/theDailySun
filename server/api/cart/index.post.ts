@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
   if (!userId) {
     createError('you must be logged in to add products to a cart')
   }
-  const body  = await readBody(event)
+  const body = await readBody(event)
   const productData = body.productData
   if (!body) {
     createError('need to send in a body')
@@ -30,33 +30,33 @@ export default defineEventHandler(async (event) => {
   if (!body.quantity && !body.id) {
     createError('error')
   }
- const cart: Cart = await prisma.cart.update({
-where:{
-userId:userId
-},
-   data: {
-     products: {
-       create: {
-        title: productData.title,
-        description: productData.description,
-        quantity : productData.quantity,
-        img: productData.img,
-        price:  productData.price,
-        type: productData.type,
-        audience: productData.audience
-       },
+  const cart = await prisma.cart.update({
+    where: {
+      userId
+    },
+    data: {
+      products: {
+        create: {
+          title: productData.title,
+          description: productData.description,
+          quantity: productData.quantity,
+          img: productData.img,
+          price: productData.price,
+          type: productData.type,
+          audience: productData.audience
+        }
 
       }
     },
     include: { products: {} }
   })
 
-  let cartTotal = 0
+  // let cartTotal = 0
 
-  for (const product of cart.products) {
-    const amount = product.price * (product.quantity || 0)
+  // for (const product of cart.products) {
+  //   const amount = product.price * (product.quantity || 0)
 
-    cartTotal += amount
-  }
-  return {cart ,cartTotal}
+  // cartTotal += amount
+
+  return cart
 })

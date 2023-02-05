@@ -3,7 +3,7 @@ eslint-disable @typescript-eslint/no-unused-vars
 // import { cartService } from '~~/composables/services/CartService'
 // import Pop from '~~/utils/Pop'
 
-import { Cart, Product } from '.prisma/client'
+// import { Cart, Product } from '.prisma/client'
 
 // import { Cart } from '.prisma/client'
 
@@ -14,21 +14,14 @@ import { Cart, Product } from '.prisma/client'
 //     Pop.error(error)
 //   }
 // }
-let cart: Cart & {
-  products : Product
-}
-const getCart = async () => {
-  const { data } = await useFetch('/api/cart')
-  cart = data.value
-}
-
+const { data: cart } = await useFetch('/api/cart')
 // const { data: token } = useSession()
 </script>
 
 <template>
   <div class=" mt-40">
     <p>{{ 'are you logged in' }}</p>
-    <button @click="getCart">
+    <button>
       button
     </button>
     <div v-if="cart">
