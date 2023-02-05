@@ -22,11 +22,11 @@ class CartService {
     // const { data } = useSession()
     // const id = data.value.user.id
     const headers = useRequestHeaders(['cookie'])
-    const { data: res } = await useFetch('/api/cart/', { headers })
-    logger.log(res.value)
-    AppState.userCart = res?.value?.cart
+    const res = await useFetch('/api/cart/', { headers })
+    logger.log(res.data.value)
+    // AppState.userCart = res?.value?.cart
 
-    AppState.cartTotal = res?.value?.cartTotal
+    // AppState.cartTotal = res?.value?.cartTotal
   }
 
   async removeFromCart (id) {

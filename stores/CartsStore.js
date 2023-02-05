@@ -1,50 +1,50 @@
 import { acceptHMRUpdate } from 'pinia'
 
-export const useCartStore = defineStore("cart", {
+export const useCartStore = defineStore('cart', {
   state: () => ({
     cart: null,
     total: 0,
-    products: [],
+    products: []
   }),
   actions: {
-    getCart() {
-      const headers = useRequestHeaders(["cookie"]);
-      const { data: cart } = useFetch("/api/cart", { headers });
-      logger.log(cart.value);
-      this.cart = cart.value?.cart;
-      this.total = cart.value?.cartTotal;
-      this.products = cart.value?.cart?.products;
+    getCart () {
+      const headers = useRequestHeaders(['cookie'])
+      const { data: cart } = useFetch < Cart > ('/api/cart', { headers })
+      logger.log(cart.value)
+      this.cart = cart.value?.cart
+      this.total = () => {
+        let total = 0
+        const amount = cart.value.products.map(product => product.price * (product.quantity || 0))
+        total += amount
+        return total
+      }
+      this.products = cart.value?.cart?.products
     },
-    add(productData) {
-
-      const {data:cart} = useFetch('/api/cart',{
-        method:'POST',
-        body:{
-         productData
+    add (productData) {
+      const { data: cart } = useFetch('/api/cart', {
+        method: 'POST',
+        body: {
+          productData
         }
       })
-        this.cart = cart.value?.cart;
-        this.total = cart.value?.cartTotal;
-        this.products = cart.value?.cart?.products;
+      this.cart = cart.value?.cart
+      this.total = cart.value?.cartTotal
+      this.products = cart.value?.cart?.products
     },
-     remove(id) {
-
+    remove (id) {
       const { data: cart } = useFetch(`/api/cart/${id}`, {
-        method: "DELETE",
+        method: 'DELETE',
 
         body: {
-          id,
-        },
-      });
-  this.cart = cart.value?.cart;
-  this.total = cart.value?.cartTotal;
-  this.products = cart.value?.cart?.products?.filter(p => p.id != id);
-    logger.log(cart.value)
-
-
-
+          id
+        }
+      })
+      this.cart = cart.value?.cart
+      this.total = cart.value?.cartTotal
+      this.products = cart.value?.cart?.products?.filter(p => p.id != id)
+      logger.log(cart.value)
+    }
   },
-},
   getters: {
     cartTotal: (state) => {
       let price = 0

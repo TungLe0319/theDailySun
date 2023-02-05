@@ -6,8 +6,6 @@
     >
       Add To Cart
     </button>
-
-
   </div>
 </template>
 
@@ -35,18 +33,15 @@ export default {
 
  -->
 
-
-
-
 <script setup>
-import { computed, onMounted ,defineProps} from "vue";
+import { computed, onMounted } from 'vue'
 // const {data} = useSession()
 const props = defineProps({
-   productData: { typeof: Object }
-});
+  productData: { typeof: Object }
+})
 
-const { productData } = toRefs(props);
-const cartStore =  useCartStore()
+const { productData } = toRefs(props)
+const cartStore = useCartStore()
 
  async function test(productData){
   logger.log(productData)
@@ -55,17 +50,5 @@ const cartStore =  useCartStore()
   pop.toast(`Added To Cart`,'success','top-end',1500)
  }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
 
 <style lang="scss" scoped></style>

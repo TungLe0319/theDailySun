@@ -1,11 +1,15 @@
-import { Cart } from '@prisma/client'
+import { usePrisma } from '@sidebase/nuxt-prisma'
+import { Cart, PrismaClient } from '@prisma/client'
 import { getServerSession } from '#auth'
+
+// const prismaClient = new PrismaClient()
 export default defineEventHandler(async (event) => {
-  const prisma = event.context.prisma
+  // const prisma = usePrisma(event)
   // const { id } = getRouterParams(event)
   const session = await getServerSession(event)
   if (session?.user) {
-    let cart: Cart | null = await prisma.cart.findUnique({
+    let cart
+    cart = await event.context.prisma.cart.findUnique({
       where: {
         userId: session?.user.id
       },
@@ -15,7 +19,7 @@ export default defineEventHandler(async (event) => {
     })
 
     if (!cart) {
-      cart = await prisma.cart.create({
+      cart = await event.context.prisma.cart.create({
         data: {
           userId: session.user.id
         }
@@ -23,8 +27,8 @@ export default defineEventHandler(async (event) => {
     }
     console.log(cart)
 
-    const cartTotal = getTotal(cart.products)
-    return { cartTotal, cart }
+    // const cartTotal = getTotal(cart.products)
+    return cart
   }
   return session?.user ? session.user : 'no user'
 })
