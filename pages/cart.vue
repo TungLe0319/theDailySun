@@ -65,9 +65,17 @@ import { computed } from 'vue'
 definePageMeta({
   middleware: 'auth'
 })
-
 const cartStore = useCartStore()
+
+onMounted(()=>{
+
+ setTimeout(() => {
 cartStore.getCart()
+
+ }, 1000);
+})
+
+
 const products = computed(() => cartStore?.products)
 const cartTotal = computed(() => cartStore?.total)
 

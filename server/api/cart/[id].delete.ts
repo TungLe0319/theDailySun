@@ -33,8 +33,8 @@ export default defineEventHandler(async (event) => {
       }
     })
   }
-  const cartTotal = getTotal(updatedCart.products)
-  return { updatedCart, cartTotal }
+
+  return { updatedCart }
 })
 
 function getTotal (array: import('@prisma/client').Product[]) {
