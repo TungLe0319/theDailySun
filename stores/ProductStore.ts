@@ -30,17 +30,23 @@ export const useProductStore = defineStore({
 
       const res = await useFetch('/api/products');
       logger.log(res.data.value)
-//  let data = res.data.value
+ let data = res.data.value
 
 
 
-    // if (Array.isArray(data)) {
-    //   this.ids = data.map((product) => {
+    if (Array.isArray(data)) {
 
-    //     this.items[product.id] = product;
-    //     return product.id;
-    //   });
-    // }
+
+      this.ids = data
+
+      .map((product) => {
+
+        this.items[product.id] = product;
+
+
+        return product.id;
+      });
+    }
 
     },
   },

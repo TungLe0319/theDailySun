@@ -2,23 +2,25 @@ import { acceptHMRUpdate } from 'pinia'
 
 export const useCartStore = defineStore('cart', {
   state: () => ({
-    cart: null,
+    id: null,
+    userId:null,
     total: 0,
     products: []
   }),
   actions: {
     getCart () {
       const headers = useRequestHeaders(['cookie'])
-      const { data: cart } = useFetch < Cart > ('/api/cart', { headers })
-      logger.log(cart.value)
-      this.cart = cart.value?.cart
+      const { data: res } = useFetch  ('/api/cart', { headers })
+  this.id = res.value.id
+ this.userId = res.value.userId
+ this.products = res.value.products
       this.total = () => {
         let total = 0
-        const amount = cart.value.products.map(product => product.price * (product.quantity || 0))
+        const amount = res.value.products.map(product => product.price * (product.quantity || 0))
         total += amount
         return total
       }
-      this.products = cart.value?.cart?.products
+
     },
     add (productData) {
       const { data: cart } = useFetch('/api/cart', {
@@ -46,13 +48,13 @@ export const useCartStore = defineStore('cart', {
     }
   },
   getters: {
-    cartTotal: (state) => {
-      let price = 0
-      for (const product of state.cart.products) {
-        price += (product.price * product.quantity)
-      }
-      return price
-    }
+    // cartTotal: (state) => {
+    //   let price = 0
+    //   for (const product of state.cart.products) {
+    //     price += (product.price * product.quantity)
+    //   }
+    //   return price
+    // }
   }
 })
 if (import.meta.hot) {

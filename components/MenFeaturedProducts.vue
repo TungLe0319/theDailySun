@@ -45,22 +45,26 @@
 </div>
 </template>
 
-<script>
-import { computed } from 'vue'
 
-export default {
-  setup () {
-    onMounted(() => {
+<script setup >
 
-    })
+import { computed, onMounted } from 'vue'
 
-    return {
-      glasses: computed(() => AppState.products.filter(p => p.type == "Glasses" && p.audience == "Male")),
-      hats:computed(() => AppState.products.filter(p => p.type == "Hat" && p.audience == "Male") )
-    }
-  }
-}
+
+import { useProductStore } from '~~/stores/ProductStore';
+const productStore = useProductStore()
+onMounted(()=>{
+setTimeout(() => {
+productStore.fetchAll()
+}, 1);
+})
+
+const products = computed(() => productStore.list)
+const glasses = computed(() => products.value.filter(p => p.type == "Glasses" && p.audience == "Male"))
+const hats = computed(() => products.value.filter(p => p.type == "Hat" && p.audience == "Male"))
 </script>
+
+
 <!-- <script setup>
 const {data: products} = await useAsyncData()
 </script> -->

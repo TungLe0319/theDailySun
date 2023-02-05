@@ -5,7 +5,7 @@
       <AboutUs />
 
       <FeaturedProducts class="" />
-      <!-- <MenFeaturedProducts /> -->
+      <MenFeaturedProducts />
     </div>
     <!-- <div >
       <LoadingAnimation />

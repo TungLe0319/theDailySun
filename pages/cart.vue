@@ -22,7 +22,7 @@
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
-                  v-for="c in cart?.products"
+                  v-for="c in products"
                   :key="c.id"
                   :product="c"
                 />
@@ -35,7 +35,7 @@
         >
           <div class="flex flex-col gap-y-3">
             <h2 class="text-2xl">
-              Subtotal : <b>{{ cartTotal }}</b>
+              <!-- Subtotal : <b>{{ cartTotal }}</b> -->
             </h2>
             <h2 class="text-2xl text-slate-400">
               Est Shipping :
@@ -62,54 +62,15 @@
 </template>
 <script setup>
 import { computed } from 'vue'
-
-
 definePageMeta({
   middleware: 'auth'
 })
 
-// const headers = useRequestHeaders(["cookie"]);
-// const { data } = await useFetch("/api/cart", { headers });
-// logger.log(data.value);
-
 const cartStore = useCartStore()
 cartStore.getCart()
-const cartTotal = computed(() => cartStore.total)
-const userStore = useUserStore()
-logger.log(userStore.user.value)
-// onMounted(() => {
-//   setTimeout(() => {
-//     cartStore.getCart()
-//   }, 1)
-// })
-
-const cart = computed(() => cartStore.cart)
+const products = computed(() => cartStore.products)
 
 
-// import { cartService } from '~~/composables/services/CartService.js'
-
-// export default {
-
-//   setup () {
-//     onMounted(() => {
-//       getCartByUserId()
-//     })
-
-//     async function getCartByUserId () {
-//       try {
-//         await cartService.getCartByUserId()
-//       } catch (error) {
-//         logger.log(error)
-//       }
-//     }
-
-//     return {
-//       activeProduct: computed(() => AppState.activeProduct),
-//       cart: computed(() => AppState.userCart),
-// cartTotal: computed(() => AppState.cartTotal)
-//     }
-//   }
-// }
 </script>
 
 <style lang="scss" scoped>
