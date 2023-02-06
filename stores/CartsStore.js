@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import { acceptHMRUpdate } from 'pinia'
 
 export const useCartStore = defineStore('cart', {
@@ -12,11 +13,14 @@ export const useCartStore = defineStore('cart', {
       const { data: cart } = await useFetch('/api/cart', { headers })
       logger.log(cart.value)
       this.cartId = cart?.value?.id
-      this.products = cart?.value?.products
-      for (const product of this.products) {
+      const products = cart.value.products
+      this.products = products
+      let amount = 0
+      for (const product of products) {
         const price = product.price * (product.quantity || 0)
-        this.total += price
+        amount += price
       }
+      this.total = amount
     },
     add (productData) {
       const { data: cart } = useFetch('/api/cart', {
@@ -25,9 +29,9 @@ export const useCartStore = defineStore('cart', {
           productData
         }
       })
-      this.cart = cart.value?.cart
+      logger.log(cart.value)
 
-      this.products = cart.value?.products
+      this.products = cart.value.products
     },
     remove (id) {
       useFetch(`/api/cart/${id}`, {
