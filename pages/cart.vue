@@ -69,8 +69,10 @@ definePageMeta({
   middleware: 'auth'
 })
 const cartStore = useCartStore()
-
-cartStore.getCart()
+if (!cartStore.products.length) {
+  logger.assert('getting cart')
+  cartStore.getCart()
+}
 
 const products = computed(() => cartStore?.products)
 const cartTotal = computed(() => cartStore?.total)

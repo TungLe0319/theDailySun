@@ -56,7 +56,7 @@ const stripe = new Stripe(
 
       }
     },
-    include: { products: {} }
+    include: { products: true }
   })
 
   // const product = await stripe.products.create({

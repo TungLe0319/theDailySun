@@ -22,8 +22,8 @@ export const useCartStore = defineStore('cart', {
       }
       this.total = amount
     },
-    add (productData) {
-      const { data: cart } = useFetch('/api/cart', {
+    async add (productData) {
+      const { data: cart } = await useFetch('/api/cart', {
         method: 'POST',
         body: {
           productData
