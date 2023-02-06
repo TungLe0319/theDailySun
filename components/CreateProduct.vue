@@ -11,7 +11,7 @@
       </div>
       <div>
         <label for="image">Image:</label>
-        <input type="text" id="image" v-model="product.image" />
+        <input type="text" id="image" v-model="product.img" />
       </div>
       <div>
         <label for="audience">Audience:</label>
@@ -39,9 +39,9 @@ export default {
      const productStore = useProductStore()
     return {
       product: {
-        title: 'Vintage Stripe Test 1',
+        title: 'Vintage Stripe Test 3',
         description: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ea modi soluta similique ut illo.',
-        img: 'https://images.unsplash.com/photo-1675595937692-ba33815da2e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        img: 'https://images.unsplash.com/photo-1594168087746-d94175b42394?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80',
         audience: 'Female',
         type: 'Hat',
         price: 25.00,

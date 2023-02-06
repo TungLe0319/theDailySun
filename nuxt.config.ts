@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     "nuxt-typed-router",
     "@nuxtjs/tailwindcss",
     "@huntersofbook/naive-ui-nuxt",
+    'nuxt-swiper',
     "@vueuse/nuxt",
     [
       "@pinia/nuxt",

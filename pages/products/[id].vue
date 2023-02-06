@@ -58,6 +58,15 @@
       <div class="absolute right-24 cursor-none">
         <AddToCart v-if="activeProduct && user" :product-data="productData" />
         <nuxt-link v-else to="/cart"> <h3 class="text-2xl">Sign in to add to cart</h3> </nuxt-link>
+
+          <button
+      class="checkOut font-1 text-xl font-bold p-2 "
+
+      @click="deleteProduct()"
+    >
+     Delete ADMIN ONLY
+    </button>
+
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -127,6 +136,16 @@ const productData = computed(() => {
   productData.quantity = quantity.value;
   return productData;
 });
+ async function deleteProduct(id){
+  let productIDS= {
+ id : activeProduct.value.id,
+stripeID : activeProduct.value.stripeID
+  }
+ productStore.delete(productIDS)
+
+
+}
+
 </script>
 
 <style lang="scss" scoped>

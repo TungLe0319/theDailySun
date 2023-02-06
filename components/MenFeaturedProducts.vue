@@ -60,8 +60,8 @@ productStore.getProducts()
 })
 
 const products = computed(() => productStore.products)
-const glasses = computed(() => products.value.filter(p => p.type == "Glasses" && p.audience == "Male"))
-const hats = computed(() => products.value.filter(p => p.type == "Hat" && p.audience == "Male"))
+const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Male"))
+const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Male"))
 </script>
 
 

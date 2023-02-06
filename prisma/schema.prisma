@@ -74,6 +74,7 @@ model Product {
   img         String
   type        String?
   audience    String?
+  stripeID String?
   priceID String?
   quantity    Int?    @default(0)
   cart        Cart[]  @relation("CartToProduct")

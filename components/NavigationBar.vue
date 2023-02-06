@@ -14,12 +14,12 @@
           <NuxtLink to="/about" class="link" active-class="active-link">
             About
           </NuxtLink>
-          <NuxtLink to="/prisma" class="link" active-class="active-link">
+          <!-- <NuxtLink to="/prisma" class="link" active-class="active-link">
             Prisma
-          </NuxtLink>
-          <NuxtLink to="/protected" class="link" active-class="active-link">
+          </NuxtLink> -->
+          <!-- <NuxtLink to="/protected" class="link" active-class="active-link">
             protected
-          </NuxtLink>
+          </NuxtLink> -->
 
           <nuxt-link to="/Account" class="link" active-class="active-link">
             Account

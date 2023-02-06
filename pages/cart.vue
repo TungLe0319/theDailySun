@@ -26,7 +26,7 @@
                   :key="c.id"
                   :product="c"
                 />
-               
+
               </div>
             </div>
           </div>
@@ -67,6 +67,7 @@ definePageMeta({
   middleware: 'auth'
 })
 const cartStore = useCartStore()
+const productStore = useProductStore()
 if (!cartStore.products.length) {
   logger.assert('getting cart')
   cartStore.getCart()
@@ -77,6 +78,8 @@ logger.log(products.value)
 const cartTotal = computed(() => cartStore?.total)
  async function checkout(){
  cartStore.checkout(cartStore.products)
+
+
 }
 </script>
 

@@ -40,7 +40,7 @@ export default defineEventHandler(async (event) => {
    },
  });
  productData.priceID = stripeProduct.default_price?.toString() || null;
-
+productData.stripeID = stripeProduct.id
   const product = await prisma.product.create({
     data: productData
   });
@@ -49,33 +49,6 @@ export default defineEventHandler(async (event) => {
 
 
 
-  // const paymentLink = await stripe.paymentLinks.create({
-  //   line_items: [
-  //     {
-  //       price:product.default_price?.toString() || '',
-  //       quantity: productData.quantity,
-  //     },
-  //   ],
-  // });
 
-  // const stripeSession = await stripe.checkout.sessions.create({
-  //   payment_method_types: ["card"],
-  //   line_items: [
-  //     {
-  //       price: product.default_price?.toString() || "",
-  //       quantity: productData.quantity,
-  //     },
-  //   ],
-  //   mode: "payment",
-  //   success_url: "https://example.com/success",
-  //   cancel_url: "https://example.com/cancel",
-  // });
-  // let cartTotal = 0
-
-  // for (const product of cart.products) {
-  //   const amount = product.price * (product.quantity || 0)
-
-  // cartTotal += amount
-
-  return {product};
+  return product;
 });

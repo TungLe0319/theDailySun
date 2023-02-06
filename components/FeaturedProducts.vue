@@ -19,6 +19,9 @@
 
 
 
+
+
+
   <div class="text-center mt-36 mb-5 container flex flex-col ">
     <h1 class="text-4xl mb-2   ff    ">
      Feel great with your look
@@ -81,8 +84,8 @@ productStore.getProducts()
 })
 
 const products = computed(() => productStore.products)
-const glasses = computed(() => products?.value?.filter(p => p.type == "Glasses" && p.audience == "Female"))
-const hats = computed(() => products?.value?.filter(p => p.type == "Hat" && p.audience == "Female"))
+const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Female"))
+const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Female"))
 </script>
 
 

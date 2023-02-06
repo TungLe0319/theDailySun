@@ -26,10 +26,12 @@ const body  = await readBody(event);
     payment_method_types: ["card"],
     line_items: body.listItems,
     mode: "payment",
-    success_url: "http://localhost:3000/success",
+    success_url:
+      "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
     cancel_url: "http://localhost:3000/cart",
   });
 
-
+  const payment = await stripe.paymentIntents.retrieve(stripeSession.payment_intent?.toString() || '')
+const receipt = await stripe.charges.retrieve(payment.latest_charge?.toString()|| '')
 return stripeSession.url
 })

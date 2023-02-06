@@ -73,7 +73,19 @@ export const useProductStore = defineStore("products", {
           }
          });
          this.products = [product.value,...this.products]
+    },
+async delete(productIDS){
+  const route = useRouter()
+  const deleted = await useFetch('/api/products/:id',{
+    method:"DELETE",
+    body:{
+     productIDS
     }
+  })
+
+  logger.log(deleted.data.value)
+ navigateTo('http://localhost:3000',{external:true})
+}
   },
   getters: {},
 });
