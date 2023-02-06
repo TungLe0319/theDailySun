@@ -17,12 +17,12 @@ export default defineEventHandler(async (event) => {
 
         delete: {
 
-         id: parseInt(id)
+          id: parseInt(id)
         }
       }
     },
     include: {
-      products: {}
+      products: true
     }
   })
 
@@ -40,7 +40,7 @@ export default defineEventHandler(async (event) => {
   //   })
   // }
 
-  return {updatedCart }
+  return updatedCart
 })
 
 function getTotal (array: import('@prisma/client').Product[]) {
