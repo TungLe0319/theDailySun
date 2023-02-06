@@ -20,6 +20,7 @@ export default defineEventHandler(async (event) => {
 
 
 
+
   const prisma = event.context.prisma
   const session = await getServerSession(event)
   const userId = session?.user.id
@@ -48,7 +49,7 @@ export default defineEventHandler(async (event) => {
           price: productData.price,
           type: productData.type,
           audience: productData.audience,
-          priceID: productData.priceId
+          priceID: productData.priceID
         }
 
       }

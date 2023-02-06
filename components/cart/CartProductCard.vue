@@ -27,6 +27,7 @@
         </nuxt-link>
 
         <RemoveFromCart :product-id="product.id" />
+        {{ product.priceID }}
       </div>
     </div>
     <div class="flex gap-x-20">
@@ -35,7 +36,7 @@
           <!-- <input v-model="product.quantity" type="number"> -->
           {{ product.quantity }}
         </p>
-     
+
       </div>
       <div class="">
         <!-- <p>${{ product.price }}</p> -->

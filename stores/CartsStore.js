@@ -44,16 +44,22 @@ export const useCartStore = defineStore('cart', {
       this.products = this.products.filter(p => p.id != id)
     },
     checkout(products){
- const createStripeSession = useFetch('/api/checkout',{
+
+       const listItems = products.map(p=> ({
+        quantity: p.quantity,
+        price: p.priceID
+       }) )
+     
+ const {data:createStripeSession} = useFetch('/api/checkout',{
   method:'POST',
   body:{
-    products
+    listItems
   }
  },
  )
 
 
-logger.log(createStripeSession.data.value)
+logger.log(createStripeSession.value)
 
     }
   },
