@@ -26,9 +26,7 @@
                   :key="c.id"
                   :product="c"
                 />
-                <h3 class="text-6xl">
-                  Empty Cart
-                </h3>
+               
               </div>
             </div>
           </div>

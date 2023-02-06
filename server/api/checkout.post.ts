@@ -8,7 +8,7 @@ export default defineEventHandler(async(event) => {
 
 
 
-const stripe = useStripe(event)
+const stripe = event.context.stripe
 
 const session = await getServerSession(event);
 const userId = session?.user.id;
@@ -26,8 +26,8 @@ const body  = await readBody(event);
     payment_method_types: ["card"],
     line_items: body.listItems,
     mode: "payment",
-    success_url: "https://example.com/success",
-    cancel_url: "https://example.com/cancel",
+    success_url: "http://localhost:3000/success",
+    cancel_url: "http://localhost:3000/cart",
   });
 
 

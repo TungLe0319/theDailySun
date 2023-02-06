@@ -27,7 +27,7 @@
         </nuxt-link>
 
         <RemoveFromCart :product-id="product.id" />
-        {{ product.priceID }}
+      
       </div>
     </div>
     <div class="flex gap-x-20">

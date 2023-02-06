@@ -43,14 +43,14 @@ export const useCartStore = defineStore('cart', {
       })
       this.products = this.products.filter(p => p.id != id)
     },
-    checkout(products){
+   async checkout(products){
 
        const listItems = products.map(p=> ({
         quantity: p.quantity,
         price: p.priceID
        }) )
-     
- const {data:createStripeSession} = useFetch('/api/checkout',{
+
+ const {data:createStripeSession} =  await useFetch('/api/checkout',{
   method:'POST',
   body:{
     listItems
@@ -59,8 +59,7 @@ export const useCartStore = defineStore('cart', {
  )
 
 
-logger.log(createStripeSession.value)
-
+navigateTo(createStripeSession.value,{external:true})
     }
   },
   getters: {

@@ -1,27 +1,43 @@
 <template>
-  <div class="mt-18">
-   <h1>Canceled</h1>
+  <div>
+    <div class="relative  hero-image">
+      <img  src="https://images.unsplash.com/photo-1525275295302-38fe248cf44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80" alt="hero image">
+      <div class="hero-text">
+        <h1 class=" text-8xl text-shadow-overlay">
+        CANCELLED ORDER
+        </h1>
+
+      </div>
+    </div>
+
   </div>
-</template>
+</template>e>
 
-<script setup lang="ts">
+<script>
+export default {
+  setup () {
+    onMounted(() => {
 
+    })
 
+    return {
+
+    }
+  }
+}
 </script>
 
 <style>
 
-.profile-image{
- top: 80%;
-  left: 50%;
-  transform: translate(-50%, -30%);
-  z-index: 99999 !important;
-}
-.hero-image {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  position: relative;
+
+.hero-image{
+  height: 100vh;
+  /* always scale the image to the appropriate size of your screen */
+  background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1525275295302-38fe248cf44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80);
+  background-position: center;
+  /* keeps the image fixed while scrolling , neat effect. */
+  background-attachment: fixed;
 }
 
 .hero-text {
