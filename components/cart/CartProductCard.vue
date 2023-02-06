@@ -27,7 +27,7 @@
         </nuxt-link>
 
         <RemoveFromCart :product-id="product.id" />
-      
+
       </div>
     </div>
     <div class="flex gap-x-20">
@@ -55,13 +55,20 @@ import RemoveFromCart from './RemoveFromCart.vue'
 export default {
   components: { RemoveFromCart },
   props: {
+    // eslint-disable-next-line vue/require-default-prop
     product: { type: Object, required: false }
   },
   setup (props) {
+    const editable = ref(props.product.quantity)
+    function updateQuantity () {
+      const cart = useCartStore()
+    }
     return {
+      editable,
       totalPrice: computed(() => {
         return props.product.price * props.product.quantity
-      })
+      }),
+      updateQuantity
     }
   }
 }
@@ -74,6 +81,9 @@ export default {
   object-fit: cover;
 
   border-radius: 8px;
+}
+input{
+  background-color: #cbd5e1
 }
 .product-card:hover {
   transition: all 0.5 ease !important;

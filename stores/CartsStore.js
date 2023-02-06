@@ -43,23 +43,21 @@ export const useCartStore = defineStore('cart', {
       })
       this.products = this.products.filter(p => p.id != id)
     },
-   async checkout(products){
-
-       const listItems = products.map(p=> ({
+    async checkout (products) {
+      const listItems = products.map(p => ({
         quantity: p.quantity,
         price: p.priceID
-       }) )
+      }))
 
- const {data:createStripeSession} =  await useFetch('/api/checkout',{
-  method:'POST',
-  body:{
-    listItems
-  }
- },
- )
+      const { data: createStripeSession } = await useFetch('/api/checkout', {
+        method: 'POST',
+        body: {
+          listItems
+        }
+      }
+      )
 
-
-navigateTo(createStripeSession.value,{external:true})
+      navigateTo(createStripeSession.value, { external: true })
     }
   },
   getters: {

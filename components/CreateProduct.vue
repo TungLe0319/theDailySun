@@ -1,13 +1,13 @@
 <template>
   <div>
-    <form @submit.prevent="submitForm" class="flex flex-col gap-4">
+    <form class="flex flex-col gap-4" @submit.prevent="submitForm">
       <div class="  ">
         <label for="title">Title:</label>
-        <input type="text" id="title" class="" v-model="product.title" />
+        <input id="title" v-model="product.title" type="text" class="">
       </div>
       <div>
         <label for="description">Description:</label>
-        <textarea id="description" v-model="product.description"></textarea>
+        <textarea id="description" v-model="product.description" />
       </div>
       <div>
         <label for="image">Image:</label>
@@ -15,19 +15,20 @@
       </div>
       <div>
         <label for="audience">Audience:</label>
-        <input type="text" id="audience" v-model="product.audience" />
+        <input id="audience" v-model="product.audience" type="text">
       </div>
       <div>
         <label for="type">Type:</label>
-        <input type="text" id="type" v-model="product.type" />
+        <input id="type" v-model="product.type" type="text">
       </div>
       <div>
         <label for="price">Price:</label>
-        <input type="number" id="price" v-model="product.price" />
+        <input id="price" v-model="product.price" type="number">
       </div>
 
-
-      <button type="submit">Submit</button>
+      <button type="submit">
+        Submit
+      </button>
     </form>
   </div>
 </template>
@@ -35,8 +36,8 @@
 <script>
 export default {
 
-  data() {
-     const productStore = useProductStore()
+  data () {
+    const productStore = useProductStore()
     return {
       product: {
         title: 'Vintage Stripe Test 3',
@@ -49,13 +50,13 @@ export default {
         priceID:''
       },
       productStore
-    };
+    }
   },
   methods: {
-    submitForm() {
-   this.productStore.add(this.product)
-      console.log(this.product);
-    },
-  },
-};
+    submitForm () {
+      this.productStore.add(this.product)
+      console.log(this.product)
+    }
+  }
+}
 </script>
