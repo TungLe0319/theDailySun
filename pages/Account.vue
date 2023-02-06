@@ -28,6 +28,7 @@
         </div>
       </div>
       <div>{{ AppState.user }}</div>
+      <CreateProduct/>
     </div>
   </div>
 </template>

@@ -65,6 +65,15 @@ export const useProductStore = defineStore("products", {
       const { data: product } = await useFetch(`/api/products/${id}`);
      this.activeProduct = product.value
     },
+    async add(productData){
+         const { data: product } = await useFetch(`/api/products`,{
+          method:'POST',
+          body:{
+            productData
+          }
+         });
+         this.products = [product.value,...this.products]
+    }
   },
   getters: {},
 });
