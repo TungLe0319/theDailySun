@@ -1,7 +1,7 @@
 import { Cart } from '@prisma/client'
+import Stripe from 'stripe'
 import { getServerSession } from '#auth'
 // import { never } from 'zod';
-import Stripe from "stripe";
 interface newProduct {
   id: number;
   price: GLfloat
@@ -66,7 +66,6 @@ export default defineEventHandler(async (event) => {
   // }
   // });
 
-
   // const paymentLink = await stripe.paymentLinks.create({
   //   line_items: [
   //     {
@@ -76,18 +75,18 @@ export default defineEventHandler(async (event) => {
   //   ],
   // });
 
-// const stripeSession = await stripe.checkout.sessions.create({
-//   payment_method_types: ["card"],
-//   line_items: [
-//     {
-//       price: product.default_price?.toString() || "",
-//       quantity: productData.quantity,
-//     },
-//   ],
-//   mode: "payment",
-//   success_url: "https://example.com/success",
-//   cancel_url: "https://example.com/cancel",
-// });
+  // const stripeSession = await stripe.checkout.sessions.create({
+  //   payment_method_types: ["card"],
+  //   line_items: [
+  //     {
+  //       price: product.default_price?.toString() || "",
+  //       quantity: productData.quantity,
+  //     },
+  //   ],
+  //   mode: "payment",
+  //   success_url: "https://example.com/success",
+  //   cancel_url: "https://example.com/cancel",
+  // });
   // let cartTotal = 0
 
   // for (const product of cart.products) {
@@ -95,5 +94,5 @@ export default defineEventHandler(async (event) => {
 
   // cartTotal += amount
 
-  return {cart}
+  return { cart }
 })
