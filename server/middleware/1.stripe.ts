@@ -18,7 +18,7 @@ export default eventHandler((event) => {
   }
   event.context.stripe = stripe
 })
-// @ts-ignore
-export function useStripe (event: H3Event) : Stripe {
-  return event.context.stripe
-}
+// // @ts-ignore
+// export function useStripe (event: H3Event) : Stripe {
+//   return event.context.stripe
+// }
