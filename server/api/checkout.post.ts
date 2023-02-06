@@ -29,10 +29,9 @@ const body  = await readBody(event);
     success_url:
       "http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}",
     cancel_url: "http://localhost:3000/cart",
-    
+
   });
 
-  const payment = await stripe.paymentIntents.retrieve(stripeSession.payment_intent?.toString() || '')
-const receipt = await stripe.charges.retrieve(payment.latest_charge?.toString()|| '')
+
 return stripeSession.url
 })

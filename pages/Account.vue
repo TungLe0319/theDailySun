@@ -27,7 +27,8 @@
           </button>
         </div>
       </div>
-      <div>{{ AppState.user }}</div>
+
+      <div class="my-24"> {{ userData }} testing </div>
       <CreateProduct/>
     </div>
   </div>
@@ -35,10 +36,18 @@
 
 <script setup lang="ts">
 definePageMeta({ middleware: 'auth' })
-
+const userData = ref({})
 const { data, signOut } = useSession()
-// const { $trpc } = useNuxtApp()
-// const { data: hello } = await $trpc.example.findMany.useQuery({})
+onMounted(()=>{
+  setTimeout(() => {
+getUserData()
+  }, 1);
+})
+async function getUserData(){
+  const res= await  useFetch('/api/user/:id')
+  userData.value = res.data
+}
+
 </script>
 
 <style>
