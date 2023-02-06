@@ -22,8 +22,8 @@ export const useCartStore = defineStore('cart', {
       }
       this.total = amount
     },
-    add (productData) {
-      const { data: cart } = useFetch('/api/cart', {
+    async add (productData) {
+      const { data: cart } = await useFetch('/api/cart', {
         method: 'POST',
         body: {
           productData
@@ -31,7 +31,7 @@ export const useCartStore = defineStore('cart', {
       })
       logger.log(cart.value)
 
-      this.products = cart.value.products
+      // this.products = cart.value.products
     },
     remove (id) {
       useFetch(`/api/cart/${id}`, {
