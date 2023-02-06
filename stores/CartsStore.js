@@ -31,7 +31,7 @@ export const useCartStore = defineStore('cart', {
       })
       logger.log(cart.value)
 
-      this.products = cart.value.products
+      // this.products = cart.value.products
     },
     remove (id) {
       useFetch(`/api/cart/${id}`, {
@@ -42,6 +42,19 @@ export const useCartStore = defineStore('cart', {
         }
       })
       this.products = this.products.filter(p => p.id != id)
+    },
+    checkout(products){
+ const createStripeSession = useFetch('/api/checkout',{
+  method:'POST',
+  body:{
+    products
+  }
+ },
+ )
+
+
+logger.log(createStripeSession.data.value)
+
     }
   },
   getters: {

@@ -53,6 +53,7 @@
           <div class="mt-3">
             <button
               class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg"
+              @click="checkout()"
             >
               Begin Checkout
             </button>
@@ -73,6 +74,9 @@ cartStore.getCart()
 
 const products = computed(() => cartStore?.products)
 const cartTotal = computed(() => cartStore?.total)
+ async function checkout(){
+ cartStore.checkout(cartStore.products)
+}
 </script>
 
 <style lang="scss" scoped>
