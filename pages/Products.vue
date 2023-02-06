@@ -9,7 +9,7 @@
       <div class="mt-4 ">
         <div class=" flex flex-wrap justify-between gap-1">
           <div v-for="i in products" :key="i" class="    w-1/6 py-2 ">
-            <ProductCard :product="i" />
+            <ItemCard :product="i" />
           </div>
         </div>
       </div>
@@ -18,6 +18,7 @@
 </template>
 <script setup >
 import { computed, onMounted } from 'vue'
+
 import { useProductStore } from '~~/stores/ProductStore';
 
 

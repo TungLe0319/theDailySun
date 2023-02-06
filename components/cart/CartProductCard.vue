@@ -35,7 +35,7 @@
           <!-- <input v-model="product.quantity" type="number"> -->
           {{ product.quantity }}
         </p>
-        <button>+</button>
+     
       </div>
       <div class="">
         <!-- <p>${{ product.price }}</p> -->
