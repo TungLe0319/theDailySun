@@ -39,13 +39,14 @@ export default {
      const productStore = useProductStore()
     return {
       product: {
-        title: 'Vintage Stripe Test 2',
+        title: 'Vintage Stripe Test 1',
         description: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ea modi soluta similique ut illo.',
-        img: 'https://images.unsplash.com/photo-1674484145284-f16c6bde9feb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        img: 'https://images.unsplash.com/photo-1675595937692-ba33815da2e1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
         audience: 'Female',
         type: 'Hat',
         price: 25.00,
         quantity: 0,
+        priceID:''
       },
       productStore
     };

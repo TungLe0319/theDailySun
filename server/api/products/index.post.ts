@@ -10,7 +10,7 @@ interface newProduct {
   audience: string;
   productImg: string;
 
-  priceId:string;
+  priceID:string;
   type: string;
   img: string;
   quantity: number;
@@ -31,21 +31,23 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const productData = body.productData;
 
+ const stripeProduct = await stripe.products.create({
+   name: productData.title,
+   images: [productData.img],
+   default_price_data: {
+     currency: "usd",
+     unit_amount_decimal: (productData.price * 100).toString(),
+   },
+ });
+ productData.priceID = stripeProduct.default_price?.toString() || null;
 
   const product = await prisma.product.create({
     data: productData
   });
 
-  const stripeProduct = await stripe.products.create({
-    name: productData.title,
-    images: [productData.img],
-    default_price_data: {
-      currency: "usd",
-      unit_amount_decimal:( productData.price * 100).toString(),
-    },
-  });
 
-  product.priceID = stripeProduct.default_price?.toString() || null
+
+
 
   // const paymentLink = await stripe.paymentLinks.create({
   //   line_items: [

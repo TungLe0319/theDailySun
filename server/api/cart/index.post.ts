@@ -9,6 +9,7 @@ interface newProduct {
   description : string
   audience: string
   productImg: string
+  priceID:string
   type: string
   img: string
   quantity: number
@@ -17,12 +18,7 @@ interface newProduct {
 }
 export default defineEventHandler(async (event) => {
 
-const stripe = new Stripe(
-  "sk_test_51MQKqcKdq9SDDIVB4REqB4e3Gx1JqcwLeSY16x5dfeUU2h7UXbq3Mj25Y1HxlB5DN9vDu7JKRD7GUI1yaJ5iPQRf00rMP6CjNi",
-  {
-    apiVersion: "2022-11-15",
-  }
-);
+
 
   const prisma = event.context.prisma
   const session = await getServerSession(event)
@@ -51,7 +47,8 @@ const stripe = new Stripe(
           img: productData.img,
           price: productData.price,
           type: productData.type,
-          audience: productData.audience
+          audience: productData.audience,
+          priceID: productData.priceId
         }
 
       }
