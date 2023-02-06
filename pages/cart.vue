@@ -68,9 +68,8 @@ definePageMeta({
   middleware: 'auth'
 })
 const cartStore = useCartStore()
-onMounted(() => {
-  cartStore.getCart()
-})
+
+cartStore.getCart()
 
 const products = computed(() => cartStore?.products)
 // const cartTotal = computed(() => cartStore?.cartTotal)
