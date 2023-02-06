@@ -38,7 +38,7 @@
         >
           <div class="flex flex-col gap-y-3">
             <h2 class="text-2xl">
-              <!-- Subtotal : <b>{{ cartTotal }}</b> -->
+              Subtotal : <b>{{ cartTotal }}</b>
             </h2>
             <h2 class="text-2xl text-slate-400">
               Est Shipping :
@@ -72,7 +72,7 @@ const cartStore = useCartStore()
 cartStore.getCart()
 
 const products = computed(() => cartStore?.products)
-// const cartTotal = computed(() => cartStore?.cartTotal)
+const cartTotal = computed(() => cartStore?.total)
 </script>
 
 <style lang="scss" scoped>

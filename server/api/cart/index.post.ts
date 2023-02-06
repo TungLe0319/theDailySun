@@ -47,9 +47,9 @@ export default defineEventHandler(async (event) => {
         }
 
       }
-    }
-    // include: { products: {} }
-  }).products()
+    },
+    include: { products: {} }
+  })
 
   // let cartTotal = 0
 
