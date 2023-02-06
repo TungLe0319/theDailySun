@@ -10,7 +10,7 @@
             :src="activeProduct.img"
             alt=""
             class="shadow-lg shadow-slate-400 product-image rounded-sm"
-          >
+          />
         </div>
         <div class="w-full md:w-1/2 p-5 px-14">
           <div class="">
@@ -37,34 +37,11 @@
                 ${{ activeProduct.price }}
               </p>
             </div>
-            <!-- <a
-              target="_blank"
-              class="mb-2 text-black rounded-md p-2 opacity-75 right-0 mr-10"
-              :href="activeProduct.stripe"
-            >
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/481/481943.png"
-                alt="checkout Icon"
-                width="40"
-                class="checkOut-icon"
-              >
-            </a> -->
+
             <div class="">
-              <h2 class="font-bold text-gray-400 text-2xl">
-                Quantity
-              </h2>
+              <h2 class="font-bold text-gray-400 text-2xl">Quantity</h2>
               <div class="w-1/2 mt-2 shadow-md rounded-full">
-                <!-- <input
-                  class="bg-gray-200 rounded-lg p-1 shadow-lg"
-                  type="number"
-                  min="0"
-                  max="100"
-
-                  v-model="quantity"
-                > -->
-
                 <n-input-number
-                  v-if="data"
                   v-model:value="quantity"
                   button-placement="both"
                 />
@@ -79,7 +56,8 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <AddToCart v-if="activeProduct" :product-data="productData" />
+        <AddToCart v-if="activeProduct && user" :product-data="productData" />
+        <nuxt-link v-else to="/cart"> <h3 class="text-2xl">Sign in to add to cart</h3> </nuxt-link>
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -88,7 +66,7 @@
     </div>
   </div>
 </template>
-<script>
+<!-- <script>
 import AddToCart from '~~/components/cart/AddToCart.vue'
 import { productsService } from '~~/composables/services/ProductsService.js'
 
@@ -130,6 +108,25 @@ export default {
     }
   }
 }
+</script>
+ -->
+
+<script setup>
+// import { computed } from 'vue'
+
+import AddToCart from "~~/components/cart/AddToCart.vue";
+const {data} = useSession()
+const user = data?.value?.user
+const productStore = useProductStore();
+const route = useRoute();
+productStore.getProductById(route.params.id);
+const quantity = ref(1);
+const activeProduct = computed(() => productStore.activeProduct);
+const productData = computed(() => {
+  const productData = productStore.activeProduct;
+  productData.quantity = quantity.value;
+  return productData;
+});
 </script>
 
 <style lang="scss" scoped>

@@ -55,11 +55,11 @@ import { useProductStore } from '~~/stores/ProductStore';
 const productStore = useProductStore()
 onMounted(()=>{
 setTimeout(() => {
-productStore.fetchAll()
+productStore.getProducts()
 }, 1);
 })
 
-const products = computed(() => productStore.list)
+const products = computed(() => productStore.products)
 const glasses = computed(() => products.value.filter(p => p.type == "Glasses" && p.audience == "Male"))
 const hats = computed(() => products.value.filter(p => p.type == "Hat" && p.audience == "Male"))
 </script>

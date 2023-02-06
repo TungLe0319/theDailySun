@@ -76,13 +76,13 @@ import { useProductStore } from '~~/stores/ProductStore';
 const productStore = useProductStore()
 onMounted(()=>{
 setTimeout(() => {
-productStore.fetchAll()
+productStore.getProducts()
 }, 1);
 })
 
-const products = computed(() => productStore.list)
-const glasses = computed(() => products.value.filter(p => p.type == "Glasses" && p.audience == "Female"))
-const hats = computed(() => products.value.filter(p => p.type == "Hat" && p.audience == "Female"))
+const products = computed(() => productStore.products)
+const glasses = computed(() => products?.value?.filter(p => p.type == "Glasses" && p.audience == "Female"))
+const hats = computed(() => products?.value?.filter(p => p.type == "Hat" && p.audience == "Female"))
 </script>
 
 

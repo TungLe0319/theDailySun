@@ -23,8 +23,8 @@ import { useProductStore } from '~~/stores/ProductStore';
 
 
 const productStore = useProductStore()
-productStore.fetchAll()
-const products = computed(() => productStore.list)
+productStore.getProducts()
+const products = computed(() => productStore.products)
 logger.log(products.value)
 </script>
 <style lang="scss" scoped>
