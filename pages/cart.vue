@@ -25,9 +25,10 @@
                   v-for="c in products"
                   :key="c.id"
                   :product="c"
-                  v-if="products"
                 />
-                <h3 class="text-6xl"> Empty Cart</h3>
+                <h3 class="text-6xl">
+                  Empty Cart
+                </h3>
               </div>
             </div>
           </div>
@@ -55,7 +56,6 @@
             >
               Begin Checkout
             </button>
-
           </div>
         </div>
       </div>
@@ -63,23 +63,17 @@
   </div>
 </template>
 <script setup>
-import { computed } from 'vue'
+// import { computed } from 'vue'
 definePageMeta({
   middleware: 'auth'
 })
 const cartStore = useCartStore()
-
-
-
-cartStore.getCart()
-
-
-
+onMounted(() => {
+  cartStore.getCart()
+})
 
 const products = computed(() => cartStore?.products)
-const cartTotal = computed(() => cartStore?.cartTotal)
-
-
+// const cartTotal = computed(() => cartStore?.cartTotal)
 </script>
 
 <style lang="scss" scoped>

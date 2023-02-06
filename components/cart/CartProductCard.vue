@@ -26,15 +26,21 @@
           </h2>
         </nuxt-link>
 
-        <RemoveFromCart :productId="product.id" />
+        <RemoveFromCart :product-id="product.id" />
       </div>
     </div>
     <div class="flex gap-x-20">
-      <p>{{ product.quantity }}</p>
+      <div>
+        <p class="">
+          <!-- <input v-model="product.quantity" type="number"> -->
+          {{ product.quantity }}
+        </p>
+        <button>+</button>
+      </div>
       <div class="">
-        <p>${{ product.price }}</p>
+        <!-- <p>${{ product.price }}</p> -->
         <div class="flex">
-          <small> (${{ product.price }} * {{ product.quantity }}) </small>
+          <!-- <small> (${{ product.price }} * {{ product.quantity }}) </small> -->
           <p>${{ totalPrice }}</p>
         </div>
       </div>

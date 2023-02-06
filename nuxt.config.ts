@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   modules: [
     '@sidebase/nuxt-auth',
+    'nuxt-typed-router',
     '@nuxtjs/tailwindcss',
     '@huntersofbook/naive-ui-nuxt',
     '@vueuse/nuxt',
@@ -21,7 +22,6 @@ export default defineNuxtConfig({
     dirs: ['stores']
   },
   build: {
-
     transpile: ['trpc-nuxt']
   },
   typescript: {
@@ -42,8 +42,5 @@ export default defineNuxtConfig({
   // app: {
   //   pageTransition: { name: 'page', mode: 'out-in' }
   // },
-  css: [
-    '@/assets/scss/main.scss'
-  ]
-
+  css: ['@/assets/scss/main.scss']
 })

@@ -21,7 +21,7 @@
               <div class="absolute right-0 bottom-0">
                 <h1
                   v-if="activeProduct.audience == 'Female'"
-                  class="text-8xl opacity-10 font-bold text-shadow "
+                  class="text-8xl opacity-10 font-bold text-shadow"
                 >
                   WOMEN
                 </h1>
@@ -33,9 +33,7 @@
           </div>
           <div class="flex justify-between mb-10">
             <div class="  ">
-              <p
-                class="text-red-400 font-bold text-2xl "
-              >
+              <p class="text-red-400 font-bold text-2xl">
                 ${{ activeProduct.price }}
               </p>
             </div>
@@ -55,7 +53,7 @@
               <h2 class="font-bold text-gray-400 text-2xl">
                 Quantity
               </h2>
-              <div class=" w-1/2 mt-2 shadow-md rounded-full ">
+              <div class="w-1/2 mt-2 shadow-md rounded-full">
                 <!-- <input
                   class="bg-gray-200 rounded-lg p-1 shadow-lg"
                   type="number"
@@ -65,10 +63,11 @@
                   v-model="quantity"
                 > -->
 
-
-<n-input-number v-model:value="quantity" button-placement="both" v-if="data"  />
-
-
+                <n-input-number
+                  v-if="data"
+                  v-model:value="quantity"
+                  button-placement="both"
+                />
               </div>
             </div>
           </div>
@@ -80,7 +79,7 @@
         </div>
       </div>
       <div class="absolute right-24 cursor-none">
-        <AddToCart v-if="activeProduct" :productData="productData" />
+        <AddToCart v-if="activeProduct" :product-data="productData" />
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
     </div>
@@ -99,7 +98,7 @@ export default {
     const route = useRoute()
     const { data } = useSession()
     const quantity = ref(1)
-    watchEffect(()=>{
+    watchEffect(() => {
       AppState.itemQty = quantity.value
     })
 
@@ -120,22 +119,18 @@ export default {
       quantity,
 
       account: {},
-      itemQty:computed(()=> AppState.itemQty),
+      itemQty: computed(() => AppState.itemQty),
       data,
       activeProduct: computed(() => AppState.activeProduct),
-      productData: computed(() =>
-      {
-     let productData = AppState.activeProduct
-     productData.quantity = AppState.itemQty
-     return productData
-      }),
-
+      productData: computed(() => {
+        const productData = AppState.activeProduct
+        productData.quantity = AppState.itemQty
+        return productData
+      })
     }
   }
 }
 </script>
-
-
 
 <style lang="scss" scoped>
 .product-image {
@@ -160,12 +155,7 @@ export default {
   }
 }
 
-
-
-
 n-input-number {
   background-color: #d42222 !important;
 }
-
-
 </style>
