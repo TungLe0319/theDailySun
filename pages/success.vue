@@ -14,9 +14,7 @@ Thank you for shopping with us.
 </template>e>
 
 <script setup>
-definePageMeta({
-  middleware: 'auth'
-})
+
 const route = useRoute()
 
 let  receiptURL = ref('')
@@ -36,6 +34,8 @@ logger.log(stripeSession.data.value)
 receiptURL.value = stripeSession?.data?.value?.receipt_url
 }
  getSessionById()
+
+
 async function goToReceipt(){
 navigateTo(receiptURL.value,{external:true})
 }

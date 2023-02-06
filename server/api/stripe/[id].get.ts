@@ -27,5 +27,5 @@ export default defineEventHandler(async (event) => {
   );
 
 
-  return receipt;
+  return stripeSession;
 });
