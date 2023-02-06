@@ -76,7 +76,6 @@ model Product {
   audience    String?
   priceID String?
   quantity    Int?    @default(0)
-  priceID     String?
   cart        Cart[]  @relation("CartToProduct")
 }
 
