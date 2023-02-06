@@ -2,13 +2,12 @@
   <div class="">
     <button
       class="checkOut font-1 text-xl font-bold p-2 "
-      :class="productInCart? 'disabled' : ''"
+   
       @click="test(productData)"
     >
       Add To Cart
     </button>
 
-    {{ productInCart }}
   </div>
 </template>
 
@@ -45,7 +44,7 @@ const props = defineProps({
 
 const { productData } = toRefs(props)
 const cartStore = useCartStore()
- const productInCart = computed(()=> cartStore?.products.includes(productData?.value?.title))
+
  async function test(productData){
 
   // logger.log(productData)
