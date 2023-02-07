@@ -1,8 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  auth:{
+  auth: {
     origin: 'https://thedailysun.devopportunities.dev'
-  }
+  },
   modules: [
     '@sidebase/nuxt-auth',
     'nuxt-typed-router',
