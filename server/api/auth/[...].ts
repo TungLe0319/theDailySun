@@ -3,8 +3,8 @@
 import GithubProvider from 'next-auth/providers/github'
 import Auth0Provider from 'next-auth/providers/auth0'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-import { prisma, PrismaClient } from '@prisma/client'
-import { usePrisma } from '@sidebase/nuxt-prisma'
+import { PrismaClient } from '@prisma/client'
+// import { usePrisma } from '@sidebase/nuxt-prisma'
 import { NuxtAuthHandler } from '#auth'
 
 // import { accountServerService } from '../../services/AccountsServerService'
