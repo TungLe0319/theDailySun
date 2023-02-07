@@ -142,10 +142,39 @@ This is an example of how to list things you need to use the software and how to
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+- [ ] Homepage
+  - [ ] Display featured products
+  - [ ] Search bar
+  - [ ] Categories navigation
+- [ ] Product Listing
+  - [ ] Display all products in a grid view
+  - [ ] Filter products by category, price, etc.
+  - [ ] Sort products by newest, lowest price, highest price, etc.
+- [ ] Product Detail
+  - [ ] Display product information, such as images, description, price, etc.
+  - [ ] Add to cart button
+  - [ ] Related products section
+- [ ] Shopping Cart
+  - [ ] Display items in the cart
+  - [ ] Update item quantities
+  - [ ] Calculate total cost
+  - [ ] Proceed to checkout button
+- [ ] Checkout
+  - [ ] Shipping information form
+  - [ ] Payment method selection (using Stripe)
+  - [ ] Order review and confirmation
+- [ ] Order Confirmation
+  - [ ] Display order number and confirmation message
+- [ ] Admin Panel
+  - [ ] View orders
+  - [ ] Manage products
+  - [ ] Manage categories
+- [ ] User Account
+  - [ ] Login/Registration
+  - [ ] View order history
+  - [ ] Update personal information
+- [ ] Responsive Design
+  - [ ] Ensure the website is optimized for different screen sizes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
