@@ -18,7 +18,7 @@ Thank you for shopping with us.
 const route = useRoute()
 
 let  receiptURL = ref('')
-
+let receiptNumber = ref('')
 
 
  async function getSessionById(){
@@ -32,8 +32,8 @@ const stripeSession = await useFetch(`/api/stripe/${id}`,{
 
 logger.log(stripeSession.data.value)
 receiptURL.value = stripeSession?.data?.value?.receipt_url
-
-updateUserReceipt(receiptURL.value)
+receiptNumber.value = stripeSession?.data?.value?.receipt_number
+updateUserReceipt(receiptURL.value,receiptNumber.value)
 }
  getSessionById()
 
@@ -42,11 +42,11 @@ async function goToReceipt(){
 navigateTo(receiptURL.value,{external:true})
 }
 
-async function updateUserReceipt(receiptUrl){
+async function updateUserReceipt(receiptUrl,receiptNumber){
   const updatedUser = await useFetch(`/api/user/:id`,{
     method:'put',
     body:{
-      receiptUrl
+      receiptUrl,receiptNumber
     }
   })
   logger.log(updatedUser.data.value)

@@ -77,7 +77,7 @@ model User {
 }
 
 model Receipt {
-
+  receiptNumber String?
    id          Int     @id @default(autoincrement())
    url          String?
     userId       String
