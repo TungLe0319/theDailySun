@@ -94,13 +94,14 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * [![Nuxt.js][Nuxt.js badge]][Nuxt.js-url]
-* [![React][React.js]][React-url]
 * [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+## Built With
+
+- [Nuxt](https://nuxtjs.org/)
+- [Vue](https://vuejs.org/)
+- [Tailwind](https://tailwindcss.com/)
+- [Prisma](https://prisma.io/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
