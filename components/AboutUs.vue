@@ -8,8 +8,13 @@
         <img src="https://cdn-icons-png.flaticon.com/512/7199/7199551.png" alt="goodVibes Image" width="90" class="">
       </div>
       <h3 class=" leading-relaxed text-lg  ">
-    Welcome to Sunny Vibes! Our Nuxt e-commerce app features a selection of fake men's and women's products, all with the convenience of Stripe checkout. Our app also includes Nuxt SEO optimization to improve your shopping experience. You can easily add products to your cart and view past purchases.
+    Welcome to  the Daily Sun! Our Nuxt.js e-commerce app features a selection of fake men's and women's products that you can browse and view the product details of.
+    <br>
+   Add a product to your cart and then view it at the Cart page where you can then use stripe checkout to do a jake payment
       </h3>
+
+
+ <CreditCard/>
 
     </div>
   </div>
@@ -31,7 +36,7 @@ export default {
   height: 10vh;
   position: absolute;
   bottom: 0;
-  
+
 content: '';
 background: rgb(255,255,255);
 background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(243,232,255,1) 100%);

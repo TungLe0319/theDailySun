@@ -1,9 +1,10 @@
 <template>
 <div class=" bg-purple-100 py-20 female-featured relative">
   <div class="text-center my-5 container flex flex-col ">
-    <h1 class="text-4xl mb-2   ff    ">
+    <h1 class="mb-10 text-8xl text-shadow"> Featured Products</h1>
+    <h2 class="text-4xl mb-2   ff    ">
       Empower your style
-    </h1>
+    </h2>
     <p class=" ">
     Upgrade your accessory game with our  featured selection of women's glasses
     </p>
@@ -139,7 +140,7 @@ background: rgb(243,232,255);
 background: linear-gradient(180deg, rgba(243,232,255,1) 0%, rgba(255,237,213,1) 100%);
 }
 .flip{
-  color: rgb(176, 215, 233);
+
   opacity: 75%;
 
     transform: rotate(180deg);
@@ -147,6 +148,10 @@ background: linear-gradient(180deg, rgba(243,232,255,1) 0%, rgba(255,237,213,1) 
     font-size: 100px;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
+     background-image: linear-gradient(to bottom, aquamarine, orangered);
+  background-attachment: fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
     //when screen is 768px OR LESS
     @media only screen and (max-width: 768px){
 position: static;

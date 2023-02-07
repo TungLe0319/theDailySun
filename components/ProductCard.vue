@@ -1,5 +1,5 @@
 <template>
-  <div class="relative shadow-xl product-card rounded-lg">
+  <div class="relative shadow-xl  hover:shadow-green-200 product-card rounded-lg">
     <nuxt-link :to="`/products/${product.id}`">
       <img
         class="object-cover image rounded-lg shadow-xl shadow-slate-400 transition-all"

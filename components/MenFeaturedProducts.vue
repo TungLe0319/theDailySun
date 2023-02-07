@@ -42,6 +42,14 @@
    <div class="glasses-title flip  text-center  absolute  text-shadow  bottom-20 right-0 "> Hats </div>
   </div>
 
+
+
+<div class="flex justify-center mt-20">
+<nuxt-link to="Products" class="text-center text-4xl flex justify-center  underline-offset-3 underline">
+<h3 class="text-center">View All Products</h3>
+</nuxt-link>
+</div>
+
 </div>
 </template>
 

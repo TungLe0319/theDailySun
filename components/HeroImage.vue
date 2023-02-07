@@ -67,9 +67,10 @@ height: 100vh;
  }
  .hero-image-container:before{
   content: '';
-
+z-index: 1;
  height: 200px;
 background: rgb(255,255,255);
+
 background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
  }
 
@@ -81,7 +82,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 
   bottom: 0;
   height: 100vh ;
   object-fit: cover;
-
+  mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
 }
 
 .hero-image {
