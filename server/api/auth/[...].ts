@@ -32,9 +32,10 @@ export default NuxtAuthHandler({
   callbacks: {
     // @ts-ignore
     // eslint-disable-next-line require-await
-    session: async ({ session, token }) => {
+    session: async ({ session, token, user }) => {
       if (session?.user) {
         session.user.id = token.sub
+        session.user.role = user.role
       }
       return Promise.resolve(session)
     }
