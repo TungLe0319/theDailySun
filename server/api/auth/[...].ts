@@ -36,9 +36,13 @@ export default NuxtAuthHandler({
     session: async ({ session, token, user }) => {
 
 
+
+    session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.sub
         // session.user.role = user.role
+        const user = await prisma.user.findUnique({ where: { id: session.user.id } })
+        session.user.role = user.role
       }
       return Promise.resolve(session)
     }
