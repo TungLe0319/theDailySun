@@ -1,10 +1,13 @@
 <template>
   <nav class="fixed w-full  z-50 top-0 bg-white shadow-md p-2   transition-all" :class="{'bg-white shadow-md': isVisible, '    bg-custom text-white transition-all ': !isVisible}">
     <div class="  flex  justify-between">
-      <div class=" ml-3">
+      <div class=" ml-3 flex gap-x-5">
         <NuxtLink to="/" class="" active-class="active-link-img">
           <img src="../assets/Logo.png" alt="" width="50" class="shadow-xl rounded-xl">
         </NuxtLink>
+      <div class=" items-center justify-center flex ">
+          <h1 class="text-xl">The Daily Sun</h1>
+      </div>
       </div>
       <div class=" hidden  md:flex  items-center ">
         <div class=" text-center">

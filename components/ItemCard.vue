@@ -6,8 +6,12 @@
         :src="product.img"
         alt="image"
       >
+      <div class="">
+
+
+      </div>
     </nuxt-link>
-    <div class="absolute-2 top- text-lg">
+    <div class="absolute-2 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg">
          ${{ product.price }}
     </div>
     <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300">
@@ -97,6 +101,14 @@ export default {
 .product-card:hover img {
   transform: scale(1.2);
      transition: all .5s ease !important;
+
+
+
+
+
+
+
+
   //when screen is 768px OR LESS
   @media only screen and (min-width: 768px) {
     filter: brightness(80%);
@@ -104,8 +116,15 @@ export default {
 
   }
 }
+.product-card:hover .absolute-2 {
+   transition: all .5s ease !important;
+
+  opacity: 1;
+  transform: translate(-20px,-25px);
+}
 
 .absolute-2{
   position: absolute;
+ transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 </style>

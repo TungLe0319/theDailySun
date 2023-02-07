@@ -26,16 +26,12 @@
       </div>
 
       <div class="mt-4">
-        <div class="flex flex-wrap justify-between gap-1">
-          <transition-group
-            name="fade"
-            tag="div"
-            class="flex flex-wrap  gap-x-10 gap-y-5 justify-center"
-          >
+        <div class="flex flex-wrap justify-between gap-x-10 gap-y-4">
+
             <div v-for="i in products" :key="i" class="w-1/6 py-2">
               <ItemCard :product="i" v-bind:key="i.id" />
             </div>
-          </transition-group>
+
         </div>
       </div>
     </div>
@@ -70,13 +66,5 @@ const sortBy = (sortKey, isAscending = true) => {
 };
 </script>
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(-20px);
-}
+
 </style>
