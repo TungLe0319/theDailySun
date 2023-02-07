@@ -9,13 +9,10 @@ export default defineEventHandler(async (event) => {
   const { id } = getRouterParams(event);
   const session = await getServerSession(event);
   const userId = session?.user.id;
-  const body = await readBody(event);
-  const receiptData = body.receiptData;
-  if (!userId) {
-    createError("you must be logged in to add products to a cart");
-  }
+  // const body = await readBody(event);
+  // const receiptData = body.receiptData;
 
-  // const products = await stripe.products.list()
+
 
   const stripeSession = await stripe.checkout.sessions.retrieve(id);
 
@@ -27,5 +24,5 @@ export default defineEventHandler(async (event) => {
   );
 
 
-  return stripeSession;
+  return receipt;
 });

@@ -13,24 +13,36 @@ export default defineEventHandler(async (event) => {
   }
   const body = await readBody(event);
 
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    include: {
+      receipts: {},
+    },
+  });
 
-//  const updatedUser = await prisma.user.update({
-//    where: {
-//      id: userId,
-//    },
-//    data: {
-//      receipts: {
-//        create: {
-//         url : body.receiptURL
+  const receiptExists = user?.receipts.find(r => r.url == body.receiptURL)
+ if (receiptExists != undefined) {
+  createError("This Receipt Already Exists");
 
-//        }
-//      },
-//    },
-//    include:{
-//     receipts:{}
-//    }
-//  });
+ }
+ const updatedUser = await prisma.user.update({
+   where: {
+     id: userId,
+   },
+   data: {
+     receipts: {
+       create: {
+         url: body.receiptUrl,
+       },
+     },
+   },
+   include: {
+     receipts: {},
+   },
+ });
 
+ return updatedUser;
 
-  return body
 });

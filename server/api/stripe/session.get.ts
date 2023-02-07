@@ -4,20 +4,21 @@ import { getServerSession } from "#auth";
 import Stripe from "stripe";
 
 export default defineEventHandler(async (event) => {
-  const stripe = event.context.stripe;
+  // const stripe = event.context.stripe;
 
-  const session = await getServerSession(event);
-  const userId = session?.user.id;
-  if (!userId) {
-    createError("you must be logged in to add products to a cart");
-  }
-  const body = await readBody(event);
+  // const session = await getServerSession(event);
+  // const userId = session?.user.id;
+  // if (!userId) {
+  //   createError("you must be logged in to add products to a cart");
+  // }
+  // const body = await readBody(event);
 
-  // const products = await stripe.products.list()
+  // // const products = await stripe.products.list()
 
-  // const stripeSession = await stripe.checkout.sessions.retrieve(
-  //   body.sessionId
-  // );
+  // // const stripeSession = await stripe.checkout.sessions.retrieve(
+  // //   body.sessionId
+  // // );
 
-  return body;
+  // return body;
+  return 'hi'
 });

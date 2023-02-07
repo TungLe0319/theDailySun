@@ -74,12 +74,12 @@ export const useProductStore = defineStore("products", {
          });
          this.products = [product.value,...this.products]
     },
-async delete(productIDS){
-  const route = useRouter()
+async delete(productIds){
+
   const deleted = await useFetch('/api/products/:id',{
     method:"DELETE",
     body:{
-     productIDS
+     productIds
     }
   })
 

@@ -8,6 +8,7 @@ export default defineEventHandler(async (event) => {
 
   const session = await getServerSession(event);
   const userId = session?.user.id;
+  
 
 
   const user = await prisma.user.findUnique({

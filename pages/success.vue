@@ -32,12 +32,24 @@ const stripeSession = await useFetch(`/api/stripe/${id}`,{
 
 logger.log(stripeSession.data.value)
 receiptURL.value = stripeSession?.data?.value?.receipt_url
+
+updateUserReceipt(receiptURL.value)
 }
  getSessionById()
 
 
 async function goToReceipt(){
 navigateTo(receiptURL.value,{external:true})
+}
+
+async function updateUserReceipt(receiptUrl){
+  const updatedUser = await useFetch(`/api/user/:id`,{
+    method:'put',
+    body:{
+      receiptUrl
+    }
+  })
+  logger.log(updatedUser.data.value)
 }
 </script>
 

@@ -4,10 +4,7 @@ import { getServerSession } from "#auth";
 import Stripe from "stripe";
 
 export default defineEventHandler(async (event) => {
-  const stripe = new Stripe(process.env.STRIPE_SK || "", {
-    apiVersion: "2022-11-15",
-  });
-
+    const stripe = event.context.stripe;
   const prisma = event.context.prisma;
   const session = await getServerSession(event);
   const userId = session?.user.id;
@@ -16,8 +13,8 @@ export default defineEventHandler(async (event) => {
   }
   const body = await readBody(event);
 
- const id = body.productIDS.id
- const stripeID = body.productIDS.stripeID
+ const id = body.productIds.id
+ const stripeID = body.productIds.stripeID
   const deleted = await stripe.products.update(stripeID,{
     active:false
   });

@@ -4,12 +4,18 @@ export default defineEventHandler(async (event) => {
   const stripe = event.context.stripe;
   const prisma = event.context.prisma;
   const session = await getServerSession(event);
-  const userId = session?.user.id;
-    const body = await readBody(event);
-    const productData = body.productData;
+  const user = session?.user;
+  const {productData} = await readBody(event);
 
-  if (!userId) {
-    createError("you must be logged in to add products to a cart");
+
+  if (!user) {
+    createError("Not Logged In");
+  }
+  // if (user.role != "ADMIN") {
+  //   createError("Now Allowed");
+  // }
+  if (!productData) {
+  createError("Need To Send In A Body");
   }
 
 
