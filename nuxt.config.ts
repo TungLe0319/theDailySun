@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   auth: {
-    origin: 'https://thedailysun.devopportunities.dev'
+    origin: process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'htpp://localhost:3000'
   },
   // @ts-ignore
   modules: [
