@@ -20,7 +20,7 @@
             </h1>
           </div>
           <h3 class="t ">
-            {{ data?.user?.email }} !
+            {{ data }} !
           </h3>
           <button class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5" @click="signOut({callbackUrl: '/'})">
             sign out

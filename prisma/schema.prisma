@@ -39,13 +39,6 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
-enum Role {
-  USER
-  ADMIN
-}
-
-
-
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
@@ -68,20 +61,19 @@ model User {
   name          String?
   image         String?
   emailVerified DateTime?
-  role Role @default(USER)
+  role          Role      @default(USER)
   accounts      Account[]
   cart          Cart?
-  sessions      Session[]
   receipts      Receipt[]
-
+  sessions      Session[]
 }
 
 model Receipt {
+  id            Int     @id @default(autoincrement())
+  url           String?
+  userId        String
   receiptNumber String?
-   id          Int     @id @default(autoincrement())
-   url          String?
-    userId       String
-   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Product {
@@ -103,4 +95,9 @@ model Cart {
   id       Int       @id @default(autoincrement())
   user     User?     @relation(fields: [userId], references: [id])
   products Product[] @relation("CartToProduct")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
