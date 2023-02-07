@@ -30,7 +30,7 @@
           <transition-group
             name="fade"
             tag="div"
-            class="flex flex-wrap gap-3 justify-center"
+            class="flex flex-wrap  gap-x-10 gap-y-5 justify-center"
           >
             <div v-for="i in products" :key="i" class="w-1/6 py-2">
               <ItemCard :product="i" v-bind:key="i.id" />

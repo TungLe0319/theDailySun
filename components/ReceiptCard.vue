@@ -1,6 +1,6 @@
 <template>
   <div class="   text-center">
-    <a :href="`/products/${receipt.url}`" >
+    <a :href="`${receipt.url}`" target="_blank" >
 
       View Receipt
 
