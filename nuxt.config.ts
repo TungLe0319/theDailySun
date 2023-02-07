@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   auth: {
     origin: 'https://thedailysun.devopportunities.dev'
   },
+  // @ts-ignore
   modules: [
     '@sidebase/nuxt-auth',
     'nuxt-typed-router',
