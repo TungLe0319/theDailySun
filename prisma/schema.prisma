@@ -39,6 +39,13 @@ model Account {
   @@unique([provider, providerAccountId])
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
+
+
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
@@ -61,10 +68,12 @@ model User {
   name          String?
   image         String?
   emailVerified DateTime?
+  role Role @default(USER)
   accounts      Account[]
   cart          Cart?
   sessions      Session[]
   receipts      Receipt[]
+
 }
 
 model Receipt {
