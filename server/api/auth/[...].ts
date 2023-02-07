@@ -4,8 +4,8 @@ import GithubProvider from 'next-auth/providers/github'
 import Auth0Provider from 'next-auth/providers/auth0'
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prisma, PrismaClient } from '@prisma/client'
-import { NuxtAuthHandler } from '#auth'
 import { usePrisma } from '@sidebase/nuxt-prisma'
+import { NuxtAuthHandler } from '#auth'
 
 // import { accountServerService } from '../../services/AccountsServerService'
 
@@ -32,19 +32,14 @@ export default NuxtAuthHandler({
   ],
   callbacks: {
     // @ts-ignore
-    // eslint-disable-next-line require-await
-    session: async ({ session, token, user }) => {
-
-
 
     session: async ({ session, token }) => {
       if (session?.user) {
         session.user.id = token.sub
-        // session.user.role = user.role
         const user = await prisma.user.findUnique({ where: { id: session.user.id } })
         session.user.role = user.role
       }
-      return Promise.resolve(session)
+      return await session
     }
   }
 })
