@@ -11,9 +11,9 @@ export default defineEventHandler(async (event) => {
   if (!user) {
     createError("Not Logged In");
   }
-  // if (user.role != "ADMIN") {
-  //   createError("Now Allowed");
-  // }
+  if (user.role != "ADMIN") {
+    createError("Now Allowed");
+  }
   if (!productData) {
   createError("Need To Send In A Body");
   }

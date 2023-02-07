@@ -30,7 +30,7 @@ const stripeSession = await useFetch(`/api/stripe/${id}`,{
   method:'GET'
 })
 
-logger.log(stripeSession.data.value)
+// logger.log(stripeSession.data.value)
 receiptURL.value = stripeSession?.data?.value?.receipt_url
 receiptNumber.value = stripeSession?.data?.value?.receipt_number
 updateUserReceipt(receiptURL.value,receiptNumber.value)
@@ -49,7 +49,7 @@ async function updateUserReceipt(receiptUrl,receiptNumber){
       receiptUrl,receiptNumber
     }
   })
-  logger.log(updatedUser.data.value)
+  // logger.log(updatedUser.data.value)
 }
 </script>
 

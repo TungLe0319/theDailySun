@@ -11,7 +11,7 @@ export const useCartStore = defineStore('cart', {
     async getCart () {
       const headers = useRequestHeaders(['cookie'])
       const { data: cart } = await useFetch('/api/cart', { headers })
-      logger.log(cart.value)
+      // logger.log(cart.value)
       this.cartId = cart?.value?.id
       const products = cart.value.products
       this.products = products
@@ -29,7 +29,7 @@ export const useCartStore = defineStore('cart', {
           productData
         }
       })
-      logger.log(cart.value)
+      // logger.log(cart.value)
 
       // this.products = cart.value.products
     },

@@ -22,28 +22,30 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  const receiptExists = user?.receipts.includes(body.receiptNumber);
+  const receiptExists = user?.receipts?.find(
+    (r) => r.receiptNumber == body.receiptNumber
+  );
  if (receiptExists ) {
-  createError("This Receipt Already Exists");
+   return createError("This Receipt Already Exists");
 
  }
-//  const updatedUser = await prisma.user.update({
-//    where: {
-//      id: userId,
-//    },
-//    data: {
-//      receipts: {
-//        create: {
-//          url: body.receiptUrl,
-//          receiptNumber: body.receiptNumber
-//        },
-//      },
-//    },
-//    include: {
-//      receipts: {},
-//    },
-//  });
+ const updatedUser = await prisma.user.update({
+   where: {
+     id: userId,
+   },
+   data: {
+     receipts: {
+       create: {
+         url: body.receiptUrl,
+         receiptNumber: body.receiptNumber
+       },
+     },
+   },
+   include: {
+     receipts: {},
+   },
+ });
 
- return receiptExists;
+ return updatedUser
 
 });

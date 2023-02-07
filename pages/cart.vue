@@ -74,7 +74,7 @@ if (!cartStore.products.length) {
 }
 
 const products = computed(() => cartStore?.products)
-logger.log(products.value)
+// logger.log(products.value)
 const cartTotal = computed(() => cartStore?.total)
  async function checkout(){
  cartStore.checkout(cartStore.products)

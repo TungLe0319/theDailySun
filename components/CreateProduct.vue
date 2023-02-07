@@ -1,7 +1,38 @@
 <template>
   <div>
     <form class="flex flex-col gap-4" @submit.prevent="submitForm">
-      <div class="  ">
+
+
+<n-form-item label="Title">
+<n-input v-model:value="product.title" type="text" placeholder="Title" />
+</n-form-item>
+
+<n-form-item label="Description">
+    <n-input
+      v-model:value="product.description"
+      type="textarea"
+      placeholder="Description"
+    />
+</n-form-item>
+
+
+
+<n-form-item label="Img">
+<n-input v-model:value="product.img" type="url" placeholder="Url" />
+</n-form-item>
+
+<n-select :style="{ width: '33%' }" :options="audience" />
+<n-select :style="{ width: '33%' }" :options="type" />
+ <n-input
+      type="text"
+      :allow-input="onlyAllowNumber"
+      placeholder="Only allow number"
+      v-model:value="product.price"
+      :style="{ width: '33%' }"
+    />
+
+
+      <!-- <div class="  ">
         <label for="title">Title:</label>
         <input id="title" v-model="product.title" type="text" class="">
       </div>
@@ -24,7 +55,7 @@
       <div>
         <label for="price">Price:</label>
         <input id="price" v-model="product.price" type="number">
-      </div>
+      </div> -->
 
       <button type="submit">
         Submit
@@ -40,16 +71,38 @@ export default {
     const productStore = useProductStore()
     return {
       product: {
-        title: 'Vintage Stripe Test 3',
+        title: 'Lively Leopard',
         description: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ea modi soluta similique ut illo.',
-        img: 'https://images.unsplash.com/photo-1594168087746-d94175b42394?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80',
+        img: 'https://images.unsplash.com/photo-1528228728175-149802236c04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1287&q=80',
         audience: 'Female',
-        type: 'Hat',
-        price: 25.00,
+        type: 'Glasses',
+        price: 15.00,
         quantity: 0,
         priceID:''
       },
-      productStore
+      productStore,
+
+
+      audience: ref([
+        {
+          label: 'Female',
+          value: 'Female'
+        },
+          {
+          label: 'Male',
+          value: 'Male'
+        },
+      ]),
+        type: ref([
+        {
+          label: 'Hat',
+          value: 'Hat'
+        },
+          {
+          label: 'Glasses',
+          value: 'Glasses'
+        },
+      ]),
     }
   },
   methods: {
