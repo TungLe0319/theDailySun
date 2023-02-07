@@ -152,14 +152,17 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 
 <!-- ROADMAP -->
-## Roadmap
+## Features
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+💚 Nuxt 3
+🎨 TailWind CSS
+🔥 The <script setup> syntax
+🍍 State Management via Pinia
+🔶 Prisma - a Node.js and TypeScript ORM
+🦾 TypeScript
+💰 Stripe - for product checkouts and payments keep the icons
 
-See the [open issues](https://github.com/TungLe0319/theDailySun/issues) for a full list of proposed features (and known issues).
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
