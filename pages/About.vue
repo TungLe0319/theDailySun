@@ -13,7 +13,7 @@
     </div>
     <div class="container mt-3 text-xl flex flex-col">
       <div class=" ">
-        <h2>
+        <h2 class=" description">
           The SunnyVibes project serves as an opportunity for us to challenge
           ourselves in learning Nuxt.js, building upon prior experience with
           Vue.js. The goal is to create a modern and intuitive e-commerce
@@ -134,7 +134,7 @@
             </li>
 
             <li class="list-item">
-              <a href="https://www.prisma.io/">
+              <a href="https://tailwindcss.com/">
                 <div
                   class="flex p-2 rounded-lg shadow-sm shadow-slate-300 hover:shadow-slate-400 hover:shadow-2xl hover:transition-all transition-all"
                 >
@@ -169,7 +169,7 @@
             </li>
 
             <li class="list-item">
-              <a href="https://www.prisma.io/">
+              <a href="https://stripe.com/">
                 <div
                   class="flex p-2 rounded-lg shadow-sm shadow-slate-300 hover:shadow-slate-400 hover:shadow-2xl hover:transition-all transition-all"
                 >
@@ -186,44 +186,7 @@
             </li>
           </ul>
         </div>
-        <div class="my-5">
-          <div class="flex justify-center my-4">
-            <h3
-              class="text-center text-3xl p-4 rounded-md border-4 w-1/2 border-slate-900"
-            >
-              Our goal with this project
-            </h3>
-          </div>
-          <ul class="  ">
-            <li class="list-item">
-              Challenge ourselves in learning Nuxt.js, capitalizing on prior
-              experience with Vue.js
-            </li>
-            <li class="list-item">
-              Build an e-commerce app with a payment system
-            </li>
 
-            <li class="list-item">
-              Practice and improve our problem-solving and development skills
-              while working on this project
-            </li>
-            <li class="list-item">
-              Creating a modern and intuitive e-commerce experience for users
-            </li>
-
-            <li class="list-item">
-              Learn about the best practices for building e-commerce application
-            </li>
-
-            <li class="list-item">
-              Use this project as an opportunity to learn new technologies and
-              improve our development skills
-            </li>
-            <li class="list-item">
-              Showcase our skills with learning a new framework and technologies
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   </div>
@@ -241,6 +204,9 @@ export default {
 </script>
 
 <style>
+.description{
+  line-height: 1.5;
+}
 .hero-image {
   width: 100%;
   height: 500px;

@@ -1,8 +1,8 @@
 <template>
   <footer class="  ">
     <div class="flex justify-between p-5  bg-zinc-900 text-white">
-      <div class="footer-section" >
-        The Daily Sun
+      <div class="footer-section flex justify-center items-center" >
+
         <img src="../assets/Logo.png" alt="" width="100" class="rounded-2xl">
       </div>
       <div class="footer-section flex flex-col  " >
