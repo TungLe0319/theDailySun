@@ -10,11 +10,11 @@
   </div>
     <div class="    mt-10   flex relative ">
   <div class="glasses-title flip  text-center  absolute text-shadow bottom-0 left-0"> Glasses </div>
-    <div id="card-container" class=" flex gap-2 justify-center w-full" v-if="glasses"  >
+    <div id="card-container" class=" flex gap-2 justify-center w-full" >
       <ProductCard v-for="i in glasses" :key="i.id" class="" :product="i"  />
     </div>
 
-    <LoaderComponent v-else />
+
   </div>
 
 
@@ -80,11 +80,22 @@ const productStore = useProductStore()
 onMounted(()=>{
 setTimeout(() => {
 productStore.getProducts()
-}, 1);
+}, 0);
 })
 
 const products = computed(() => productStore.products)
-const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Female"))
+// const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Female"))
+const glasses = computed(() => {
+  const filteredProducts = productStore?.products?.filter(p => p.type == "Glasses" && p.audience == "Female");
+  for (let i = 0; i < 4; i++) {
+    const randomIndex = Math.floor(Math.random() * filteredProducts.length);
+
+    filteredProducts.splice(randomIndex, 1);
+  }
+
+  return filteredProducts;
+});
+
 const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Female"))
 </script>
 

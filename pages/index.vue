@@ -11,17 +11,21 @@
 </template>
 
 
-<script>
+<script setup >
 
-export default {
-  setup () {
+import { computed, onMounted } from 'vue'
 
-    let isLoading = true
 
-    return {
-      isLoading,
+import { useProductStore } from '~~/stores/ProductStore';
+const productStore = useProductStore()
+onMounted(()=>{
+setTimeout(() => {
+productStore.getProducts()
+}, 0);
+})
 
-    }
-  }
-}
+
 </script>
+
+
+

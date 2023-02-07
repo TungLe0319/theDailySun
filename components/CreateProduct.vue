@@ -71,9 +71,9 @@ export default {
     const productStore = useProductStore()
     return {
       product: {
-        title: 'Vintage Leopard',
+        title: 'Sleek Amber',
         description: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ea modi soluta similique ut illo.',
-        img: 'https://images.unsplash.com/photo-1564645063853-dc4f956a076a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+        img: 'https://images.unsplash.com/photo-1535402084477-449642d07347?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=868&q=80',
         audience: 'Female',
         type: 'Glasses',
         price: 18.00,
