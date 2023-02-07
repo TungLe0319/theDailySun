@@ -154,15 +154,13 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Features
 
-💚 Nuxt 3
-🎨 TailWind CSS
-🔥 The <script setup> syntax
-🍍 State Management via Pinia
-🔶 Prisma - a Node.js and TypeScript ORM
-🦾 TypeScript
-💰 Stripe - for product checkouts and payments keep the icons
-
-
+- 💚 Nuxt 3
+- 🎨 TailWind CSS
+- 🔥 The <script setup> syntax
+- 🍍 State Management via Pinia
+- 🔶 Prisma - a Node.js and TypeScript ORM
+- 🦾 TypeScript
+- 💰 Stripe - for product checkouts and payments keep the icons
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
