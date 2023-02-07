@@ -1,15 +1,12 @@
 <template>
   <div>
-    <div :class="products? ' block ' : ' hidden'">
-      <HeroImage class=" " />
+    <div >
+      <HeroImage  />
       <AboutUs />
-
-      <FeaturedProducts class="" />
+      <FeaturedProducts  />
       <MenFeaturedProducts />
     </div>
-    <!-- <div >
-      <LoadingAnimation />
-    </div> -->
+
   </div>
 </template>
 
@@ -23,7 +20,7 @@ export default {
 
     return {
       isLoading,
-    
+
     }
   }
 }
