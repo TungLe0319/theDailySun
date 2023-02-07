@@ -14,9 +14,9 @@
     <div class="absolute-2 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg">
          ${{ product.price }}
     </div>
-    <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300">
+    <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300 ">
       <div class="text-white text-center">
-        <h4 class="text-xl text-shadow font-bold mt-10 mb-10 fire-effect-milo bg-black bg-opacity-50">
+        <h4 class="  text-xl text-shadow font-bold mt-10 mb-10 fire-effect-milo bg-black bg-opacity-50">
           {{ product.title }}
 
 
@@ -47,7 +47,11 @@ export default {
 .fire-effect-milo {
   padding: 0 10px 0 0;
   width: 75%;
-  border-right: 1px solid #fff;
+  border-right: 5px solid #fff;
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
   text-align: right;
   opacity: 1;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
@@ -84,7 +88,7 @@ export default {
 .product-card .absolute {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: translateX(-50px);
-  left: 50%;
+  left: 45%;
 
   top: 50%;
   //when screen is 768px OR LESS
@@ -99,7 +103,7 @@ export default {
   transform: translateX(0px);
 }
 .product-card:hover img {
-  transform: scale(1.2);
+  transform: scale(1.1);
      transition: all .5s ease !important;
 
 
@@ -120,7 +124,7 @@ export default {
    transition: all .5s ease !important;
 
   opacity: 1;
-  transform: translate(-20px,-25px);
+  transform: translate(-10px,-12px);
 }
 
 .absolute-2{

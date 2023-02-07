@@ -4,7 +4,7 @@
       <div class="justify-center flex text-center">
         <h1 class="text-5xl">Products</h1>
       </div>
-      <div class="mt-4 flex justify-center gap-4">
+      <!-- <div class="mt-4 flex justify-center gap-4">
         <button class="sort-button text-lg" @click="sortBy('audience', true)">
           Female
         </button>
@@ -23,7 +23,31 @@
         <button class="sort-button text-lg" @click="sortBy('price', false)">
           Sort by Price (High to Low)
         </button>
-      </div>
+      </div> -->
+  <div>
+    <input type="checkbox" id="female" @change="sortBy('audience', true)" v-model="femaleChecked">
+    <label for="female">Female</label>
+  </div>
+  <div>
+    <input type="checkbox" id="male" @change="sortBy('audience', false)" v-model="maleChecked">
+    <label for="male">Male</label>
+  </div>
+  <div>
+    <input type="checkbox" id="glasses" @change="sortBy('type', true)">
+    <label for="glasses">Glasses</label>
+  </div>
+  <div>
+    <input type="checkbox" id="hats" @change="sortBy('type', false)">
+    <label for="hats">Hats</label>
+  </div>
+  <div>
+    <input type="checkbox" id="low-to-high" @change="sortBy('price', true)">
+    <label for="low-to-high">Sort by Price (Low to High)</label>
+  </div>
+  <div>
+    <input type="checkbox" id="high-to-low" @change="sortBy('price', false)">
+    <label for="high-to-low">Sort by Price (High to Low)</label>
+  </div>
 
       <div class="mt-4">
         <div class="flex flex-wrap justify-between gap-x-10 gap-y-4">
@@ -41,11 +65,12 @@
 import { computed, onMounted } from "vue";
 
 import { useProductStore } from "~~/stores/ProductStore";
-
+const  femaleChecked= ref (false)
+const  maleChecked= ref (false)
 const productStore = useProductStore();
 productStore.getProducts();
 const products = computed(() => productStore.products);
-logger.log(products.value);
+
 
 const sortBy = (sortKey, isAscending = true) => {
   const sortedProducts = products.value.sort((a, b) => {
@@ -64,6 +89,27 @@ const sortBy = (sortKey, isAscending = true) => {
 
   return sortedProducts;
 };
+watchEffect(()=>{
+//  if( maleChecked.value == true && femaleChecked.value == true){
+// femaleChecked.value =  - !femaleChecked.value
+// maleChecked.value = !maleChecked.value
+
+// }
+// if( femaleChecked.value == true){
+// maleChecked.value = !maleChecked.value
+// }
+// if( maleChecked.value == true){
+// femaleChecked.value = !femaleChecked.value
+
+// }
+
+
+//     maleChecked(newVal, oldVal) {
+//       if (newVal) {
+//         this.femaleChecked = false;
+//       }
+//     }
+})
 </script>
 <style lang="scss" scoped>
 
