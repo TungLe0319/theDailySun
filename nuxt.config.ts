@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   auth: {
-    origin: process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'htpp://localhost:3000'
+    origin: process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000'
   },
   // @ts-ignore
   modules: [
