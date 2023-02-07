@@ -55,20 +55,7 @@ const userData = ref({})
 const receipts = ref([] )
 const role = ref('')
 const { data, signOut } = useSession()
- function setup() {
-    const [userData, setUserData] = useState({});
-    const [receipts, setReceipts] = useState([]);
-    const [role, setRole] = useState('');
 
-    return {
-      userData,
-      receipts,
-      role,
-      setUserData,
-      setReceipts,
-      setRole,
-    };
-  }
 onMounted(()=>{
   setTimeout(() => {
 getUserData()

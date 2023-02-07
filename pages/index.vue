@@ -18,23 +18,12 @@
 
 export default {
   setup () {
-    onMounted(() => {
-      setTimeout(() => {
-        getProducts()
-      }, 0)
-    })
+
     let isLoading = true
-    async function getProducts () {
-      try {
-        await productsService.getProducts()
-        isLoading = false
-      } catch (error) {
-        logger.error(error)
-      }
-    }
+
     return {
       isLoading,
-      products: computed(() => AppState.products)
+    
     }
   }
 }
