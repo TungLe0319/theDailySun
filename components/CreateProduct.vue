@@ -56,7 +56,7 @@
         <label for="price">Price:</label>
         <input id="price" v-model="product.price" type="number">
       </div> -->
-
+Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam molestiae voluptatem voluptates porro recusandae necessitatibus incidunt veritatis quis consequatur minus! Voluptates, nihil mollitia. Tempora perferendis porro modi corporis dolores velit quia quasi? Labore itaque dolor illum vel eum animi atque! Corporis maxime distinctio, voluptas ipsum neque quibusdam numquam quam deleniti molestiae ratione, quis exercitationem architecto? Adipisci voluptas fugiat facere quae atque quaerat et rerum quis recusandae consequuntur eum laudantium reprehenderit excepturi qui quia explicabo delectus amet aliquam, in libero autem. Laudantium assumenda voluptates, incidunt, minima dicta laborum corporis odio nisi vitae vel hic reiciendis eos rerum, iure pariatur a eveniet?
       <button type="submit">
         Submit
       </button>
@@ -71,12 +71,12 @@ export default {
     const productStore = useProductStore()
     return {
       product: {
-        title: 'Sleek Amber',
-        description: '  Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ea modi soluta similique ut illo.',
-        img: 'https://images.unsplash.com/photo-1535402084477-449642d07347?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=868&q=80',
-        audience: 'Female',
+        title: "Gents Transparent Frames",
+        description: "Introducing our stylish and versatile female hat, perfect for any season and occasion. Made with high-quality materials, this hat features a classic design with a comfortable fit. Whether you're running errands, going to the beach, or simply adding a touch of flair to your outfit, this hat is the perfect accessory. Its lightweight and breathable fabric makes it ideal for all-day wear, while the adjustable strap ensures a custom fit for maximum comfort. Available in a variety of colors, this hat is the perfect addition to your wardrobe, making it easy to express your personal style. Order yours today and experience the ultimate in style, comfort, and convenience!",
+        img: 'https://images.unsplash.com/photo-1610319471440-04c408a19b3f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+        audience: 'Male',
         type: 'Glasses',
-        price: 18.00,
+        price: 22.00,
         quantity: 0,
         priceID:''
       },

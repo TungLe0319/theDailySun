@@ -59,9 +59,24 @@ productStore.getProducts()
 }, 1);
 })
 
-const products = computed(() => productStore.products)
-const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Male"))
-const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Male"))
+
+
+
+const glasses = computed(() => {
+  const filteredProducts = productStore?.products?.filter(p => p.type == "Glasses" && p.audience == "Male");
+
+  return filteredProducts
+  .sort(() => 0.5 - Math.random())
+  .slice(0,5);
+});
+
+const hats = computed(() => {
+  const filteredProducts = productStore?.products?.filter(p => p.type == "Hat" && p.audience == "Male");
+
+  return filteredProducts
+  .sort(() => 0.5 - Math.random())
+  .slice(0,5);
+});
 </script>
 
 

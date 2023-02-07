@@ -87,16 +87,24 @@ const products = computed(() => productStore.products)
 // const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Female"))
 const glasses = computed(() => {
   const filteredProducts = productStore?.products?.filter(p => p.type == "Glasses" && p.audience == "Female");
-  for (let i = 0; i < 4; i++) {
-    const randomIndex = Math.floor(Math.random() * filteredProducts.length);
-
-    filteredProducts.splice(randomIndex, 1);
-  }
-
-  return filteredProducts;
+  return filteredProducts
+  .sort(() => 0.5 - Math.random())
+  .slice(0,5);
 });
 
-const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Female"))
+// const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Female"))
+
+
+
+
+
+const hats = computed(() => {
+  const filteredProducts = productStore?.products?.filter(p => p.type == "Hat" && p.audience == "Female");
+
+  return filteredProducts
+  .sort(() => 0.5 - Math.random())
+  .slice(0,5);
+});
 </script>
 
 
