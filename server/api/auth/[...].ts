@@ -13,6 +13,7 @@ const prisma = new PrismaClient()
 
 export default NuxtAuthHandler({
   // TODO: ADD YOUR OWN AUTHENTICATION PROVIDER HERE, READ THE DOCS FOR MORE: https://sidebase.io/nuxt-auth
+  secret: process.env.AUTH_SECRET,
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt'
