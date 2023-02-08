@@ -23,6 +23,12 @@ const router = useRouter();
 let receiptURL = ref("");
 let receiptId = ref("");
 const cartStore = useCartStore();
+
+onMounted(()=>{
+ setTimeout(() => {
+  getSessionById();
+ }, 1);
+})
 async function getSessionById() {
   const id = route.query.session_id;
 
@@ -33,15 +39,12 @@ async function getSessionById() {
   const stripeSession = await useFetch(`/api/stripe/${id}`, {
     method: "GET",
   });
-
-  logger.log(stripeSession.data.value);
-  // logger.log(stripeSession.data.value)
   receiptURL.value = stripeSession?.data?.value?.receipt_url;
   receiptId.value = stripeSession?.data?.value?.id;
 
   updateUserReceipt(receiptURL.value, receiptId.value);
 }
-getSessionById();
+
 
 async function goToReceipt() {
   navigateTo(receiptURL.value, { external: true });
