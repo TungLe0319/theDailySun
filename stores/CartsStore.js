@@ -33,7 +33,7 @@ export const useCartStore = defineStore('cart', {
 
       // this.products = cart.value.products
     },
-    remove (id) {
+   async   remove (id) {
       useFetch(`/api/cart/${id}`, {
         method: 'DELETE',
 
@@ -57,7 +57,12 @@ export const useCartStore = defineStore('cart', {
       }
       )
 
+      logger.log(createStripeSession.value)
       navigateTo(createStripeSession.value, { external: true })
+    },
+
+    async clearCart(){
+const {data:cart} = await useFetch('/')
     }
   },
   getters: {
