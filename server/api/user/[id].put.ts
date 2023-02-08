@@ -8,10 +8,14 @@ export default defineEventHandler(async (event) => {
 
   const session = await getServerSession(event);
   const userId = session?.user.id;
-  if (!userId) {
-    createError("you must be logged in to add products to a cart");
-  }
+
   const body = await readBody(event);
+if (!userId) {
+ return  createError("you must be logged in to add products to a cart");
+}
+if (!body || !body.receiptId || !body.receiptUrl ) {
+ return  createError("No receiptId provided");
+}
 
   const user = await prisma.user.findUnique({
     where: {
@@ -23,7 +27,7 @@ export default defineEventHandler(async (event) => {
   });
 
   const receiptExists = user?.receipts?.find(
-    (r) => r.receiptNumber == body.receiptNumber
+    (r) => r.receiptId == body.receiptId
   );
  if (receiptExists ) {
    return createError("This Receipt Already Exists");
@@ -37,7 +41,7 @@ export default defineEventHandler(async (event) => {
      receipts: {
        create: {
          url: body.receiptUrl,
-         receiptNumber: body.receiptNumber
+         receiptId: body.receiptId
        },
      },
    },

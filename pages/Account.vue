@@ -46,9 +46,9 @@
           <CreateProduct />
         </n-collapse-item>
       </n-collapse>
-      <div class="container">
+      <div class="container flex flex-col">
+   <h1 class="my-8 text-6xl text-center text-shadow">Receipt History</h1>
 
-        <h1 class="my-8 text-6xl">Checkout History</h1>
         <div class="flex gap-3">
 
           <ReceiptCard v-for="r in receipts" :receipt="r" />

@@ -1,15 +1,12 @@
 <template>
-  <div class="   text-center">
-    <a :href="`${receipt.url}`" target="_blank" >
+  <div class=" my-5  text-center receipt">
+  <h1 class="text my-2">  View Receipt</h1>
+    <a :href="`${receipt.url}`" target="_blank"  >
 
-      View Receipt
 
 <img src="https://cdn-icons-png.flaticon.com/512/3753/3753033.png" alt="Receipt Icon" width="150">
     </a>
 
-        <h4 class=" my-2 text-xl text-shadow font-bold  ">
-          #{{ receipt.receiptNumber }}
-        </h4>
 
   </div>
 </template>
@@ -26,5 +23,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.receipt{
+  transition: all 0.5s ease;
+    .text{
+    opacity: 0;
+      transition: all 0.5s ease;
+  }
+}
+.receipt:hover{
+  transition: all 0.5s ease;
+  transform: scale(1.1);
+  filter: brightness(90%);
+  .text{
+    opacity: 1;
+      transition: all 0.5s ease;
+  }
+}
 </style>

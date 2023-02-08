@@ -61,9 +61,7 @@ export const useCartStore = defineStore('cart', {
       navigateTo(createStripeSession.value, { external: true })
     },
 
-    async clearCart(){
-const {data:cart} = await useFetch('/')
-    }
+  
   },
   getters: {
     cartTotal: (state) => {

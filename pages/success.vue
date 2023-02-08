@@ -21,25 +21,25 @@ e>
 const route = useRoute();
 const router = useRouter();
 let receiptURL = ref("");
-let receiptNumber = ref("");
-const cartStore = useCartStore()
+let receiptId = ref("");
+const cartStore = useCartStore();
 async function getSessionById() {
   const id = route.query.session_id;
 
   if (!id) {
-
-    router.back();
+    router.push("account");
   }
 
   const stripeSession = await useFetch(`/api/stripe/${id}`, {
     method: "GET",
   });
 
-  logger.log(stripeSession.data.value)
+  logger.log(stripeSession.data.value);
   // logger.log(stripeSession.data.value)
   receiptURL.value = stripeSession?.data?.value?.receipt_url;
-  receiptNumber.value = stripeSession?.data?.value?.receipt_number;
-  updateUserReceipt(receiptURL.value, receiptNumber.value);
+  receiptId.value = stripeSession?.data?.value?.id;
+
+  updateUserReceipt(receiptURL.value, receiptId.value);
 }
 getSessionById();
 
@@ -47,16 +47,19 @@ async function goToReceipt() {
   navigateTo(receiptURL.value, { external: true });
 }
 
-async function updateUserReceipt(receiptUrl, receiptNumber) {
-  await useFetch(`/api/user`, {
+async function updateUserReceipt(receiptUrl, receiptId) {
+  const {data} = useSession()
+  let id = data?.value?.user?.id
+  await useFetch(`/api/user/${id}`, {
     method: "put",
     body: {
       receiptUrl,
-      receiptNumber,
+      receiptId,
     },
   });
   // logger.log(updatedUser.data.value)
 }
+
 </script>
 
 <!--
