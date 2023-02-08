@@ -50,9 +50,9 @@
   </div>
 
       <div class="mt-4">
-        <div class="flex flex-wrap justify-between gap-x-10 gap-y-4">
+        <div class="flex flex-wrap justify-between md:gap-x-10 md:gap-y-4">
 
-            <div v-for="i in products" :key="i" class="w-1/6 py-2">
+            <div v-for="i in products" :key="i" class="md:w-1/6 w-full py-2">
               <ItemCard :product="i" v-bind:key="i.id" />
             </div>
 

@@ -46,8 +46,13 @@
           <CreateProduct />
         </n-collapse-item>
       </n-collapse>
-      <div class="container flex gap-3">
-        <ReceiptCard v-for="r in receipts" :receipt="r" />
+      <div class="container">
+
+        <h1 class="my-8 text-6xl">Checkout History</h1>
+        <div class="flex gap-3">
+
+          <ReceiptCard v-for="r in receipts" :receipt="r" />
+        </div>
       </div>
     </div>
   </div>
@@ -73,12 +78,12 @@ async function getUserData() {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 .profile-image {
   top: 85%;
   left: 50%;
   transform: translate(-50%, -30%);
-  z-index: 99999 !important;
+  z-index: 10 !important;
 }
 .hero-image {
   width: 100%;

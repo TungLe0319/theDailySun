@@ -58,6 +58,9 @@ export default {
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(-40px, 0, 0);
   transform: translate3d(0px, 0, 0);
+
+  //when screen is 768px OR LESS
+
 }
 .product-card {
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
@@ -93,7 +96,10 @@ export default {
   top: 50%;
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
-    opacity: 50%;
+    opacity: 90%;
+   
+  ;
+
   }
 }
 .product-card:hover .absolute {

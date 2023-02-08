@@ -1,10 +1,8 @@
 <template>
-  <div class=" py-20 mt-10 flex z-10 relative about-us">
-    <div class="w-2/4 relative p-4   ">
-      <img src="https://images.unsplash.com/photo-1591035897819-f4bdf739f446?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" class="h-full object-cover shadow-xl rounded-md">
-    </div>
-    <div class=" w-2/4 px-5 flex flex-col  bg-white py-5">
-      <div class="flex justify-start   d">
+  <div class=" fled md:block flex-wrap py-20 mt-10 flex z-10 relative about-us">
+ 
+    <div class=" flex-wrap w-full md:w-2/4 px-5 flex flex-col  bg-white py-5">
+      <div class="flex justify-start   ">
         <img src="https://cdn-icons-png.flaticon.com/512/7199/7199551.png" alt="goodVibes Image" width="90" class="">
       </div>
       <h3 class=" leading-relaxed text-lg  ">

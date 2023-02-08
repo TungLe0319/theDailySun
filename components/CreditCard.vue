@@ -1,5 +1,5 @@
 <template>
-  <div class="component">
+  <div class="component mt-5">
 <h1 class="">You can use this information to do the stripe checkout.</h1>
 <h2 class="title">Hover Me!</h2>
 

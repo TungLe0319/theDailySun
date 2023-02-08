@@ -203,7 +203,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .description{
   line-height: 1.5;
 }
