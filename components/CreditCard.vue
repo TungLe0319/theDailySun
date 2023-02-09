@@ -1,8 +1,10 @@
 <template>
-  <div class="component mt-5">
-<h1 class="">You can use this information to do the stripe checkout.</h1>
-<h2 class="title">Hover Me!</h2>
+  <div class="component mt-5 flex flex-col justify-center items-center">
+<div class="text-center">
+  <h1 class="">You can use this card  information to do the stripe checkout.</h1>
+<h2 class="title mt-5">Hover to reveal 3-digit security code </h2>
 
+</div>
 
 <div class="card">
   <div class="card__front card__part">

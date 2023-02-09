@@ -63,7 +63,7 @@
 
         <button
         v-if="user.role == 'ADMIN'"
-          class="checkOut font-1 text-xl font-bold p-2"
+          class="checkOut font-1 text-xl font-bold text-white mt-10 p-3 rounded-md bg-slate-700"
           @click="deleteProduct()"
         >
           Delete ADMIN ONLY
