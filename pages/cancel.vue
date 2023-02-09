@@ -1,43 +1,92 @@
 <template>
   <div>
-    <div class="relative  hero-image">
-      <img  src="https://images.unsplash.com/photo-1525275295302-38fe248cf44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80" alt="hero image">
-      <div class="hero-text">
-        <h1 class=" text-8xl text-shadow-overlay">
-        CANCELLED ORDER
+    <div class="relative hero-image-container">
+      <div class="hero-text bg-black bg-opacity-25 p-5 rounded-md">
+        <h1 class="text-8xl text-shadow-overlay">
+          Thank you for shopping with us.
         </h1>
-
+       
       </div>
     </div>
-
   </div>
-</template>e>
+</template>
+e>
 
-<script>
-export default {
-  setup () {
-    onMounted(() => {
+<script setup>
+const route = useRoute();
+const router = useRouter();
+let receiptURL = ref("");
+let receiptId = ref("");
+const cartStore = useCartStore();
 
-    })
+onMounted(()=>{
+ setTimeout(() => {
+  // getSessionById();
+ }, 1);
+})
+async function getSessionById() {
+  const id = route.query.session_id;
 
-    return {
-
-    }
+  if (!id) {
+    router.push("account");
   }
+
+  const stripeSession = await useFetch(`/api/stripe/${id}`, {
+    method: "GET",
+  });
+  receiptURL.value = stripeSession?.data?.value?.receipt_url;
+  receiptId.value = stripeSession?.data?.value?.id;
+
+  updateUserReceipt(receiptURL.value, receiptId.value);
 }
+
+
+async function goToReceipt() {
+  navigateTo(receiptURL.value, { external: true });
+}
+
+async function updateUserReceipt(receiptUrl, receiptId) {
+  const {data} = useSession()
+  let id = data?.value?.user?.id
+  await useFetch(`/api/user/${id}`, {
+    method: "put",
+    body: {
+      receiptUrl,
+      receiptId,
+    },
+  });
+  // logger.log(updatedUser.data.value)
+}
+
 </script>
 
-<style>
-
-
-.hero-image{
+<!--
+cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
+?session_id=cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
+ -->
+<style lang="scss" scoped>
+.hero-image-container {
   height: 100vh;
   /* always scale the image to the appropriate size of your screen */
   background-size: cover;
-  background-image: url(https://images.unsplash.com/photo-1525275295302-38fe248cf44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80);
+  background-image: url(https://images.unsplash.com/photo-1479064312651-24524fb55c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
   background-position: center;
   /* keeps the image fixed while scrolling , neat effect. */
   background-attachment: fixed;
+}
+.hero-image-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: 1999;
+  left: 0;
+  width: 100%;
+  height: 10px; /* adjust height as per your need */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    #fff
+  ); /* adjust the color as per your need */
 }
 
 .hero-text {
@@ -53,5 +102,4 @@ export default {
 .text-shadow-overlay {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-
 </style>
