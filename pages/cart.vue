@@ -38,12 +38,8 @@
           class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2"
         >
           <div class="flex flex-col gap-y-3">
-            <h2 class="text-2xl">
-              Subtotal : <b>{{ cartTotal }}</b>
-            </h2>
-            <h2 class="text-2xl text-slate-400">Est Shipping :</h2>
-            <h2 class="text-2xl text-slate-400">Est Sales Taxes :</h2>
-            <h2 class="text-2xl text-red-700">Order Total :</h2>
+
+            <h2 class="text-2xl text-red-700">Order Total :  <b>${{ cartTotal }}</b></h2>
           </div>
           <div class="mt-3">
             <button
