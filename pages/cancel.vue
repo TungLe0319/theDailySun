@@ -3,9 +3,13 @@
     <div class="relative hero-image-container">
       <div class="hero-text bg-black bg-opacity-25 p-5 rounded-md">
         <h1 class="text-8xl text-shadow-overlay">
-          Thank you for shopping with us.
+          The Checkout Session was cancelled
+          <br>
+          It could be due to a bad card, the session timed out or it was cancelled.
+          <br>
+          you can go back to the cart page and try  again.
         </h1>
-       
+
       </div>
     </div>
   </div>
@@ -13,57 +17,9 @@
 e>
 
 <script setup>
-const route = useRoute();
-const router = useRouter();
-let receiptURL = ref("");
-let receiptId = ref("");
-const cartStore = useCartStore();
-
-onMounted(()=>{
- setTimeout(() => {
-  // getSessionById();
- }, 1);
-})
-async function getSessionById() {
-  const id = route.query.session_id;
-
-  if (!id) {
-    router.push("account");
-  }
-
-  const stripeSession = await useFetch(`/api/stripe/${id}`, {
-    method: "GET",
-  });
-  receiptURL.value = stripeSession?.data?.value?.receipt_url;
-  receiptId.value = stripeSession?.data?.value?.id;
-
-  updateUserReceipt(receiptURL.value, receiptId.value);
-}
-
-
-async function goToReceipt() {
-  navigateTo(receiptURL.value, { external: true });
-}
-
-async function updateUserReceipt(receiptUrl, receiptId) {
-  const {data} = useSession()
-  let id = data?.value?.user?.id
-  await useFetch(`/api/user/${id}`, {
-    method: "put",
-    body: {
-      receiptUrl,
-      receiptId,
-    },
-  });
-  // logger.log(updatedUser.data.value)
-}
 
 </script>
 
-<!--
-cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
-?session_id=cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
- -->
 <style lang="scss" scoped>
 .hero-image-container {
   height: 100vh;
