@@ -29,59 +29,13 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/TungLe0319/theDailySun">
-    <img src="" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">TheDailySun</h3>
 
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/TungLe0319/theDailySun"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/TungLe0319/theDailySun">View Demo</a>
-    ·
-    <a href="https://github.com/TungLe0319/theDailySun/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/TungLe0319/theDailySun/issues">Request Feature</a>
-  </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
-
-## About The Project
-
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `TungLe0319`, `theDailySun`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Built With
 
