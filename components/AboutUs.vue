@@ -1,6 +1,6 @@
 <template>
   <div class=" fled md:block flex-wrap py-20 mt-10 flex z-10 relative about-us">
- 
+
     <div class=" flex-wrap w-full md:w-2/4 px-5 flex flex-col  bg-white py-5">
       <div class="flex justify-start   ">
         <img src="https://cdn-icons-png.flaticon.com/512/7199/7199551.png" alt="goodVibes Image" width="90" class="">
@@ -8,7 +8,7 @@
       <h3 class=" leading-relaxed text-lg  ">
     Welcome to  the Daily Sun! Our Nuxt.js e-commerce app features a selection of fake men's and women's products that you can browse and view the product details of.
     <br>
-   Add a product to your cart and then view it at the Cart page where you can then use stripe checkout to do a jake payment
+   Add a product to your cart and then view it at the Cart page where you can then use stripe checkout to do process a fake payment and then view your past receipts on your account page.
       </h3>
 
 

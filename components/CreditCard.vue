@@ -6,7 +6,7 @@
 
 <div class="card">
   <div class="card__front card__part">
-    <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+
 
     <p class="card_numer">4242424242424242</p>
     <div class="card__space-75">

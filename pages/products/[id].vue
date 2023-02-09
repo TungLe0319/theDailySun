@@ -49,7 +49,7 @@
             </div>
           </div>
           <div class="">
-            <p class="text-lg text-gray-400 mb-5">
+            <p class="text-lg font-semibold text-gray-600 mb-5">
               {{ activeProduct.description }}
             </p>
           </div>
@@ -57,15 +57,17 @@
       </div>
       <div class="absolute right-24 cursor-none">
         <AddToCart v-if="activeProduct && user" :product-data="productData" />
-        <nuxt-link v-else to="/cart"> <h3 class="text-2xl">Sign in to add to cart</h3> </nuxt-link>
+        <nuxt-link v-else to="/cart">
+          <h3 class="text-2xl">Sign in to add to cart</h3>
+        </nuxt-link>
 
-          <button
-      class="checkOut font-1 text-xl font-bold p-2 "
-
-      @click="deleteProduct()"
-    >
-     Delete ADMIN ONLY
-    </button>
+        <button
+        v-if="user.role == 'ADMIN'"
+          class="checkOut font-1 text-xl font-bold p-2"
+          @click="deleteProduct()"
+        >
+          Delete ADMIN ONLY
+        </button>
 
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
@@ -75,57 +77,14 @@
     </div>
   </div>
 </template>
-<!-- <script>
-import AddToCart from '~~/components/cart/AddToCart.vue'
-import { productsService } from '~~/composables/services/ProductsService.js'
 
-export default {
-  components: { AddToCart },
-  setup () {
-    const route = useRoute()
-    const { data } = useSession()
-    const quantity = ref(1)
-    watchEffect(() => {
-      AppState.itemQty = quantity.value
-    })
-
-    onMounted(() => {
-      setTimeout(() => {
-        getProductById()
-      }, 0)
-    })
-    async function getProductById () {
-      try {
-        await productsService.getProductById(route.params.id)
-      } catch (error) {
-        logger.log(error)
-      }
-    }
-    return {
-      route,
-      quantity,
-
-      account: {},
-      itemQty: computed(() => AppState.itemQty),
-      data,
-      activeProduct: computed(() => AppState.activeProduct),
-      productData: computed(() => {
-        const productData = AppState.activeProduct
-        productData.quantity = AppState.itemQty
-        return productData
-      })
-    }
-  }
-}
-</script>
- -->
 
 <script setup>
 // import { computed } from 'vue'
 
 import AddToCart from "~~/components/cart/AddToCart.vue";
-const {data} = useSession()
-const user = data?.value?.user
+const { data } = useSession();
+const user = data?.value?.user;
 const productStore = useProductStore();
 const route = useRoute();
 productStore.getProductById(route.params.id);
@@ -136,16 +95,13 @@ const productData = computed(() => {
   productData.quantity = quantity.value;
   return productData;
 });
- async function deleteProduct(id){
-  let productIDS= {
- id : activeProduct.value.id,
-stripeID : activeProduct.value.stripeID
-  }
- productStore.delete(productIDS)
-
-
+async function deleteProduct(id) {
+  let productIDS = {
+    id: activeProduct.value.id,
+    stripeID: activeProduct.value.stripeID,
+  };
+  productStore.delete(productIDS);
 }
-
 </script>
 
 <style lang="scss" scoped>

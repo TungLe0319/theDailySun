@@ -2,7 +2,7 @@
   <div>
     <div class="relative hero-image-container">
       <div class="hero-text bg-black bg-opacity-25 p-5 rounded-md">
-        <h1 class="text-8xl text-shadow-overlay">
+        <h1 class="text-5xl text-shadow-overlay">
           The Checkout Session was cancelled
           <br>
           It could be due to a bad card, the session timed out or it was cancelled.

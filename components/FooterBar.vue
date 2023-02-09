@@ -2,14 +2,14 @@
   <footer class="bg-zinc-900 text-white">
     <div class="w-full pt-10 flex items-center justify-center bg-zinc-900">
       <div class="md:w-2/3 w-full px-4 text-white flex flex-col">
-        <div class="flex justify-between">
+        <div class=" md:flex">
 
           <h1 class=" text-6xl font-bold w-full md:w-1/2">
             Thank you for checking out our app. Get in touch with us.
           </h1>
 
           <div class="  w-full md:w-1/2 footer-section flex justify-center flex-col items-center">
-            <div class="mt-4 flex">
+            <div class="mt-8 flex">
               <img
                 src="https://avatars.githubusercontent.com/u/107594367?s=400&u=279c4a706755639789d6b825966e54161df0c7aa&v=4"
                 alt=""

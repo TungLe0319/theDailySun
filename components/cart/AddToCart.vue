@@ -1,11 +1,11 @@
 <template>
   <div class="">
     <button
-      class="checkOut font-1 text-xl font-bold p-2 "
-   
+      class="checkOut font-1 text-xl font-bold p-2 rounded-md px-4  flex gap-x-4"
+
       @click="test(productData)"
     >
-      Add To Cart
+      <img src="https://cdn-icons-png.flaticon.com/512/8358/8358970.png" alt="cart icon" width="30">  Add To Cart
     </button>
 
   </div>

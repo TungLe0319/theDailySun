@@ -2,9 +2,7 @@
   <div class="pt-24 text-black p-5 bg-slate-300 h-screen relative">
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
-        <h1 class="text-5xl">
-          My Cart
-        </h1>
+        <h1 class="text-5xl">My Cart</h1>
       </div>
       <div class="flex">
         <div class="w-full md:w-2/3 p-5 px-14">
@@ -17,16 +15,21 @@
               <p>Price</p>
             </div>
           </div>
-          <hr class="mt-3 bg-black">
+          <hr class="mt-3 bg-black" />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
+                v-if="products.length >=1"
                   v-for="c in products"
                   :key="c.id"
                   :product="c"
                 />
+                <div v-else class="container flex flex-col gap-y-10 cursor-none">
 
+                  <h1  class="text-4xl text-center">Your Cart Is Empty</h1>
+                  <iframe src="https://embed.lottiefiles.com/animation/629"></iframe>
+                </div>
               </div>
             </div>
           </div>
@@ -38,18 +41,13 @@
             <h2 class="text-2xl">
               Subtotal : <b>{{ cartTotal }}</b>
             </h2>
-            <h2 class="text-2xl text-slate-400">
-              Est Shipping :
-            </h2>
-            <h2 class="text-2xl text-slate-400">
-              Est Sales Taxes :
-            </h2>
-            <h2 class="text-2xl text-red-700">
-              Order Total :
-            </h2>
+            <h2 class="text-2xl text-slate-400">Est Shipping :</h2>
+            <h2 class="text-2xl text-slate-400">Est Sales Taxes :</h2>
+            <h2 class="text-2xl text-red-700">Order Total :</h2>
           </div>
           <div class="mt-3">
             <button
+              v-if="products.length >= 1"
               class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg"
               @click="checkout()"
             >
@@ -64,22 +62,20 @@
 <script setup>
 // import { computed } from 'vue'
 definePageMeta({
-  middleware: 'auth'
-})
-const cartStore = useCartStore()
-const productStore = useProductStore()
+  middleware: "auth",
+});
+const cartStore = useCartStore();
+const productStore = useProductStore();
 if (!cartStore.products.length) {
-  logger.assert('getting cart')
-  cartStore.getCart()
+  logger.assert("getting cart");
+  cartStore.getCart();
 }
 
-const products = computed(() => cartStore?.products)
+const products = computed(() => cartStore?.products);
 // logger.log(products.value)
-const cartTotal = computed(() => cartStore?.total)
- async function checkout(){
- cartStore.checkout(cartStore.products)
-
-
+const cartTotal = computed(() => cartStore?.total);
+async function checkout() {
+  cartStore.checkout(cartStore.products);
 }
 </script>
 
