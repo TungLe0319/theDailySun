@@ -97,10 +97,18 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 * [![Vue][Vue.js]][Vue-url]
 ## Built With
 
-- [Nuxt](https://nuxtjs.org/)
-- [Vue](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
-- [Prisma](https://prisma.io/)
+<a href="https://nuxtjs.org/">
+  <img src="https://img.shields.io/badge/Nuxt-v2.14.6-%2341B883" alt="Nuxt">
+</a>
+<a href="https://vuejs.org/">
+  <img src="https://img.shields.io/badge/Vue-v3.0.0-%2341B883" alt="Vue">
+</a>
+<a href="https://tailwindcss.com/">
+  <img src="https://img.shields.io/badge/Tailwind-v2.3.4-%234B5A76" alt="Tailwind">
+</a>
+<a href="https://prisma.io/">
+  <img src="https://img.shields.io/badge/Prisma-v2.28.2-%23F7B731" alt="Prisma">
+</a>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
