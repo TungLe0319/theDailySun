@@ -1,7 +1,7 @@
 <template>
-  <div class=" fled md:block flex-wrap py-20 mt-10 flex z-10 relative about-us">
+  <div class=" flex justify-center py-20 mt-10  z-10 relative about-us">
 
-    <div class=" flex-wrap w-full md:w-2/4 px-5 flex flex-col  bg-white py-5">
+    <div class=" flex-wrap w-full md:w-3/4 px-5 flex flex-col  bg-white py-5">
       <div class="flex justify-start   ">
         <img src="https://cdn-icons-png.flaticon.com/512/7199/7199551.png" alt="goodVibes Image" width="90" class="">
       </div>

@@ -2,7 +2,7 @@
  <div >
    <div class="relative hero-image-container" >
     <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
-    <video id="myVideo" src="../assets/video.mp4" autoplay muted ></video>
+    <video id="myVideo" src="../assets/video.mp4" autoplay muted   ></video>
     <div class="hero-text      ">
       <h1 class=" text-4xl text-shadow p-3  rounded-lg shadow-2xl shadow-teal-600  " >
         Invest in one-of-a-kind  quality pieces that will empower your personal style and  last a lifetime!
@@ -30,7 +30,7 @@ var myVideo = null;
 
  function video(){
         var myVideo = document.getElementById("myVideo");
-      myVideo.playbackRate = 3.0;
+      myVideo.playbackRate = 2.5;
   myVideo.addEventListener("timeupdate", function(){
       if (this.currentTime >= this.duration - 6) { // 5 seconds before the end
          myVideo.playbackRate = 2.5;
@@ -95,7 +95,7 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 
 
 
 .hero-text {
- 
+
   opacity: 0;
   animation: loaded 8s ease 4s forwards;
  top: 50%;
