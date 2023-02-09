@@ -1,5 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -7,8 +9,6 @@
 *** Don't forget to give the project a star!
 *** Thanks again! Now go create something AMAZING! :D
 -->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -18,14 +18,13 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -49,8 +48,6 @@
     <a href="https://github.com/TungLe0319/theDailySun/issues">Request Feature</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -78,23 +75,14 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
-## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+## About The Project
 
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `TungLe0319`, `theDailySun`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-### Built With
-
-* [![Nuxt.js][Nuxt.js badge]][Nuxt.js-url]
-* [![Vue][Vue.js]][Vue-url]
 ## Built With
 
 <a href="https://nuxtjs.org/">
@@ -110,86 +98,8 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
   <img src="https://img.shields.io/badge/Prisma-v2.28.2-%23F7B731" alt="Prisma">
 </a>
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/TungLe0319/theDailySun.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-- [ ] Homepage
-  - [ ] Display featured products
-  - [ ] Search bar
-  - [ ] Categories navigation
-- [ ] Product Listing
-  - [ ] Display all products in a grid view
-  - [ ] Filter products by category, price, etc.
-  - [ ] Sort products by newest, lowest price, highest price, etc.
-- [ ] Product Detail
-  - [ ] Display product information, such as images, description, price, etc.
-  - [ ] Add to cart button
-  - [ ] Related products section
-- [ ] Shopping Cart
-  - [ ] Display items in the cart
-  - [ ] Update item quantities
-  - [ ] Calculate total cost
-  - [ ] Proceed to checkout button
-- [ ] Checkout
-  - [ ] Shipping information form
-  - [ ] Payment method selection (using Stripe)
-  - [ ] Order review and confirmation
-- [ ] Order Confirmation
-  - [ ] Display order number and confirmation message
-- [ ] Admin Panel
-  - [ ] View orders
-  - [ ] Manage products
-  - [ ] Manage categories
-- [ ] User Account
-  - [ ] Login/Registration
-  - [ ] View order history
-  - [ ] Update personal information
-- [ ] Responsive Design
-  - [ ] Ensure the website is optimized for different screen sizes
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
 ## Features
 
 - 💚 Nuxt 3
@@ -202,59 +112,41 @@ This is an example of how to list things you need to use the software and how to
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- USAGE EXAMPLES -->
 
+## Usage
 
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/TungLe0319/theDailySun](https://github.com/TungLe0319/theDailySun)
+- [ ] Homepage
+  - [ ] Display featured products
+  - [ ] Categories Split Glasses & Hats, Men & Women
+- [ ] Product Listing
+  - [ ] Display all products in a grid view
+  - [ ] Sort products by glasses, hats, men, and women.
+  - [ ] Sort products by lowest price, highest price.
+- [ ] Product Detail
+  - [ ] Display product information, description, price, etc.
+  - [ ] Add to cart button
+- [ ] Shopping Cart
+  - [ ] Display items in the cart
+  - [ ] Update item quantities
+  - [ ] Calculate total cost
+  - [ ] Proceed to checkout button
+- [ ] Checkout
+  - [ ] Payment method selection (using Stripe)
+  - [ ] Order review and confirmation
+- [ ] Order Confirmation
+  - [ ] Display order number and confirmation message
+- [ ] Account Page
+  - [ ] View receipts
+- [ ] Login
+- [ ] Responsive Design
+  - [ ] Website is optimized for mobile and desktop screen sizes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [contributors-shield]: https://img.shields.io/github/contributors/TungLe0319/theDailySun.svg?style=for-the-badge
 [contributors-url]: https://github.com/TungLe0319/theDailySun/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/TungLe0319/theDailySun.svg?style=for-the-badge
