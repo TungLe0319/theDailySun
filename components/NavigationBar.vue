@@ -38,6 +38,23 @@
   </nav>
 </template>
 
+
+
+<!-- <script setup>
+
+const products = ref([])
+
+
+
+onMounted(() => {
+  setTimeout(() => {
+    // getUserData();
+  }, 1);
+});
+
+
+</script> -->
+
 <script>
 // import { NuxtLink } from '../.nuxt/components'
 
