@@ -13,7 +13,7 @@ export const useCartStore = defineStore('cart', {
       const { data: cart } = await useFetch('/api/cart', { headers })
       // logger.log(cart.value)
       this.cartId = cart?.value?.id
-      const products = cart.value.products
+      const products = cart?.value?.products
       this.products = products
       let amount = 0
       for (const product of products) {
@@ -61,7 +61,7 @@ export const useCartStore = defineStore('cart', {
       navigateTo(createStripeSession.value, { external: true })
     },
 
-  
+
   },
   getters: {
     cartTotal: (state) => {
