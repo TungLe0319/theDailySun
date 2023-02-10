@@ -1,8 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+const origin = process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000'
 export default defineNuxtConfig({
+  // @ts-ignore
   auth: {
-    origin: process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000'
+    origin
   },
+
   // @ts-ignore
   modules: [
     '@sidebase/nuxt-auth',
@@ -32,6 +35,7 @@ export default defineNuxtConfig({
   typescript: {
     shim: false
   },
+  // @ts-ignore
   tailwindcss: {
     config: {
       content: [],

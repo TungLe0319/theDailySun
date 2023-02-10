@@ -6,14 +6,16 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { PrismaClient } from '@prisma/client'
 // import { usePrisma } from '@sidebase/nuxt-prisma'
 import { NuxtAuthHandler } from '#auth'
+// import { date } from 'zod'
 
 // import { accountServerService } from '../../services/AccountsServerService'
 
 const prisma = new PrismaClient()
+const secret = process.env.AUTH_SECRET ? process.env.AUTH_SECRET : Date.now()
 
 export default NuxtAuthHandler({
   // TODO: ADD YOUR OWN AUTHENTICATION PROVIDER HERE, READ THE DOCS FOR MORE: https://sidebase.io/nuxt-auth
-  secret: process.env.AUTH_SECRET,
+  secret,
   adapter: PrismaAdapter(prisma),
   session: {
     strategy: 'jwt'
@@ -38,6 +40,7 @@ export default NuxtAuthHandler({
       if (session?.user) {
         session.user.id = token.sub
         const user = await prisma.user.findUnique({ where: { id: session.user.id } })
+        // @ts-ignore
         session.user.role = user.role
       }
       return await session
