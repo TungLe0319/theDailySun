@@ -38,7 +38,7 @@
           <nuxt-link
 
           to="/Account" class="link" active-class="active-link">
-           {{ user? 'Account' : 'Sign In' }}
+           {{ user? 'Account' : 'Login' }}
           </nuxt-link>
 
           <nuxt-link

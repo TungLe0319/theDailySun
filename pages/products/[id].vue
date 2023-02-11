@@ -62,7 +62,7 @@
         </nuxt-link>
 
         <button
-        v-if="user.role == 'ADMIN'"
+        v-if="user?.role == 'ADMIN'"
           class="checkOut font-1 text-xl font-bold text-white mt-10 p-3 rounded-md bg-slate-700"
           @click="deleteProduct()"
         >
@@ -83,8 +83,8 @@
 // import { computed } from 'vue'
 
 import AddToCart from "~~/components/cart/AddToCart.vue";
-const { data } = useSession();
-const user = data?.value?.user;
+const { data:user } = useSession();
+
 const productStore = useProductStore();
 const route = useRoute();
 productStore.getProductById(route.params.id);
