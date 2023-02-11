@@ -8,7 +8,7 @@
   >
     <div class="flex justify-between">
       <div class="ml-3 flex gap-x-5">
-        <NuxtLink to="/" class="" active-class="active-link-img">
+        <NuxtLink to="/" class="">
           <img
             src="../assets/Logo.png"
             alt=""
@@ -35,10 +35,14 @@
             protected
           </NuxtLink> -->
 
-          <nuxt-link to="/Account" class="link" active-class="active-link">
-            Account
-          </nuxt-link>
           <nuxt-link
+
+          to="/Account" class="link" active-class="active-link">
+           {{ user? 'Account' : 'Login' }}
+          </nuxt-link>
+
+          <nuxt-link
+            v-if="user"
             to="/cart"
             class="link relative"
             active-class="active-link"
@@ -46,12 +50,12 @@
             Cart
 
             <span
-            v-if="cartQuantity"
+              v-if="cartQuantity"
               class="absolute bottom-3 left-14 opacity-80 text-xs font-semibold inline-block py-1 px-2 rounded-full text-orange-600 bg-orange-200 uppercase last:mr-0 mr-1"
             >
               {{ cartQuantity }}
             </span>
-            <n-spin  v-else size="small" />
+            <!-- <n-spin v-else size="small" /> -->
           </nuxt-link>
         </div>
       </div>
@@ -60,15 +64,18 @@
 </template>
 
 <script setup>
-const products = useState('products',() => []);
-const isVisible = useState('true',() => true);
+const products = useState("products", () => []);
+const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
+const { data: user } = useSession();
 const cartQuantity = computed(() => cartStore.products.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   setTimeout(() => {
     // getUserData();
-    cartStore.getCart();
+    if (user.value) {
+      cartStore.getCart();
+    }
   }, 1);
 });
 
