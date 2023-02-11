@@ -11,7 +11,7 @@ import { NuxtAuthHandler } from '#auth'
 // import { accountServerService } from '../../services/AccountsServerService'
 
 const prisma = new PrismaClient()
-const secret = process.env.AUTH_SECRET ? process.env.AUTH_SECRET : Date.now()
+const secret = process.env.AUTH_SECRET ? process.env.AUTH_SECRET : ''
 
 export default NuxtAuthHandler({
   // TODO: ADD YOUR OWN AUTHENTICATION PROVIDER HERE, READ THE DOCS FOR MORE: https://sidebase.io/nuxt-auth
