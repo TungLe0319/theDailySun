@@ -20,15 +20,19 @@
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
-                v-if="products.length >=1"
+                  v-if="products.length >= 1"
                   v-for="c in products"
                   :key="c.id"
                   :product="c"
                 />
-                <div v-else class="container flex flex-col gap-y-10 cursor-none">
-
-                  <h1  class="text-4xl text-center">Your Cart Is Empty</h1>
-                  <iframe src="https://embed.lottiefiles.com/animation/629"></iframe>
+                <div
+                  v-else
+                  class="container flex flex-col gap-y-10 cursor-none"
+                >
+                  <h1 class="text-4xl text-center">Your Cart Is Empty</h1>
+                  <iframe
+                    src="https://embed.lottiefiles.com/animation/629"
+                  ></iframe>
                 </div>
               </div>
             </div>
@@ -38,8 +42,9 @@
           class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2"
         >
           <div class="flex flex-col gap-y-3">
-
-            <h2 class="text-2xl text-red-700">Order Total :  <b>${{ cartTotal }}</b></h2>
+            <h2 class="text-2xl text-red-700">
+              Order Total : <b>${{ cartTotal }}</b>
+            </h2>
           </div>
           <div class="mt-3">
             <button

@@ -4,21 +4,19 @@
       <div class="hero-text bg-black bg-opacity-25 p-5 rounded-md">
         <h1 class="text-5xl text-shadow-overlay">
           The Checkout Session was cancelled
-          <br>
-          It could be due to a bad card, the session timed out or it was cancelled.
-          <br>
-          you can go back to the cart page and try  again.
+          <br />
+          It could be due to a bad card, the session timed out or it was
+          cancelled.
+          <br />
+          you can go back to the cart page and try again.
         </h1>
-
       </div>
     </div>
   </div>
 </template>
 e>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .hero-image-container {

@@ -13,7 +13,7 @@
     </div>
     <div class="container mt-3 text-xl flex flex-col">
       <div class=" ">
-        <h2 class=" description">
+        <h2 class="description">
           The SunnyVibes project serves as an opportunity for us to challenge
           ourselves in learning Nuxt.js, building upon prior experience with
           Vue.js. The goal is to create a modern and intuitive e-commerce
@@ -186,7 +186,6 @@
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
@@ -204,7 +203,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.description{
+.description {
   line-height: 1.5;
 }
 .hero-image {
