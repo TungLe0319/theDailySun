@@ -1,19 +1,6 @@
 eslint-disable @typescript-eslint/no-unused-vars
 <script setup lang="ts">
-// import { cartService } from '~~/composables/services/CartService'
-// import Pop from '~~/utils/Pop'
 
-// import { Cart, Product } from '.prisma/client'
-
-// import { Cart } from '.prisma/client'
-
-// const getCart = async () => {
-//   try {
-//     await cartService.getCartByUserId()
-//   } catch (error) {
-//     Pop.error(error)
-//   }
-// }
 const { data: cart } = await useFetch("/api/cart");
 // const { data: token } = useSession()
 </script>
