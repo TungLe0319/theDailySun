@@ -2,24 +2,11 @@ import { Cart } from '@prisma/client'
 import Stripe from 'stripe'
 import { getServerSession } from '#auth'
 // import { never } from 'zod';
-interface newProduct {
-  id: number;
-  price: GLfloat
-  title: string
-  description : string
-  audience: string
-  productImg: string
-  priceID:string
-  type: string
-  img: string
-  quantity: number
-  stripe: string
-   cartId : number
-}
+
 export default defineEventHandler(async (event) => {
 
 
-
+  const stripe = event.context.stripe;
 
   const prisma = event.context.prisma
   const session = await getServerSession(event)
@@ -37,7 +24,7 @@ export default defineEventHandler(async (event) => {
   }
   const cart = await prisma.cart.update({
     where: {
-      userId
+      userId: userId
     },
     data: {
       products: {
@@ -94,5 +81,7 @@ export default defineEventHandler(async (event) => {
 
   // cartTotal += amount
 
-  return { cart }
+
+  // }
+    return {cart}
 })

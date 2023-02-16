@@ -20,7 +20,7 @@
             <div class="relative h-full">
               <div class="p-4">
                 <CartProductCard
-                  v-if="products.length >= 1"
+                  v-if="products?.length >= 1"
                   v-for="c in products"
                   :key="c.id"
                   :product="c"
@@ -48,7 +48,7 @@
           </div>
           <div class="mt-3">
             <button
-              v-if="products.length >= 1"
+              v-if="products?.length >= 1"
               class="p-3 w-full bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg"
               @click="checkout()"
             >
@@ -61,24 +61,20 @@
   </div>
 </template>
 <script setup>
-// import { computed } from 'vue'
 definePageMeta({
   middleware: "auth",
 });
 const cartStore = useCartStore();
-const productStore = useProductStore();
+
 onMounted(()=>{
   setTimeout(() => {
   cartStore.getCart();
   }, 1);
 })
-// if (!cartStore?.products?.length <=0) {
-//   logger.assert("getting cart");
-//   cartStore.getCart();
-// }
+
 
 const products = computed(() => cartStore?.products);
-// logger.log(products.value)
+
 const cartTotal = computed(() => cartStore?.total);
 async function checkout() {
   cartStore.checkout(cartStore?.products);

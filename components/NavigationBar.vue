@@ -35,10 +35,8 @@
             protected
           </NuxtLink> -->
 
-          <nuxt-link
-
-          to="/Account" class="link" active-class="active-link">
-           {{ user? 'Account' : 'Login' }}
+          <nuxt-link to="/Account" class="link" active-class="active-link">
+            {{ user ? "Account" : "Login" }}
           </nuxt-link>
 
           <nuxt-link
@@ -53,7 +51,7 @@
               v-if="cartQuantity"
               class="absolute bottom-3 left-14 opacity-80 text-xs font-semibold inline-block py-1 px-2 rounded-full text-orange-600 bg-orange-200 uppercase last:mr-0 mr-1"
             >
-              {{ cartQuantity }}
+              {{ Quantity }}
             </span>
             <!-- <n-spin v-else size="small" /> -->
           </nuxt-link>
@@ -68,16 +66,25 @@ const products = useState("products", () => []);
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
 const { data: user } = useSession();
-const cartQuantity = computed(() => cartStore?.products?.length);
+const Quantity = useState("quantity", () => cartStore?.products?.length);
+let cartQuantity = cartStore?.products?.length;
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   setTimeout(() => {
     // getUserData();
-    if (user.value) {
-      cartStore.getCart();
-    }
+
+ if (user?.value?.user) {
+   cartStore.getCart();
+ }
   }, 1);
 });
+
+watch(
+  () => cartStore.products,
+  (newProducts) => {
+    Quantity.value = newProducts?.length;
+  }
+);
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);

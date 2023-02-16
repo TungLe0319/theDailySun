@@ -11,16 +11,22 @@ export const useCartStore = defineStore('cart', {
     async getCart () {
       const headers = useRequestHeaders(['cookie'])
       const { data: cart } = await useFetch('/api/cart', { headers })
-      // logger.log(cart.value)
+
       this.cartId = cart?.value?.id
-      const products = cart?.value?.products
-      this.products = products
+      const productsResult = cart?.value?.products
+
+      this.products = productsResult
+
       let amount = 0
-      for (const product of this.products) {
-        const price = product.price * (product.quantity || 0)
-        amount += price
-      }
-      this.total = amount
+
+// if (Array.isArray(productsResult)) {
+//  for (const product of productsResult) {
+//    const price = product.price * (product.quantity || 0);
+//    amount += price;
+//  }
+//  this.total = amount;
+
+// }
     },
     async add (productData) {
       const { data: cart } = await useFetch('/api/cart', {
@@ -29,6 +35,7 @@ export const useCartStore = defineStore('cart', {
           productData
         }
       })
+      this.products = [...this.products,cart.value.cart]
       // logger.log(cart.value)
 
       // this.products = cart.value.products

@@ -4,18 +4,19 @@ import { getServerSession } from '#auth'
 
 // const prismaClient = new PrismaClient()
 export default defineEventHandler(async (event) => {
-  const prisma = usePrisma(event)
+   const prisma = event.context.prisma;
+
   // const { id } = getRouterParams(event)
   const session = await getServerSession(event)
   // if (!session?.user) {
   //   return 'need to be logged in'
   // }
-  const cart = prisma.cart.findUnique({ where: { userId: session?.user.id }, include: { products: {} } })
+  const cart = await prisma.cart.findUnique({ where: { userId: session?.user.id }, include: { products: {} } })
   if (cart) {
     return cart
   }
   if (session?.user && !cart) {
-    const newCart = prisma.cart.create({ data: { userId: session?.user.id } })
+    const newCart =await  prisma.cart.create({ data: { userId: session?.user.id } })
     return newCart
   }
 
