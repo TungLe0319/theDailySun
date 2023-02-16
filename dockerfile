@@ -12,11 +12,13 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm ci
 
+
 FROM dependency-base AS production-base
 
 # build will also take care of building
 # if necessary
 COPY . .
+RUN npx prisma generate
 RUN npm run build
 
 FROM $NODE_VERSION AS production
@@ -35,6 +37,8 @@ ENV NUXT_APP_VERSION=${NUXT_APP_VERSION}
 
 # Run in production mode
 ENV NODE_ENV=production
+
+
 
 # start the app
 CMD [ "node", "/app/.output/server/index.mjs" ]
