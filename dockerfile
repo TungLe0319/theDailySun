@@ -7,7 +7,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2 - production
-FROM node:8.15-alpine3.17 AS final
+FROM node:18.13.0-alpine3.17 AS final
 WORKDIR /app
 ADD package.json .
 ADD nuxt.config.js .
