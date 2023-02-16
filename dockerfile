@@ -1,20 +1,40 @@
-# Stage 1 - build
-FROM node:18.13.0-alpine3.17 AS builder
+# see https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
+ARG NODE_VERSION=node:18.13.0
+
+FROM $NODE_VERSION AS dependency-base
+
+# create destination directory
+RUN mkdir -p /app
 WORKDIR /app
-COPY package*.json ./
-RUN  npm install
+
+# copy the app, note .dockerignore
+COPY package.json .
+COPY package-lock.json .
+RUN npm ci
+
+FROM dependency-base AS production-base
+
+# build will also take care of building
+# if necessary
 COPY . .
 RUN npm run build
 
-# Stage 2 - production
-FROM node:18.13.0-alpine3.17 AS final
-WORKDIR /app
-ADD package.json .
-ADD nuxt.config.ts .
-COPY --from=builder /app/.nuxt ./.nuxt
-COPY --from=builder /app/node_modules ./node_modules
-COPY --from=builder /app/.output ./.output
+FROM $NODE_VERSION AS production
+
+COPY --from=production-base /app/.output /app/.output
+
+# Service hostname
 ENV NUXT_HOST=0.0.0.0
 ENV NUXT_PORT=3000
-EXPOSE 3000
-CMD ["npm", "start"]
+
+# Service version
+ARG NUXT_APP_VERSION
+ENV NUXT_APP_VERSION=${NUXT_APP_VERSION}
+
+# ENV DATABASE_URL=file:./db.sqlite
+
+# Run in production mode
+ENV NODE_ENV=production
+
+# start the app
+CMD [ "node", "/app/.output/server/index.mjs" ]
