@@ -16,7 +16,7 @@ export const useCartStore = defineStore('cart', {
       const products = cart?.value?.products
       this.products = products
       let amount = 0
-      for (const product of products) {
+      for (const product of this.products) {
         const price = product.price * (product.quantity || 0)
         amount += price
       }

@@ -67,16 +67,21 @@ definePageMeta({
 });
 const cartStore = useCartStore();
 const productStore = useProductStore();
-if (!cartStore.products.length) {
-  logger.assert("getting cart");
+onMounted(()=>{
+  setTimeout(() => {
   cartStore.getCart();
-}
+  }, 1);
+})
+// if (!cartStore?.products?.length <=0) {
+//   logger.assert("getting cart");
+//   cartStore.getCart();
+// }
 
 const products = computed(() => cartStore?.products);
 // logger.log(products.value)
 const cartTotal = computed(() => cartStore?.total);
 async function checkout() {
-  cartStore.checkout(cartStore.products);
+  cartStore.checkout(cartStore?.products);
 }
 </script>
 

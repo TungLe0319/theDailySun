@@ -81,17 +81,11 @@ background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 
   right: 0;
   bottom: 0;
   height: 100vh ;
+  width: 100vw;
   object-fit: cover;
   mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
 }
 
-.hero-image {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  position: relative;
-
-}
 
 
 .hero-text {

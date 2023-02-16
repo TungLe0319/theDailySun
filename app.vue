@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NGlobalStyle />
+    <!-- <NGlobalStyle /> -->
     <NavigationBar />
     <NuxtPage />
     <FooterBar />

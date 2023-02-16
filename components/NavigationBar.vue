@@ -68,7 +68,7 @@ const products = useState("products", () => []);
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
 const { data: user } = useSession();
-const cartQuantity = computed(() => cartStore.products.length);
+const cartQuantity = computed(() => cartStore?.products?.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
   setTimeout(() => {
