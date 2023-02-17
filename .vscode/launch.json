@@ -21,6 +21,21 @@
       "args": ["prisma", "studio"],
       "restart": true,
       "console": "integratedTerminal"
+    },
+      {
+      "name": "Run npx nuxi dev",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "nuxi",
+        "dev",
+        "--dotenv",
+        ".env.example"
+      ],
+      "restart": true,
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
     }
   ]
 }

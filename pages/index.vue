@@ -10,13 +10,15 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
+// import { onMounted } from 'vue'
 
-import { useProductStore } from "~~/stores/ProductStore";
-const productStore = useProductStore();
+import { useProductStore } from '~~/stores/ProductStore'
+const productStore = useProductStore()
 onMounted(() => {
   setTimeout(() => {
-    productStore.getProducts();
-  }, 0);
-});
+    productStore.getProducts()
+    const origin = computed(() => process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000')
+    logger.log(origin)
+  }, 0)
+})
 </script>

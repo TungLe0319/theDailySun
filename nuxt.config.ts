@@ -1,9 +1,12 @@
+// import { RuntimeConfig } from "@trpc/server/dist/core/internals/config"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
-const origin = process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000'
+// const origin = process.env.ORIGIN ? process.env.ORIGIN : 'http://localhost:3000'
 export default defineNuxtConfig({
   // @ts-ignore
   auth: {
-    origin
+    origin: process.env.AUTH_ORIGIN
+    // enableGlobalAppMiddleware: true
   },
 
   // @ts-ignore
