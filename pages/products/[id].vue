@@ -2,26 +2,26 @@
   <div class="">
     <div
       v-if="activeProduct"
-      class="text-black p-5 bg-slate-300 py-44 relative"
+      class="text-black p-5 bg-slate-300 md:py-44 py-20 relative"
     >
       <div class="flex flex-wrap">
-        <div class="w-full md:w-1/2 h-full justify-center flex">
+        <div class="w-full md:w-1/2 h-full justify-center flex pb-10 md:pb-0">
           <img
             :src="activeProduct.img"
             alt=""
             class="shadow-lg shadow-slate-400 product-image rounded-sm"
           />
         </div>
-        <div class="w-full md:w-1/2 p-5 px-14">
+        <div class="w-full md:w-1/2 p-5 md:px-14">
           <div class="">
             <div class="relative">
-              <h1 class="text-6xl mb-10 font-bold text-shadow">
+              <h1 class=" text-4xl md:text-6xl mb-10 font-bold text-shadow">
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute right-0 bottom-0">
                 <h1
                   v-if="activeProduct.audience == 'Female'"
-                  class="text-8xl opacity-10 font-bold text-shadow"
+                  class=" text-6xl md:text-8xl opacity-10 font-bold text-shadow"
                 >
                   WOMEN
                 </h1>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center py-20 mt-10 z-10 relative about-us">
+  <div class="flex justify-center md:py-20 md:mt-10 z-10 relative about-us">
     <div class="flex-wrap w-full md:w-3/4 px-5 flex flex-col bg-white py-5">
       <div class="my-4 text-center">
         <h1 class="text-3xl">Welcome to The Daily Sun!</h1>

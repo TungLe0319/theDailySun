@@ -1,16 +1,16 @@
 <template>
   <div
-    class="p-5 rounded-md my-4 flex justify-between product-card transition-colors"
+    class="md:p-5 rounded-md my-4 flex justify-between product-card transition-colors"
   >
     <div class="card flex">
       <img
         :src="
           product.img ||
-            'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'
+          'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'
         "
         alt="Product Image"
         class="product-image shadow-lg shadow-slate-400"
-      >
+      />
       <div class="ml-4">
         <h1 class="text-lg">
           {{ product.title }}
@@ -27,7 +27,6 @@
         </nuxt-link>
 
         <RemoveFromCart :product-id="product.id" />
-
       </div>
     </div>
     <div class="flex gap-x-20">
@@ -36,7 +35,6 @@
           <!-- <input v-model="product.quantity" type="number"> -->
           {{ product.quantity }}
         </p>
-
       </div>
       <div class="">
         <!-- <p>${{ product.price }}</p> -->
@@ -50,28 +48,28 @@
 </template>
 
 <script>
-import RemoveFromCart from './RemoveFromCart.vue'
+import RemoveFromCart from "./RemoveFromCart.vue";
 
 export default {
   components: { RemoveFromCart },
   props: {
     // eslint-disable-next-line vue/require-default-prop
-    product: { type: Object, required: false }
+    product: { type: Object, required: false },
   },
-  setup (props) {
-    const editable = ref(props.product.quantity)
-    function updateQuantity () {
-      const cart = useCartStore()
+  setup(props) {
+    const editable = ref(props.product.quantity);
+    function updateQuantity() {
+      const cart = useCartStore();
     }
     return {
       editable,
       totalPrice: computed(() => {
-        return props.product.price * props.product.quantity
+        return props.product.price * props.product.quantity;
       }),
-      updateQuantity
-    }
-  }
-}
+      updateQuantity,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -82,8 +80,8 @@ export default {
 
   border-radius: 8px;
 }
-input{
-  background-color: #cbd5e1
+input {
+  background-color: #cbd5e1;
 }
 .product-card:hover {
   transition: all 0.5 ease !important;
@@ -99,5 +97,17 @@ input{
 }
 .product-card {
   transition: all 0.5 ease !important;
+  img {
+   //when screen is 768px OR LESS
+   @media only screen and (max-width: 768px){
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.658),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+      0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+      var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      height: 120px !important;
+   }
+  }
 }
 </style>

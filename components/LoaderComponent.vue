@@ -1,5 +1,5 @@
 <template>
-  <div class="flex  ">
+  <div class="flex">
     <div class="item" />
     <div class="item" />
     <div class="item" />
@@ -10,14 +10,13 @@
 
 <script>
 export default {
-  setup () {
-    return {}
-  }
-}
+  setup() {
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-
 $color-1: #ddd8b8;
 $color-2: #b3cbb9;
 $color-3: #84a9c0;
@@ -56,5 +55,4 @@ $color: #49b8e5, #1e98d4, #2a92d0, #3a88c8, #507cbe;
     animation-delay: 100ms * $i;
   }
 }
-
 </style>

@@ -5,23 +5,21 @@
         class="object-cover image rounded-lg shadow-xl shadow-slate-400 transition-all"
         :src="product.img"
         alt="image"
-      >
-      <div class="">
-
-
-      </div>
+      />
+      <div class=""></div>
     </nuxt-link>
-    <div class="absolute-2 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg">
-         ${{ product.price }}
+    <div
+      class="absolute-2 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg"
+    >
+      ${{ product.price }}
     </div>
-    <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300 ">
+    <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300">
       <div class="text-white text-center">
-        <h4 class="  text-xl text-shadow font-bold mt-10 mb-10 fire-effect-milo bg-black bg-opacity-50">
+        <h4
+          class="text-xl text-shadow font-bold md:mt-10 md:mb-10 fire-effect-milo bg-black bg-opacity-50"
+        >
           {{ product.title }}
-
-
         </h4>
-
 
         <!-- <a target="_blank" class="z-30  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a> -->
       </div>
@@ -32,12 +30,12 @@
 <script>
 export default {
   props: {
-    product: { type: Object, required: true }
+    product: { type: Object, required: true },
   },
-  setup () {
-    return {}
-  }
-}
+  setup() {
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -60,13 +58,15 @@ export default {
   transform: translate3d(0px, 0, 0);
 
   //when screen is 768px OR LESS
-
+  @media only screen and (max-width: 768px) {
+    padding: 0 0px 0 0;
+  }
+  //when screen is 768px OR LESS
 }
 .product-card {
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
   width: 200px;
   height: 250px;
-
 
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
@@ -75,12 +75,10 @@ export default {
   }
 }
 
-
-
 .product-card img {
-     transition: all 1s ease-out !important;
- object-fit: cover;
-   width: 200px;
+  transition: all 1s ease-out !important;
+  object-fit: cover;
+  width: 200px;
   height: 250px;
 
   @media only screen and (max-width: 768px) {
@@ -97,9 +95,10 @@ export default {
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
     opacity: 90%;
-   
-  ;
 
+    right: 0%;
+
+    top: 0%;
   }
 }
 .product-card:hover .absolute {
@@ -110,31 +109,23 @@ export default {
 }
 .product-card:hover img {
   transform: scale(1.1);
-     transition: all .5s ease !important;
-
-
-
-
-
-
-
+  transition: all 0.5s ease !important;
 
   //when screen is 768px OR LESS
   @media only screen and (min-width: 768px) {
     filter: brightness(80%);
     width: 300px;
-
   }
 }
 .product-card:hover .absolute-2 {
-   transition: all .5s ease !important;
+  transition: all 0.5s ease !important;
 
   opacity: 1;
-  transform: translate(-10px,-12px);
+  transform: translate(-10px, -12px);
 }
 
-.absolute-2{
+.absolute-2 {
   position: absolute;
- transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 </style>

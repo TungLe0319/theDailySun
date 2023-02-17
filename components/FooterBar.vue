@@ -2,13 +2,14 @@
   <footer class="bg-zinc-900 text-white">
     <div class="w-full pt-10 flex items-center justify-center bg-zinc-900">
       <div class="md:w-2/3 w-full px-4 text-white flex flex-col">
-        <div class=" md:flex">
-
-          <h1 class=" text-6xl font-bold w-full md:w-1/2">
+        <div class="md:flex">
+          <h1 class="text-6xl font-bold w-full md:w-1/2">
             Thank you for checking out our app. Get in touch with us.
           </h1>
 
-          <div class="  w-full md:w-1/2 footer-section flex justify-center flex-col items-center">
+          <div
+            class="w-full md:w-1/2 footer-section flex justify-center flex-col items-center"
+          >
             <div class="mt-8 flex">
               <img
                 src="https://avatars.githubusercontent.com/u/107594367?s=400&u=279c4a706755639789d6b825966e54161df0c7aa&v=4"
@@ -68,7 +69,6 @@
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="flex mt-8 flex-col md:flex-row md:justify-between">
@@ -79,7 +79,7 @@
         </div>
         <div class="flex flex-col">
           <div class="flex mt-24 mb-12 flex-row justify-between">
-            <div class="">
+            <div class="hidden md:block">
               <img
                 src="../assets/Logo.png"
                 alt=""
@@ -113,7 +113,7 @@
   </footer>
 </template>
 
-<style>
+<style lang="scss" scoped>
 .container {
   display: flex;
   justify-content: space-between;
@@ -125,5 +125,8 @@
 
 .link {
   width: fit-content;
+  @media only screen and (max-width: 768px) {
+    font-size: 16px !important;
+  }
 }
 </style>

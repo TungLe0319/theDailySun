@@ -1,5 +1,6 @@
 <template>
   <div class="bg-purple-100 py-20 female-featured relative">
+
     <div class="text-center my-5 container flex flex-col">
       <h1 class="mb-10 md:text-6xl text-4xl text-shadow">Featured Products</h1>
       <h2 class="text-4xl mb-2 ff">Empower your style</h2>
@@ -27,7 +28,7 @@
     </div>
 
     <div class="md:flex relative">
-      <div id="card-container" class="gap-2 justify-center w-full" v-if="hats">
+      <div id="card-container" class="gap-2 justify-center w-full order-2" v-if="hats">
         <ProductCard
           v-for="h in hats"
           :key="h.id"
@@ -37,7 +38,7 @@
       </div>
       <LoaderComponent v-else />
       <div
-        class="glasses-title flip text-center absolute bottom-20 right-0 text-shadow"
+        class="glasses-title flip text-center absolute bottom-20 right-0 text-shadow order-1"
       >
         Hats
       </div>
@@ -98,7 +99,7 @@ const hats = computed(() => {
 const {data: products} = await useAsyncData()
 </script> -->
 
-<style lang="scss">
+<style lang="scss" scoped  >
 .female-featured::before {
   width: 100%;
   height: 10vh;
@@ -127,8 +128,8 @@ const {data: products} = await useAsyncData()
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
 
-      transform: rotate(0deg);
-        writing-mode: horizontal-tb;
+      transform: rotate(0deg) !important;
+
   }
 }
 #card-container {

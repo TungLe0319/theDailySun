@@ -4,7 +4,7 @@
       <div class="w-full md:w-1/2 h-full justify-center flex">
         <h1 class="text-5xl">My Cart</h1>
       </div>
-      <div class="flex">
+      <div class="flex flex-wrap">
         <div class="w-full md:w-2/3 p-5 px-14">
           <div class="flex justify-between">
             <div>
@@ -17,7 +17,7 @@
           </div>
           <hr class="mt-3 bg-black" />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
-            <div class="relative h-full">
+            <div class="relative md:h-full">
               <div class="p-4">
                 <CartProductCard
                   v-if="products?.length >= 1"
@@ -66,12 +66,11 @@ definePageMeta({
 });
 const cartStore = useCartStore();
 
-onMounted(()=>{
+onMounted(() => {
   setTimeout(() => {
-  cartStore.getCart();
+    cartStore.getCart();
   }, 1);
-})
-
+});
 
 const products = computed(() => cartStore?.products);
 
@@ -122,6 +121,10 @@ hr {
 .overflow-y-auto {
   overflow-y: auto !important;
   height: 1000px;
+  //when screen is 768px OR LESS
+  @media only screen and (max-width: 768px) {
+    height: 400px;
+  }
 }
 
 .inset-y-0 {
@@ -135,10 +138,6 @@ hr {
 
 .w-5 {
   width: 5px;
-}
-
-.h-full {
-  height: 100%;
 }
 
 .bg-gray-600 {

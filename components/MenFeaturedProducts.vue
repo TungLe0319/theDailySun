@@ -92,7 +92,7 @@ const hats = computed(() => {
 const {data: products} = await useAsyncData()
 </script> -->
 
-<style lang="scss">
+<style lang="scss" scoped >
 .flip{
   color: rgb(176, 215, 233);
   opacity: 75%;
