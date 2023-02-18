@@ -123,7 +123,7 @@ onMounted(() => {
 watch(
   () => cartStore.products,
   (newProducts) => {
-  
+
     Quantity.value = newProducts?.length;
   }
 );

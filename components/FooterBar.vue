@@ -71,20 +71,20 @@
           </div>
         </div>
 
-        <div class="flex mt-8 flex-col md:flex-row md:justify-between">
+        <div class="flex mt-8 flex-col md:flex-row md:justify-center md:text-center">
           <p class="w-full md:w-2/3 text-gray-400">
             If you want to contact us the best way is to connect with us on
             LinkedIn and message us!
           </p>
         </div>
-        <div class="flex flex-col">
-          <div class="flex mt-24 mb-12 flex-row justify-between">
+        <div class="flex flex-col   ">
+          <div class="flex mt-24  mb-5 flex-row justify-between items-end">
             <div class="hidden md:block">
               <img
                 src="../assets/Logo.png"
                 alt=""
                 width="80"
-                class="rounded-xl"
+                class="rounded-xl b"
               />
             </div>
 
@@ -125,6 +125,7 @@
 
 .link {
   width: fit-content;
+  height: fit-content;
   @media only screen and (max-width: 768px) {
     font-size: 16px !important;
   }
