@@ -43,7 +43,7 @@ export default NuxtAuthHandler({
     // @ts-ignore
 
     session: async ({ session, token }) => {
-      if (session?.user) {
+      if (session.user) {
         session.user.id = token.sub
         const user = await prisma.user.findUnique({
           where: { id: session.user.id }

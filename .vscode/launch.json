@@ -7,15 +7,6 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "npm run dev",
-      "runtimeExecutable": "npm",
-      "runtimeArgs": ["run-script", "dev"],
-      "restart": true,
-      "console": "integratedTerminal"
-    },
-    {
-      "type": "node",
-      "request": "launch",
       "name": "npx prisma studio",
       "runtimeExecutable": "npx",
       "args": ["prisma", "studio"],
@@ -23,7 +14,7 @@
       "console": "integratedTerminal"
     },
       {
-      "name": "Run npx nuxi dev",
+      "name": "npm run dev",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "npx",
