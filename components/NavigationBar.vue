@@ -19,6 +19,9 @@
         <div class="items-center justify-center flex">
           <h1 class="text-lg md:text-3xl hidden md:block">The Daily Sun</h1>
         </div>
+        <div class="flex justify-center items-center">
+          <SearchBar  :class="isVisible? '' : 'not-visible'"/>
+        </div>
       </div>
       <div class="hidden md:flex items-center">
         <div class="text-center mr-6">
