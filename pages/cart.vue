@@ -39,11 +39,12 @@
           </div>
         </div>
         <div
+          v-if="products?.length >= 1"
           class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2"
         >
           <div class="flex flex-col gap-y-3">
             <h2 class="text-2xl text-red-700">
-              Order Total : <b>${{ cartTotal }}</b>
+              Order Total : <b>${{ total}}</b>
             </h2>
           </div>
           <div class="mt-3">
@@ -73,8 +74,15 @@ onMounted(() => {
 });
 
 const products = computed(() => cartStore?.products);
+const total = useState("total", () => cartStore?.total);
+watch(
+  () => cartStore?.total,
+  (newTotal) => {
+    
+    total.value = newTotal;
+  }
+);
 
-const cartTotal = computed(() => cartStore?.total);
 async function checkout() {
   cartStore.checkout(cartStore?.products);
 }

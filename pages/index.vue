@@ -18,7 +18,7 @@ onMounted(() => {
   setTimeout(() => {
     productStore.getProducts()
     const origin = computed(() => process.env.AUTH_ORIGIN ? process.env.AUTH_ORIGIN : 'http://localhost:3000')
-    logger.log(origin)
+    // logger.log(origin)
   }, 0)
 })
 </script>

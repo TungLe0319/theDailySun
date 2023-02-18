@@ -11,6 +11,8 @@
         alt="Product Image"
         class="product-image shadow-lg shadow-slate-400"
       />
+
+      <div class="absolute opacity-90">    <RemoveFromCart :product-id="product.id" /></div>
       <div class="ml-4">
         <h1 class="text-lg">
           {{ product.title }}
@@ -26,20 +28,20 @@
           </h2>
         </nuxt-link>
 
-        <RemoveFromCart :product-id="product.id" />
+
       </div>
     </div>
-    <div class="flex gap-x-20">
+    <div class="flex gap-x-20" >
       <div>
         <p class="">
-          <!-- <input v-model="product.quantity" type="number"> -->
+
           {{ product.quantity }}
         </p>
       </div>
       <div class="">
-        <!-- <p>${{ product.price }}</p> -->
+
         <div class="flex">
-          <!-- <small> (${{ product.price }} * {{ product.quantity }}) </small> -->
+
           <p>${{ totalPrice }}</p>
         </div>
       </div>

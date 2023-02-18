@@ -32,12 +32,7 @@
 let expanded = useState("expanded", () => false);
 const productStore = useProductStore();
 let products = useState("products", () => []);
-// let focused = computed(()=>{
-//    const input =  document.querySelector('#input1')
-//    logger.log(document.activeElement === input)
-//    return document.activeElement === input;
 
-// })
 
 const searchProducts = (event) => {
   const query = event.target.value.trim().toLowerCase();
