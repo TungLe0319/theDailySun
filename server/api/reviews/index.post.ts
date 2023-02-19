@@ -2,17 +2,14 @@ import Stripe from "stripe";
 import { getServerSession } from "#auth";
 
 export default defineEventHandler(async (event) => {
-  const stripe = event.context.stripe;
+
   const prisma = event.context.prisma;
   const session = await getServerSession(event);
   const user = session?.user;
-  const { reviewData } = await readBody(event);
-
+  const {reviewData}  = await readBody(event);
+   reviewData.user = user
   if (!user) {
     createError("Not Logged In");
-  }
-  if (user.role != "USER" || "ADMIN") {
-    createError("Now Allowed");
   }
   if (!reviewData) {
     createError("Need To Send In A Body");
@@ -20,10 +17,23 @@ export default defineEventHandler(async (event) => {
 
   const review = await prisma.review.create({
     data:{
-      user: user,
+      userId:user.id,
       body : reviewData.body,
-      product: reviewData.product
+      productId: reviewData.product.id
     }
   })
+  // const review = await prisma.product.update({
+  //   where: {
+  //     id: reviewData?.product?.id,
+  //   },
+  //   data: {
+  //     reviews: {
+  //      create:{
+  //      userId: user.id,
+  //       body: reviewData.body
+  //      }
+  //     },
+  //   },
+  // });
   return review;
 });

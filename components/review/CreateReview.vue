@@ -64,7 +64,7 @@ const res = await useFetch('/api/reviews',{
     reviewData
   }
 })
-logger.log(res)
+logger.log(res.data.value)
 }
 </script>
 
