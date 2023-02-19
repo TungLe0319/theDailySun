@@ -1,7 +1,7 @@
 <template>
 
 
-<article class="shadow-xl bg-sky-100 p-2 rounded-lg  ">
+<article class="shadow-xl bg-sky-100 p-2 rounded-lg  my-3">
     <div class="flex items-center mb-4 space-x-4 ">
         <img class="w-10 h-10 rounded-full" :src="review?.user?.image" alt="">
         <div class="space-y-1 font-medium">
