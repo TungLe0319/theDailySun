@@ -7,10 +7,10 @@
       width="40"
       class="cursor-pointer magnifier"
       id="magnifier"
-      v-if="isVisible"
+v-if="isVisible"
     />
     <svg
-      v-else
+v-else
        @click="expanded = !expanded"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
@@ -22,7 +22,7 @@
       viewBox="0 0 310.42 310.42"
       style="enable-background: new 0 0 512 512"
       xml:space="preserve"
-      class=""
+      class="cursor-pointer"
     >
       <g>
         <path
@@ -47,7 +47,7 @@
       @input="searchProducts"
     />
 
-    <div class="search-list" v-if="products.length >= 0 && expanded">
+    <div class="search-list " v-if="products.length >= 0 && expanded">
       <ul class="item-list">
         <li class="item" v-for="p in products">
           <nuxt-link
@@ -62,12 +62,12 @@
     </div>
   </div>
 </template>
-@focus="expanded = true" @blur="expanded = false"
 <script setup>
 let expanded = useState("expanded", () => false);
 const productStore = useProductStore();
 let products = useState("products", () => []);
-let isVisible = useState("expanded", () => false);
+let isVisible = ref(true)
+let scrollTest = ref(true)
 const searchProducts = (event) => {
   const query = event.target.value.trim().toLowerCase();
   if (query.length === 0) {
@@ -135,7 +135,7 @@ onUnmounted(() => {
   @apply h-auto max-h-60 w-auto  max-w-full overflow-y-scroll;
 }
 .item {
-  @apply my-2;
+  @apply my-2 ;
 }
 
 .not-visible {
@@ -144,7 +144,8 @@ onUnmounted(() => {
   }
   .search-list {
     background-color: rgba(0, 0, 0, 0.584);
-    backdrop-filter: blur(4px);
+ backdrop-filter: blur(4px);
+
   }
 }
 

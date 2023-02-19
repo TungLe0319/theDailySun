@@ -21,6 +21,10 @@ export default defineEventHandler(async (event) => {
       body : reviewData.body,
       productId: reviewData.product.id,
       rating:reviewData.rating
+    },
+    include:{
+      user:{},
+      
     }
   })
 

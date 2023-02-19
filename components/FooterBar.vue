@@ -71,14 +71,16 @@
           </div>
         </div>
 
-        <div class="flex mt-8 flex-col md:flex-row md:justify-center md:text-center">
+        <div
+          class="flex mt-8 flex-col md:flex-row md:justify-center md:text-center"
+        >
           <p class="w-full md:w-2/3 text-gray-400">
             If you want to contact us the best way is to connect with us on
             LinkedIn and message us!
           </p>
         </div>
-        <div class="flex flex-col   ">
-          <div class="flex mt-24  mb-5 flex-row justify-between items-end">
+        <div class="flex flex-col">
+          <div class="flex mt-24 mb-5 flex-row justify-between items-end">
             <div class="hidden md:block">
               <img
                 src="../assets/Logo.png"

@@ -1,6 +1,5 @@
 <template>
   <div class="bg-purple-100 py-20 female-featured relative">
-
     <div class="text-center my-5 container flex flex-col">
       <h1 class="mb-10 md:text-6xl text-4xl text-shadow">Featured Products</h1>
       <h2 class="text-4xl mb-2 ff">Empower your style</h2>
@@ -28,7 +27,11 @@
     </div>
 
     <div class="md:flex relative">
-      <div id="card-container" class="gap-2 justify-center w-full order-2" v-if="hats">
+      <div
+        id="card-container"
+        class="gap-2 justify-center w-full order-2"
+        v-if="hats"
+      >
         <ProductCard
           v-for="h in hats"
           :key="h.id"
@@ -46,24 +49,6 @@
   </div>
 </template>
 
-<!-- <script>
-import { computed } from 'vue'
-
-export default {
-  setup () {
-    onMounted(() => {
-
-    })
-
-    return {
-      glasses: computed(() => AppState.products.filter(p => p.type == "Glasses" && p.audience == "Female")),
-      hats:computed(() => AppState.products.filter(p => p.type == "Hat" && p.audience == "Female") )
-    }
-  }
-}
-</script>
- -->
-
 <script setup>
 import { computed, onMounted } from "vue";
 
@@ -76,15 +61,13 @@ onMounted(() => {
 });
 
 const products = computed(() => productStore.products);
-// const glasses = computed(() => productStore.products.filter(p => p.type == "Glasses" && p.audience == "Female"))
+
 const glasses = computed(() => {
   const filteredProducts = productStore?.products?.filter(
     (p) => p.type == "Glasses" && p.audience == "Female"
   );
   return filteredProducts.sort(() => 0.5 - Math.random()).slice(0, 5);
 });
-
-// const hats = computed(() => productStore.products.filter(p => p.type == "Hat" && p.audience == "Female"))
 
 const hats = computed(() => {
   const filteredProducts = productStore?.products?.filter(
@@ -95,11 +78,7 @@ const hats = computed(() => {
 });
 </script>
 
-<!-- <script setup>
-const {data: products} = await useAsyncData()
-</script> -->
-
-<style lang="scss" scoped  >
+<style lang="scss" scoped>
 .female-featured::before {
   width: 100%;
   height: 10vh;
@@ -127,9 +106,7 @@ const {data: products} = await useAsyncData()
   -webkit-text-fill-color: transparent;
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
-
-      transform: rotate(0deg) !important;
-
+    transform: rotate(0deg) !important;
   }
 }
 #card-container {

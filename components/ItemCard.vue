@@ -20,8 +20,6 @@
         >
           {{ product.title }}
         </h4>
-
-        <!-- <a target="_blank" class="z-30  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a> -->
       </div>
     </div>
   </div>

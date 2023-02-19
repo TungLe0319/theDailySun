@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="relative hero-image-container">
-      <!-- <img class="hero-image " src="https://images.unsplash.com/photo-1505535162959-9bbcb4ab22d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1459&q=80" alt="hero image"> -->
       <video id="myVideo" src="../assets/video.mp4" autoplay muted></video>
       <div class="hero-text">
         <h1
@@ -14,11 +13,8 @@
     </div>
   </div>
 </template>
-e>
 
 <script setup>
-let captureInterval = null;
-var myVideo = null;
 onMounted(() => {
   setTimeout(() => {
     video();
@@ -48,8 +44,6 @@ function video() {
     }
   });
 }
-
-const products = computed(() => AppState.products);
 </script>
 
 <style scoped lang="scss">
@@ -92,10 +86,9 @@ const products = computed(() => AppState.products);
   z-index: 1;
   text-align: center;
   color: #fff;
-  h1{
-
-    @media only screen and (max-width: 768px){
-@apply text-2xl w-72
+  h1 {
+    @media only screen and (max-width: 768px) {
+      @apply text-2xl w-72;
     }
   }
 }

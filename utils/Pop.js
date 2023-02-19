@@ -78,7 +78,7 @@ export default class Pop {
    * @param { string } message The message to display. If not provided, will display a generic message.
    */
   static success (message = 'Success!') {
-  
+
     this.toast(message, 'success')
   }
 }
