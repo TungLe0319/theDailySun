@@ -62,49 +62,48 @@ model User {
   image         String?
   emailVerified DateTime?
   role          Role      @default(USER)
+  createdAt     DateTime? @default(now())
+  updatedAt     DateTime? @updatedAt
   accounts      Account[]
   cart          Cart?
   receipts      Receipt[]
+  reviews       Review[]
   sessions      Session[]
-  reviews Review[]
-    createdAt DateTime? @default(now())
-   updatedAt DateTime? @updatedAt
 }
 
 model Receipt {
-  id            Int     @id @default(autoincrement())
-  url           String?
-  userId        String
+  id        Int     @id @default(autoincrement())
+  url       String?
+  userId    String
   receiptId String?
-  user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Product {
-  id          Int     @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   title       String
   description String?
   price       Float
   img         String
   type        String?
   audience    String?
-  quantity    Int?    @default(0)
+  quantity    Int?     @default(0)
   priceID     String?
   stripeID    String?
-  cart        Cart[]  @relation("CartToProduct")
   reviews     Review[]
+  cart        Cart[]   @relation("CartToProduct")
 }
 
-
 model Review {
-   id            Int     @id @default(autoincrement())
-   body          String?
-   userId        String
-   rating        Float?
-   user          User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-   productId     Int
-   product       Product @relation(fields: [productId],references: [id])
-     createdAt DateTime? @default(now())
-   updatedAt DateTime? @updatedAt
+  id        Int       @id @default(autoincrement())
+  body      String?
+  userId    String
+  productId Int
+  rating    Float?
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  product   Product   @relation(fields: [productId], references: [id])
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Cart {
