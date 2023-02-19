@@ -5,6 +5,13 @@ export default defineEventHandler((event) => {
   const product = prisma.product.findUnique({
     where: {
       id: parseInt(id)
+    },
+    include:{
+      reviews:{
+        include:{
+          user:{}
+        }
+      }
     }
   })
 

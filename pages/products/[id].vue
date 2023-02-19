@@ -76,6 +76,14 @@
       <div class="mt-10">
         <CreateReview />
       </div>
+
+      <div class="mt-10">
+        <ul>
+          <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  />
+
+
+        </ul>
+      </div>
     </div>
     <div v-else class="mt-56 container bg-slate-100">
       <LoaderComponent />
@@ -88,6 +96,7 @@
 
 import AddToCart from "~~/components/cart/AddToCart.vue";
 import CreateReview from "~~/components/review/CreateReview.vue";
+import ReviewCard from "~~/components/review/ReviewCard.vue";
 const { data: user } = useSession();
 
 const productStore = useProductStore();

@@ -19,21 +19,10 @@ export default defineEventHandler(async (event) => {
     data:{
       userId:user.id,
       body : reviewData.body,
-      productId: reviewData.product.id
+      productId: reviewData.product.id,
+      rating:reviewData.rating
     }
   })
-  // const review = await prisma.product.update({
-  //   where: {
-  //     id: reviewData?.product?.id,
-  //   },
-  //   data: {
-  //     reviews: {
-  //      create:{
-  //      userId: user.id,
-  //       body: reviewData.body
-  //      }
-  //     },
-  //   },
-  // });
+
   return review;
 });
