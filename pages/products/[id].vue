@@ -15,13 +15,13 @@
         <div class="w-full md:w-1/2 p-5 md:px-14">
           <div class="">
             <div class="relative">
-              <h1 class=" text-4xl md:text-6xl mb-10 font-bold text-shadow">
+              <h1 class="text-4xl md:text-6xl mb-10 font-bold text-shadow">
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute right-0 bottom-0">
                 <h1
                   v-if="activeProduct.audience == 'Female'"
-                  class=" text-6xl md:text-8xl opacity-10 font-bold text-shadow"
+                  class="text-6xl md:text-8xl opacity-10 font-bold text-shadow"
                 >
                   WOMEN
                 </h1>
@@ -62,7 +62,7 @@
         </nuxt-link>
 
         <button
-        v-if="user?.role == 'ADMIN'"
+          v-if="user?.role == 'ADMIN'"
           class="checkOut font-1 text-xl font-bold text-white mt-10 p-3 rounded-md bg-slate-700"
           @click="deleteProduct()"
         >
@@ -71,6 +71,11 @@
 
         <!-- <iframe src="https://embed.lottiefiles.com/animation/44894"></iframe> -->
       </div>
+
+      <!--  SECTION REVIEWS -->
+      <div class="mt-10">
+        <CreateReview />
+      </div>
     </div>
     <div v-else class="mt-56 container bg-slate-100">
       <LoaderComponent />
@@ -78,12 +83,12 @@
   </div>
 </template>
 
-
 <script setup>
 // import { computed } from 'vue'
 
 import AddToCart from "~~/components/cart/AddToCart.vue";
-const { data:user } = useSession();
+import CreateReview from "~~/components/review/CreateReview.vue";
+const { data: user } = useSession();
 
 const productStore = useProductStore();
 const route = useRoute();
@@ -95,6 +100,7 @@ const productData = computed(() => {
   productData.quantity = quantity.value;
   return productData;
 });
+
 async function deleteProduct(id) {
   let productIDS = {
     id: activeProduct.value.id,
