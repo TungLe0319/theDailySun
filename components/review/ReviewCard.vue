@@ -1,10 +1,10 @@
 <template>
 
 
-<article>
-    <div class="flex items-center mb-4 space-x-4">
+<article class="shadow-xl bg-sky-100 p-2 rounded-lg  ">
+    <div class="flex items-center mb-4 space-x-4 ">
         <img class="w-10 h-10 rounded-full" :src="review?.user?.image" alt="">
-        <div class="space-y-1 font-medium dark:text-white">
+        <div class="space-y-1 font-medium">
             <p>{{review.user.name}}</p>
 
         </div>
@@ -15,7 +15,7 @@
           <n-rate size="large" allow-half :value="review.rating" readonly />
         </div>
     </div>
-    <footer class="mb-5 text-sm text-gray-500 dark:text-gray-400"><p>Reviewed in the United Kingdom on <time datetime="2017-03-03 19:00">{{review}}</time></p></footer>
+    <footer class="mb-5 text-sm text-gray-500 dark:text-gray-400"><p>Reviewed  on <time datetime="2017-03-03 19:00">{{new Date(review.createdAt).toLocaleDateString()}}</time></p></footer>
     <p class="mb-2 font-light text-gray-500 dark:text-gray-400">{{review.body}}</p>
 
     <!-- <a href="#" class="block mb-5 text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">Read more</a> -->
