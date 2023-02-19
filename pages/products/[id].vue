@@ -73,7 +73,7 @@
       </div>
 
       <!--  SECTION REVIEWS -->
-      <div class="mt-10">
+      <div class="mt-20">
         <CreateReview />
       </div>
 

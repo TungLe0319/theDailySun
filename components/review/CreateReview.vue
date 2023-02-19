@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-18">
+  <div class="">
     <form @submit.prevent="handleSubmit()">
       <div
         class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600"
@@ -11,7 +11,7 @@
             id="comment"
             rows="4"
             class="w-full px-0 text-sm text-gray-900 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-            placeholder="Write a comment..."
+            placeholder="Write a review..."
             required
           ></textarea>
         </div>
@@ -20,13 +20,13 @@
         >
 
         <div class="">
-          <n-rate size="large" allow-half @update:value="value" />
+          <n-rate required size="large" allow-half @update:value="value" />
         </div>
           <button
             type="submit"
             class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
           >
-            Post comment
+            Review
           </button>
 
         </div>
@@ -40,7 +40,7 @@
 
 const body = ref("");
 const productStore = useProductStore();
-const rating = ref(1.0)
+const rating = ref(0.0)
 
 const reviewData = computed(() => {
   const reviewData = {
