@@ -1,3 +1,4 @@
 export default defineEventHandler((event) => {
-  return 'Hello reviews/[id].get'
+  // const hi = event
+  return event
 })

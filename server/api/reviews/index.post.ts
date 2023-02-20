@@ -6,10 +6,10 @@ export default defineEventHandler(async (event) => {
   const { reviewData } = await readBody(event);
   reviewData.user = user;
   if (!user) {
-    createError("Not Logged In");
+    createError('Not Logged In')
   }
   if (!reviewData) {
-    createError("Need To Send In A Body");
+    createError('Need To Send In A Body')
   }
   const review = await prisma.review.create({
     data: {
