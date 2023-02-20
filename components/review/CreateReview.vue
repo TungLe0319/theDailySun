@@ -61,20 +61,20 @@ const props = defineProps({
   product: { typeof: Object },
 });
 
-onMounted(() => {
-  setTimeout(() => {}, 1);
-});
+
 async function handleSubmit() {
+
   const res = await useFetch("/api/reviews", {
     method: "POST",
     body: {
       reviewData,
     },
   });
-// console.log(productStore.activeProduct.reviews);
-// console.log(res.data.value);
+
+
   productStore.activeProduct.reviews.push(res.data.value)
-  body.value = ''
+  // body.value = ""
+
 }
 </script>
 

@@ -59,33 +59,32 @@ export const useProductStore = defineStore("products", {
     async getProducts() {
       const headers = useRequestHeaders(["cookie"]);
       const { data: products } = await useFetch("/api/products", { headers });
-     this.products = products.value
+      this.products = products.value;
     },
     async getProductById(id) {
       const { data: product } = await useFetch(`/api/products/${id}`);
-     this.activeProduct = product.value
+      this.activeProduct = product.value;
     },
-    async add(productData){
-         const { data: product } = await useFetch(`/api/products`,{
-          method:'POST',
-          body:{
-            productData
-          }
-         });
-         this.products = [product.value,...this.products]
+    async add(productData) {
+      const { data: product } = await useFetch(`/api/products`, {
+        method: "POST",
+        body: {
+          productData,
+        },
+      });
+      this.products = [product.value, ...this.products];
     },
-async delete(productIds){
+    async delete(productIds) {
+      const deleted = await useFetch("/api/products/:id", {
+        method: "DELETE",
+        body: {
+          productIds,
+        },
+      });
 
-  const deleted = await useFetch('/api/products/:id',{
-    method:"DELETE",
-    body:{
-     productIds
-    }
-  })
-
-  logger.log(deleted.data.value)
- navigateTo('http://localhost:3000',{external:true})
-}
+      logger.log(deleted.data.value);
+      navigateTo("http://localhost:3000", { external: true });
+    },
   },
   getters: {},
 });
