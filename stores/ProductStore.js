@@ -47,7 +47,7 @@
 //     },
 //   },
 // });
-/* eslint-disable eqeqeq */
+
 import { acceptHMRUpdate } from "pinia";
 
 export const useProductStore = defineStore("products", {
@@ -66,7 +66,7 @@ export const useProductStore = defineStore("products", {
       this.activeProduct = product.value;
     },
     async add(productData) {
-      const { data: product } = await useFetch(`/api/products`, {
+      const { data: product } = await useFetch("/api/products", {
         method: "POST",
         body: {
           productData,

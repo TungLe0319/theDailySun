@@ -5,11 +5,13 @@
         class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-zinc-700 dark:border-zinc-600"
       >
         <div class="px-4 py-2 rounded-t-lg dark:bg-zinc-800">
+        <div class="px-4 py-2 rounded-t-lg dark:bg-zinc-800">
           <label for="comment" class="sr-only">Your comment</label>
           <textarea
-            v-model="body"
             id="comment"
+            v-model="body"
             rows="4"
+            class="text-md w-full p-2 text-gray-900 bg-white border-0 dark:bg-zinc-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
             class="text-md w-full p-2 text-gray-900 bg-white border-0 dark:bg-zinc-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
             placeholder="Write a review..."
             required
@@ -20,6 +22,12 @@
         <div
           class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
         >
+          <div class="flex gap-x-3">
+            <n-rate required size="large" allow-half @update:value="value" />
+            <div class="text-white text-lg">
+              {{ rating }}
+            </div>
+          </div>
           <div class="flex gap-x-3">
             <n-rate required size="large" allow-half @update:value="value" />
             <div class="text-white text-lg">
