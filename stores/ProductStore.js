@@ -85,6 +85,18 @@ export const useProductStore = defineStore("products", {
       logger.log(deleted.data.value);
       navigateTo("http://localhost:3000", { external: true });
     },
+
+    async createReview(reviewData) {
+      const { data: res } = await useFetch("/api/reviews", {
+        method: "post",
+        body: {
+          reviewData,
+        },
+      });
+      const updatedProduct = { ...this.activeProduct };
+      updatedProduct.reviews = [...updatedProduct.reviews, res.value];
+      this.activeProduct = updatedProduct;
+    },
   },
   getters: {},
 });
