@@ -12,7 +12,7 @@
             v-model="body"
             rows="4"
             class="text-md w-full p-2 text-gray-900 bg-white border-0 dark:bg-zinc-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
-            class="text-md w-full p-2 text-gray-900 bg-white border-0 dark:bg-zinc-800 focus:ring-0 dark:text-white dark:placeholder-gray-400"
+          
             placeholder="Write a review..."
             required
             minlength="5"
