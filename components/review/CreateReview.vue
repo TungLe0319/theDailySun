@@ -4,7 +4,6 @@
       <div
         class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-zinc-700 dark:border-zinc-600"
       >
-
         <div class="px-4 py-2 rounded-t-lg dark:bg-zinc-800">
           <label for="comment" class="sr-only">Your comment</label>
           <textarea
@@ -17,7 +16,7 @@
             required
             minlength="5"
             maxlength="100"
-          ></textarea>
+          />
         </div>
         <div
           class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
@@ -47,33 +46,33 @@
 </template>
 
 <script setup>
-import Pop from "~~/utils/Pop.js";
+import Pop from '~~/utils/Pop.js'
 
-let body = ref("");
-const productStore = useProductStore();
-const rating = ref(0.0);
+const body = ref('')
+const productStore = useProductStore()
+const rating = ref(0.0)
 
 const reviewData = computed(() => {
   const reviewData = {
     product: productStore.activeProduct,
     body: body.value,
-    rating: rating.value,
-  };
-  return reviewData;
-});
+    rating: rating.value
+  }
+  return reviewData
+})
 const value = (event) => {
-  rating.value = event;
-  console.log(rating.value);
-};
+  rating.value = event
+  console.log(rating.value)
+}
 const props = defineProps({
-  product: { typeof: Object },
-});
+  product: { typeof: Object }
+})
 
-async function handleSubmit() {
+async function handleSubmit () {
   try {
-    await productStore.createReview(reviewData.value);
+    await productStore.createReview(reviewData.value)
   } catch (error) {
-    Pop.error(error, "[]");
+    Pop.error(error, '[]')
   }
 }
 </script>
