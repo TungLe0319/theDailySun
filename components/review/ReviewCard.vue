@@ -1,5 +1,5 @@
 <template>
-<transition name="fade">
+ <transition name="fade">
   <article
     class="shadow-xl relative bg-zinc-100 p-2 rounded-lg my-3 review-card"
   >
@@ -63,23 +63,7 @@ async function removeReview() {
 
 <style lang="scss" scoped>
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-to {
-  opacity: 1;
-}
-
-.fade-leave-from {
-  opacity: 1;
-}
 
 .avatar {
   @apply rounded-lg w-20;

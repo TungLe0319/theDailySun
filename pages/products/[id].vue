@@ -78,11 +78,16 @@
       </div>
 
       <div class="mt-10">
-        <ul>
-          <!-- <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  /> -->
+        <!-- <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  /> -->
 
-<ReviewCard v-for="r in activeProduct.reviews" :review="r" />
-        </ul>
+        <TransitionGroup name="fade" >
+
+          <ReviewCard
+            v-for="r in activeProduct.reviews"
+            :review="r"
+            :key="r.id"
+          />
+</TransitionGroup>
       </div>
     </div>
     <div v-else class="mt-56 container bg-slate-100">
@@ -142,7 +147,21 @@ async function deleteProduct(id) {
   }
 }
 
-n-input-number {
-  background-color: #d42222 !important;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to {
+  opacity: 1;
+}
+
+.fade-leave-from {
+  opacity: 1;
 }
 </style>
