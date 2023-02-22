@@ -84,4 +84,11 @@ async function removeReview() {
 .avatar {
   @apply rounded-lg w-20;
 }
+.icon {
+  transition: transform 0.5s ease;
+}
+.icon:hover {
+  transform: rotate(180deg);
+  transition: transform 0.5s ease;
+}
 </style>
