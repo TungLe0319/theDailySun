@@ -15,6 +15,17 @@ export default defineEventHandler(async (event) => {
 
 
 const { id } = getRouterParams(event)
+
+const foundReview = await prisma.review.findUnique({
+  where:{
+    id:parseInt(id)
+  }
+})
+
+if (foundReview?.userId != userId) {
+ return  createError("Unauthorized Action");
+}
+
  const review = await prisma.review.delete({
   where:{
     id:parseInt(id)
@@ -24,5 +35,5 @@ const { id } = getRouterParams(event)
 }
  })
 
-  return { review };
+return {message:'successfully Deleted',review}
 });

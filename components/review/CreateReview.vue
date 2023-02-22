@@ -4,7 +4,7 @@
       <div
         class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-zinc-700 dark:border-zinc-600"
       >
-     
+
         <div class="px-4 py-2 rounded-t-lg dark:bg-zinc-800">
           <label for="comment" class="sr-only">Your comment</label>
           <textarea
@@ -22,18 +22,18 @@
         <div
           class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
         >
-          <div class="flex gap-x-3">
-            <n-rate required size="large" allow-half @update:value="value" />
-            <div class="text-white text-lg">
+
+
+           <div class="flex gap-x-3 items-center">
+            <n-rate required size="large" clearable  allow-half @update:value="value" />
+            <div class="text-white text-lg" v-if="rating >= 0.5">
               {{ rating }}
             </div>
-          </div>
-          <div class="flex gap-x-3">
-            <n-rate required size="large" allow-half @update:value="value" />
-            <div class="text-white text-lg">
-              {{ rating }}
+            <div class="text-white tex-lg">
+              Please leave a rating
             </div>
           </div>
+
           <button
             type="submit"
             class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"

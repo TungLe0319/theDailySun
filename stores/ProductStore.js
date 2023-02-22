@@ -97,6 +97,16 @@ export const useProductStore = defineStore("products", {
       updatedProduct.reviews = [...updatedProduct.reviews, res.value];
       this.activeProduct = updatedProduct;
     },
+
+    async removeReview(reviewId){
+     await useFetch(`/api/reviews/${reviewId}`, {
+         method: 'delete',
+         
+       });
+       const updatedProduct = { ...this.activeProduct };
+       updatedProduct.reviews = updatedProduct.reviews.filter(r=> r.id != reviewId)
+       this.activeProduct = updatedProduct;
+    }
   },
   getters: {},
 });

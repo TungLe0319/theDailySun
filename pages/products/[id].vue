@@ -79,9 +79,9 @@
 
       <div class="mt-10">
         <ul>
-          <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  />
+          <!-- <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  /> -->
 
-
+<ReviewCard v-for="r in activeProduct.reviews" :review="r" />
         </ul>
       </div>
     </div>
