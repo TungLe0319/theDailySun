@@ -42,7 +42,7 @@ export default {
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(-40px, 0, 0);
   transform: translate3d(0px, 0, 0);
-    text-shadow: 0 0 10px #fff
+    text-shadow: 0 0 2px #000000
 }
 .product-card {
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;

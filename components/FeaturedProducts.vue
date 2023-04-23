@@ -94,16 +94,14 @@ const hats = computed(() => {
 }
 .flip {
   opacity: 75%;
-
+  color: rgb(176, 215, 233);
   transform: rotate(180deg);
   writing-mode: vertical-rl;
   font-size: 100px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
-  background-image: linear-gradient(to bottom, aquamarine, orangered);
-  background-attachment: fixed;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
     transform: rotate(0deg) !important;
