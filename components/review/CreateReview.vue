@@ -51,7 +51,7 @@
 
 <script setup>
 import Pop from "~~/utils/Pop.js";
-
+import DomPurify from 'dompurify'
 const body = ref("");
 const productStore = useProductStore();
 const rating = ref(0.0);
@@ -72,10 +72,13 @@ const props = defineProps({
   product: { typeof: Object },
 });
 
+//Put In protection validations here for user input
 async function handleSubmit() {
   try {
+    reviewData.body = DomPurify.sanitize(reviewData.body)
     await productStore.createReview(reviewData.value);
     body.value = "";
+
     Pop.success("Thanks for leaving a review!");
   } catch (error) {
     Pop.error(error, "[]");
