@@ -1,19 +1,19 @@
 <template>
-  <div class="relative shadow-xl  hover:shadow-green-200 product-card rounded-lg">
+  <div
+    class="relative shadow-xl hover:shadow-green-200 product-card rounded-lg"
+  >
     <nuxt-link :to="`/products/${product.id}`">
       <img
         class="object-cover image rounded-lg shadow-xl shadow-slate-400 transition-all"
         :src="product.img"
         alt="image"
-      >
+      />
     </nuxt-link>
     <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300">
       <div class="text-white text-center">
-        <h4 class="text-xl text-shadow font-bold mt-10 mb-10 fire-effect-milo">
+        <h4 class="text-xl  text-yellow-100    text-shadow font-bold mt-10 mb-10 fire-effect-milo">
           {{ product.title }}
         </h4>
-
-        <!-- <a target="_blank" class="z-30  fixed bottom-0 mb-2  bg-emerald-300 text-black  rounded-md p-2 opacity-75 right-0 mr-10" :href="product.stripe"> <img src="https://cdn-icons-png.flaticon.com/512/481/481943.png" alt="checkout Icon" width="40" class="checkOut-icon"> </a> -->
       </div>
     </div>
   </div>
@@ -22,18 +22,16 @@
 <script>
 export default {
   props: {
-    product: { type: Object, required: true }
+    product: { type: Object, required: true },
   },
-  setup () {
-    return {}
-  }
-}
+  setup() {
+    return {};
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.checkOut-icon {
-  width: 30px !important;
-}
+
 .fire-effect-milo {
   padding: 0 10px 0 0;
   width: 75%;
@@ -44,6 +42,7 @@ export default {
   transition: opacity 0.35s, transform 0.35s;
   -webkit-transform: translate3d(-40px, 0, 0);
   transform: translate3d(0px, 0, 0);
+    text-shadow: 0 0 10px #fff
 }
 .product-card {
   transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
