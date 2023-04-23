@@ -17,10 +17,10 @@
       </button>
     </div>
     <div class="flex items-center mb-4 space-x-4">
-      <img class="w-10 h-10 rounded-full" :src="review?.user?.image" alt="" />
+      <img class="w-10 h-10 rounded-full shadow-sm shadow-zinc-900" :src="review?.user?.image" alt="" />
       <div class="space-y-1 font-medium">
         <p>{{ review.user.name }}</p>
-        <small>
+        <small class=" font-bold">
           Reviewed on
           <time datetime="2017-03-03 19:00">{{
             new Date(review.createdAt).toLocaleDateString()
@@ -50,6 +50,10 @@ const props = defineProps({
 });
 async function removeReview() {
   try {
+   const yes = await Pop.confirm()
+         if (!yes) {
+           return
+         }
     await productStore.removeReview(props.review.id);
   } catch (error) {
     Pop.error(error);
