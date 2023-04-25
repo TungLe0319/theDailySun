@@ -5,11 +5,11 @@
         <h1 class="text-3xl">Welcome to The Daily Sun!</h1>
       </div>
       <h3 class="leading-relaxed text-center text-lg">
-        Our Nuxt.js e-commerce app features a selection of fake men's and
-        women's products that you can browse and view the details of.
+        Our Nuxt.js E-commerce app features a selection of fake Men's and
+        Women's products that you can browse and view the details of.
         <br />
-        Add a product to your cart and then view it at the Cart page where you
-        can then use stripe checkout to do process a fake payment and then view
+        Add a product to your cart where you
+        can then proceed to the stripe checkout to do process a fake payment and then view
         your past receipts on your account page.
       </h3>
 
