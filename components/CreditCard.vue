@@ -4,7 +4,7 @@
       <h1 class="">
         You can use this card information to do the stripe checkout.
       </h1>
-      <h2 class="title mt-5">Hover to reveal 3-digit security code</h2>
+      <h2 class="title mt-5 font-bold mb-2 text-blue-400">Hover to reveal 3-digit security code</h2>
     </div>
 
     <div class="card">
@@ -41,10 +41,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.title {
-  margin-bottom: 10px;
-  color: #162969;
-}
+
 
 .card {
   width: 320px;
@@ -207,12 +204,12 @@ export default {
 .card:hover .card__front {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
-  transition: all 0.5s ease !important;
+  transition: all 0.75s ease !important;
 }
 
 .card:hover .card__back {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
-  transition: all 0.5s ease !important;
+  transition: all 0.75s ease !important;
 }
 </style>

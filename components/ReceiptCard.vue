@@ -1,6 +1,6 @@
 <template>
   <div class=" my-5  text-center receipt">
-  <h1 class="text my-2">  View Receipt</h1>
+  <h1 class="text my-2">View Receipt</h1>
     <a :href="`${receipt.url}`" target="_blank"  >
 
 
