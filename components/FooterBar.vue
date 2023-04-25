@@ -107,7 +107,7 @@
           <hr class="border-gray-600" />
 
           <h1 class="text-center text-gray-600 my-10">
-            ©2022 DevOpportunitiesLLC. All rights reserved.
+            ©2022 DevOpportunitiesLLC All rights reserved.
           </h1>
         </div>
       </div>
@@ -116,10 +116,7 @@
 </template>
 
 <style lang="scss" scoped>
-.container {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .footer-section {
   flex: 1;

@@ -42,16 +42,8 @@ export default {
   );
 }
 
-.text-box {
-  transform: translateX(530px) !important;
-}
 
-.absolute {
-  top: 40px;
-  left: 400px;
-  width: 500px;
-  //when screen is 768px OR LESS
-  @media only screen and (max-width: 768px) {
-  }
-}
+
+
+
 </style>
