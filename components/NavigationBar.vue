@@ -20,7 +20,7 @@
           <h1 class="text-lg md:text-3xl hidden md:block">The Daily Sun</h1>
         </div>
         <div class="flex justify-center items-center">
-          <SearchBar  :class="isVisible? '' : 'not-visible'"/>
+          <SearchBar :class="isVisible ? '' : 'not-visible'" />
         </div>
       </div>
       <div class="hidden md:flex items-center">
@@ -123,7 +123,6 @@ onMounted(() => {
 watch(
   () => cartStore.products,
   (newProducts) => {
-
     Quantity.value = newProducts?.length;
   }
 );
@@ -133,7 +132,7 @@ onUnmounted(() => {
 });
 const handleScroll = () => {
   const navbar = document.querySelector(".navbar");
-  let prevScrollPosition = useState('position', () => 0);
+  let prevScrollPosition = useState("position", () => 0);
 
   if (window.innerWidth >= 768 && window.scrollY > 50) {
     isVisible.value = false;
@@ -150,8 +149,7 @@ const handleScroll = () => {
   } else {
     navbar.style.transform = "translateY(0)";
   }
- prevScrollPosition.value = window.scrollY
-
+  prevScrollPosition.value = window.scrollY;
 };
 </script>
 
@@ -199,8 +197,8 @@ export default {
   border-bottom-right-radius: 0px;
   position: relative;
   //when screen is 768px OR LESS
-  @media only screen and (max-width: 768px){
- padding: 4px 4px;
+  @media only screen and (max-width: 768px) {
+    padding: 4px 4px;
   }
 }
 .link:before {
@@ -235,14 +233,12 @@ export default {
   left: 0;
   transition: all 0.5s ease;
   //when screen is 768px OR LESS
-  @media only screen and (max-width: 768px){
-
+  @media only screen and (max-width: 768px) {
   }
 }
-.active-link{
+.active-link {
   //when screen is 768px OR LESS
-  @media only screen and (max-width: 768px){
-
+  @media only screen and (max-width: 768px) {
   }
 }
 /*

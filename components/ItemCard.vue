@@ -16,7 +16,7 @@
     <div class="absolute z-20 w-full opacity-0 transition-opacity duration-300">
       <div class="text-white text-center">
         <h4
-          class="text-xl text-shadow font-bold md:mt-10 md:mb-10 fire-effect-milo bg-black bg-opacity-50"
+          class="text-xl text-yellow-100  text-shadow font-bold md:mt-10 md:mb-10 fire-effect-milo bg-black bg-opacity-50"
         >
           {{ product.title }}
         </h4>
