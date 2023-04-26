@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative shadow-xl hover:shadow-green-200 product-card rounded-lg"
+    class="relative shadow-xl hover:shadow-green-300   product-card rounded-lg"
   >
     <nuxt-link :to="`/products/${product.id}`">
       <img

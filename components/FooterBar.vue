@@ -106,7 +106,7 @@
           </div>
           <hr class="border-gray-600" />
 
-          <h1 class="text-center text-gray-600 my-10">
+          <h1 class="text-center text-gray-300 my-10">
             ©2022 DevOpportunitiesLLC All rights reserved.
           </h1>
         </div>

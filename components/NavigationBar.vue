@@ -207,7 +207,7 @@ export default {
   width: 0px;
   transform: translateX(0px);
   height: 3px;
-  background-color: red;
+  background-color: #f47d00;
   position: absolute;
   bottom: 0;
   left: 0;
