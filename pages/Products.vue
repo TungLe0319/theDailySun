@@ -24,7 +24,9 @@
           Sort by Price (High to Low)
         </button>
       </div> -->
-  <div>
+ <div class="flex justify-between">
+
+   <div>
     <input type="checkbox" id="female" @change="sortBy('audience', true)" v-model="femaleChecked">
     <label for="female">Female</label>
   </div>
@@ -49,6 +51,7 @@
     <label for="high-to-low">Sort by Price (High to Low)</label>
   </div>
 
+ </div>
       <div class="mt-4">
         <div class="flex flex-wrap justify-between md:gap-x-10 md:gap-y-4">
 
@@ -112,5 +115,50 @@ watchEffect(()=>{
 })
 </script>
 <style lang="scss" scoped>
+input[type="checkbox"] {
+  margin-right:  4px;
+
+}
+/* Hide the default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Style the custom checkbox */
+.checkmark {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+}
+
+/* Style the checkmark when checkbox is checked */
+.checkbox-container input:checked + .checkmark:after {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Style the label text */
+.checkbox-container {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+/* Change color of checkmark when checkbox is hovered over */
+.checkbox-container:hover input ~ .checkmark,
+.checkbox-container input:focus ~ .checkmark {
+  border-color: #000;
+}
 
 </style>

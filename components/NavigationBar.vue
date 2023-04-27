@@ -227,7 +227,7 @@ export default {
   width: 100%;
 
   height: 3px;
-  background-color: red;
+  background-color: #f47d00;
   position: absolute;
   bottom: 0;
   left: 0;
