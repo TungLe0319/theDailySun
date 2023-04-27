@@ -45,28 +45,28 @@
 
 
 
-  
-   <div>
+
+   <div class="checkbox-container">
     <input type="checkbox" id="female" @change="sortBy('audience', true)" v-model="femaleChecked">
     <label for="female">Female</label>
   </div>
-  <div>
+  <div class="checkbox-container">
     <input type="checkbox" id="male" @change="sortBy('audience', false)" v-model="maleChecked">
     <label for="male">Male</label>
   </div>
-  <div>
+  <div class="checkbox-container">
     <input type="checkbox" id="glasses" @change="sortBy('type', true)">
     <label for="glasses">Glasses</label>
   </div>
-  <div>
+  <div class="checkbox-container">
     <input type="checkbox" id="hats" @change="sortBy('type', false)">
     <label for="hats">Hats</label>
   </div>
-  <div>
+  <div class="checkbox-container">
     <input type="checkbox" id="low-to-high" @change="sortBy('price', true)">
     <label for="low-to-high">Sort by Price (Low to High)</label>
   </div>
-  <div>
+  <div class="checkbox-container">
     <input type="checkbox" id="high-to-low" @change="sortBy('price', false)">
     <label for="high-to-low">Sort by Price (High to Low)</label>
   </div>
@@ -137,48 +137,21 @@ watchEffect(()=>{
 <style lang="scss" scoped>
 input[type="checkbox"] {
   margin-right:  4px;
-
+accent-color: var(--prime-orange);
+width: 16px;
+height: 16px;
 }
 /* Hide the default checkbox */
-.checkbox-container input {
-  position: absolute;
-  opacity: 0;
-}
+
 
 /* Style the custom checkbox */
-.checkmark {
-  position: relative;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #ccc;
-}
 
-/* Style the checkmark when checkbox is checked */
-.checkbox-container input:checked + .checkmark:after {
-  content: "";
-  position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
 
-/* Style the label text */
-.checkbox-container {
-    display: inline-block;
-    cursor: pointer;
-    font-size: 16px;
-    margin-bottom: 12px;
-}
 
-/* Change color of checkmark when checkbox is hovered over */
-.checkbox-container:hover input ~ .checkmark,
-.checkbox-container input:focus ~ .checkmark {
-  border-color: #000;
+.checkbox-container{
+@apply p-1 px-1.5 bg-zinc-800 text-white rounded;
+
+
 }
 
 </style>
