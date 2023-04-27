@@ -26,6 +26,26 @@
       </div> -->
  <div class="flex justify-between">
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
    <div>
     <input type="checkbox" id="female" @change="sortBy('audience', true)" v-model="femaleChecked">
     <label for="female">Female</label>
