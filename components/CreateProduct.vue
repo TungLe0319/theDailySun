@@ -108,7 +108,7 @@ export default {
   methods: {
     submitForm () {
       this.productStore.add(this.product)
-      console.log(this.product)
+      // console.log(this.product)
     }
   }
 }

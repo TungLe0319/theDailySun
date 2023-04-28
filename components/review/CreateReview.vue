@@ -66,7 +66,7 @@ const reviewData = computed(() => {
 });
 const value = (event) => {
   rating.value = event;
-  console.log(rating.value);
+  // console.log(rating.value);
 };
 const props = defineProps({
   product: { typeof: Object },

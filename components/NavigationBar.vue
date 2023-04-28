@@ -142,7 +142,7 @@ const handleScroll = () => {
   if (window.innerWidth <= 768) {
     if (window.scrollY > prevScrollPosition.value) {
       navbar.style.transform = "translateY(-70px)";
-      console.log(window.scrollY, prevScrollPosition.value);
+      // console.log(window.scrollY, prevScrollPosition.value);
     } else {
       navbar.style.transform = "translateY(0)";
     }
