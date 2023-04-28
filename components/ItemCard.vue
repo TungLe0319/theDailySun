@@ -24,8 +24,14 @@
     </div>
   </div>
 </template>
+<script setup>
+import { defineProps } from 'vue';
 
-<script>
+const props = defineProps({
+  product: { type: Object, required: true },
+});
+</script>
+<!-- <script>
 export default {
   props: {
     product: { type: Object, required: true },
@@ -34,7 +40,7 @@ export default {
     return {};
   },
 };
-</script>
+</script> -->
 
 <style lang="scss" scoped>
 .checkOut-icon {

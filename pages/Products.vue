@@ -108,23 +108,7 @@ const sortBy = (sortKey, isAscending = true) => {
 
   return sortedProducts;
 };
-watchEffect(() => {
-  //  if( maleChecked.value == true && femaleChecked.value == true){
-  // femaleChecked.value =  - !femaleChecked.value
-  // maleChecked.value = !maleChecked.value
-  // }
-  // if( femaleChecked.value == true){
-  // maleChecked.value = !maleChecked.value
-  // }
-  // if( maleChecked.value == true){
-  // femaleChecked.value = !femaleChecked.value
-  // }
-  //     maleChecked(newVal, oldVal) {
-  //       if (newVal) {
-  //         this.femaleChecked = false;
-  //       }
-  //     }
-});
+
 </script>
 <style lang="scss" scoped>
 .hero-image{
