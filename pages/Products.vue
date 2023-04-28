@@ -1,5 +1,8 @@
 <template>
-  <div class="text-black py-24 bg-slate-300 flex justify-center px-8">
+  <div class="text-black py-24 bg-slate-300 flex justify-center px-8 flex-col">
+    <div class="hero-image">
+
+    </div>
     <div class="  ">
       <div class="justify-center flex text-center">
         <h1 class="text-5xl">Products</h1>
@@ -24,61 +27,55 @@
           Sort by Price (High to Low)
         </button>
       </div> -->
- <div class="flex justify-between">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <div class="checkbox-container">
-    <input type="checkbox" id="female" @change="sortBy('audience', true)" v-model="femaleChecked">
-    <label for="female">Female</label>
-  </div>
-  <div class="checkbox-container">
-    <input type="checkbox" id="male" @change="sortBy('audience', false)" v-model="maleChecked">
-    <label for="male">Male</label>
-  </div>
-  <div class="checkbox-container">
-    <input type="checkbox" id="glasses" @change="sortBy('type', true)">
-    <label for="glasses">Glasses</label>
-  </div>
-  <div class="checkbox-container">
-    <input type="checkbox" id="hats" @change="sortBy('type', false)">
-    <label for="hats">Hats</label>
-  </div>
-  <div class="checkbox-container">
-    <input type="checkbox" id="low-to-high" @change="sortBy('price', true)">
-    <label for="low-to-high">Sort by Price (Low to High)</label>
-  </div>
-  <div class="checkbox-container">
-    <input type="checkbox" id="high-to-low" @change="sortBy('price', false)">
-    <label for="high-to-low">Sort by Price (High to Low)</label>
-  </div>
-
- </div>
+      <div class=" checkboxes">
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="female"
+            @change="sortBy('audience', true)"
+            v-model="femaleChecked"
+          />
+          <label for="female">Female</label>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="male"
+            @change="sortBy('audience', false)"
+            v-model="maleChecked"
+          />
+          <label for="male">Male</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="glasses" @change="sortBy('type', true)" />
+          <label for="glasses">Glasses</label>
+        </div>
+        <div class="checkbox-container">
+          <input type="checkbox" id="hats" @change="sortBy('type', false)" />
+          <label for="hats">Hats</label>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="low-to-high"
+            @change="sortBy('price', true)"
+          />
+          <label for="low-to-high">Sort by Price (Low to High)</label>
+        </div>
+        <div class="checkbox-container">
+          <input
+            type="checkbox"
+            id="high-to-low"
+            @change="sortBy('price', false)"
+          />
+          <label for="high-to-low">Sort by Price (High to Low)</label>
+        </div>
+      </div>
       <div class="mt-4">
         <div class="flex flex-wrap justify-between md:gap-x-10 md:gap-y-4">
-
-            <div v-for="i in products" :key="i" class="md:w-1/6 w-full py-2">
-              <ItemCard :product="i" v-bind:key="i.id" />
-            </div>
-
+          <div v-for="i in products" :key="i" class="md:w-1/6 w-full py-2">
+            <ItemCard :product="i" v-bind:key="i.id" />
+          </div>
         </div>
       </div>
     </div>
@@ -88,12 +85,11 @@
 import { computed, onMounted } from "vue";
 
 import { useProductStore } from "~~/stores/ProductStore";
-const  femaleChecked= ref (false)
-const  maleChecked= ref (false)
+const femaleChecked = ref(false);
+const maleChecked = ref(false);
 const productStore = useProductStore();
 productStore.getProducts();
 const products = computed(() => productStore.products);
-
 
 const sortBy = (sortKey, isAscending = true) => {
   const sortedProducts = products.value.sort((a, b) => {
@@ -112,46 +108,50 @@ const sortBy = (sortKey, isAscending = true) => {
 
   return sortedProducts;
 };
-watchEffect(()=>{
-//  if( maleChecked.value == true && femaleChecked.value == true){
-// femaleChecked.value =  - !femaleChecked.value
-// maleChecked.value = !maleChecked.value
-
-// }
-// if( femaleChecked.value == true){
-// maleChecked.value = !maleChecked.value
-// }
-// if( maleChecked.value == true){
-// femaleChecked.value = !femaleChecked.value
-
-// }
-
-
-//     maleChecked(newVal, oldVal) {
-//       if (newVal) {
-//         this.femaleChecked = false;
-//       }
-//     }
-})
+watchEffect(() => {
+  //  if( maleChecked.value == true && femaleChecked.value == true){
+  // femaleChecked.value =  - !femaleChecked.value
+  // maleChecked.value = !maleChecked.value
+  // }
+  // if( femaleChecked.value == true){
+  // maleChecked.value = !maleChecked.value
+  // }
+  // if( maleChecked.value == true){
+  // femaleChecked.value = !femaleChecked.value
+  // }
+  //     maleChecked(newVal, oldVal) {
+  //       if (newVal) {
+  //         this.femaleChecked = false;
+  //       }
+  //     }
+});
 </script>
 <style lang="scss" scoped>
-input[type="checkbox"] {
-  margin-right:  4px;
-accent-color: var(--prime-orange);
-width: 16px;
-height: 16px;
+.hero-image{
+  background-image: url(https://wallpaperaccess.com/full/1272028.jpg);
+  @apply w-full h-72 bg-cover bg-center rounded shadow-md ;
 }
-/* Hide the default checkbox */
-
-
-/* Style the custom checkbox */
-
-
-
-.checkbox-container{
-@apply p-1 px-1.5 bg-zinc-800 text-white rounded;
-
-
+.checkboxes {
+  @apply flex justify-center gap-x-3 my-3 bg-blue-100 p-3 rounded shadow-md;
 }
+.checkbox-container {
+  @apply p-1 px-1.5 bg-zinc-800 text-white rounded flex items-center hover:scale-105 transition-all duration-300 ease-in-out shadow-md;
 
+  input[type="checkbox"] {
+    margin-right: 4px;
+    accent-color: var(--prime-orange);
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+
+  }
+
+  input[type="checkbox"]:checked + label {
+   @apply text-orange-300
+  }
+
+  label{
+    @apply hover:cursor-pointer
+  }
+}
 </style>
