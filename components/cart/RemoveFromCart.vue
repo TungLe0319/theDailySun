@@ -25,6 +25,10 @@ const cartStore = useCartStore();
 
 async function remove(productId) {
   try {
+  const yes = await pop.confirm('Are you sure you want to remove this item from your cart?', 'Remove Item')
+        if (!yes) {
+          return
+        }
     await cartStore.remove(productId);
     pop.toast("Added To Cart", "success", "top-end", 1500);
   } catch (error) {
