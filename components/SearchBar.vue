@@ -43,7 +43,7 @@ v-else
       id="input1"
       :class="expanded ? '  search-input-expanded' : ' search-input'"
       type="text"
-      placeholder="Search"
+      placeholder="Search..."
       @input="searchProducts"
     />
 
@@ -126,7 +126,7 @@ onUnmounted(() => {
   transition: all 0.5s ease;
   padding: 3px 20px 2px 10px;
   margin-left: 3px;
-  @apply block rounded-md bg-slate-300 text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-orange-200 focus:border-orange-200 sm:text-sm;
+  @apply block rounded-md ml-2 bg-slate-300 text-gray-600 placeholder-gray-600 focus:outline-none focus:ring-2  focus:ring-orange-400 focus:border-orange-200 sm:text-sm;
 }
 .search-list {
   @apply absolute top-14 left-12 z-50 bg-slate-100 bg-opacity-50 rounded-md;

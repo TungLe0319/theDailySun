@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <button
-      class="checkOut font-1 text-xl font-bold p-2 rounded-md px-4  flex gap-x-4"
+      class=" add-to-cart-button font-1"
 
       @click="test(productData)"
     >
@@ -11,46 +11,23 @@
   </div>
 </template>
 
-<!-- <script>
-import { cartService } from '../../composables/services/CartService.js'
-export default {
-  props: {
-    productData: { typeof: Object }
-  },
-  setup () {
-    return {
-      async addToCart (productData) {
-        try {
-          logger.log(productData)
-          await cartService.addToCart(productData)
-          pop.success(`Added ${AppState.activeProduct.title} to your cart`)
-        } catch (error) {
-          logger.log(error)
-        }
-      }
-    }
-  }
-}
-</script>
 
- -->
 
 <script setup>
 import { computed, onMounted } from 'vue'
-// const {data} = useSession()
 const props = defineProps({
   productData: { typeof: Object }
 })
-
 const { productData } = toRefs(props)
 const cartStore = useCartStore()
-
  async function test(productData){
-
-  // logger.log(productData)
   cartStore.add(productData)
   pop.toast(`Added To Cart`,'success','top-end',1500)
  }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.add-to-cart-button{
+  @apply  text-xl font-bold p-2 rounded-md px-4  flex gap-x-4 hover:scale-105 transition-all hover:underline hover:bg-zinc-700 hover:text-white
+}
+</style>

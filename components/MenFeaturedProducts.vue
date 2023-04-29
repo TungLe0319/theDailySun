@@ -45,7 +45,7 @@
 
 
 <div class="flex justify-center mt-20">
-<nuxt-link to="Products" class="text-center text-4xl flex justify-center  underline-offset-3 underline">
+<nuxt-link to="Products" class="view-products-link">
 <h3 class="text-center">View All Products</h3>
 </nuxt-link>
 </div>
@@ -93,6 +93,10 @@ const {data: products} = await useAsyncData()
 </script> -->
 
 <style lang="scss" scoped >
+
+.view-products-link{
+  @apply px-8 p-3  flex justify-center bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg hover:bg-zinc-900/90 hover:shadow-md transition-all
+}
 .flip{
   color: rgb(176, 215, 233);
   opacity: 75%;

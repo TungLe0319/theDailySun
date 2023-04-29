@@ -33,7 +33,7 @@
           </div>
           <div class="flex justify-between mb-10">
             <div class="  ">
-              <p class="text-red-400 font-bold text-2xl">
+              <p class="text-red-500 font-bold text-4xl">
                 ${{ activeProduct.price }}
               </p>
             </div>
@@ -80,14 +80,13 @@
       <div class="mt-10">
         <!-- <ReviewCard v-for="r in activeProduct?.reviews" :review="r"  /> -->
 
-        <TransitionGroup name="fade" >
-
+        <TransitionGroup name="fade">
           <ReviewCard
             v-for="r in activeProduct.reviews"
             :review="r"
             :key="r.id"
           />
-</TransitionGroup>
+        </TransitionGroup>
       </div>
     </div>
     <div v-else class="mt-56 container bg-slate-100">

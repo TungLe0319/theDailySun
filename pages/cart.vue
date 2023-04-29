@@ -30,9 +30,13 @@
                   class="container flex flex-col gap-y-10 cursor-none"
                 >
                   <h1 class="text-4xl text-center">Your Cart Is Empty</h1>
-                  <iframe
-                    src="https://embed.lottiefiles.com/animation/629"
-                  ></iframe>
+
+                  <nuxt-link
+                    class="shop-now-link"
+                    to="/products"
+                  >
+                    Shop Now
+                  </nuxt-link>
                 </div>
               </div>
             </div>
@@ -44,7 +48,7 @@
         >
           <div class="flex flex-col gap-y-3">
             <h2 class="text-2xl text-red-700">
-              Order Total : <b>${{ total}}</b>
+              Order Total : <b>${{ total }}</b>
             </h2>
           </div>
           <div class="mt-3">
@@ -78,7 +82,6 @@ const total = useState("total", () => cartStore?.total);
 watch(
   () => cartStore?.total,
   (newTotal) => {
-    
     total.value = newTotal;
   }
 );
@@ -89,6 +92,10 @@ async function checkout() {
 </script>
 
 <style lang="scss" scoped>
+
+.shop-now-link{
+  @apply p-3 w-full flex justify-center bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg hover:bg-zinc-900/90 hover:shadow-md transition-all
+}
 hr {
   padding: 0.5px;
 }
