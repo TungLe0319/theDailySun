@@ -15,8 +15,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
-// const {data} = useSession()
+
 const props = defineProps({
   productId: { typeof: String },
 });

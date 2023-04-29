@@ -153,29 +153,6 @@ const handleScroll = () => {
 };
 </script>
 
-<!-- <script>
-// import { NuxtLink } from '../.nuxt/components'
-
-// import Login from './Login.vue'
-export default {
-  data () {
-    return {
-      isVisible: true,
-
-    }
-  },
-
-  methods: {
-    handleScroll () {
-      if (window.scrollY > 50) {
-        this.isVisible = false
-      } else {
-        this.isVisible = true
-      }
-    }
-  }
-}
-</script> -->
 <style lang="scss">
 .icon {
   height: 30px;
