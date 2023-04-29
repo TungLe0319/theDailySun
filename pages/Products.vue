@@ -120,12 +120,14 @@ const sortBy = (sortKey, isAscending = true) => {
     @apply hover:cursor-pointer;
   }
 
-  //when screen is 768px OR LESS
-  @media only screen and (max-width: 768px){
-@apply h-1/2;
-label{
-  @apply text-xs;
-}
+  // when screen is 768px OR LESS
+  @media only screen and (max-width: 768px) {
+    @apply h-1/2;
+
+    label{
+      @apply text-xs;
+    }
   }
 }
+
 </style>

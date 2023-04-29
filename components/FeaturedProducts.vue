@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-purple-100 py-20 female-featured relative">
+  <div class="bg-purple-100 pb-20 pt-10 female-featured relative">
     <div class="text-center my-5 container flex flex-col">
       <h1 class="mb-10 md:text-6xl text-4xl text-shadow">Featured Products</h1>
       <h2 class="text-4xl mb-2 ff">Empower your style</h2>

@@ -32,10 +32,10 @@
           </h3>
           <div class="flex justify-center mt-10">
             <button
-              class="rounded-xl shadow-xl p-2 m-2 bg-red-500 text-4xl px-5"
+              class="rounded-xl shadow-xl p-2 m-2 bg-zinc-800 text-white text-2xl px-5 hover:bg-opacity-90 transition-all"
               @click="signOut({ callbackUrl: '/' })"
             >
-              sign out
+            SIGN OUT
             </button>
           </div>
         </div>
@@ -46,7 +46,7 @@
           <CreateProduct />
         </n-collapse-item>
       </n-collapse>
-      <div class="container flex flex-col">
+      <div class="container flex flex-col" v-if="receipts.length">
         <h1 class="my-8 text-6xl text-center text-shadow">Receipt History</h1>
 
         <div class="flex gap-3">
