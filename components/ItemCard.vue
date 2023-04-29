@@ -1,8 +1,8 @@
 <template>
-  <div class="relative shadow-xl product-card rounded-lg">
+  <div class="relative  product-card rounded-lg group">
     <nuxt-link :to="`/products/${product.id}`">
       <img
-        class="object-cover image rounded-lg shadow-xl shadow-slate-400 transition-all"
+        class="object-cover image rounded-lg  shadow-slate-400 transition-all"
         :src="product.img"
         alt="image"
       />
@@ -21,6 +21,13 @@
           {{ product.title }}
         </h4>
       </div>
+    </div>
+
+    <div class=" flex justify-between product-details p-2 group-hover:scale-0 transition-all duration-300 ease-out origin-top">
+<div class="text-lg">
+   {{ product.title }}
+</div>
+<div class="text-lg">${{product.price}}</div>
     </div>
   </div>
 </template>
@@ -83,7 +90,7 @@ export default {
   transition: all 1s ease-out !important;
   object-fit: cover;
   width: 200px;
-  height: 250px;
+  height: 200px;
 
   @media only screen and (max-width: 768px) {
     width: 100%;
@@ -106,13 +113,13 @@ export default {
   }
 }
 .product-card:hover .absolute {
-  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   opacity: 1;
   transform: translateX(0px);
 }
 .product-card:hover img {
-  transform: scale(1.1);
+  transform: scale(1.01);
   transition: all 0.5s ease !important;
 
   //when screen is 768px OR LESS
