@@ -55,7 +55,7 @@
     >
       <div class="relative">
         <div class="mt-4">
-          <div class="flex flex-wrap justify-between md:gap-x-4  md:gap-y-4 ">
+          <div class="flex flex-wrap justify-between md:gap-x-10  md:gap-y-4 ">
             <div v-for="i in products" :key="i" class=" md:w-1/6 sm:w-1/4 w-full py-2 flex justify-center">
               <ItemCard :product="i" v-bind:key="i.id" />
             </div>

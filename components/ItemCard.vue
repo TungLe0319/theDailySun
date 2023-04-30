@@ -9,7 +9,7 @@
       <div class=""></div>
     </nuxt-link>
     <div
-      class="absolute-2 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg"
+      class="absolute-2 scale-0 group-hover:scale-100 top-0 text-white font-bold bg-black bg-opacity-50 p-1 rounded-tl-md text-lg"
     >
       ${{ product.price }}
     </div>
@@ -23,8 +23,8 @@
       </div>
     </div>
 
-    <div class=" flex justify-between product-details p-2 group-hover:scale-0 transition-all duration-300 ease-out origin-top">
-<div class="text-lg">
+    <div class=" flex flex-col justify-between product-details p-2 group-hover:scale-0 transition-all duration-300 ease-out  origin-top-right">
+<div class="text-lg truncate ">
    {{ product.title }}
 </div>
 <div class="text-lg">${{product.price}}</div>
