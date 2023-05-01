@@ -121,7 +121,7 @@
                   class="flex p-2 rounded-lg shadow-sm shadow-slate-300 hover:shadow-slate-400 hover:shadow-2xl hover:transition-all transition-all"
                 >
                   <img
-                    src="https://imgs.search.brave.com/F4Sd55IN3zxzpa0Fa8DSaFgfZwINF9WXDGtWFiZ8AOw/rs:fit:319:477:1/g:ce/aHR0cHM6Ly9ydWJl/bnIuZGV2L3N0YXRp/Yy82YjcxZmJiNGU4/OTBlYmQzZDA1NGU3/MGNjOTJjZTE4Zi9i/NTNjZi9waW5pYS1s/b2dvLnBuZw"
+                    src="https://user-images.githubusercontent.com/6919381/149651295-0bf814f5-ad07-4d40-9af2-78dd99d8e1e7.png"
                     alt="pinia logo"
                     width="50"
                   />
