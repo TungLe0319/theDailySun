@@ -7,8 +7,8 @@
         alt="hero image"
       />
       <div class="hero-text">
-        <h1 class="text-8xl text-shadow-overlay">About Us</h1>
-        <small class="text-xl">We Software Development!</small>
+        <h1 class="text-8xl text-shadow-overlay">About</h1>
+        <!-- <small class="text-xl">We Love Software Development!</small> -->
       </div>
     </div>
     <div class="container mt-3 text-xl flex flex-col">
@@ -17,14 +17,13 @@
           The SunnyVibes project serves as an opportunity for us to challenge
           ourselves in learning Nuxt.js, building upon prior experience with
           Vue.js. The goal is to create a modern and intuitive e-commerce
-          application complete with a secure payment system and Auth Management.
-          Through this project, we aim to improve our problem-solving and
-          development skills while creating a seamless shopping experience for
-          users providing fake data. we want to be committed to learning about
+          application complete with a secure payment system using Stripe and Auth Management using Nuxt's Auth Module..
+          Through this project, we aimed to improve our problem-solving and
+          development skills while creating a smooth shopping experience for
+          users. We are  committed to learning about
           the best practices for building e-commerce applications and utilizing
-          this project as a chance to learn new technologies and enhance our
-          development skills. The end result will hopefully showcase our ability
-          to quickly learn a new framework and technologies.
+          this project as a chance to learn new technologies, secure and safe practices and enhance our
+          development skills.
           <br />
         </h2>
 
@@ -190,7 +189,7 @@
     </div>
   </div>
 </template>
-e>
+
 
 <script>
 export default {
