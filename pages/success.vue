@@ -3,13 +3,13 @@
     <div class="relative hero-image-container">
       <div class="hero-text bg-black bg-opacity-25 p-5 rounded-md">
         <h1 class="text-8xl text-shadow-overlay">
-          Thank you for shopping with us.
+          Thank you for shopping with us!
         </h1>
         <button
           class="text-4xl bg-green-400 p-2 rounded-md mt-3"
           @click="goToReceipt()"
         >
-          View RECEIPT
+          View Receipt
         </button>
       </div>
     </div>
@@ -22,7 +22,6 @@ const route = useRoute();
 const router = useRouter();
 let receiptURL = ref("");
 let receiptId = ref("");
-const cartStore = useCartStore();
 
 onMounted(()=>{
  setTimeout(() => {
@@ -60,23 +59,15 @@ async function updateUserReceipt(receiptUrl, receiptId) {
       receiptId,
     },
   });
-  // logger.log(updatedUser.data.value)
 }
 
 </script>
-
-<!--
-cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
-?session_id=cs_test_a12EDvrw86AuGhh9FwdMIuewTtj86URGvsLqYxP9GsShQSqgsYYoLHXof1
- -->
 <style lang="scss" scoped>
 .hero-image-container {
   height: 100vh;
-  /* always scale the image to the appropriate size of your screen */
   background-size: cover;
   background-image: url(https://images.unsplash.com/photo-1479064312651-24524fb55c0e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
   background-position: center;
-  /* keeps the image fixed while scrolling , neat effect. */
   background-attachment: fixed;
 }
 .hero-image-container::before {
