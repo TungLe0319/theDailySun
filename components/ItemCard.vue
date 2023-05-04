@@ -137,6 +137,6 @@ export default {
 
 .absolute-2 {
   position: absolute;
-  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 </style>
