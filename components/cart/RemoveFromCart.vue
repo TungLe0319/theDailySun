@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <button
-      class="checkOut font-1 text-xl font-bold hover:text-red-400 transition-colors"
+      class="checkOut font-1 text-xl font-bold hover:text-red-400 transition-all duration-200"
       @click="remove(productId)"
     >
       <img
