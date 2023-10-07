@@ -18,6 +18,7 @@
         </NuxtLink>
         <div class="items-center justify-center flex">
           <h1 class="text-lg md:text-3xl hidden md:block">The Daily Sun</h1>
+
         </div>
         <div class="flex justify-center items-center">
           <SearchBar :class="isVisible ? '' : 'not-visible'" />
@@ -51,6 +52,10 @@
               {{ Quantity }}
             </span>
           </nuxt-link>
+
+
+            {{ status }}
+         
         </div>
       </div>
       <div class="md:hidden flex justify-center">
@@ -109,10 +114,10 @@
 <script setup>
 import { useSession } from "next-auth/react";
 
-
+const {status,data} = useAuth()
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
-const { data: user } = useSession;
+const  user = data.value.user;
 const Quantity = useState("quantity", () => cartStore?.products?.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);

@@ -41,7 +41,7 @@
 
 <script setup>
 import Pop from "~~/utils/Pop.js";
-import { useSession } from "next-auth/react/index.js";
+import { useSession } from "next-auth/react";
 
 const { data: user } = useSession();
 const productStore = useProductStore();
