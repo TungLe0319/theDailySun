@@ -107,7 +107,8 @@
 </template>
 
 <script setup>
-import { useSession } from "next-auth/react"
+import { useSession } from "next-auth/react";
+
 
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
