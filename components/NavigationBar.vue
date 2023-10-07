@@ -107,9 +107,11 @@
 </template>
 
 <script setup>
+import { useSession } from "next-auth/react"
+
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
-const { data: user } = useSession();
+const { data: user } = useSession;
 const Quantity = useState("quantity", () => cartStore?.products?.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);

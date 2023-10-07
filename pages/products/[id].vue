@@ -97,11 +97,11 @@
 
 <script setup>
 // import { computed } from 'vue'
-
+import { useSession } from "next-auth/react"
 import AddToCart from "~~/components/cart/AddToCart.vue";
 import CreateReview from "~~/components/review/CreateReview.vue";
 import ReviewCard from "~~/components/review/ReviewCard.vue";
-const { data: user } = useSession();
+const { data: user } = useSession;
 
 const productStore = useProductStore();
 const route = useRoute();

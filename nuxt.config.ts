@@ -14,7 +14,6 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     'nuxt-typed-router',
     '@nuxtjs/tailwindcss',
-    '@huntersofbook/naive-ui-nuxt',
     'nuxt-swiper',
     '@vueuse/nuxt',
     [

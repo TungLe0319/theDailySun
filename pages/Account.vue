@@ -58,11 +58,13 @@
 </template>
 
 <script setup>
+
+import { useSession } from "next-auth/react"
 definePageMeta({ middleware: "auth" });
 const userData = ref({});
 const receipts = ref([]);
 const role = ref("");
-const { data, signOut } = useSession();
+const { data, signOut } = useSession;
 
 onMounted(() => {
   setTimeout(() => {
