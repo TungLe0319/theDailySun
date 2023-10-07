@@ -22,7 +22,7 @@ const { productData } = toRefs(props)
 const cartStore = useCartStore()
  async function test(productData){
   cartStore.add(productData)
-  pop.toast(`Added To Cart`,'success','top-end',1500)
+  Pop.toast(`Added To Cart`,'success','top-end',1500)
  }
 </script>
 
