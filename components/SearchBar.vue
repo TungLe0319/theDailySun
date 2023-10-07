@@ -1,7 +1,7 @@
 <template>
   <div class="relative flex">
     <img
-      @click="expanded = !expanded"
+
       src="../assets/magnifier.png"
       alt=""
       width="40"
@@ -41,11 +41,14 @@ v-else
 
     <input
       id="input1"
-      :class="expanded ? '  search-input-expanded' : ' search-input'"
+      class="search-input"
       type="text"
       placeholder="Search..."
       @input="searchProducts"
     />
+
+
+
 
     <div class="search-list " v-if="products.length >= 0 && expanded">
       <ul class="item-list">
@@ -55,7 +58,10 @@ v-else
             class="link"
             :to="`/products/${p.id}`"
           >
+          <div class="flex mx-2 ">
+            <img :src=p.img alt="" class="w-10 rounded-full h-10 item-img mx-2">
             {{ p.title }}
+          </div>
           </nuxt-link>
         </li>
       </ul>
@@ -63,7 +69,7 @@ v-else
   </div>
 </template>
 <script setup>
-let expanded = useState("expanded", () => false);
+let expanded = useState("expanded", () => true);
 const productStore = useProductStore();
 let products = useState("products", () => []);
 let isVisible = ref(true)
@@ -118,12 +124,21 @@ onUnmounted(() => {
   font-size: 16px !important;
 }
 
+.item-img{
+    width: 30px;
+  height: 30px;
+  object-fit: cover;
+  position: relative;
+}
 
+.search-input{
+  @apply bg-zinc-100 px-3 py-2 rounded mx-2 focus:outline-none
+}
 .search-list {
   @apply absolute top-14 left-12 z-50 bg-slate-100 bg-opacity-50 rounded-md;
 }
 .item-list {
-  @apply h-auto max-h-60 w-auto  max-w-full overflow-y-scroll;
+  @apply h-auto max-h-60  w-52  max-w-full overflow-y-scroll;
 }
 .item {
   @apply my-2 ;
@@ -138,7 +153,11 @@ onUnmounted(() => {
  backdrop-filter: blur(4px);
 
   }
+  .search-input{
+   background-color: rgba(0, 0, 0, 0.584);
+  }
 }
+
 
 /* Set the width and height of the scrollbar */
 ::-webkit-scrollbar {
@@ -153,7 +172,7 @@ onUnmounted(() => {
 
 /* Set the thumb color and border */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #ffb039;
   border-radius: 6px;
   border: 3px solid #f1f1f1;
 }

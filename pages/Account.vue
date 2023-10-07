@@ -13,7 +13,7 @@
         <img
           class="rounded-full shadow-xl shadow-slate-400"
           :src="
-            data?.user?.image ||
+ data.user?.image ||
             'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'
           "
           alt="hero image"
@@ -25,10 +25,13 @@
       <div class="flex justify-evenly mt-24">
         <div class="mt-24">
           <div>
-            <h1 class="text-4xl">Welcome @{{ data?.user?.name }} !</h1>
+
+
+            <h1 class="text-4xl">Welcome @{{ data.user?.name }} !</h1>
+
           </div>
           <h3 class="text-center mt-3">
-            {{ data?.user?.role }}
+            {{ data.user?.role }}
           </h3>
           <div class="flex justify-center mt-10">
             <button
@@ -41,11 +44,9 @@
         </div>
       </div>
 
-      <n-collapse class="my-10" v-if="userData?.role == 'ADMIN'">
-        <n-collapse-item title="Create Product" name="1">
+
           <CreateProduct />
-        </n-collapse-item>
-      </n-collapse>
+
       <div class="container flex flex-col" v-if="receipts.length">
         <h1 class="my-8 text-6xl text-center text-shadow">Receipt History</h1>
 
@@ -58,11 +59,13 @@
 </template>
 
 <script setup>
+const { status, data, signOut } = useAuth()
+// import { useSession,signOut,getSession } from "next-auth/react"
 definePageMeta({ middleware: "auth" });
 const userData = ref({});
 const receipts = ref([]);
 const role = ref("");
-const { data, signOut } = useSession();
+
 
 onMounted(() => {
   setTimeout(() => {

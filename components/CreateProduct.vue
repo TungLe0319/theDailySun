@@ -1,66 +1,112 @@
 <template>
   <div>
-    <form class="flex flex-col gap-4" @submit.prevent="submitForm">
-
-
-<n-form-item label="Title">
-<n-input v-model:value="product.title" type="text" placeholder="Title" />
-</n-form-item>
-
-<n-form-item label="Description">
-    <n-input
-      v-model:value="product.description"
-      type="textarea"
-      placeholder="Description"
-    />
-</n-form-item>
 
 
 
-<n-form-item label="Img">
-<n-input v-model:value="product.img" type="url" placeholder="Url" />
-</n-form-item>
+      <div>
+    <!-- Collapsible Button -->
+    <button
+      @click="toggleCollapse"
+      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 mb-4 rounded focus:outline-none focus:shadow-outline"
+    >
+     Create Product
+    </button>
 
-<n-select :style="{ width: '33%' }" :options="audience" />
-<n-select :style="{ width: '33%' }" :options="type" />
- <n-input
+    <!-- Collapsible Content -->
+    <div
+      v-if="isCollapsed"
+      class="my-4 p-4 border border-gray-300 rounded "
+    >
+   <form class="flex flex-col gap-4 p-4 m-4" @submit.prevent="submitForm">
+
+
+
+<div class="mb-4">
+    <label for="title" class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+    <input
+      id="title"
       type="text"
-      :allow-input="onlyAllowNumber"
-      placeholder="Only allow number"
-      v-model:value="product.price"
-      :style="{ width: '33%' }"
+      placeholder="Title"
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+v-model="product.title"
     />
+  </div>
+
+  <!-- Description -->
+  <div class="mb-4">
+    <label for="description" class="block  text-gray-700 text-sm font-bold mb-2">Description</label>
+    <textarea
+      id="description"
+      placeholder="Description"
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500  h-60  "
+v-model="product.description"
+    ></textarea>
+  </div>
+
+  <!-- Img URL -->
+  <div class="mb-4">
+    <label for="img" class="block text-gray-700 text-sm font-bold mb-2">Img</label>
+    <input
+      id="img"
+      type="url"
+      placeholder="URL"
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+v-model="product.img"
+    />
+  </div>
+
+  <!-- Audience Select -->
+  <div class="mb-4 w-1/3">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Audience</label>
+
+    <select
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+v-model="product.audience"
+    >
+      <option v-for="option in audience" :key="option.value" :value="option.value">{{ option.label }}</option>
+    </select>
+  </div>
+
+  <!-- Type Select -->
+  <div class="mb-4 w-1/3">
+    <label class="block text-gray-700 text-sm font-bold mb-2">Type</label>
+
+    <select
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+      v-model="product.type"
+    >
+      <option v-for="option in type" :key="option.value" :value="option.value">{{ option.label }}</option>
+    </select>
+  </div>
+
+  <!-- Price -->
+  <div class="mb-4 w-1/3">
+    <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price</label>
+    <input
+      id="price"
+      type="text"
+      placeholder="Only allow number"
+      class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+      :class="{ 'border-red-500': !product.price}"
+
+    />
+  </div>
+
+  <!-- Submit Button -->
+  <div class="mt-6">
+    <button
+      type="submit"
+      class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+    >
+      Submit
+    </button>
+  </div>
 
 
-      <!-- <div class="  ">
-        <label for="title">Title:</label>
-        <input id="title" v-model="product.title" type="text" class="">
-      </div>
-      <div>
-        <label for="description">Description:</label>
-        <textarea id="description" v-model="product.description" />
-      </div>
-      <div>
-        <label for="image">Image:</label>
-        <input type="text" id="image" v-model="product.img" />
-      </div>
-      <div>
-        <label for="audience">Audience:</label>
-        <input id="audience" v-model="product.audience" type="text">
-      </div>
-      <div>
-        <label for="type">Type:</label>
-        <input id="type" v-model="product.type" type="text">
-      </div>
-      <div>
-        <label for="price">Price:</label>
-        <input id="price" v-model="product.price" type="number">
-      </div> -->
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam molestiae voluptatem voluptates porro recusandae necessitatibus incidunt veritatis quis consequatur minus! Voluptates, nihil mollitia. Tempora perferendis porro modi corporis dolores velit quia quasi? Labore itaque dolor illum vel eum animi atque! Corporis maxime distinctio, voluptas ipsum neque quibusdam numquam quam deleniti molestiae ratione, quis exercitationem architecto? Adipisci voluptas fugiat facere quae atque quaerat et rerum quis recusandae consequuntur eum laudantium reprehenderit excepturi qui quia explicabo delectus amet aliquam, in libero autem. Laudantium assumenda voluptates, incidunt, minima dicta laborum corporis odio nisi vitae vel hic reiciendis eos rerum, iure pariatur a eveniet?
-      <button type="submit">
-        Submit
-      </button>
     </form>
+      <p>This is the collapsible content.</p>
+    </div>
+  </div>
   </div>
 </template>
 
@@ -103,13 +149,19 @@ export default {
           value: 'Glasses'
         },
       ]),
+
+
+         isCollapsed: false,
     }
   },
   methods: {
     submitForm () {
       this.productStore.add(this.product)
       // console.log(this.product)
-    }
+    },
+      toggleCollapse() {
+      this.isCollapsed = !this.isCollapsed; // Toggle the collapsed state
+    },
   }
 }
 </script>
