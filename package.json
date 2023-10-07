@@ -21,6 +21,7 @@
     "vue-tsc": "^1.8.16"
   },
   "dependencies": {
+    "@auth/core": "^0.16.1",
     "@next-auth/prisma-adapter": "^1.0.7",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@pinia/nuxt": "^0.4.11",
