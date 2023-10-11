@@ -5,7 +5,7 @@
   >
     <nuxt-link :to="`/products/${product.id}`">
       <img
-        class="object-cover image rounded-lg shadow-xl shadow-slate-400 transition-all"
+        class="object-cover image rounded-lg shadow-xl    shadow-slate-400 transition-all"
         :src="product.img"
         alt="image"
       />

@@ -4,7 +4,7 @@
       <video id="myVideo" src="../assets/video.mp4" autoplay muted></video>
       <div class="hero-text">
         <h1
-          class="text-4xl text-shadow p-3 rounded-lg shadow-2xl shadow-teal-600"
+          class="text-4xl text-shadow p-3   rounded-lg shadow-2xl shadow-teal-600"
         >
           Invest in one-of-a-kind quality pieces that will empower your personal
           style and last a lifetime!

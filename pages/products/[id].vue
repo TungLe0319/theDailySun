@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div>
     <div
       v-if="activeProduct"
       class="text-black p-5 bg-slate-300 md:py-44 py-20 relative"
@@ -20,7 +20,7 @@
         <div class="w-full md:w-1/2 p-5 md:px-14">
           <div class="">
             <div class="relative">
-              <h1 class=" text-4xl md:text-6xl mb-10 font-bold text-shadow">
+              <h1 class="text-4xl md:text-6xl mb-10 font-bold text-shadow">
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute right-0 bottom-0">
@@ -46,9 +46,16 @@
             <div class="">
               <h2 class="font-bold text-gray-400 text-2xl">Quantity</h2>
               <div class="w-1/2 mt-2 shadow-md rounded-full">
-                <n-input-number
+                <!-- <n-input-number
                   v-model:value="quantity"
                   button-placement="both"
+                /> -->
+
+                <input
+                  type="number"
+                  v-model="quantity"
+
+                  class=" w-full p-2 px-10 border border-gray-300 rounded-lg 2 focus:outline-none"
                 />
               </div>
             </div>
@@ -186,5 +193,9 @@ async function deleteProduct(id) {
 
 .fade-leave-from {
   opacity: 1;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 </style>

@@ -30,7 +30,7 @@ async function remove(productId) {
           return
         }
     await cartStore.remove(productId);
-    Pop.toast("Added To Cart", "success", "top-end", 1500);
+    Pop.toast("Removed", "success", "top", 1500);
   } catch (error) {
     Pop.error(error, "[]");
   }

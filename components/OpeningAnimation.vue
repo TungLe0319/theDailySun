@@ -1,6 +1,6 @@
 <template>
   <div class="component h-screen w-full flex justify-center items-center ">
-   <div class="container">
+   <div class="container ">
 	<div class="loader"></div>
 </div>
   </div>

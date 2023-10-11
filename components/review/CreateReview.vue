@@ -21,16 +21,22 @@
           class="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600"
         >
           <div class="flex gap-x-3 items-center relative group">
-            <n-rate
+            <!-- <n-rate
               required
               size="large"
               clearable
               allow-half
               @update:value="value"
-            />
+            /> -->
             <div class="text-white text-lg" v-if="rating >= 0.5">
               {{ rating }} / 5
             </div>
+
+            <!-- <div class="star-rating">
+
+      <i :class="{ 'fa fa-star': i <= rating, 'fa fa-star-o': i > rating }"></i>
+
+  </div> -->
 
             <div class="text-white tex-lg" v-if="rating < 0.5">
               Please leave a rating
@@ -51,7 +57,7 @@
 
 <script setup>
 import Pop from "~~/utils/Pop.js";
-import DomPurify from 'dompurify'
+import DomPurify from "dompurify";
 const body = ref("");
 const productStore = useProductStore();
 const rating = ref(0.0);
@@ -75,7 +81,8 @@ const props = defineProps({
 //Put In protection validations here for user input
 async function handleSubmit() {
   try {
-    reviewData.body = DomPurify.sanitize(reviewData.body)
+    // console.log(reviewData.value.body);
+    reviewData.body = DomPurify.sanitize(reviewData.body);
     await productStore.createReview(reviewData.value);
     body.value = "";
 

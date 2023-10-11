@@ -1,8 +1,20 @@
 <template>
+   <div class="relative hero-image-container">
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1599270613570-a620f2e59f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+        alt="hero image"
+      />
+      <div class="hero-text">
+        <h1 class="text-8xl text-shadow-overlay">Cart</h1>
+
+      </div>
+    </div>
   <div class="page-container">
+
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
-        <h1 class="text-5xl">My Cart</h1>
+
       </div>
       <div class="flex flex-wrap">
         <div class="w-full md:w-2/3 p-5 px-14">
@@ -41,7 +53,7 @@
         </div>
         <div
           v-if="products?.length >= 1"
-          class="w-full md:w-1/3 p-5 px-14 bg-slate-200 rounded-lg shadow-xl h-1/2"
+          class="w-full md:w-1/3 p-5 px-14  rounded-lg shadow-xl h-1/2"
         >
           <div class="flex flex-col gap-y-3">
             <h2 class="text-2xl text-red-700">
@@ -90,7 +102,7 @@ async function checkout() {
 
 <style lang="scss" scoped>
 .page-container {
-  @apply pt-24 text-black p-5 bg-slate-300 h-screen relative;
+  @apply  text-black p-5  relative;
 }
 
 .shop-now-link {

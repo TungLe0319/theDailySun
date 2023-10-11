@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="hidden md:flex items-center">
-        <div class="text-center mr-6 flex ">
+        <div class="text-center mr-6 flex">
           <NuxtLink to="/products" class="link" active-class="active-link">
             Products
           </NuxtLink>
@@ -52,11 +52,21 @@
             </span>
           </nuxt-link>
 
-              <div v-if="status === 'authenticated'">
 
-          <img class="w-10 h-10  mx-4" src="https://next-auth.js.org/img/logo/logo-sm.png" alt="" title="Authenticated">
 
-      </div>
+  <div v-if="status === 'authenticated'">
+    <img
+      class="w-10 h-10 mx-4"
+      src="https://next-auth.js.org/img/logo/logo-sm.png"
+      alt="Authenticated"
+      title="Authenticated"
+    />
+    <!-- Content to display when status is 'authenticated' -->
+  </div>
+  <div v-else>
+    <!-- Content to display when status is not 'authenticated' -->
+  </div>
+
         </div>
       </div>
 
@@ -94,7 +104,7 @@
           <nuxt-link
             v-if="user"
             to="/cart"
-            class="link relative"
+            class="link relative    "
             active-class="active-link"
           >
             <img
@@ -184,7 +194,7 @@ const handleScroll = () => {
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   position: relative;
-      font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
     padding: 4px 4px;

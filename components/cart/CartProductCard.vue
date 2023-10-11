@@ -1,4 +1,5 @@
 <template>
+   <transition name="fade">
   <div
     class="md:p-5 rounded-md my-4 flex justify-between product-card transition-colors"
   >
@@ -12,7 +13,7 @@
         class="product-image shadow-lg shadow-slate-400"
       />
 
-      <div class="absolute opacity-90 scale-0 group-hover:scale-100">    <RemoveFromCart :product-id="product.id" /></div>
+
       <div class="ml-4">
         <h1 class="text-lg">
           {{ product.title }}
@@ -46,7 +47,11 @@
         </div>
       </div>
     </div>
+
+      <div class="absolute opacity-90">    <RemoveFromCart :product-id="product.id" /></div>
   </div>
+   </transition>
+
 </template>
 
 <script>
