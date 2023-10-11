@@ -1,17 +1,16 @@
 <template>
   <div class="relative flex">
     <img
-
       src="../assets/magnifier.png"
       alt=""
       width="40"
       class="cursor-pointer magnifier"
       id="magnifier"
-v-if="isVisible"
+      v-if="isVisible"
     />
     <svg
-v-else
-       @click="expanded = !expanded"
+      v-else
+      @click="expanded = !expanded"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -47,21 +46,22 @@ v-else
       @input="searchProducts"
     />
 
-
-
-
-    <div class="search-list " v-if="products.length >= 0 && expanded">
+    <div class="search-list" v-if="products?.length >= 0  && expanded">
       <ul class="item-list">
-        <li class="item" v-for="p in products">
+        <li class="" v-for="p in products">
           <nuxt-link
             @click="clearSearch()"
-            class="link"
+            class="item-link"
             :to="`/products/${p.id}`"
           >
-          <div class="flex mx-2 ">
-            <img :src=p.img alt="" class="w-10 rounded-full h-10 item-img mx-2">
-            {{ p.title }}
-          </div>
+            <div class="flex mx-2">
+              <img
+                :src="p.img"
+                alt=""
+                class="w-10 rounded-full h-10 item-img mx-2"
+              />
+              {{ p.title }}
+            </div>
           </nuxt-link>
         </li>
       </ul>
@@ -69,20 +69,22 @@ v-else
   </div>
 </template>
 <script setup>
-let expanded = useState("expanded", () => true);
+let expanded = useState("expanded", () => false);
 const productStore = useProductStore();
 let products = useState("products", () => []);
-let isVisible = ref(true)
-let scrollTest = ref(true)
+let isVisible = ref(true);
+let scrollTest = ref(true);
 const searchProducts = (event) => {
   const query = event.target.value.trim().toLowerCase();
   if (query.length === 0) {
     products.value = [];
+    expanded= false
     return;
   }
   products.value = productStore.products.filter((p) =>
     p.title.toLowerCase().includes(query)
   );
+  expanded= true
 };
 const clearSearch = (event) => {
   const input = document.querySelector("input");
@@ -120,19 +122,44 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-.link {
-  font-size: 16px !important;
-}
 
-.item-img{
-    width: 30px;
+
+.item-link {
+  transition: all 0.5s ease;
+  font-size: 16px;
+  margin: 0 6px;
+  border-radius: 8px;
+  font-weight: 600;
+  //when screen is 768px OR LESS
+  @media only screen and (max-width: 768px) {
+    padding: 4px 4px;
+  }
+}
+.item-link:before {
+  content: "";
+  position: absolute;
+  width: 0px;
+  transform: translateX(0px);
+  height: 3px;
+  background-color: #ffb039;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.5s ease;
+}
+.item-link:hover:before {
+  transition: all 0.5s ease;
+  width: 100%;
+}
+.item-img {
+  width: 30px;
   height: 30px;
   object-fit: cover;
   position: relative;
 }
 
-.search-input{
-  @apply bg-zinc-100 px-3 py-2 rounded mx-2 focus:outline-none
+.search-input {
+  @apply bg-zinc-100 px-3 py-2 rounded mx-2 focus:outline-none;
 }
 .search-list {
   @apply absolute top-14 left-12 z-50 bg-slate-100 bg-opacity-50 rounded-md;
@@ -141,7 +168,7 @@ onUnmounted(() => {
   @apply h-auto max-h-60  w-52  max-w-full overflow-y-scroll;
 }
 .item {
-  @apply my-2 ;
+  @apply my-2;
 }
 
 .not-visible {
@@ -150,14 +177,12 @@ onUnmounted(() => {
   }
   .search-list {
     background-color: rgba(0, 0, 0, 0.584);
- backdrop-filter: blur(4px);
-
+    backdrop-filter: blur(4px);
   }
-  .search-input{
-   background-color: rgba(0, 0, 0, 0.584);
+  .search-input {
+    background-color: rgba(0, 0, 0, 0.584);
   }
 }
-
 
 /* Set the width and height of the scrollbar */
 ::-webkit-scrollbar {

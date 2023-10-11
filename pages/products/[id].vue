@@ -1,8 +1,13 @@
 <template>
-  <div class="">
+  <div >
     <div
       v-if="activeProduct"
       class="text-black p-5 bg-slate-300 md:py-44 py-20 relative"
+      :class="
+        activeProduct.audience == 'Female'
+          ? 'bg-audience-female'
+          : 'bg-audience-male'
+      "
     >
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 h-full justify-center flex pb-10 md:pb-0">
@@ -15,7 +20,7 @@
         <div class="w-full md:w-1/2 p-5 md:px-14">
           <div class="">
             <div class="relative">
-              <h1 class="text-4xl md:text-6xl mb-10 font-bold text-shadow">
+              <h1 class=" text-4xl md:text-6xl mb-10 font-bold text-shadow">
                 {{ activeProduct.title }}
               </h1>
               <div class="absolute right-0 bottom-0">
@@ -97,12 +102,11 @@
 
 <script setup>
 // import { computed } from 'vue'
-const { status, data, signOut } = useAuth()
-const user = data.value.expires
+const { status, data, signOut } = useAuth();
+const user = data.value.expires;
 import AddToCart from "~~/components/cart/AddToCart.vue";
 import CreateReview from "~~/components/review/CreateReview.vue";
 import ReviewCard from "~~/components/review/ReviewCard.vue";
-
 
 const productStore = useProductStore();
 const route = useRoute();
@@ -125,6 +129,12 @@ async function deleteProduct(id) {
 </script>
 
 <style lang="scss" scoped>
+.bg-audience-female {
+  background-color: #f3e8ff;
+}
+.bg-audience-male {
+  background-color: #ffedd5;
+}
 .product-image {
   height: auto;
   width: 100% !important;
@@ -132,6 +142,19 @@ async function deleteProduct(id) {
   animation-duration: 1.5s;
   animation-name: slidein;
   border-radius: 8px;
+  @media only screen and (min-width: 1068px) {
+    width: 75% !important;
+    height: 75% !important;
+  }
+
+  @media only screen and (min-width: 1368px) {
+    width: 50% !important;
+    height: 50% !important;
+  }
+  @media only screen and (min-width: 1668px) {
+    width: 50% !important;
+    height: 50% !important;
+  }
 }
 @keyframes slidein {
   from {

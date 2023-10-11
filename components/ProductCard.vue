@@ -1,6 +1,7 @@
 <template>
   <div
-    class="relative shadow-xl hover:shadow-green-300   product-card rounded-lg"
+    class="relative shadow-xl   product-card rounded-lg"
+    :class="product?.audience == 'Female' ? 'hover:shadow-yellow-100' : 'hover:shadow-purple-200'"
   >
     <nuxt-link :to="`/products/${product.id}`">
       <img
@@ -13,6 +14,8 @@
       <div class="text-white text-center">
         <h4 class="text-xl  text-yellow-100    text-shadow font-bold mt-10 mb-10 fire-effect-milo">
           {{ product.title }}
+
+
         </h4>
       </div>
     </div>

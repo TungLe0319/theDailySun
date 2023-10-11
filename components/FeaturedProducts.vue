@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-purple-100 pb-20 pt-10 female-featured relative">
+  <div class="bg-purple-100 pb-20 pt-10 relative female-featured ">
     <div class="text-center my-5 container flex flex-col">
       <h1 class="mb-10 md:text-6xl text-4xl text-shadow">Featured Products</h1>
-      <h2 class="text-4xl mb-2 ff">Empower your style</h2>
+      <h2 class="text-4xl mb-2 ">Empower your style</h2>
       <p class=" ">
         Upgrade your accessory game with our featured selection of women's
         glasses
@@ -88,8 +88,8 @@ const hats = computed(() => {
   background: rgb(243, 232, 255);
   background: linear-gradient(
     180deg,
-    rgba(243, 232, 255, 1) 0%,
-    rgba(255, 237, 213, 1) 100%
+    #f3e8ff 0%,
+    #ffedd5 100%
   );
 }
 .flip {

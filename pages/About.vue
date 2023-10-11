@@ -3,12 +3,12 @@
     <div class="relative hero-image-container">
       <img
         class="hero-image"
-        src="https://images.unsplash.com/photo-1525275295302-38fe248cf44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80"
+        src="https://images.unsplash.com/photo-1599270613570-a620f2e59f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
         alt="hero image"
       />
       <div class="hero-text">
         <h1 class="text-8xl text-shadow-overlay">About</h1>
-        <!-- <small class="text-xl">We Love Software Development!</small> -->
+
       </div>
     </div>
     <div class="container mt-3 text-xl flex flex-col">
@@ -201,42 +201,9 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 .description {
   line-height: 1.5;
 }
-.hero-image {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  position: relative;
-}
-.hero-image-container::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  z-index: 1999;
-  left: 0;
-  width: 100%;
-  height: 10px; /* adjust height as per your need */
-  background-image: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0),
-    #fff
-  ); /* adjust the color as per your need */
-}
 
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  text-align: center;
-  color: #fff;
-}
-
-.text-shadow-overlay {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
 </style>

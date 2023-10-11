@@ -18,14 +18,13 @@
         </NuxtLink>
         <div class="items-center justify-center flex">
           <h1 class="text-lg md:text-3xl hidden md:block">The Daily Sun</h1>
-
         </div>
         <div class="flex justify-center items-center">
           <SearchBar :class="isVisible ? '' : 'not-visible'" />
         </div>
       </div>
       <div class="hidden md:flex items-center">
-        <div class="text-center mr-6">
+        <div class="text-center mr-6 flex ">
           <NuxtLink to="/products" class="link" active-class="active-link">
             Products
           </NuxtLink>
@@ -53,11 +52,15 @@
             </span>
           </nuxt-link>
 
+              <div v-if="status === 'authenticated'">
 
-            {{ status }}
-         
+          <img class="w-10 h-10  mx-4" src="https://next-auth.js.org/img/logo/logo-sm.png" alt="" title="Authenticated">
+
+      </div>
         </div>
       </div>
+
+      <!-- MOBILE VIEW MENU -->
       <div class="md:hidden flex justify-center">
         <div class="flex justify-between items-center w-56">
           <NuxtLink to="/products" class="link" active-class="active-link">
@@ -114,10 +117,10 @@
 <script setup>
 import { useSession } from "next-auth/react";
 
-const {status,data} = useAuth()
+const { status, data } = useAuth();
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
-const  user = data.value.user;
+const user = data?.value?.user;
 const Quantity = useState("quantity", () => cartStore?.products?.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
@@ -177,10 +180,11 @@ const handleScroll = () => {
   margin: 0 6px;
   padding: 4px 10px;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 400;
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   position: relative;
+      font-family: 'Playfair Display', serif;
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
     padding: 4px 4px;

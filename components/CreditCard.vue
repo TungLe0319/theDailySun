@@ -1,10 +1,12 @@
 <template>
   <div class="component mt-5 flex flex-col justify-center items-center">
     <div class="text-center">
-      <h1 class="">
+      <h2 class=" font-demibold text-lg">
         You can use this card information to do the stripe checkout.
-      </h1>
-      <h2 class="title mt-5 font-bold mb-2 text-blue-400">Hover to reveal 3-digit security code</h2>
+      </h2>
+      <h2 class="title mt-5 font-bold mb-4 text-orange-400">
+        Hover to reveal 3-digit security code
+      </h2>
     </div>
 
     <div class="card">
@@ -41,14 +43,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-
 .card {
+
   width: 320px;
   height: 190px;
   -webkit-perspective: 600px;
   -moz-perspective: 600px;
   perspective: 600px;
+
+
+
+
+
+
+    /* Second Color  in text-shadow is the blur */
+
 }
 
 .card__part {
@@ -78,7 +87,7 @@ export default {
   -moz-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -ms-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -o-transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -webkit-backface-visibility: hidden;

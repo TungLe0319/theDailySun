@@ -2,16 +2,17 @@
   <div class="flex justify-center md:py-20  z-10 relative about-us">
     <div class="flex-wrap w-full md:w-3/4 px-5 flex flex-col bg-white py-5">
       <div class="my-4 text-center">
-        <h1 class="text-6xl mb-4">Welcome to The Daily Sun!</h1>
+        <h1 class="mb-10 md:text-8xl text-4xl text-shadow">Welcome to The Daily Sun!</h1>
       </div>
-      <h3 class="leading-relaxed text-center text-lg">
-        Our Nuxt.js E-commerce app features a selection of fake Men's and
-        Women's products that you can browse and view the details of.
-        <br />
-        Add a product to your cart where you
-        can then proceed to the stripe checkout to do process a fake payment and then view
-        your past receipts on your account page.
-      </h3>
+ <ul class="text-center space-y-4 ">
+  <li ><h2 class="mb-5 text-xl font-semibold">Nuxt.js E-commerce app</h2> </li>
+  <li>Features a selection of fake Men's and Women's products that can be browsed.</li>
+  <li>Add a product to your cart.</li>
+  <li>Proceed to the Stripe checkout to process a fake payment.</li>
+  <li>View your past receipts on your account page.</li>
+</ul>
+
+<hr class="mt-5">
 
       <CreditCard />
     </div>

@@ -18,28 +18,28 @@
 onMounted(() => {
   setTimeout(() => {
     video();
-  }, 1000);
+  }, 500);
 });
 
 function video() {
   var myVideo = document.getElementById("myVideo");
   myVideo.playbackRate = 2.5;
+
   myVideo.addEventListener("timeupdate", function () {
-    if (this.currentTime >= this.duration - 6) {
-      // 5 seconds before the end
-      myVideo.playbackRate = 2.5;
-    }
-    if (this.currentTime >= this.duration - 4) {
-      // 5 seconds before the end
-      myVideo.playbackRate = 2;
-    }
-    if (this.currentTime >= this.duration - 3) {
-      // 5 seconds before the end
-      myVideo.playbackRate = 1.5;
-    }
-    if (this.currentTime >= this.duration - 1) {
-      // 5 seconds before the end
-      myVideo.playbackRate = 0.5;
+    var currentTime = this.currentTime;
+    var duration = this.duration;
+
+    // Calculate the time remaining until the end of the video
+    var timeRemaining = duration - currentTime;
+
+    if (timeRemaining <= 6 && timeRemaining > 4) {
+      this.playbackRate = 2.5;
+    } else if (timeRemaining <= 4 && timeRemaining > 3) {
+      this.playbackRate = 2;
+    } else if (timeRemaining <= 3 && timeRemaining > 1) {
+      this.playbackRate = 1.5;
+    } else if (timeRemaining <= 1) {
+      this.playbackRate = 0.5;
       this.pause();
     }
   });

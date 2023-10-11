@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-24 text-black p-5 bg-slate-300 h-screen relative">
+  <div class="page-container">
     <div class="  ">
       <div class="w-full md:w-1/2 h-full justify-center flex">
         <h1 class="text-5xl">My Cart</h1>
@@ -31,10 +31,7 @@
                 >
                   <h1 class="text-4xl text-center">Your Cart Is Empty</h1>
 
-                  <nuxt-link
-                    class="shop-now-link"
-                    to="/products"
-                  >
+                  <nuxt-link class="shop-now-link" to="/products">
                     Shop Now
                   </nuxt-link>
                 </div>
@@ -92,10 +89,14 @@ async function checkout() {
 </script>
 
 <style lang="scss" scoped>
-
-.shop-now-link{
-  @apply p-3 w-full flex justify-center bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg hover:bg-zinc-900/90 hover:shadow-md transition-all
+.page-container {
+  @apply pt-24 text-black p-5 bg-slate-300 h-screen relative;
 }
+
+.shop-now-link {
+  @apply p-3 w-full flex justify-center bg-zinc-900 text-white text-2xl font-bold rounded-sm shadow-lg hover:bg-zinc-900/90 hover:shadow-md transition-all;
+}
+
 hr {
   padding: 0.5px;
 }
@@ -119,14 +120,6 @@ hr {
   padding-right: 2px;
 }
 
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
 ::-webkit-scrollbar {
   width: 4px;
   border-radius: 50em;
@@ -140,30 +133,5 @@ hr {
   @media only screen and (max-width: 768px) {
     height: 400px;
   }
-}
-
-.inset-y-0 {
-  top: 0;
-  bottom: 0;
-}
-
-.right-0 {
-  right: 0;
-}
-
-.w-5 {
-  width: 5px;
-}
-
-.bg-gray-600 {
-  background-color: #9b9b9b;
-}
-
-.bg-white {
-  background-color: #fff;
-}
-
-.rounded-sm {
-  border-radius: 0.125rem;
 }
 </style>
