@@ -23,6 +23,7 @@ onMounted(() => {
 
 function video() {
   var myVideo = document.getElementById("myVideo");
+if (myVideo) {
   myVideo.playbackRate = 2.5;
 
   myVideo.addEventListener("timeupdate", function () {
@@ -43,6 +44,7 @@ function video() {
       this.pause();
     }
   });
+}
 }
 </script>
 

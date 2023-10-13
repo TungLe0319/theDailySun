@@ -1,5 +1,6 @@
 <template>
-   <div class="relative hero-image-container">
+<div class="">
+     <div class="relative hero-image-container">
       <img
         class="hero-image"
         src="https://images.unsplash.com/photo-1599270613570-a620f2e59f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
@@ -73,6 +74,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
 <script setup>
 definePageMeta({
