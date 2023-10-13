@@ -3,7 +3,7 @@
     <form class="flex flex-col gap-4" @submit.prevent="submitForm">
 
 
-<n-form-item label="Title">
+<!-- <n-form-item label="Title">
 <n-input v-model:value="product.title" type="text" placeholder="Title" />
 </n-form-item>
 
@@ -29,7 +29,7 @@
       placeholder="Only allow number"
       v-model:value="product.price"
       :style="{ width: '33%' }"
-    />
+    /> -->
 
 
       <!-- <div class="  ">

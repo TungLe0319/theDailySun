@@ -36,7 +36,7 @@
             {{ user ? "Account" : "Login" }}
           </nuxt-link>
 
-          <nuxt-link
+          <!-- <nuxt-link
             v-if="user"
             to="/cart"
             class="link relative"
@@ -50,23 +50,20 @@
             >
               {{ Quantity }}
             </span>
-          </nuxt-link>
+          </nuxt-link> -->
 
-
-
-  <div v-if="status === 'authenticated'">
-    <img
-      class="w-10 h-10 mx-4"
-      src="https://next-auth.js.org/img/logo/logo-sm.png"
-      alt="Authenticated"
-      title="Authenticated"
-    />
-    <!-- Content to display when status is 'authenticated' -->
-  </div>
-  <div v-else>
-    <!-- Content to display when status is not 'authenticated' -->
-  </div>
-
+          <div v-if="status === 'authenticated'">
+            <img
+              class="w-10 h-10 mx-4"
+              src="https://next-auth.js.org/img/logo/logo-sm.png"
+              alt="Authenticated"
+              title="Authenticated"
+            />
+            <!-- Content to display when status is 'authenticated' -->
+          </div>
+          <div v-else>
+            <!-- Content to display when status is not 'authenticated' -->
+          </div>
         </div>
       </div>
 
@@ -104,7 +101,7 @@
           <nuxt-link
             v-if="user"
             to="/cart"
-            class="link relative    "
+            class="link relative"
             active-class="active-link"
           >
             <img
@@ -125,20 +122,22 @@
 </template>
 
 <script setup>
-import { useSession } from "next-auth/react";
+// import { useSession } from "next-auth/react";
 
-const { status, data } = useAuth();
+const {data} = useSession()
+// const { data: user } = useSession();
+const user = data?.value.user
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
-const user = data?.value?.user;
+// const user = data?.value?.user;
 const Quantity = useState("quantity", () => cartStore?.products?.length);
 onMounted(() => {
   window.addEventListener("scroll", handleScroll);
-  setTimeout(() => {
-    if (user?.value) {
-      cartStore.getCart();
-    }
-  }, 1);
+  // setTimeout(() => {
+  //   if (user?.value) {
+  //     cartStore.getCart();
+  //   }
+  // }, 1);
 });
 
 watch(
