@@ -84,7 +84,7 @@ async function getUserData() {
 }
 .hero-image {
   width: 100%;
-  height: 500px;
+  height: 50vh;
   object-fit: cover;
   position: relative;
 }

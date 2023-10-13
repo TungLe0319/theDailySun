@@ -105,12 +105,28 @@ const sortBy = (sortKey, isAscending = true) => {
 };
 </script>
 <style lang="scss" scoped>
+.hero-image-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  height: 200px;
+
+
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
 
 .checkboxes {
-  @apply flex justify-center gap-x-3 my-3 absolute bottom-1   p-3 rounded ;
+  @apply flex justify-center gap-x-3 my-3 absolute bottom-1   p-3 rounded  z-50;
 }
 .checkbox-container {
-  @apply p-1 px-1.5 text-white rounded flex items-center hover:scale-105 transition-all duration-300 ease-in-out shadow-md;
+  @apply p-1 px-1.5 text-white rounded flex items-center hover:scale-105 transition-all duration-300 ease-in-out shadow-md bg-zinc-800 bg-opacity-50;
 
   input[type="checkbox"] {
     margin-right: 4px;
