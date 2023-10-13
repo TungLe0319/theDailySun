@@ -1,8 +1,13 @@
 <template>
-  <div class="">
+  <div>
     <div
       v-if="activeProduct"
       class="text-black p-5 bg-slate-300 md:py-44 py-20 relative"
+      :class="
+        activeProduct.audience == 'Female'
+          ? 'bg-audience-female'
+          : 'bg-audience-male'
+      "
     >
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 h-full justify-center flex pb-10 md:pb-0">
@@ -41,9 +46,16 @@
             <div class="">
               <h2 class="font-bold text-gray-400 text-2xl">Quantity</h2>
               <div class="w-1/2 mt-2 shadow-md rounded-full">
-                <n-input-number
+                <!-- <n-input-number
                   v-model:value="quantity"
                   button-placement="both"
+                /> -->
+
+                <input
+                  type="number"
+                  v-model="quantity"
+
+                  class=" w-full p-2 px-10 border border-gray-300 rounded-lg 2 focus:outline-none"
                 />
               </div>
             </div>
@@ -95,6 +107,7 @@
   </div>
 </template>
 
+
 <script setup>
 // import { computed } from 'vue'
 
@@ -124,6 +137,12 @@ async function deleteProduct(id) {
 </script>
 
 <style lang="scss" scoped>
+.bg-audience-female {
+  background-color: #f3e8ff;
+}
+.bg-audience-male {
+  background-color: #ffedd5;
+}
 .product-image {
   height: auto;
   width: 100% !important;
@@ -131,6 +150,19 @@ async function deleteProduct(id) {
   animation-duration: 1.5s;
   animation-name: slidein;
   border-radius: 8px;
+  @media only screen and (min-width: 1068px) {
+    width: 75% !important;
+    height: 75% !important;
+  }
+
+  @media only screen and (min-width: 1368px) {
+    width: 50% !important;
+    height: 50% !important;
+  }
+  @media only screen and (min-width: 1668px) {
+    width: 50% !important;
+    height: 50% !important;
+  }
 }
 @keyframes slidein {
   from {
@@ -162,5 +194,9 @@ async function deleteProduct(id) {
 
 .fade-leave-from {
   opacity: 1;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 </style>

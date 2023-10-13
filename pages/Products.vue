@@ -1,11 +1,19 @@
 <template>
   <div>
-    <div class="hero-image">
-      <div class="justify-center flex text-center">
-        <h1 class="text-8xl text-shadow text-white">Products</h1>
+
+
+   <div class="relative hero-image-container flex  justify-center">
+      <img
+        class="hero-image"
+        src="https://images.unsplash.com/photo-1500534623283-312aade485b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+        alt="hero image"
+      />
+      <div class="hero-text">
+        <h1 class="text-8xl text-shadow-overlay">Products</h1>
+
       </div>
 
-      <div class="checkboxes">
+ <div class="checkboxes">
         <div class="checkbox-container">
           <input
             type="checkbox"
@@ -49,9 +57,12 @@
           <label for="high-to-low">Sort by Price (High to Low)</label>
         </div>
       </div>
+
     </div>
+
+
     <div
-      class="text-black pb-20 bg-slate-300 flex justify-center px-8 flex-col"
+      class="text-black pb-20  flex justify-center px-8 flex-col"
     >
       <div class="relative">
         <div class="mt-4">
@@ -94,15 +105,12 @@ const sortBy = (sortKey, isAscending = true) => {
 };
 </script>
 <style lang="scss" scoped>
-.hero-image {
-  background-image: url(https://wallpaperaccess.com/full/1272028.jpg);
-  @apply w-full h-96 mt-16 bg-cover bg-center flex justify-center items-center relative shadow-md;
-}
+
 .checkboxes {
-  @apply flex justify-center gap-x-3 my-3 absolute bottom-1 bg-blue-100  p-3 rounded shadow-md;
+  @apply flex justify-center gap-x-3 my-3 absolute bottom-1   p-3 rounded ;
 }
 .checkbox-container {
-  @apply p-1 px-1.5 bg-zinc-800 text-white rounded flex items-center hover:scale-105 transition-all duration-300 ease-in-out shadow-md;
+  @apply p-1 px-1.5 text-white rounded flex items-center hover:scale-105 transition-all duration-300 ease-in-out shadow-md;
 
   input[type="checkbox"] {
     margin-right: 4px;

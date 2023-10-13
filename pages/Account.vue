@@ -3,17 +3,17 @@
     <div class="relative hero-image-container">
       <img
         class="hero-image"
-        src="https://images.unsplash.com/photo-1550007345-dcdff81aa558?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+        src="https://images.unsplash.com/photo-1536633125620-8a3245c11ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1589&q=80"
         alt="hero image"
       />
       <div class="hero-text">
         <h1 class="text-8xl text-shadow-overlay">Account</h1>
       </div>
-      <div class="justify-center flex absolute flex-col profile-image">
+      <div class=" profile-image-container">
         <img
-          class="rounded-full shadow-xl shadow-slate-400"
+          class="rounded-full shadow-xl shadow-slate-400 w-1/2 h-1/2"
           :src="
-            data?.user?.image ||
+            data.user?.image ||
             'https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80'
           "
           alt="hero image"
@@ -25,27 +25,24 @@
       <div class="flex justify-evenly mt-24">
         <div class="mt-24">
           <div>
-            <h1 class="text-4xl">Welcome @{{ data?.user?.name }} !</h1>
+            <h1 class="text-4xl">Welcome @{{ data.user?.name }} !</h1>
           </div>
           <h3 class="text-center mt-3">
-            {{ data?.user?.role }}
+            {{ data.user?.role }}
           </h3>
           <div class="flex justify-center mt-10">
             <button
               class="rounded-xl shadow-xl p-2 m-2 bg-zinc-800 text-white text-2xl px-5 hover:bg-opacity-90 transition-all"
               @click="signOut({ callbackUrl: '/' })"
             >
-            SIGN OUT
+              SIGN OUT
             </button>
           </div>
         </div>
       </div>
 
-      <n-collapse class="my-10" v-if="userData?.role == 'ADMIN'">
-        <n-collapse-item title="Create Product" name="1">
-          <CreateProduct />
-        </n-collapse-item>
-      </n-collapse>
+      <CreateProduct />
+
       <div class="container flex flex-col" v-if="receipts.length">
         <h1 class="my-8 text-6xl text-center text-shadow">Receipt History</h1>
 
@@ -78,11 +75,12 @@ async function getUserData() {
 </script>
 
 <style scoped lang="scss">
-.profile-image {
+.profile-image-container {
+  @apply justify-center flex absolute flex-col;
   top: 85%;
   left: 50%;
-  transform: translate(-50%, -30%);
-  z-index: 10 !important;
+  transform: translate(-25%, -30%);
+  z-index: 100000 !important;
 }
 .hero-image {
   width: 100%;

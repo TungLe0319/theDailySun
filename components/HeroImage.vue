@@ -53,7 +53,7 @@ function video() {
 .hero-image-container:before {
   content: "";
   z-index: 1;
-  height: 200px;
+  height: 300px;
   background: rgb(255, 255, 255);
 
   background: linear-gradient(
@@ -62,6 +62,7 @@ function video() {
     rgba(255, 255, 255, 1) 100%
   );
 }
+
 
 #myVideo {
   position: absolute;
