@@ -1,17 +1,17 @@
 <template>
   <div class="relative flex">
-    <img
+    <!-- <img
       @click="expanded = !expanded"
       src="../assets/magnifier.png"
       alt=""
       width="40"
       class="cursor-pointer magnifier"
       id="magnifier"
-v-if="isVisible"
+      v-if="isVisible"
     />
     <svg
-v-else
-       @click="expanded = !expanded"
+      v-else
+      @click="expanded = !expanded"
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -37,25 +37,28 @@ v-else
           data-original="#000000"
         ></path>
       </g>
-    </svg>
+    </svg> -->
 
     <input
       id="input1"
-      :class="expanded ? '  search-input-expanded' : ' search-input'"
+      class="  search-input"
       type="text"
       placeholder="Search..."
       @input="searchProducts"
     />
 
-    <div class="search-list " v-if="products.length >= 0 && expanded">
+    <div class="search-list" v-if="products.length >= 0 && expanded">
       <ul class="item-list">
         <li class="item" v-for="p in products">
           <nuxt-link
             @click="clearSearch()"
-            class="link"
+            class=" "
             :to="`/products/${p.id}`"
           >
-            {{ p.title }}
+           <div class="flex items-center justify-center space-x-4 my-2 p-2 hover:bg-slate-300 transition-all duration-300">
+            <img :src="p.img" alt="product" class="w-5 h-6 rounded-full">
+            <span>{{p.title}}</span>
+           </div>
           </nuxt-link>
         </li>
       </ul>
@@ -66,14 +69,16 @@ v-else
 let expanded = useState("expanded", () => false);
 const productStore = useProductStore();
 let products = useState("products", () => []);
-let isVisible = ref(true)
-let scrollTest = ref(true)
+let isVisible = ref(true);
+let scrollTest = ref(true);
 const searchProducts = (event) => {
   const query = event.target.value.trim().toLowerCase();
   if (query.length === 0) {
+    expanded.value = false
     products.value = [];
     return;
   }
+  expanded.value = true
   products.value = productStore.products.filter((p) =>
     p.title.toLowerCase().includes(query)
   );
@@ -114,19 +119,21 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.search-input{
+  @apply rounded-md bg-gray-200 p-1 ml-3 py-2
+}
 .link {
   font-size: 16px !important;
 }
 
-
 .search-list {
-  @apply absolute top-14 left-12 z-50 bg-slate-100 bg-opacity-50 rounded-md;
+  @apply absolute top-14 -left-10 z-50 bg-slate-100 bg-opacity-50 rounded-md  w-72;
 }
 .item-list {
   @apply h-auto max-h-60 w-auto  max-w-full overflow-y-scroll;
 }
 .item {
-  @apply my-2 ;
+  @apply my-2;
 }
 
 .not-visible {
@@ -135,8 +142,7 @@ onUnmounted(() => {
   }
   .search-list {
     background-color: rgba(0, 0, 0, 0.584);
- backdrop-filter: blur(4px);
-
+    backdrop-filter: blur(4px);
   }
 }
 

@@ -33,10 +33,11 @@
           </NuxtLink>
 
           <nuxt-link to="/Account" class="link" active-class="active-link">
-            {{ user ? "Account" : "Login" }}
+            <p v-if="user">Account</p>
+            <p v-else>Login</p>
           </nuxt-link>
 
-          <!-- <nuxt-link
+          <nuxt-link
             v-if="user"
             to="/cart"
             class="link relative"
@@ -50,7 +51,7 @@
             >
               {{ Quantity }}
             </span>
-          </nuxt-link> -->
+          </nuxt-link>
 
           <div v-if="status === 'authenticated'">
             <img
@@ -124,9 +125,9 @@
 <script setup>
 // import { useSession } from "next-auth/react";
 
-const {data} = useSession()
+const { data } = useSession();
 // const { data: user } = useSession();
-const user = data?.value.user
+const user = data?.value?.user;
 const isVisible = useState("true", () => true);
 const cartStore = useCartStore();
 // const user = data?.value?.user;
