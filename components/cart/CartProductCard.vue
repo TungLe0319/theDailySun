@@ -76,7 +76,7 @@ export default {
 
 <style lang="scss" scoped>
 .product-image {
-  height: 200px;
+  height: 150px;
   width: 150px;
   object-fit: cover;
 

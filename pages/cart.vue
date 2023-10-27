@@ -18,7 +18,7 @@
           <hr class="mt-3 bg-black" />
           <div class="mt-4 relative overflow-y-auto scrollbar-container">
             <div class="relative md:h-full">
-              <div class="p-4">
+              <div class="p-2">
                 <CartProductCard
                   v-if="products?.length >= 1"
                   v-for="c in products"
@@ -103,6 +103,7 @@ hr {
 .scrollbar-container {
   /* Add overflow-y property to create a scrollbar on the y-axis */
 
+
   /* Add webkit prefix to style the scrollbar */
   -webkit-scrollbar {
     width: 2px;
@@ -135,7 +136,7 @@ hr {
 
 .overflow-y-auto {
   overflow-y: auto !important;
-  height: 1000px;
+  height: 540px;
   //when screen is 768px OR LESS
   @media only screen and (max-width: 768px) {
     height: 400px;
