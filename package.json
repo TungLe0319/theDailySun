@@ -31,7 +31,7 @@
     "dompurify": "^3.0.6",
     "express": "^4.18.2",
     "h3-zod": "^0.5.1",
-    "next-auth": "^4.23.2",
+    "next-auth": "4.21.1",
     "nuxt-swiper": "^1.2.2",
     "nuxt-typed-router": "^3.3.1",
     "pinia": "^2.1.6",
