@@ -5,37 +5,37 @@
 export default defineNuxtConfig({
   // @ts-ignore
   auth: {
-    origin: process.env.AUTH_ORIGIN,
+    origin: process.env.AUTH_ORIGIN
     // enableGlobalAppMiddleware: true
   },
 
   // @ts-ignore
   modules: [
-    "@sidebase/nuxt-auth",
-    "nuxt-typed-router",
-    "@nuxtjs/tailwindcss",
-    "nuxt-swiper",
-    "@vueuse/nuxt",
+    '@sidebase/nuxt-auth',
+    'nuxt-typed-router',
+    '@nuxtjs/tailwindcss',
+    'nuxt-swiper',
+    '@vueuse/nuxt',
     [
-      "@pinia/nuxt",
+      '@pinia/nuxt',
       {
         autoImports: [
           // automatically imports `defineStore`
-          "defineStore", // import { defineStore } from 'pinia'
+          'defineStore', // import { defineStore } from 'pinia'
           // automatically imports `defineStore` as `definePiniaStore`
-          ["defineStore", "definePiniaStore", "acceptHMRUpdate"], // import { defineStore as definePiniaStore } from 'pinia'
-        ],
-      },
-    ],
+          ['defineStore', 'definePiniaStore', 'acceptHMRUpdate'] // import { defineStore as definePiniaStore } from 'pinia'
+        ]
+      }
+    ]
   ],
   imports: {
-    dirs: ["stores"],
+    dirs: ['stores']
   },
   build: {
-    transpile: ["trpc-nuxt"],
+    transpile: ['trpc-nuxt']
   },
   typescript: {
-    shim: false,
+    shim: false
   },
   // @ts-ignore
   // tailwindcss: {
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
   // },
 
   app: {
-    pageTransition: { name: "page", mode: "out-in" },
+    pageTransition: { name: 'page', mode: 'out-in' }
   },
-  css: ["~/assets/scss/main.scss"],
-});
+  css: ['~/assets/scss/main.scss']
+})

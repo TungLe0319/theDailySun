@@ -1,4 +1,3 @@
-
 // import CredentialsProvider from 'next-auth/providers/credentials'
 import GithubProvider from 'next-auth/providers/github'
 import Auth0Provider from 'next-auth/providers/auth0'
@@ -44,7 +43,7 @@ export default NuxtAuthHandler({
 
     session: async ({ session, token }) => {
       if (session.user) {
-        session.user.id = token.sub
+        session.user.id = token.sub ? token.sub : session.user.id
         const user = await prisma.user.findUnique({
           where: { id: session.user.id }
         })
