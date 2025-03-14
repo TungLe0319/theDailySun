@@ -9,8 +9,8 @@ WORKDIR /app
 
 # copy the app, note .dockerignore
 COPY package.json .
-COPY package-lock.json .
-RUN npm ci
+# COPY package-lock.json .
+RUN npm install --omit=dev
 
 
 FROM dependency-base AS production-base
