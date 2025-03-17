@@ -22,18 +22,18 @@ export default NuxtAuthHandler({
   },
   providers: [
     // @ts-expect-error You need to use .default here for it to work during SSR. May be fixed via Vite at some point
-    Auth0Provider({
+    Auth0Provider.default({
       clientId: process.env.AUTH0_CLIENT_ID,
       clientSecret: process.env.AUTH0_CLIENT_SECRET,
       issuer: process.env.AUTH0_ISSUER
     }),
     // @ts-expect-error
-    GithubProvider({
+    GithubProvider.default({
       clientId: process.env.GITHUB_ID,
       clientSecret: process.env.GITHUB_SECRET
     }),
     // @ts-expect-error
-    GoogleProvider({
+    GoogleProvider.default({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })

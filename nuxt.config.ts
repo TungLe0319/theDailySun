@@ -8,7 +8,9 @@ export default defineNuxtConfig({
     origin: process.env.AUTH_ORIGIN
     // enableGlobalAppMiddleware: true
   },
-
+  devServer: {
+    port: 8000
+  },
   // @ts-ignore
   modules: [
     '@sidebase/nuxt-auth',
